@@ -1,6 +1,6 @@
 openapi: 3.0.3
 
-# This is your document metadata.
+# This is document metadata.
 info:
   version: 4.6.1
   title: PayByBank Specification
