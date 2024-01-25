@@ -35,6 +35,8 @@ tags:
 paths:
   '/security/createsessiontoken':
     post:
+      x-proxy-name: Create Session
+      x-group-name: Security Services
       tags:
         - Security Services
       summary: |
@@ -65,6 +67,8 @@ paths:
           $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
   '/security/getpublickey':
     post:
+      x-proxy-name: Get Public Key
+      x-group-name: Security Services
       tags:
         - Security Services
       summary: |
@@ -95,6 +99,8 @@ paths:
           $ref: '#/components/responses/401-GetPublicKeyResponsePayloadSample'
   '/security/getdata':
     post:
+      x-proxy-name: Get Data
+      x-group-name: Security Services
       tags:
         - Security Services
       summary: 'To pull consumer information either by merchant or SDK'
@@ -123,6 +129,8 @@ paths:
           $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
   '/onlinebanklogin/establish':
     post:
+      x-proxy-name: Establish
+      x-group-name: Online Bank Login
       tags:
         - Online Bank Login
       summary: 'First step in the online bank login process.'
@@ -149,6 +157,8 @@ paths:
           $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
   '/onlinebanklogin/validate':
     post:
+      x-proxy-name: Validate
+      x-group-name: Online Bank Login
       tags:
         - Online Bank Login
       summary: 'Third step in the online bank login process'
@@ -175,6 +185,8 @@ paths:
           $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
   '/consumerprofile/add':
     post:
+      x-proxy-name: Add
+      x-group-name: Consumer Profile Management
       tags:
         - Consumer Profile Management
       summary: 'First step in the consumer enrollment process'
@@ -201,6 +213,8 @@ paths:
           $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
   '/consumerprofile/enrollment':
     post:
+      x-proxy-name: Enrollment
+      x-group-name: Consumer Profile Management
       tags:
         - Consumer Profile Management
       summary: 'Second step in the consumer enrollment process'
@@ -227,6 +241,8 @@ paths:
           $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
   '/account/getaccountlist':
     post:
+      x-proxy-name: Get Account List
+      x-group-name: Account Services
       tags:
         - Account Services
       summary: 'The Get Consumer Account List API call is used to retrieve all accounts associated with a consumer fdCustomerId.'
@@ -253,6 +269,8 @@ paths:
           $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
   '/account/getaccountdetails':
     post:
+      x-proxy-name: Get Account Details
+      x-group-name: Account Services
       tags:
         - Account Services
       summary: 'The Get Consumer Account Details API call is used to retrieve details of a particular ACH account from the fdAccountID provided.'
@@ -279,6 +297,8 @@ paths:
           $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
   '/transaction/purchase':
     post:
+      x-proxy-name: Purchase
+      x-group-name: Transactions
       tags:
         - Transactions
       summary: |
@@ -307,6 +327,8 @@ paths:
           $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
   '/transaction/authorize':
     post:
+      x-proxy-name: Authorize
+      x-group-name: Transactions
       tags:
         - Transactions
       summary: |
