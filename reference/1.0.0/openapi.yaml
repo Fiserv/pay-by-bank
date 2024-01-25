@@ -2,7 +2,7 @@ openapi: 3.0.3
 
 # This is your document metadata.
 info:
-  version: 4.6.1
+  version: 4.6.0
   title: PayByBank Specification
   description: |
     ### Fiserv PayByBank solution exposes a set of services to facilitate ACH account vaulting, authorization and settlement. 

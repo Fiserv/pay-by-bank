@@ -32,8 +32,14 @@
   - title: Getting Started
     link: docs/getting-started.md
 - sections:
-  - title: Implementation Guide
-    link: documentation/implementationguide.md
+  - title: Getting Started
+    link: docs/getting-started.md
+  - title: API Implementation Guide
+    link: ./documentation/implementationguide.md
+  - title: SDK Implementation Guide
+    link: ./documentation/connectpaysdklanding.md
+  - title: Masking Details Codes
+    link: ./documentation/statuscodes.md    
 - sections:
   - title: Release notes
     sections:
