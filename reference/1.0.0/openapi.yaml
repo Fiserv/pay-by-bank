@@ -70,8 +70,73 @@ paths:
           $ref: '#/components/responses/200-CreateSessionTokenResponsePayloadSamples'
         '401': 
           $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
+<<<<<<< HEAD
       x-proxy-name: Create Session
       x-group-name: Security Services
+=======
+  '/security/getpublickey':
+    post:
+      x-proxy-name: Get Public Key
+      x-group-name: Security Services
+      tags:
+        - Security Services
+      summary: |
+        Generates long lived reuable public key for full API integration merchant (Not using PayByBank SDKs).
+      description: |
+        The Get Public Key API call is used to create a long lived reusable RSA public encryption.
+        This call should be used instead of Create Session Token if merchant is not using our SDKs and doing a full API integration.
+        This API is secured as it requires the Authorization header that can only be derived using the API Secret stored in the Merchant’s server.
+      parameters:
+        - $ref: '#/components/parameters/contentTypeParam'
+        - $ref: '#/components/parameters/apiKeyParam'
+        - $ref: '#/components/parameters/timestampParam'
+        - $ref: '#/components/parameters/authorizationParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetPublicKeyRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/GetPublicKeyPayloadSample'
+              RequestWithPublicKeyOverridePayloadSample:
+                $ref: '#/components/examples/GetPublicKeyWithOverridePayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-GetPublicKeyResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-GetPublicKeyResponsePayloadSample'
+  '/security/getdata':
+    post:
+      x-proxy-name: Get Data
+      x-group-name: Security Services
+      tags:
+        - Security Services
+      summary: 'To pull consumer information either by merchant or SDK'
+      description: |
+        When the PayByBankAPI provides a Nonce back to the Merchant during a use case, the Merchant in turn should be able to get the account details (new fdAccountId) of the consumer by securely using the provided nonce from their server.
+        In addition, the Merchant or SDK can retrieve the consumer information any time after the enrollment.
+        In either of the api calls, merchant have the option to retrieve the banking information in clear/masked. A merchant specific setting enables a merchant to retrieve the banking information either in clear or in mask as per business.
+      parameters:
+        - $ref: '#/components/parameters/contentTypeParam'
+        - $ref: '#/components/parameters/apiKeyParam'
+        - $ref: '#/components/parameters/timestampParam'
+        - $ref: '#/components/parameters/authorizationParam'
+        - $ref: '#/components/parameters/clientTokenParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetDataRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/GetDataPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-GetDataResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
+>>>>>>> 1b927e7 (Updated Group & proxy names)
   '/onlinebanklogin/establish':
     post:
       x-proxy-name: Establish
@@ -138,8 +203,184 @@ paths:
           $ref: '#/components/responses/400-CPAPI_BANK_VALIDATE'
         '401':
           $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
+<<<<<<< HEAD
       x-proxy-name: Validate
       x-group-name: Online Bank Login
+=======
+  '/consumerprofile/add':
+    post:
+      x-proxy-name: Add
+      x-group-name: Consumer Profile Management
+      tags:
+        - Consumer Profile Management
+      summary: 'First step in the consumer enrollment process'
+      description: |
+        The Create Consumer Profile call is mandatory for any new user enrollment. This is used to create an fdCustomerID for a provided external id (and other user information) by the merchant. The returned fdCustomerID should be used right from the enrollment use case. This API is secured, as it requires the Authorization header that can only be derived using the API Secret stored in the Merchant’s web server.
+      parameters:
+        - $ref: '#/components/parameters/contentTypeParam'
+        - $ref: '#/components/parameters/apiKeyParam'
+        - $ref: '#/components/parameters/timestampParam'
+        - $ref: '#/components/parameters/authorizationParam'
+        - $ref: '#/components/parameters/clientTokenParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileAddRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ProfileAddPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-ProfileAddResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
+  '/consumerprofile/enrollment':
+    post:
+      x-proxy-name: Enrollment
+      x-group-name: Consumer Profile Management
+      tags:
+        - Consumer Profile Management
+      summary: 'Second step in the consumer enrollment process'
+      description: |
+        The Consumer Enrollment call is for any new consumer enrollment purpose. This is used to perform a ConnectPay enrollment process for a provided consumer details payload. This API is secured, as it requires the Authorization header that can only be derived using the API Secret stored in the Merchant’s web server.
+      parameters:
+        - $ref: '#/components/parameters/contentTypeParam'
+        - $ref: '#/components/parameters/apiKeyParam'
+        - $ref: '#/components/parameters/timestampParam'
+        - $ref: '#/components/parameters/authorizationParam'
+        - $ref: '#/components/parameters/clientTokenParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnrollmentRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/EnrollmentPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-EnrollmentResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
+  '/account/getaccountlist':
+    post:
+      x-proxy-name: Get Account List
+      x-group-name: Account Services
+      tags:
+        - Account Services
+      summary: 'The Get Consumer Account List API call is used to retrieve all accounts associated with a consumer fdCustomerId.'
+      description: |
+        This call can be beneficial in a scenario where you want to present the different payment options that are available and allow consumer to select any one of them for their transaction.
+      parameters:
+        - $ref: '#/components/parameters/contentTypeParam'
+        - $ref: '#/components/parameters/apiKeyParam'
+        - $ref: '#/components/parameters/timestampParam'
+        - $ref: '#/components/parameters/authorizationParam'
+        - $ref: '#/components/parameters/clientTokenParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAccountListRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/GetAccountListPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-GetAccountListResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
+  '/account/getaccountdetails':
+    post:
+      x-proxy-name: Get Account Details
+      x-group-name: Account Services
+      tags:
+        - Account Services
+      summary: 'The Get Consumer Account Details API call is used to retrieve details of a particular ACH account from the fdAccountID provided.'
+      description: |
+        This service fetches the details of a particular ACH account from the fdAccountID provided.
+      parameters:
+        - $ref: '#/components/parameters/contentTypeParam'
+        - $ref: '#/components/parameters/apiKeyParam'
+        - $ref: '#/components/parameters/timestampParam'
+        - $ref: '#/components/parameters/authorizationParam'
+        - $ref: '#/components/parameters/clientTokenParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAccountDetailsRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/GetAccountDetailsPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-GetAccountDetailsResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-ComponentFallbackPayloadSample'
+  '/transaction/purchase':
+    post:
+      x-proxy-name: Purchase
+      x-group-name: Transactions
+      tags:
+        - Transactions
+      summary: |
+        Use this to initiate purchase/sale transaction request.
+      description: |
+        Merchants who want to process ACH Transactions through FirstAPI must make server-to-server calls and pass necessary encrypted payload as required for that particular case.
+        Use this to initiate purchase/sale transaction request where final amount is known.
+      parameters:
+        - $ref: '#/components/parameters/contentTypeParam'
+        - $ref: '#/components/parameters/apiKeyParam'
+        - $ref: '#/components/parameters/timestampParam'
+        - $ref: '#/components/parameters/authorizationParam'
+        - $ref: '#/components/parameters/clientTokenParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ACHPurchaseRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ACHPurchaseRequestPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-ACHPurchaseResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
+  '/transaction/authorize':
+    post:
+      x-proxy-name: Authorize
+      x-group-name: Transactions
+      tags:
+        - Transactions
+      summary: |
+        Use this to imitate an authorization request.
+      description:
+        Merchants who want to process ACH Transactions through Fiserv must make server-to-server calls and pass the necessary encrypted payload as required for that particular case.
+        Use this to initate an authorization request when the final transaction amount is not known. Unlike Debit, this will not put a hold on consumer’s funds in their account. If request is approved use the Capture request to send final transaction amount.
+
+      parameters:
+        - $ref: '#/components/parameters/contentTypeParam'
+        - $ref: '#/components/parameters/apiKeyParam'
+        - $ref: '#/components/parameters/timestampParam'
+        - $ref: '#/components/parameters/authorizationParam'
+        - $ref: '#/components/parameters/clientTokenParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ACHAuthorizeRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ACHAuthorizeRequestPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-ACHAuthorizeResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
+>>>>>>> 1b927e7 (Updated Group & proxy names)
 components:
   parameters:
     apiKeyParam:
