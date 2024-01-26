@@ -38,4 +38,3 @@
 |Reporting Field 1| getReportingDetails| Display only last 4 ex. *****5468|
 |Reporting Field 2| getReportingDetails| Display only last 4 ex. *****5469|
 |Reporting Field 3|getReportingDetails| Display only last 4 ex. *****5470|
-
