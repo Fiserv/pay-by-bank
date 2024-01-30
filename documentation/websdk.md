@@ -107,7 +107,6 @@ const enrollment = CP.EnrollmentOption(sdkConfiguration, extraParams, returnCall
 //Start the SDK UI with mount id where UI can be rendered
 enrollment.start('sdk-container');
 ```
-
 Once a use case is called, the SDK will present the user interface for the consumer to key in the details. When the SDK completes the use case (either success or error scenario), the returnCallBack of the webpage will be fired. The result of the specific use case can be analyzed and used further by the Merchant web app.
 ```javascript
 // This is the callback where sdk will post results

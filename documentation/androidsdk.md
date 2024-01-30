@@ -27,7 +27,6 @@ implementation(name:'paywithmybank-android-sdk-2.2.1', ext:'aar')
 implementation(name:'TMXProfiling-RL-6.2-102', ext:'aar') 
 implementation(name:'TMXProfilingConnections-RL-6.2-102', ext:'aar')
 ```
-
 |Library|Version|Usage|
 |-------|-------|-----|
 |FirstData-Util|3.0.11|FirstData utility|
@@ -136,7 +135,6 @@ Create CPSDK client specific configuration required to launch the supported use 
 |POST_URL|(Optional) End point to be called after the use case completion|
 
 Sample
-
 ```java
 val cpConfiguration = CPConfiguration (
     webConfiguration.configId, // Unique ID specific to the selected CP-SDK use case 
