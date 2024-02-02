@@ -1,14 +1,21 @@
 #  IOS – Mobile SDK Integration
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 Utilize this guide for your SDK Integration with Apple iOS
 
 ## General Setup
 
 Drag and drop the provided Universal Binary (.framework file) into your project structure (you can drop this framework anywhere into your Xcode Project. Ideally, you would drop it into your "Frameworks" directory where your other frameworks exist.)
 
+<<<<<<< HEAD
 
 >Note: During your drag and drop, Xcode will prompt you to configure whether the binary should live within your project structure as a copy or simply have a reference to the binary outside of your project structure. We want to ensure you have a deep copy of the binary in your project and not just a reference.
 
+=======
+*Note: During your drag and drop, Xcode will prompt you to configure whether the binary should live within your project structure as a copy or simply have a reference to the binary outside of your project structure. We want to ensure you have a deep copy of the binary in your project and not just a reference.*
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 ## General Setup Part 2
 
 Ensure that the PaymentSDK Universal binary is linked and embedded, navigate to your target settings and ensure that the binary appears under the "Embedded Binaries" and "Linked Frameworks and Libraries" section. (If you don't see the PaymentSDK Universal library listed there, you can use the "+" button to manually embed and link the binary for your target).

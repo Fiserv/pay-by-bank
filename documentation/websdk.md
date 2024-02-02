@@ -54,6 +54,7 @@ configId: '432907a3-6282-40da-8526-axxxxxx', // this is the configuration to loa
 ## Use Case Integration
 
 To integrate into a specific use case of the ConnectPay SDK, below steps needs to be followed: 
+<<<<<<< HEAD
 
 >Note: Define any extraParam/default parameters to be passed into the use case as a JSON object: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)*
 
@@ -61,6 +62,12 @@ Below values are optional
 
 ```json
 var extraParams = 
+=======
+*Note: Define any extraParam/default parameters to be passed into the use case as a JSON object: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)*
+```json
+//passing values to SDK. Below values are optional
+var extraParams = {
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 accountNumber:"<account_number>", routingNumber:"<routing_number>",
 firstName:"<first_name>",
 lastName:"<last_name>",
@@ -108,7 +115,7 @@ const enrollment = CP.EnrollmentOption(sdkConfiguration, extraParams, returnCall
 enrollment.start('sdk-container');
 ```
 Once a use case is called, the SDK will present the user interface for the consumer to key in the details. When the SDK completes the use case (either success or error scenario), the returnCallBack of the webpage will be fired. The result of the specific use case can be analyzed and used further by the Merchant web app.
-```javascript
+```js
 // This is the callback where sdk will post results
 function returnCallBack(response) {
 }
@@ -121,8 +128,12 @@ console.log('SDK response:', response);
 #### Manual Enrollment
 
 To call the Manual Enrollment use case
+<<<<<<< HEAD
 
 ```javascript
+=======
+```js
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const enrollment = CP.ManualEnrollment(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 enrollment.start('sdk-container');
@@ -131,8 +142,12 @@ enrollment.start('sdk-container');
 #### Micro Deposit Validation
 
 To call the Micro deposit Validation use case (typically after the Manual Enrollment when customer receives the micro deposit in his account), use the below code sample
+<<<<<<< HEAD
 
 ```javascript
+=======
+```js
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const manualDeposit = CP.ManualDeposit(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 manualDeposit.start('sdk-container');
@@ -141,18 +156,27 @@ manualDeposit.start('sdk-container');
 #### Bank Login Enrollment
 
 To call the Bank Login Enrollment use case with PayWithMyBank or AllData, use the below code
+<<<<<<< HEAD
 
 ```javascript
+=======
+```js
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const bankOnly = CP.BankOnly(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 bankOnly.start('sdk-container');
 ```
 
 #### Special Enrollment - Choice
+<<<<<<< HEAD
 
 >Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
 
 ```javascript
+=======
+*Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:*
+```js
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const enrollment = CP.EnrollmentOption(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 enrollment.start('sdk-container')
@@ -161,8 +185,12 @@ enrollment.start('sdk-container')
 #### Streamlined Enrollment
 
 To call Streamlined Enrollment use case, use below sample:
+<<<<<<< HEAD
 
 ```javascript
+=======
+```js
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const streamlinedEnrollment = CP.StreamlinedEnrollment(sdkConfiguration, extraParams,
 returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
@@ -184,8 +212,12 @@ closeAccount.start('sdk-container');
 #### Relink Account
 
 To call the relink use case, use the below sample: 
+<<<<<<< HEAD
 
 ```javascript
+=======
+```js
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const relink = CP.Relink(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 relink.start('sdk-container');
@@ -194,8 +226,12 @@ relink.start('sdk-container');
 #### Account Validation
 
 To call the Account Validation use case, use the below code sample:
+<<<<<<< HEAD
 
 ```javascript
+=======
+```js
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const accountValidation = CP.AccountValidation(sdkConfiguration, extraParams,
 returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
@@ -205,8 +241,12 @@ accountValidation.start('sdk-container');
 #### Update Account
 
 To call the Update Enrollment use case, use the below code sample:
+<<<<<<< HEAD
 
 ```javascript
+=======
+```js
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const updateEnrollment = CP.UpdateEnrollment(sdkConfiguration, extraParams,
 returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
