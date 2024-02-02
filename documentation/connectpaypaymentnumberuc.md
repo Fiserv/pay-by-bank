@@ -2,10 +2,8 @@
 ## Explanation of Feature
 
 ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different than other updates to consumer information and needs to be called out. At the end of the ConnectPayPaymentNumber update, the merchant needs to update their record with the new `fdAccountId` for the payment instrument.
-
-<!-- theme: danger 
-Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
--->
+ 
+>Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
 
 ## Implementation Steps: Bank Login Process
 ### Create Session Token 
