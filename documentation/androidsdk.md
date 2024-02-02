@@ -100,7 +100,10 @@ CPSDK (
     ApplicationContext, 
     DEBUG_LOGGING
 )
+<<<<<<< HEAD
 ```
+=======
+>>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 
 |Parameter|Usage|
 |---------|-----|
