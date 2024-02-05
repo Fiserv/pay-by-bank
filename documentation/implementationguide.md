@@ -1,11 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Implementation Guide  
 > Please refer to the prerequisites page prior to making any calls. The prerequisites page can be referred on the [link]() here. 
 ## How to Utilize API
 This section will guide the developer on how to implement one of ConnectPay's APIs. We will use the "Add Consumer Profile" API for this example as well as the "Create Session Token" API as it is a mandatory substep to use most of ConnectPay's API.
 
 ###  Step 1: Create Session Token
-<p>
 The Create Session Token API call is used to create a session token and to retrieve the RSA public key. This API is secured as it requires the Authorization header that can only be derived using the API Secret stored in the Merchant’s server. Below is more information on the API specification as well as example request and response payloads. <p>
 
 [![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
@@ -49,11 +49,17 @@ At this step, all prerequisites have been complete in order to make our first ca
 
 #### Add Consumer Profile
 =======
+=======
+>>>>>>> c32f476 (new guide with tabs)
 # Implementation Guide
 This guide will go over everything the user must know in order to implement ConnectPay's API.
 
 ## Pre-requisites
+<<<<<<< HEAD
 Below are the prerequisites before using ConnectPay's API
+=======
+Below are the prerequisites before using ConnectPay's API:
+>>>>>>> c32f476 (new guide with tabs)
 
 ### Connectivity
 The ConnectPay services are accessed through the public Internet. ConnectPay accepts communication only via the HTTPS channel. Custom HTTP headers are also used to carry additional information in each request.
@@ -448,10 +454,14 @@ The Create Consumer Profile call is mandatory for any new user enrollment. This 
 
 #### Create Request Payload
 <<<<<<< HEAD
+<<<<<<< HEAD
 First and foremost, we need to create the request payload prior to encryption. The "externalID" can be whatever the developer would like. It is a unique identifier for each consumer and the should be incremented with each unique consumer. An example payload is shown below:
 =======
 First and foremost, we need to create the request payload prior to encryption. An example payload is shown below:
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+First and foremost, we need to create the request payload prior to encryption. An example payload is shown below:
+>>>>>>> c32f476 (new guide with tabs)
 ```json
 {
     "customer": {
@@ -464,10 +474,14 @@ First and foremost, we need to create the request payload prior to encryption. A
 
 #### Encrypt the AES key and IV
 <<<<<<< HEAD
+<<<<<<< HEAD
 From above prerequisites section, we implemented the methodology to create the AES key and IV. We will use the publicKey generated from the "Create Session Token" API in order to encrypt the generated AES Key as "componentX" and the IV as "componentY". An example of the encrypted input is shown below:
 =======
 From step 2, we implemented the methodology to create the AES key and IV. We will use the publicKey generated from the "Create Session Token" API in order to encrypt the generated AES Key as "componentX" and the IV as "componentY". An example of the encrypted input is shown below:
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+From step 2, we implemented the methodology to create the AES key and IV. We will use the publicKey generated from the "Create Session Token" API in order to encrypt the generated AES Key as "componentX" and the IV as "componentY". An example of the encrypted input is shown below:
+>>>>>>> c32f476 (new guide with tabs)
 ```json
     "componentX": "ju5PPi7k4K2jtI0z47qKcHnQGRrIymN+dK+PVlWjKyufoaUHJqjqOAbjsQZ0q3sLciBkEVWm5jGbWQoGf2e9Us+yfYu8ua2hz3wOIRSymHdx8qKuoexQiKhLWnp/GAL0+TIdzb/CvNijuJkOe1XSzEoFdFjYgRNMV8LJM3G/izn48kZm9gexM/iJenJyzwFoqXJc7EcWrC3C0RlkBF5jTgZzTGCvBpxDq4pw3CjFDsGvFy5Gg26B1KRcRDctrFpLV697QAW//hWyS91NYB68S3TIo/B6/LfUjj9bOY3fM+i+5BY2oV7zbLLyvA+CKfLFRBoXtevfBJyndrUDFD0EBA==",
     "componentY": "CqTTfUbNR66rGRhAKGqnEYJBGona07l2lvV7s7sEG97b0eohkWCqcw/XhCSy2+A6rYxhhuvvQ+orjfmCzssIl4Uz+4gu3GE3lfMGeykjRuhipyV+fjnjOBcw/VDOg3IXffr4Oe/isRYTZ5gp0uht89Rpu9VXfWktKH5uEJiZdNyD9TY+xZ2Ekwc6trDjTSFPbxVNaITJGqMBFsuWXGcHvaqoo6bC7Q9r/pVsUHq5KDdoi0zuW+xBilMxk/hZE8fBifXkUZ+KGGibyHlseh/uH9U32UHgvyVSsiUjI1j44WNulRnvfN7Mi5HozJTiYbX2iGrL5QQLKkQIWQPWV37VgQ=="
@@ -516,6 +530,7 @@ Decrypt ComponentDelta with the AES Key and IV generated earlier in order to dec
 Verify that the transaction was successful. As shown above, the transaction was approved and we can then move to using another ConnectPay API in order to complete consumer enrollment.
 
 Congratulations, you have successfully used ConnectPay's API. The steps above apply to all ConnectPay API's except for the "Create Session Token" API and the "Get Public Key Service" API. These APIs do not need the request payload to be encrypted prior to making a call. Please repeat steps 1 and 2 for the API below to complete an ACH transaction.
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 ### Step 3: Consumer Enrollment
@@ -527,8 +542,15 @@ titles: Online Bank Login, Manual Enrollment
 -->
 
 ### Step 3 Option 1: Online Bank Login
+=======
+>>>>>>> c32f476 (new guide with tabs)
 
+<!--
+type: tab
+titles: Online Bank Login, Manual Enrollment
+-->
 
+<<<<<<< HEAD
 <span style="font-size: 1.25em; color: var(--bs-heading-color)">
 Option 1: Online Bank Login
 </span>
@@ -538,6 +560,8 @@ Option 1: Online Bank Login
 
 ### Step 3 Option 1: Online Bank Login
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+>>>>>>> c32f476 (new guide with tabs)
 The online bank login is used when the end-user/consumer would like to login using their banking credentials in order to link their bank account to a payment method.
 <details>
 <summary>Step a: Establish Online Bank Login</summary>
@@ -578,6 +602,7 @@ The Consumer Enrollment call is for any new consumer enrollment purpose. This is
 type: tab
 -->
 
+<<<<<<< HEAD
 <span style="font-size: 1.25em; color: var(--bs-heading-color)">
 Option 2: Manual Enrollment
 </span>
@@ -586,6 +611,8 @@ Option 2: Manual Enrollment
 =======
 ### Step 3 Option 2: Manual Enrollment
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+>>>>>>> c32f476 (new guide with tabs)
 The manual enrollment is used when the end-user/consumer does not want to login with their bank credentials and would rather deposit smaller amounts using information such as the bank routing and account number.
 <details>
 <summary>Step a: Consumer Enrollment</summary>
@@ -608,12 +635,17 @@ Use this method to complete micro deposit validation to authenticate your bank a
 </details>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- type: tab-end -->
 =======
 ## {-}
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 
 
+=======
+<!-- type: tab-end -->
+
+>>>>>>> c32f476 (new guide with tabs)
 ### Step 4: ACH Transactions
 These APIs are for the merchant to implement depending on the use case of the end-user/consumer. These API's are exclusively used for some form of processing ACH transactions.
 <details>
@@ -634,6 +666,7 @@ Merchants who want to process ACH Transactions through FirstAPI must make server
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
 
 
@@ -643,10 +676,19 @@ For more information on the other APIs within ConnectPay please visit the API Ex
 ### ACH Transaction Processed
 You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
 
+=======
+### ACH Transaction Processed
+You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
+
+>>>>>>> c32f476 (new guide with tabs)
 ### Other APIs:
 
 ### Useful Artifacts to help you Integrate
 [//]: <> (Need to link below to the actual files)
 - [Implementation Guide](../documentation/implementationguide.md)
+<<<<<<< HEAD
 - [SDK](../assets/connect-pay_spec.zip)
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+- [SDK](../assets/connect-pay_spec.zip)
+>>>>>>> c32f476 (new guide with tabs)
