@@ -18,6 +18,7 @@ You will want to go to the specific mobile operating section and look to initial
 [iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
 [Android]((https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
 
+
 ### Additional Steps
 <ol>
   <li>Pass necessary data to the SDK (including `fdCustomerId`)</li>
@@ -30,7 +31,7 @@ You will want to go to the specific mobile operating section and look to initial
 
 >If Account Validation call is invoked multiple times for the same consumer and payment number, the consumer will receive a successful response with the same `fdAccountId` for the ConnectPay payment number, every time.
 
-Image on the flow of the activity
+<p>Image on the flow of the activity</p>
 
 ### Issues with Integration
 [Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)

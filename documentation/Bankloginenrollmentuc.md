@@ -13,7 +13,6 @@ Sequence of activities for completing bank login enrollment:
 
 
 ## Implementation Steps: Bank Login Process
-
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
 
 [Create Consumer Profile](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/implementationguide.md&branch=develop)
@@ -28,10 +27,8 @@ Sequence of activities for completing bank login enrollment:
 You will want to go to the specific mobile operating section and look to initialize the App
 
 [WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
-
-[iOS]([(https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
-
-[Android]((https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
+[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
+[Android](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
 
 ### Additional Steps
 <p>Following are the steps to take to complete bank login</p>

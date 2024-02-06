@@ -15,9 +15,7 @@ This section would cover business use cases like Micro Deposit Validation,Consum
 You will want to go to the specific mobile operating section and look to initialize the App
 
 [WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
-
 [iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
-
 [Android](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
 
 
