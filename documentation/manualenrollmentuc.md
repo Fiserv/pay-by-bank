@@ -1,10 +1,12 @@
 # Manual Enrollment Architecture
 ## Explanation of Feature
+<p>
 The consumer has an option to manually key in all information required for ConnectPay enrollment into the enrollment screen.
 
 Usually after a manual enrollment, two micro deposits are made to the consumer’s bank account. The consumer waits for 1-3 business days for these micro deposits to appear in their bank account, following which he/she needs to validate their account by answering micro deposit amount questions via the Micro Deposit Validation process.
 
 The consumer is in a pending validation status and will not be able to transact until the validation is completed.
+</p>
 
 ## Implementation Steps: Manual Enrollment
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 

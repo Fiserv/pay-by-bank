@@ -275,9 +275,15 @@ cpsdk.pwmbEnrollment(
     gson.fromJson(extraParams, EnrollmentRequest::class.java), 
     configurationCallback as ConfigurationCallback<PWMBEnrollment>)
 ```
+<<<<<<< HEAD
 
 >Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
 
+=======
+<!-- theme: danger 
+Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
+-->
+>>>>>>> 9aeed23 (Modified information as well as updated call-out notes)
 ```java
 cpsdk.bothEnrollment( 
         cpConfiguration,
