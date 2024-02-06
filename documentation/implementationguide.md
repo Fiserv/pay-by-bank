@@ -59,7 +59,10 @@ This guide will go over everything the user must know in order to implement Conn
 Below are the prerequisites before using ConnectPay's API
 =======
 Below are the prerequisites before using ConnectPay's API:
+<<<<<<< HEAD
 >>>>>>> c32f476 (new guide with tabs)
+=======
+>>>>>>> f04e1f1 (new changes)
 
 ### Connectivity
 The ConnectPay services are accessed through the public Internet. ConnectPay accepts communication only via the HTTPS channel. Custom HTTP headers are also used to carry additional information in each request.
@@ -455,6 +458,7 @@ The Create Consumer Profile call is mandatory for any new user enrollment. This 
 #### Create Request Payload
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 First and foremost, we need to create the request payload prior to encryption. The "externalID" can be whatever the developer would like. It is a unique identifier for each consumer and the should be incremented with each unique consumer. An example payload is shown below:
 =======
 First and foremost, we need to create the request payload prior to encryption. An example payload is shown below:
@@ -462,6 +466,9 @@ First and foremost, we need to create the request payload prior to encryption. A
 =======
 First and foremost, we need to create the request payload prior to encryption. An example payload is shown below:
 >>>>>>> c32f476 (new guide with tabs)
+=======
+First and foremost, we need to create the request payload prior to encryption. The "externalID" can be whatever the developer would like. It is a unique identifier for each consumer and the should be incremented with each unique consumer. An example payload is shown below:
+>>>>>>> f04e1f1 (new changes)
 ```json
 {
     "customer": {
@@ -531,8 +538,12 @@ Verify that the transaction was successful. As shown above, the transaction was 
 
 Congratulations, you have successfully used ConnectPay's API. The steps above apply to all ConnectPay API's except for the "Create Session Token" API and the "Get Public Key Service" API. These APIs do not need the request payload to be encrypted prior to making a call. Please repeat steps 1 and 2 for the API below to complete an ACH transaction.
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
+=======
+
+>>>>>>> f04e1f1 (new changes)
 ### Step 3: Consumer Enrollment
 There are two ways to enroll customers. The steps for either enrolling consumers through online bank login or manual enrollment are listed below. It is also possible to have both types of enrollment methods as part of the merchant application. 
 
@@ -637,6 +648,7 @@ Use this method to complete micro deposit validation to authenticate your bank a
 <<<<<<< HEAD
 <<<<<<< HEAD
 <!-- type: tab-end -->
+<<<<<<< HEAD
 =======
 ## {-}
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
@@ -644,6 +656,8 @@ Use this method to complete micro deposit validation to authenticate your bank a
 
 =======
 <!-- type: tab-end -->
+=======
+>>>>>>> f04e1f1 (new changes)
 
 >>>>>>> c32f476 (new guide with tabs)
 ### Step 4: ACH Transactions
@@ -685,6 +699,7 @@ You have successfully completed an ACH transaction. For information on other Con
 
 ### Useful Artifacts to help you Integrate
 [//]: <> (Need to link below to the actual files)
+<<<<<<< HEAD
 - [Implementation Guide](../documentation/implementationguide.md)
 <<<<<<< HEAD
 - [SDK](../assets/connect-pay_spec.zip)
@@ -692,3 +707,6 @@ You have successfully completed an ACH transaction. For information on other Con
 =======
 - [SDK](../assets/connect-pay_spec.zip)
 >>>>>>> c32f476 (new guide with tabs)
+=======
+- [SDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/connectpaysdklanding.md&branch=develop)
+>>>>>>> f04e1f1 (new changes)
