@@ -54,7 +54,6 @@ configId: '432907a3-6282-40da-8526-axxxxxx', // this is the configuration to loa
 ## Use Case Integration
 
 To integrate into a specific use case of the ConnectPay SDK, below steps needs to be followed: 
-<<<<<<< HEAD
 
 >Note: Define any extraParam/default parameters to be passed into the use case as a JSON object: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)*
 
@@ -62,12 +61,6 @@ Below values are optional
 
 ```json
 var extraParams = 
-=======
-*Note: Define any extraParam/default parameters to be passed into the use case as a JSON object: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)*
-```json
-//passing values to SDK. Below values are optional
-var extraParams = {
->>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 accountNumber:"<account_number>", routingNumber:"<routing_number>",
 firstName:"<first_name>",
 lastName:"<last_name>",
@@ -128,12 +121,8 @@ console.log('SDK response:', response);
 #### Manual Enrollment
 
 To call the Manual Enrollment use case
-<<<<<<< HEAD
 
 ```javascript
-=======
-```js
->>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const enrollment = CP.ManualEnrollment(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 enrollment.start('sdk-container');
@@ -142,12 +131,8 @@ enrollment.start('sdk-container');
 #### Micro Deposit Validation
 
 To call the Micro deposit Validation use case (typically after the Manual Enrollment when customer receives the micro deposit in his account), use the below code sample
-<<<<<<< HEAD
 
 ```javascript
-=======
-```js
->>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const manualDeposit = CP.ManualDeposit(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 manualDeposit.start('sdk-container');
@@ -156,12 +141,8 @@ manualDeposit.start('sdk-container');
 #### Bank Login Enrollment
 
 To call the Bank Login Enrollment use case with PayWithMyBank or AllData, use the below code
-<<<<<<< HEAD
 
 ```javascript
-=======
-```js
->>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const bankOnly = CP.BankOnly(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 bankOnly.start('sdk-container');
@@ -169,12 +150,18 @@ bankOnly.start('sdk-container');
 
 #### Special Enrollment - Choice
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 >Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
 
 ```javascript
 =======
 *Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:*
+=======
+<!-- theme:danger 
+*Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
+-->
+>>>>>>> 9aeed23 (Modified information as well as updated call-out notes)
 ```js
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 const enrollment = CP.EnrollmentOption(sdkConfiguration, extraParams, returnCallBack);
