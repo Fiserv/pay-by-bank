@@ -737,6 +737,7 @@ You have successfully completed an ACH transaction. For information on other Con
 =======
 >You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 ### Client Next Steps
@@ -749,4 +750,16 @@ For more information on the other APIs within ConnectPay please visit the API Ex
 ### Other APIs:
 >>>>>>> d3cbab7 (updated yaml, few grammar mistakes on impguide)
 For more information on the other APIs within ConnectPay please visit the API Explorer on the navigation bar to the left.
+<<<<<<< HEAD
 >>>>>>> c9c732f (updated yaml, few grammar mistakes on impguide)
+=======
+=======
+>You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
+
+### Other APIs: 
+
+### Useful Artifacts to help you Integrate
+[//]: <> (Need to link below to the actual files)
+- [SDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/connectpaysdklanding.md&branch=develop)
+>>>>>>> 57b0ee1 (Updated Pages after review)
+>>>>>>> 206ccb8 (Updated Pages after review)
