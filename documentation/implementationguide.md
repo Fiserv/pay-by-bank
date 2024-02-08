@@ -141,41 +141,25 @@ public class HmacUtil {
 Most of the ConnectPay APIs need to be encrypted prior to making a request. The methodologies are discussed below with example code on the actual methods in Java. We will use these methods later in order to generate and encrypt the payloads.
 
 <details>
-<summary>1. AES Key Generation</summary>
+<summary>1. AES Key and IV Generation</summary>
 <br>
-The AES Key generated must be size 256-bit in order for the Fiserv systems to decrypt the request payload.
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+AES Key
+</span> 
 
-### Key Generator
-The AES Key will be used to encrypt the actual request payload. Below is sample code on how to generate the merchant's AES Key:
-```java
-private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray(); 
+The AES Key generated must be size 256-bit in order for the Fiserv systems to decrypt the request payload. <p>
 
-private String randomHexString(int size) { 
-    SecureRandom random = new SecureRandom(); 
-    byte[] iv = new byte[count / 8]; 
-    random.nextBytes(iv); 
-    return bytesToHex(iv); 
-} 
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+IV
+</span> 
 
-public static String bytesToHex(byte[] bytes) { 
-    char[] hexChars = new char[bytes.length * 2]; 
-    for (int j = 0; j < bytes.length; j++) { 
-        int v = bytes[j] & 0xFF; 
-        hexChars[j * 2] = HEX_ARRAY[v >>> 4]; 
-        hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F]; 
-    } 
-    return new String(hexChars); 
-} 
-```
-</details>
-
-<details>
-<summary>2. IV Generation</summary>
-<br>
 The IV generated must be size 96-bit in order for the Fiserv systems to decrypt the request payload.
 
-### Key Generator (Example Code - Java)
-The IV will be used to encrypt the actual request payload. Below is sample code on how to generate the merchant's IV:
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+Key Generator
+</span> 
+
+The AES Key and IV will be used to encrypt the actual request payload. Below is sample code on how to generate the merchant's AES key and IV:
 ```java
 private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray(); 
 
@@ -199,17 +183,23 @@ public static String bytesToHex(byte[] bytes) {
 </details>
 
 <details>
-<summary>3. AES Encryption</summary>
+<summary>2. AES Encryption and Decryption</summary>
 <br>
-The merchant must implement methods for AES encryption in order to encrypt the payload prior to making a call.
+The merchant must implement methods for AES encryption in order to encrypt the payload prior to making a call. <p>
 
-### AES Specification
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+AES Specification
+</span>
+
 | Type | Value            | 
 |------|------------------|
 |ALGO  |AES               | 
 |CIPHER| AES/GCM/NoPadding|
 
-### AES Encryption
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+AES Encryption
+</span> 
+
 AES Encryption will be used to encrypt the actual payload using the AES Key and IV generated before. Below is sample code on how to encrypt using AES:
 ```java
 public class AesUtil {
@@ -275,69 +265,11 @@ public class AesUtil {
     }
 }
 ```
-</details>
 
-<details>
-<summary>4. RSA Encryption</summary>
-<br>
-The merchant must implement RSA Encryption in order to encrypt the AES key and IV using the RSA "publicKey" generated from the "Create Session Token" API.
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+AES Decryption
+</span>
 
-### RSA Specification
-| Type | Value                               | 
-|------|-------------------------------------|
-|ALGO  |RSA                                  | 
-|CIPHER|RSA/None/OAEPwithSHA512AndMGF1Padding|
-
-### RSA Encryption
-RSA will be used to encrypt Components X and Y which are the AES Key and IV respectively. These are encrypted using the RSA public key obtained from the Create Session Token API. Below is sample code on how to encrypt using RSA:
-```java
-private static final String ALGORITHM = "RSA";  
-public static String encrypt(byte[] publicKey, String inputData, String rsaAlgoType) throws Exception { 
-
-    LOG.info("Start Encrypt"); 
-
-    // Provider added for new algorithm (RSA/None/OAEPWithSHA512AndMGF1Padding) support 
-    Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider()); 
-
-    X509EncodedKeySpec ks = new X509EncodedKeySpec(publicKey); 
-    KeyFactory kf = KeyFactory.getInstance(ALGORITHM); 
-    PublicKey key = kf.generatePublic(ks); 
-    Cipher cipher = getCipher(rsaAlgoType); 
-    cipher.init(Cipher.ENCRYPT_MODE, key); 
-    byte[] cryptogram = cipher.doFinal(inputData.getBytes()); 
-    final String encValue = new String(Base64.encodeBase64(cryptogram)); 
-    return encValue; 
-} 
-```
-
-### RSA Decryption
-Below is sample code on how to decrypt using RSA however, the Merchant may not need decryption methods for RSA since the Fiserv backend will decrypt the request payload in order to process the request. The merchant may still want to decrypt the request payload based on a variety of different factors. Below is a sample code on how to decrypt using RSA:
-```java
-private static final String ALGORITHM = "RSA";  
-public static String decrypt(byte[] privateKey, String inputData,String rsaAlgoType) throws Exception { 
-    LOG.info("Start Decrypt"); 
-    PrivateKey key = KeyFactory.getInstance(ALGORITHM).generatePrivate(new PKCS8EncodedKeySpec(privateKey)); 
-    Cipher cipher = getCipher(rsaAlgoType); 
-    cipher.init(Cipher.DECRYPT_MODE, key); 
-    byte[] decryptedBytes = cipher.doFinal(Base64.decodeBase64(inputData)); 
-    LOG.info("End Decrypt"); 
-    return new String(decryptedBytes, "UTF-8"); 
-} 
-```
-</details>
-
-<details>
-<summary>5. AES Decryption</summary>
-<br>
-The merchant must implement the AES decryption method in order to decrypt the response payload after making a call.
-
-### AES Specification
-| Type | Value            | 
-|------|------------------|
-|ALGO  |AES               | 
-|CIPHER| AES/GCM/NoPadding|
-
-### AES Decryption
 The AES decryption method will be used to decode the response payload using the AES key and IV once the process is complete. Below is sample code on how to decrypt using RSA:
 
 ```java
@@ -402,6 +334,63 @@ public class AesUtil {
         return cipher.doFinal(bytes);
     }
 }
+```
+</details>
+
+<details>
+<summary>3. RSA Encryption and Decryption</summary>
+<br>
+The merchant must implement RSA Encryption in order to encrypt the AES key and IV using the RSA "publicKey" generated from the "Create Session Token" API.
+
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+RSA Specification
+</span>
+
+| Type | Value                               | 
+|------|-------------------------------------|
+|ALGO  |RSA                                  | 
+|CIPHER|RSA/None/OAEPwithSHA512AndMGF1Padding|
+
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+RSA Encryption
+</span>
+
+RSA will be used to encrypt Components X and Y which are the AES Key and IV respectively. These are encrypted using the RSA public key obtained from the Create Session Token API. Below is sample code on how to encrypt using RSA:
+```java
+private static final String ALGORITHM = "RSA";  
+public static String encrypt(byte[] publicKey, String inputData, String rsaAlgoType) throws Exception { 
+
+    LOG.info("Start Encrypt"); 
+
+    // Provider added for new algorithm (RSA/None/OAEPWithSHA512AndMGF1Padding) support 
+    Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider()); 
+
+    X509EncodedKeySpec ks = new X509EncodedKeySpec(publicKey); 
+    KeyFactory kf = KeyFactory.getInstance(ALGORITHM); 
+    PublicKey key = kf.generatePublic(ks); 
+    Cipher cipher = getCipher(rsaAlgoType); 
+    cipher.init(Cipher.ENCRYPT_MODE, key); 
+    byte[] cryptogram = cipher.doFinal(inputData.getBytes()); 
+    final String encValue = new String(Base64.encodeBase64(cryptogram)); 
+    return encValue; 
+} 
+```
+<span style="font-size: 1.25em; color: var(--bs-heading-color)">
+RSA Decryption
+</span>
+
+Below is sample code on how to decrypt using RSA however, the Merchant may not need decryption methods for RSA since the Fiserv backend will decrypt the request payload in order to process the request. The merchant may still want to decrypt the request payload based on a variety of different factors. Below is a sample code on how to decrypt using RSA:
+```java
+private static final String ALGORITHM = "RSA";  
+public static String decrypt(byte[] privateKey, String inputData,String rsaAlgoType) throws Exception { 
+    LOG.info("Start Decrypt"); 
+    PrivateKey key = KeyFactory.getInstance(ALGORITHM).generatePrivate(new PKCS8EncodedKeySpec(privateKey)); 
+    Cipher cipher = getCipher(rsaAlgoType); 
+    cipher.init(Cipher.DECRYPT_MODE, key); 
+    byte[] decryptedBytes = cipher.doFinal(Base64.decodeBase64(inputData)); 
+    LOG.info("End Decrypt"); 
+    return new String(decryptedBytes, "UTF-8"); 
+} 
 ```
 </details>
 
