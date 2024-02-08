@@ -100,10 +100,7 @@ CPSDK (
     ApplicationContext, 
     DEBUG_LOGGING
 )
-<<<<<<< HEAD
 ```
-=======
->>>>>>> 3532121 (Updated Implementation Guide file and landing page)
 
 |Parameter|Usage|
 |---------|-----|
@@ -283,7 +280,11 @@ cpsdk.pwmbEnrollment(
 <!-- theme: danger 
 Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
 -->
+<<<<<<< HEAD
 >>>>>>> 9aeed23 (Modified information as well as updated call-out notes)
+=======
+
+>>>>>>> 06edd93 (Updated multiple files and added sdk Implementation guide)
 ```java
 cpsdk.bothEnrollment( 
         cpConfiguration,

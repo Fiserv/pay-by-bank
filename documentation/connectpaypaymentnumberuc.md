@@ -40,7 +40,7 @@ You will want to go to the specific mobile operating section and look to initial
 
 ### Additional uCOM Steps
 <ol>
-  <li>Pass necessary data to the SDK(including uCom provided fdCustomerId)</li>
+  <li>Pass necessary data to the SDK(including uCom provided `fdCustomerId`)</li>
   <li>SDK presents the screens to consumer to capture consumer information</li>
   <li>SDK completes update process and returns NONCE to merchantApp</li>
   <li>NONCE passed back to merchant server</li>
