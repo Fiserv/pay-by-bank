@@ -75,6 +75,9 @@ Customer Profile API” from their uCom implementation guide.
 
 [uCOM Implementation Guide](https://developer.fiserv.com/product/ConnectedCommerce/docs/?path=docs/documentation/Standard_Implementation_Guide.md&branch=main)
 
+[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/consumerprofile/add&branch=develop&version=1.0.0)
+
+<p>
 |Attribute|Value|
 |---------|-----|
 |Certification API End Point|https://cat.api.firstdata.com/gateway/v2/connectpay/consumerprofile/add|
