@@ -151,6 +151,13 @@ For a sample request body **AFTER** payload encryption and before transmission:
     "componentDelta": "OEIyAAUL1Py3/oKewtNXswtkYOw+krJP0EFhucFWFXSug0TCV7kqL67Mk5PTzVqNWTAyPl0lK6ac2EBK3kxskC6WpzpJI4qSv7/9JSfQ7zAYUiKAKPobIXpHAJ7BuHSMlMkv/6UTJvdIRsgDaqfAbD5pqG5KDbRzXpzmLIpVJnGyPCkwwm+F36wGbe1ccuvzDHNL77e6XSmm2LpzO/NAGJRjMGXdLQ9XKFvjr/gK0ruO2gdqglomlvy3MG8BSvLCAYkOL1CAB4wF8ovsfpOAAV92KRdqxeMISntCc0/Fxg7fs9JILmn4ZkgiSgha1CsN"
 }
 ```
+Data Element|Description|Requires Encryption|Required?|Rules|Data Type|Minimum Length|Maximum Length| #occur|
+|------------|-----------|-------------------|---------------|---------|--------------|--------------|-------|
+|fdCustomerID|Consumer’s fdCustomerID associated with this request.|N|O||A,N|1|50|<=1|
+|externalID|This is the user’s unique identifier in the merchant system.|N|O||A,N|1|50|<=1|
+>Anyone is required in request to retrieve the consumer profile
+<br>
+<p>Sample request body after payload encryption and before transmission:
 
 Response Body may contain either componentDelta or componentFallBack elements.
 <ol>
