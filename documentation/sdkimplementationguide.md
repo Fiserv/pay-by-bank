@@ -174,7 +174,6 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 "componentDelta": "cRD5xVaJab13iRQ7l6No6ot9YPTFT3bi/qapHYGgsNmxQ8nT2mtIz7uLLHz5kdp5JEmDjiP1dXMNPg8jP5rIZQf/5dtMfFLq7YL7FQY/boTsd7BoJg7reDeeAk6l9+76gaSAZMIRJGYS4fhy1bgClx2jIeWo4fLlfildeHnghCU1ElR8XhFi3oyd8hU+YEpDENP5IJJMVxjnYChuFX8paVy/SAYFMESBXSTIgPi6Y/kJc/bswlxaa9Yei4GnD+Ny1laVs4HqJp32JJ+NHJIYdZr5117AY0JJxJ9oudnkK6J8oPnnXhLCBGxNCRDJG3AVLRxDnQcds/cSiwAVREHr4nn848IEsUb27wJR7SiDxVaELxme9CNZ1dB0tPYQ1wux3ymWtnUgLfVRFsHH3EeucbHv8uIc8dxcwxZReROzVS8="
 }
 ```
-
 Response Code List [Response Codes](https://github.com/Fiserv/connect-pay/blob/develop/documentation/statuscodes.md)
 <br>
 
