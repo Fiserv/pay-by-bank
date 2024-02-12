@@ -327,6 +327,8 @@ paths:
             examples:
               RequestPayloadSample:
                 $ref: '#/components/examples/EnrollmentPayloadSample'
+              ProfileAddPayloadSample:
+                $ref: '#/components/examples/ProfileAddPayloadSample'
       responses:
         '200':
           $ref: '#/components/responses/200-EnrollmentResponsePayloadSamples'
@@ -2891,6 +2893,11 @@ components:
             paymentAccountVerified: "true"
             returnUrl: https://cat.api.firstdata.com/gateway/v2/connectpay/static/v1/build/index.html#/CPBankOnlyWidget/
     ProfileAddPayloadSample:
+      value:
+        componentX: "L0WLCiqw0TT0tqaRH3Ksz4wdQFf2YAnIeiCScd+hrAWO2Hlv7lDsNnQpd+ORxkIjOHmwJuC58Q0tsc WnOI2Gh5DJ75wk5xnp/0RWQoB2+pTMGo6On+O+vFxkhVQRKlRgJu0G/RNZV4EFa1iBdDTY6UZL0I WtqDT1zwUiu+2NWAOdPDIbAIsekhJrhRAIFNsHeiYhUxBCsF+gxybJupB0XjGIWhAkPjO7AKPR1fXWU/ ZRifzsdu1/X43DSTz4d4/bYAD6iAaSBJUewSVwUG9OodeU84LYgdba4vRNa2G3BpzfomdvK6H1C8pj HjnVjUGP2F3IO6tMDnpAFZfrxvytlg==",
+        componentY: "K5BTgBGzhIux2ZnodU4MWRUVhUFbU4P376TLTHZa02nU2jVb2pAWK3gMfpEHsE7WeoLlNrzAJwR 1FJ679z4Oo/yWp7k39zamQNlMHvm6EYBBbxIemexBHIIqqNRFdHhq6S3pA6L/9ItyscEl5/zZIKxcx44hv CCPZOZUhnOTSc4ehPnYJhdJQFgIDhY5UPRRZntM8hP2hOPZTVz5D4re17bSYVOEEK7bmpGIWpf9p ERUj4MlUpyRpafNd2mQsZpXPvW3XZfHDbslO7o3LourFHRSqAfBHOfx+pwH+YcMwglnay/Ay2SYWyZ hKkD+UcHSkyBdk/AMdcKt1K9uCIPm/Q==",
+        componentDelta: "KKRKg/jPcb+r/3TZmhLP/KxrMEajXKvBYQd5jeGFm2OzznUvNHuyEhWyJc4RlXFRoLhwcj9eEuSOz0a bTAeU+Xw8hSMJ6kYhHokJ3ev8tgQ="
+    RequestBodyPayloadSample:
       value:
         customer:
           externalID : Merchant01Consumer65746635
