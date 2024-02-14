@@ -1,10 +1,12 @@
 #  IOS – Mobile SDK Integration
+
 Utilize this guide for your SDK Integration with Apple iOS
 
 ## General Setup
 
 Drag and drop the provided Universal Binary (.framework file) into your project structure (you can drop this framework anywhere into your Xcode Project. Ideally, you would drop it into your "Frameworks" directory where your other frameworks exist.)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -18,12 +20,21 @@ Drag and drop the provided Universal Binary (.framework file) into your project 
 Note: During your drag and drop, Xcode will prompt you to configure whether the binary should live within your project structure as a copy or simply have a reference to the binary outside of your project structure. We want to ensure you have a deep copy of the binary in your project and not just a reference.
 -->
 >>>>>>> 9aeed23 (Modified information as well as updated call-out notes)
+=======
+
+>Note: During your drag and drop, Xcode will prompt you to configure whether the binary should live within your project structure as a copy or simply have a reference to the binary outside of your project structure. We want to ensure you have a deep copy of the binary in your project and not just a reference.
+
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 ## General Setup Part 2
 
 Ensure that the PaymentSDK Universal binary is linked and embedded, navigate to your target settings and ensure that the binary appears under the "Embedded Binaries" and "Linked Frameworks and Libraries" section. (If you don't see the PaymentSDK Universal library listed there, you can use the "+" button to manually embed and link the binary for your target).
 
 ## Configuration
+<<<<<<< HEAD
 ### Step 1 Import
+=======
+### Step 1 Impor
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 t
 Import the ConnectPay SDK
 
@@ -50,12 +61,16 @@ configId:<CONFIG_ID> andPostUrl:<POST_URL>];
 Integrate into a specific use case of the ConnectPay SDK.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >Note:Define any extraParam/default parameters to be passed into the Use Case as shown below: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)
 =======
 <!-- theme: danger
 Note:Define any extraParam/default parameters to be passed into the Use Case as shown below: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)
 -->
 >>>>>>> 9aeed23 (Modified information as well as updated call-out notes)
+=======
+>Note:Define any extraParam/default parameters to be passed into the Use Case as shown below: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 
 ```json
 ManualEnrollmentConfiguration *extraParams = [[ManualEnrollmentConfiguration alloc] init]; extraParams.routingNumber = <ROUTING_NUMBER>;
@@ -125,16 +140,22 @@ ManualEnrollment *manualEnrollment = [cpSdk manualEnrollmentWithCpSdkConfigurati
 [manualEnrollment startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
  
 >Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
 
 ```ios
+<<<<<<< HEAD
 =======
 <!-- theme: danger 
 Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
 -->
 ```java
 >>>>>>> 9aeed23 (Modified information as well as updated call-out notes)
+=======
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 ManualEnrollment *manualEnrollment = [cpSdk manualEnrollmentWithCpSdkConfiguration:configuration andManualEnrollmentConfiguration:manualEnrollmentConfiguration];
 [manualEnrollment startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
@@ -204,4 +225,8 @@ UpdateEnrollment *updateEnrollment = [cpSdk updateEnrollmentWithCpSdkConfigurati
 
 ## Extras
 
+<<<<<<< HEAD
 [ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md&branch=develop)
+=======
+[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md&branch=develop)
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)

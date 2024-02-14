@@ -27,6 +27,7 @@ implementation(name:'paywithmybank-android-sdk-2.2.1', ext:'aar')
 implementation(name:'TMXProfiling-RL-6.2-102', ext:'aar') 
 implementation(name:'TMXProfilingConnections-RL-6.2-102', ext:'aar')
 ```
+
 |Library|Version|Usage|
 |-------|-------|-----|
 |FirstData-Util|3.0.11|FirstData utility|
@@ -135,6 +136,7 @@ Create CPSDK client specific configuration required to launch the supported use 
 |POST_URL|(Optional) End point to be called after the use case completion|
 
 Sample
+
 ```java
 val cpConfiguration = CPConfiguration (
     webConfiguration.configId, // Unique ID specific to the selected CP-SDK use case 
@@ -273,6 +275,7 @@ cpsdk.pwmbEnrollment(
     configurationCallback as ConfigurationCallback<PWMBEnrollment>)
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 >Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
 
@@ -283,6 +286,10 @@ Note: To call the Enrollment use case with both the options (to let customer cho
 <<<<<<< HEAD
 >>>>>>> 9aeed23 (Modified information as well as updated call-out notes)
 =======
+=======
+
+>Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 
 >>>>>>> 06edd93 (Updated multiple files and added sdk Implementation guide)
 ```java
@@ -351,4 +358,5 @@ cpsdk.updateEnrollment(
 
 ## Extras
 
-[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md&branch=develop)
+
+[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md)
