@@ -107,8 +107,9 @@ const enrollment = CP.EnrollmentOption(sdkConfiguration, extraParams, returnCall
 //Start the SDK UI with mount id where UI can be rendered
 enrollment.start('sdk-container');
 ```
+
 Once a use case is called, the SDK will present the user interface for the consumer to key in the details. When the SDK completes the use case (either success or error scenario), the returnCallBack of the webpage will be fired. The result of the specific use case can be analyzed and used further by the Merchant web app.
-```js
+```javascript
 // This is the callback where sdk will post results
 function returnCallBack(response) {
 }
@@ -151,10 +152,14 @@ bankOnly.start('sdk-container');
 #### Special Enrollment - Choice
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 
 >Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
 
 ```javascript
+<<<<<<< HEAD
 =======
 *Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:*
 =======
@@ -164,6 +169,8 @@ bankOnly.start('sdk-container');
 >>>>>>> 9aeed23 (Modified information as well as updated call-out notes)
 ```js
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 const enrollment = CP.EnrollmentOption(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 enrollment.start('sdk-container')
@@ -173,11 +180,16 @@ enrollment.start('sdk-container')
 
 To call Streamlined Enrollment use case, use below sample:
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ```javascript
 =======
 ```js
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+
+```javascript
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 const streamlinedEnrollment = CP.StreamlinedEnrollment(sdkConfiguration, extraParams,
 returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
@@ -200,11 +212,16 @@ closeAccount.start('sdk-container');
 
 To call the relink use case, use the below sample: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ```javascript
 =======
 ```js
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+
+```javascript
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 const relink = CP.Relink(sdkConfiguration, extraParams, returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
 relink.start('sdk-container');
@@ -214,11 +231,16 @@ relink.start('sdk-container');
 
 To call the Account Validation use case, use the below code sample:
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ```javascript
 =======
 ```js
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+
+```javascript
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 const accountValidation = CP.AccountValidation(sdkConfiguration, extraParams,
 returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
@@ -229,11 +251,16 @@ accountValidation.start('sdk-container');
 
 To call the Update Enrollment use case, use the below code sample:
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ```javascript
 =======
 ```js
 >>>>>>> 3532121 (Updated Implementation Guide file and landing page)
+=======
+
+```javascript
+>>>>>>> 176f22b (Cleaned up errors and dealt with spacing issues)
 const updateEnrollment = CP.UpdateEnrollment(sdkConfiguration, extraParams,
 returnCallBack);
 //Start the SDK UI with mount id where UI can be rendered
