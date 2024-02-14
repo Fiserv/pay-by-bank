@@ -38,6 +38,7 @@ The ConnectPay services are accessed through the public Internet. ConnectPay acc
 |Production API End Point   |https://prod.api.firstdata.com/gateway/v2|/connectpay|
 
 ## Header Description
+
 The header of each API call will contain several parameters. It is important that each parameter contain the specified values for a successful API call. Any changes to the values will be noted throughout the guide. 
 
 Please follow the below link for all information related to headers
@@ -85,6 +86,7 @@ Link to API Explorer for structure and attribute details
  [API Explorer](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/consumerprofile/add&branch=develop&version=1.0.0)
 
 ### Request Body after payload encryption and before transmission
+
 For a sample request body **AFTER** payload encryption and before transmission: 
 ```json
 {
@@ -288,6 +290,7 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 "componentDelta": "cRD5xVaJab13iRQ7l6No6ot9YPTFT3bi/qapHYGgsNmxQ8nT2mtIz7uLLHz5kdp5JEmDjiP1dXMNPg8jP5rIZQf/5dtMfFLq7YL7FQY/boTsd7BoJg7reDeeAk6l9+76gaSAZMIRJGYS4fhy1bgClx2jIeWo4fLlfildeHnghCU1ElR8XhFi3oyd8hU+YEpDENP5IJJMVxjnYChuFX8paVy/SAYFMESBXSTIgPi6Y/kJc/bswlxaa9Yei4GnD+Ny1laVs4HqJp32JJ+NHJIYdZr5117AY0JJxJ9oudnkK6J8oPnnXhLCBGxNCRDJG3AVLRxDnQcds/cSiwAVREHr4nn848IEsUb27wJR7SiDxVaELxme9CNZ1dB0tPYQ1wux3ymWtnUgLfVRFsHH3EeucbHv8uIc8dxcwxZReROzVS8="
 }
 ```
+
 <!--
 type: tab
 titles: Online Bank Login, Manual Enrollment
@@ -295,7 +298,9 @@ titles: Online Bank Login, Manual Enrollment
 ### Use Case 2 - NONCE GET DATA, Setting OFF
 
 #### Get Data Request Specification
+
 Sample request body with NONCE before payload encryption:
+
 ```json
 95199DC2AE5700D0E0530AAE8CADC15C3594
 ```
@@ -321,10 +326,12 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 "componentDelta": "cRD5xVaJab13iRQ7l6No6ot9YPTFT3bi/qapHYGgsNmxQ8nT2mtIz7uLLHz5kdp5JEmDjiP1dXMNPg8jP5rIZQf/5dtMfFLq7YL7FQY/boTsd7BoJg7reDeeAk6l9+76gaSAZMIRJGYS4fhy1bgClx2jIeWo4fLlfildeHnghCU1ElR8XhFi3oyd8hU+YEpDENP5IJJMVxjnYChuFX8paVy/SAYFMESBXSTIgPi6Y/kJc/bswlxaa9Yei4GnD+Ny1laVs4HqJp32JJ+NHJIYdZr5117AY0JJxJ9oudnkK6J8oPnnXhLCBGxNCRDJG3AVLRxDnQcds/cSiwAVREHr4nn848IEsUb27wJR7SiDxVaELxme9CNZ1dB0tPYQ1wux3ymWtnUgLfVRFsHH3EeucbHv8uIc8dxcwxZReROzVS8="
 }
 ```
+
 <!--
 type: tab
 titles: Online Bank Login, Manual Enrollment
 -->
+
 ### Use Case 3 - Consumer GET DATA, SETTING ON
 
 #### Get Data Request Specification
@@ -350,17 +357,18 @@ Sample request body before payload encryption:
     ]
 }
 ```
+
 Type of Fetch currently supported
 <ol>
-    <li>getAllDetails</li>
-    <li>getPersonalDetails</li>
-    <li>getIdentificationDetails</li>
-    <li>getAddressDetails</li>
-    <li>getCardDetails</li>
-    <li>getBankDetails</li>
-    <li>getSecurityQuestionDetails</li>
-    <li>getOtherDetails</li>
-    <li>getReportingDetails</li>
+<li>getAllDetails</li>
+<li>getPersonalDetails</li>
+<li>getIdentificationDetails</li>
+<li>getAddressDetails</li>
+<li>getCardDetails</li>
+<li>getBankDetails</li>
+<li>getSecurityQuestionDetails</li>
+<li>getOtherDetails</li>
+<li>getReportingDetails</li>
 </ol>
 
 #### Request Body after payload encryption and before transmission
@@ -369,6 +377,7 @@ For a sample request body **AFTER** payload encryption and before transmission:
 
 #### Request Body after payload encryption and before transmission
 For a sample request body **AFTER** payload encryption and before transmission: 
+
 ```json
 {
     "componentX": "ju5PPi7k4K2jtI0z47qKcHnQGRrIymN+dK+PVlWjKyufoaUHJqjqOAbjsQZ0q3sLciBkEVWm5jGbWQoGf2e9Us+yfYu8ua2hz3wOIRSymHdx8qKuoexQiKhLWnp/GAL0+TIdzb/CvNijuJkOe1XSzEoFdFjYgRNMV8LJM3G/izn48kZm9gexM/iJenJyzwFoqXJc7EcWrC3C0RlkBF5jTgZzTGCvBpxDq4pw3CjFDsGvFy5Gg26B1KRcRDctrFpLV697QAW//hWyS91NYB68S3TIo/B6/LfUjj9bOY3fM+i+5BY2oV7zbLLyvA+CKfLFRBoXtevfBJyndrUDFD0EBA==",
@@ -391,10 +400,12 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 "componentDelta": "cRD5xVaJab13iRQ7l6No6ot9YPTFT3bi/qapHYGgsNmxQ8nT2mtIz7uLLHz5kdp5JEmDjiP1dXMNPg8jP5rIZQf/5dtMfFLq7YL7FQY/boTsd7BoJg7reDeeAk6l9+76gaSAZMIRJGYS4fhy1bgClx2jIeWo4fLlfildeHnghCU1ElR8XhFi3oyd8hU+YEpDENP5IJJMVxjnYChuFX8paVy/SAYFMESBXSTIgPi6Y/kJc/bswlxaa9Yei4GnD+Ny1laVs4HqJp32JJ+NHJIYdZr5117AY0JJxJ9oudnkK6J8oPnnXhLCBGxNCRDJG3AVLRxDnQcds/cSiwAVREHr4nn848IEsUb27wJR7SiDxVaELxme9CNZ1dB0tPYQ1wux3ymWtnUgLfVRFsHH3EeucbHv8uIc8dxcwxZReROzVS8="
 }
 ```
+
 <!--
 type: tab
 titles: Online Bank Login, Manual Enrollment
 -->
+
 ### Use Case 4 - Consumer GET DATA, SETTING OFF
 
 #### Get Data Request Specification 
@@ -460,6 +471,7 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 "componentDelta": "cRD5xVaJab13iRQ7l6No6ot9YPTFT3bi/qapHYGgsNmxQ8nT2mtIz7uLLHz5kdp5JEmDjiP1dXMNPg8jP5rIZQf/5dtMfFLq7YL7FQY/boTsd7BoJg7reDeeAk6l9+76gaSAZMIRJGYS4fhy1bgClx2jIeWo4fLlfildeHnghCU1ElR8XhFi3oyd8hU+YEpDENP5IJJMVxjnYChuFX8paVy/SAYFMESBXSTIgPi6Y/kJc/bswlxaa9Yei4GnD+Ny1laVs4HqJp32JJ+NHJIYdZr5117AY0JJxJ9oudnkK6J8oPnnXhLCBGxNCRDJG3AVLRxDnQcds/cSiwAVREHr4nn848IEsUb27wJR7SiDxVaELxme9CNZ1dB0tPYQ1wux3ymWtnUgLfVRFsHH3EeucbHv8uIc8dxcwxZReROzVS8="
 }
 ```
+
 ## Get Consumer Account Details
 
 The Get Consumer Account Details API call is used to retrieve any account specific details required before calling a ConnectPay SDK Use Case.
@@ -553,6 +565,7 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 "componentDelta": "cRD5xVaJab13iRQ7l6No6ot9YPTFT3bi/qapHYGgsNmxQ8nT2mtIz7uLLHz5kdp5JEmDjiP1dXMNPg8jP5rIZQf/5dtMfFLq7YL7FQY/boTsd7BoJg7reDeeAk6l9+76gaSAZMIRJGYS4fhy1bgClx2jIeWo4fLlfildeHnghCU1ElR8XhFi3oyd8hU+YEpDENP5IJJMVxjnYChuFX8paVy/SAYFMESBXSTIgPi6Y/kJc/bswlxaa9Yei4GnD+Ny1laVs4HqJp32JJ+NHJIYdZr5117AY0JJxJ9oudnkK6J8oPnnXhLCBGxNCRDJG3AVLRxDnQcds/cSiwAVREHr4nn848IEsUb27wJR7SiDxVaELxme9CNZ1dB0tPYQ1wux3ymWtnUgLfVRFsHH3EeucbHv8uIc8dxcwxZReROzVS8="
 }
 ```
+
 ## Get Public Key
 
 The Get Public Key API call is used to create a long lived public key for individual merchant and to retrieve the public encryption key which will be utilized to make calls for each transaction. This information will be vaulted in the merchant system and can be used to initialize the calls to ConnectPay directly from the merchant server without the involvement of SDK.
