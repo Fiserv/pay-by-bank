@@ -32,15 +32,15 @@
   - title: Getting Started
     link: ./docs/getting-started.md
   - title: API Implementation Guide
-    link: ./documentation/implementationguide.md
+    link: ./dos/implementationguide.md
   - title: SDK Implementation Guide
-    link: ./documentation/connectpaysdklanding.md
+    link: ./docs/connectpaysdklanding.md
   - title: Common Use Cases
-    link: ./documentation/Commonusecaseslanding.md
+    link: ./docs/Commonusecaseslanding.md
   - title: Application Status Codes
-    link: ./documentation/statuscodes.md
+    link: ./docs/statuscodes.md
   - title: Masking Details Codes
-    link: ./documentation/maskingdetails.md 
+    link: ./docs/maskingdetails.md 
 - sections:
   - title: Release notes
     sections:
