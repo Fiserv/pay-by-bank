@@ -58,7 +58,7 @@ The Create Session Token API call is used to create a session token and to retri
 For more examples and details on API please go to below Link: 
 [API Explorer](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
 
-### Step 2: Create & Request Payload
+## Step 2: Create & Request Payload
 
 At this step, all prerequisites have been complete in order to make our first call. First, the request payload must be created. The entire payload must be encrypted using different encryption methods. It must also be decrypted in order to decode the response payload into something that is readable. We will use the "Add Consumer Profile" as the example API. 
 
