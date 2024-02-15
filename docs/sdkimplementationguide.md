@@ -22,7 +22,7 @@ Server-to-server call is **relatively** secure than coming from an end users pho
 
 >Note: If you need to migrate from old to new encryption standards, please follow this link: 
 
-[encryption standards migration](https://github.com/Fiserv/connect-pay/blob/develop/documentation/encryptionstandardsmigration.md)
+[encryption standards migration](https://github.com/Fiserv/connect-pay/blob/develop/docs/encryptionstandardsmigration.md)
 
 ## Pre-requisites
 
@@ -43,7 +43,7 @@ The header of each API call will contain several parameters. It is important tha
 
 Please follow the below link for all information related to headers
 
-[Headers,Decryption,Encryption](https://github.com/Fiserv/connect-pay/blob/develop/documentation/headersencryptiondecryption.md)
+[Headers,Decryption,Encryption](https://github.com/Fiserv/connect-pay/blob/develop/docs/headersencryptiondecryption.md)
 
 ## Step 1: Create Session Token
 
@@ -165,7 +165,7 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 }
 ```
 
-Response Code List [Response Codes](https://github.com/Fiserv/connect-pay/blob/develop/documentation/statuscodes.md)
+Response Code List [Response Codes](https://github.com/Fiserv/connect-pay/blob/develop/docs/statuscodes.md)
 <br>
 
 [![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/consumerprofile/enrollment&branch=develop&version=1.0.0)
@@ -892,12 +892,12 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 
 Now you will want to integrate to your respective MOBILE SDK's please follow links to the mobile types
 
-[SDK Landing Page](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/connectpaysdklanding.md&branch=develop)
+[SDK Landing Page](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/connectpaysdklanding.md&branch=develop)
 
 Direct Links to offerings
 
-[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
+[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/iossdk.md&branch=develop)
 
-[Android](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
+[Android](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/androidsdk.md&branch=develop)
 
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
+[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/websdk.md&branch=develop)
