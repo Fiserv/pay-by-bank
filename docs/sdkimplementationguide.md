@@ -727,17 +727,15 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 }
 ```
 
-### Complonent Fallback
+### Component Fallback
 
 JSON sample data without payload encryption (componentFallBack)
 
-```json 
-{
+```json
 "componentFallBack": "{\r\n \"transactionStatus\" : \"DECLINED\",\r\n \"transactionStatusCo
 de\" : 420,\r\n \"referenceTransactionID\" : \"APIGEE-a-90f-4946-ff14-
 36aa4b9a6325\",\r\n \"transactionStatusDescription\" : \"Unauthorized\",\r\n \"responseVerbia ge\" : \"Unauthorized\",\r\n \"errorDetails\" : [ {\r\n \"errorCode\" : 4250,\r\n \"errorField\" :
 \"Client-Token\",\r\n \"errorReason\" : \"Session time out\"\r\n } ]\r\n}"
-}
 ```
 
 ## ACH Refund Transaction
