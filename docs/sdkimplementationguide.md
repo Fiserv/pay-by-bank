@@ -242,11 +242,11 @@ Link to API Explorer for structure and attribute details <!-- Need to Update aft
 
 <!--
 type: tab
-titles: Online Bank Login, Manual Enrollment
+titles: Use Case 1 - NONCE GET DATA - Setting ON , Use Case 2 - NONCE GET DATA - Setting OFF,Use Case 3 - Consumer GET DATA -SETTING ON,Use Case 4 - Consumer GET DATA -SETTING OFF
 -->
-### Use Case 1 - NONCE GET DATA, Setting ON 
 
-#### Get Data Request Specification
+
+#### Use Case 1 - NONCE GET DATA, Setting ON  - Get Data Request Specification
 
 Sample request body with NONCE before payload encryption:
 
@@ -283,11 +283,9 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 
 <!--
 type: tab
-titles: Online Bank Login, Manual Enrollment
 -->
-### Use Case 2 - NONCE GET DATA, Setting OFF
 
-#### Get Data Request Specification
+#### Use Case 2 - NONCE GET DATA, Setting OFF - Get Data Request Specification
 
 Sample request body with NONCE before payload encryption:
 
@@ -319,12 +317,9 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 
 <!--
 type: tab
-titles: Online Bank Login, Manual Enrollment
 -->
 
-### Use Case 3 - Consumer GET DATA, SETTING ON
-
-#### Get Data Request Specification
+#### Use Case 3 - Consumer GET DATA, SETTING ON - Get Data Request Specification
 
 Sample request body before payload encryption:
 
@@ -390,12 +385,9 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 
 <!--
 type: tab
-titles: Online Bank Login, Manual Enrollment
 -->
 
-### Use Case 4 - Consumer GET DATA, SETTING OFF
-
-#### Get Data Request Specification 
+#### Use Case 4 - Consumer GET DATA, SETTING OFF-Get Data Request Specification 
 
 Sample request body before payload encryption:
 
@@ -458,6 +450,7 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 "componentDelta": "cRD5xVaJab13iRQ7l6No6ot9YPTFT3bi/qapHYGgsNmxQ8nT2mtIz7uLLHz5kdp5JEmDjiP1dXMNPg8jP5rIZQf/5dtMfFLq7YL7FQY/boTsd7BoJg7reDeeAk6l9+76gaSAZMIRJGYS4fhy1bgClx2jIeWo4fLlfildeHnghCU1ElR8XhFi3oyd8hU+YEpDENP5IJJMVxjnYChuFX8paVy/SAYFMESBXSTIgPi6Y/kJc/bswlxaa9Yei4GnD+Ny1laVs4HqJp32JJ+NHJIYdZr5117AY0JJxJ9oudnkK6J8oPnnXhLCBGxNCRDJG3AVLRxDnQcds/cSiwAVREHr4nn848IEsUb27wJR7SiDxVaELxme9CNZ1dB0tPYQ1wux3ymWtnUgLfVRFsHH3EeucbHv8uIc8dxcwxZReROzVS8="
 }
 ```
+<!-- type: tab-end -->
 
 ## Get Consumer Account Details
 
