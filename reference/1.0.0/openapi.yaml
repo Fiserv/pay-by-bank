@@ -4310,7 +4310,177 @@ components:
                 transactionStatusCode: 100
                 referenceTransactionID: 06e8e947-9a92-9165-8dd8-7627b8e111d7
                 transactionStatusDescription: Input is invalid
-                errorDetails:
+                errorDetails: 
+                  errorCode: 1010
+                  errorField: PassPhase
+                  errorReason: Field did not have a valid format
+            1010-InitializationVector:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: ab06086c-2691-5687-9c2b-7b479365935d
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1010
+                  errorField: InitializationVector
+                  errorReason: Field did not have a valid format
+            1010-adapter:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 80d0cae2-4317-41d1-2095-a43195d48458
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1010
+                  errorField: adapter
+                  errorReason: Field did not have a valid format
+            1020-fdCustomerID:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: e8277c5c-c458-4e29-3637-671a92849582
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1020
+                  errorField: fdCustomerID
+                  errorReason: Field contained a bad value
+            1020-type:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 2cecd076-6358-a33a-5493-27530a3b1d4a
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1020
+                  errorField: type
+                  errorReason: Field contained a bad value
+            1020-PassPhase:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 64a85e52-6c6e-618e-86a1-569c3caab304
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1020
+                  errorField: PassPhase
+                  errorReason: Field contained a bad value
+            1020-InitializationVector:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 3e01c5e1-0787-dd45-51e1-c6a2846b9184
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1020
+                  errorField: InitializationVector
+                  errorReason: Field contained a bad value
+            1020-adapter:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 2853230e-639c-5d1d-040c-76a898b7d0b9
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1020
+                  errorField: adapter
+                  errorReason: Field contained a bad value
+            1030-fdCustomerID:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 08c2cbcb-b022-dd93-955b-1e1ba54d34b5
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1030
+                  errorField: fdCustomerID
+                  errorReason: Required field did not have a value
+            1030-type:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 4d0d7c0c-a948-24b9-27a7-ed504b28ec69
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1030
+                  errorField: type
+                  errorReason: Required field did not have a value
+            1030-CallType:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 33be35b2-1461-5d3c-bd5d-76859c305ac8
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1030
+                  errorField: CallType
+                  errorReason: Required field did not have a value
+            1030-PassPhase:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 968ee8a8-ace2-6702-93d2-8b2e5758d312
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1030
+                  errorField: PassPhase
+                  errorReason: Required field did not have a value
+            1030-InitializationVector:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 0d9b284b-2318-a55a-de1c-d9512226d96a
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1030
+                  errorField: InitializationVector
+                  errorReason: Required field did not have a value
+            1030-adapter:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 73a7abb1-48ed-9ca6-c84c-de1433b536d4
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1030
+                  errorField: adapter
+                  errorReason: Required field did not have a value
+            1030-AllDataSessionId:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 1bb7e953-644d-881a-ea36-98d1423d8d23
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1030
+                  errorField: AllDataSessionId
+                  errorReason: Required field did not have a value
+            1035-fdCustomerID:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: bb4d9a67-3a67-7b3b-2eea-de182a45e904
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1035
+                  errorField: fdCustomerID
+                  errorReason: Required field is missing
+            1035-type:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 87b4570b-7e11-e108-e071-60cbc69a59a5
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1035
+                  errorField: type
+                  errorReason: Required field is missing
+            1035-CallType:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 06e8e947-9a92-9165-8dd8-7627b8e111d7
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
                   errorCode: 1035
                   errorField: CallType
                   errorReason: Required field is missing
@@ -4646,7 +4816,47 @@ components:
                 transactionStatusCode: 100
                 referenceTransactionID: d7d56946-1967-d841-03ed-88c013e20dd8
                 transactionStatusDescription: Input is invalid
-                errorDetails:
+                errorDetails: 
+                  errorCode: 1020
+                  errorField: externalID
+                  errorReason: Field contained a bad value
+            1030-externalID:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 691b65e6-72b9-94d0-a8b8-b4e01823667d
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1030
+                  errorField: externalID
+                  errorReason: Required field did not have a value
+            1035-externalID:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: d2bdd7e0-62e9-5886-39a9-6dd915b1208d
+                transactionStatusDescription: Input is invalid 
+                errorDetails: 
+                  errorCode: 1035
+                  errorField: externalID
+                  errorReason: Required field is missing
+            1035-PassPhase:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 7c2a2d1d-5e7d-e83e-0670-12cbde98c3a6
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
+                  errorCode: 1035
+                  errorField: PassPhase
+                  errorReason: Required field is missing
+            1035-InitializationVector:
+              value: 
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: d7d56946-1967-d841-03ed-88c013e20dd8
+                transactionStatusDescription: Input is invalid
+                errorDetails: 
                   errorCode: 1035
                   errorField: InitializationVector
                   errorReason: Required field is missing
