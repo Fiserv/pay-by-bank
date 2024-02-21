@@ -23,7 +23,7 @@ description:
 link: ../docs/?path=documentation/accountvalidationuc.md
 -->
  <!-- type: card
-title: <div style="text-align:center;width:100%;height:25%"><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/nonenrollment.png" alt="Non Enrollment" title="Account Validation" style="width:auto; height:60px"> </div> <h3 style="text-align:center">Account Validation</h3>
+title: <div style="text-align:center;width:100%;height:25%"><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/nonenrollment.png" alt="Non Enrollment" title="Non Enrollment" style="width:auto; height:60px"> </div> <h3 style="text-align:center">Non Enrollment</h3>
 description:
 link: ../docs/?path=documentation/nonenrollmentuc.md
 -->
