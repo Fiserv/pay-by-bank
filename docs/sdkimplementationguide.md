@@ -66,15 +66,15 @@ The ConnectPay SDK comes in three flavors, IOS, Android, and Web.
 The SDK should be included into Merchant’s App. When a ConnectPay business use case like Consumer Enrollment, Micro Deposit Validation, Consumer Profile Load from backend, Consumer Updates, and ACH account closure are performed, the Merchant’s App needs to initialize the proper ConnectPay SDK use case and pass necessary data. SDK would do all the orchestration with the ConnectPay backend to complete the business use case.
 In case of Consumer Enrollments, Consumer Profile Load, /ConnectPay Payment Number updates, ConnectPay sends back a NONCE as part of the response.
 
->Note: Since fdAccountId is a unique token representing the consumer’s actual payment information, for security reasons this information is not sent back to the SDK/Mobile App. Instead, this information needs to be retrieved by using a NONCE over a secure server-to-server communication channel.
+>Note: Since `fdAccountId` is a unique token representing the consumer’s actual payment information, for security reasons this information is not sent back to the SDK/Mobile App. Instead, this information needs to be retrieved by using a NONCE over a secure server-to-server communication channel.
 
 ### GetData Call
-In the use cases described above where a NONCE is sent back to the Merchant server, the following activities need to be done. The merchant’s server needs to use the NONCE and do a server to server call to ConnectPay through FirstAPI to retrieve the fdAccountId generated for this use case. The merchant needs to store/update fdCustomerId, fdAccountId against the externalId in their system.For any future calls the fdCustomerId, fdAccountId should be used to interact with the ConnectPay system.
+In the use cases described above where a NONCE is sent back to the Merchant server, the following activities need to be done. The merchant’s server needs to use the NONCE and do a server to server call to ConnectPay through FirstAPI to retrieve the `fdAccountId` generated for this use case. The merchant needs to store/update `fdCustomerId`, `fdAccountId` against the externalId in their system.For any future calls the `fdCustomerId`, `fdAccountId` should be used to interact with the ConnectPay system.
 
 ## Next Steps
 >Note: Now that you have a basic understanding of the SDK. Here are other Please follow to the common use case landing page to better understand Architecture and next steps
 
-[Common Use Cases](https://github.com/Fiserv/connect-pay/blob/develop/documentation/Commonusecaseslanding.md)
+[Common Use Cases](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/Commonusecaseslanding.md&branch=develop)
 
 Direct Links to flavors of SDK.
 
