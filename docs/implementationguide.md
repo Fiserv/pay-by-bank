@@ -177,8 +177,7 @@ Use this method to complete micro deposit validation to authenticate your bank a
 
 <!-- type: tab-end -->
 
-
->Note: If you are using our API please continue to Step 4 and also in our API explorer. However, if you are utilizing our [SDK](https://github.com/Fiserv/connect-pay/blob/develop/documentation/connectpaysdklanding.md) section please follow this link in this information.
+>Note: If you are using our API please continue to Step 4 and also in our API explorer. However, if you are utilizing our [SDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/sdkimplementationguide.md&branch=develop) section please follow this link in this information.
 
 ### Step 4: ACH Transactions
 These APIs are for the merchant to implement depending on the use case of the end-user/consumer. These API's are exclusively used for some form of processing ACH transactions.
