@@ -3,7 +3,7 @@
 
 <!-- type: row -->
 <!-- type: card
-title: <div style="text-align:center;width:100%;height:25%"><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/paybybanksdk.png" alt="SDK Implementation Guide" title="SDK Implementation Guide" style="width:auto; height:60px"> </div> <h3 style="text-align:center"> Implementation Guide</h3>
+title: <div style="text-align:center;width:100%;height:25%"><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/paybybanksdk.png" alt="SDK Implementation Guide" title="SDK Implementation Guide" style="width:auto; height:60px"> </div> <h3 style="text-align:center">SDK Implementation Guide</h3>
 description:
 link: ../docs/?path=docs/sdkimplementationguide.md
 -->
@@ -23,5 +23,12 @@ link: ../docs/?path=docs/androidsdk.md
 title: <div style="text-align:center;width:100%;height:25%"><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/WebOS.png" alt="Web SDK Documentation" title="Web SDK Documentation" style="width:auto; height:60px"> </div> <h3 style="text-align:center"> WebSDK Documentation</h3>
 description:
 link: ../docs/?path=docs/websdk.md
+-->
+<!-- type: row-end -->
+<!-- type: row -->
+<!-- type: card
+title: <div style="text-align:center;width:100%;height:25%"><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Commonusecases.png" alt="Common Use Cases" title="Common Use Cases" style="width:auto; height:60px"> </div> <h3 style="text-align:center">Common Use Cases</h3>
+description:
+link: ../docs/?path=docs/Commonusecaseslanding.md
 -->
 <!-- type: row-end -->
