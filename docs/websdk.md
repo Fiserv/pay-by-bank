@@ -93,6 +93,7 @@ reportingField3: “<Reporting Field3>”, //optional
 ```
 
 Call the specific use case method exposed by the CP SDK with the configuration, extra parameters and the handle to the callback method.
+
 ## Enrollments and Account Activities
 
 ### Enrollments
