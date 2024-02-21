@@ -197,8 +197,8 @@ Merchants who want to process ACH Transactions through FirstAPI must make server
 [![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/transaction/authorize&branch=develop&version=1.0.0)
 </details>
 
->You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
+>You have successfully completed an ACH transaction. 
 
-### Other APIs:
-For more information on the other APIs within ConnectPay please visit the API Explorer on the navigation bar to the left.
+### Next Steps
 
+For information on other ConnectPay APIs, please look in our API Explorer Section on all available API's.
