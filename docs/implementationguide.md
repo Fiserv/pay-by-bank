@@ -122,9 +122,6 @@ type: tab
 titles: Online Bank Login, Manual Enrollment
 -->
 
-### Step 3 Option 1: Online Bank Login
-
-
 <span style="font-size: 1.25em; color: var(--bs-heading-color)">
 Option 1: Online Bank Login
 </span>
@@ -199,9 +196,7 @@ Merchants who want to process ACH Transactions through FirstAPI must make server
 [![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/transaction/authorize&branch=develop&version=1.0.0)
 </details>
 
-
 >You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
-
 
 ### Other APIs:
 For more information on the other APIs within ConnectPay please visit the API Explorer on the navigation bar to the left.
