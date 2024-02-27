@@ -27,6 +27,8 @@ Merchants using Universal Commerce Solution (uCom) will receive an additional se
 |Certification API End Point|https://cat.api.firstdata.com/gateway/v2 |/connectpay|
 |Production API End Point   |https://prod.api.firstdata.com/gateway/v2|/connectpay|
 
+> Please refer to the following guide that outlines header details that is mandatory prior to making any calls. The prerequisites page can be referred on the [Headers and Encryption]() here.
+
 ## SDK Configurations 
 The SDK provides a variety of configurations like the color, theme, field titles, error messages, multi- language (English/Spanish or any language) support, and information to be collected by the user.
 

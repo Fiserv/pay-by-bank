@@ -41,6 +41,8 @@
     link: ./docs/statuscodes.md
   - title: Masking Details Codes
     link: ./docs/maskingdetails.md 
+  - title: Encryption and Decryption Details
+    link: ./docs/headersencryptiondecryption.md 
 - sections:
   - title: Release notes
     sections:
