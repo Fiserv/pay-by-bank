@@ -316,6 +316,7 @@ public static String decrypt(byte[] privateKey, String inputData,String rsaAlgoT
 </details>
 
 >After completing this setup please proceed to your appropriate integration to continue: 
-[API Integration](https://github.com/Fiserv/connect-pay/blob/develop/documentation/implementationguide.md)
-<br>
-[SDK Integration](https://github.com/Fiserv/connect-pay/blob/develop/documentation/sdkimplementationguide.md)
+
+[API Integration](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/implementationguide.md&branch=develop)
+
+[SDK Integration](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/sdkimplementationguide.md&branch=develop)
