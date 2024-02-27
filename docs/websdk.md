@@ -236,4 +236,4 @@ If there was an error, the errorDetails object will be included. The response Ve
 
 ## Extras
 
-[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md&branch=develop)
+[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/statuscodes.md&branch=develop)
