@@ -183,4 +183,4 @@ UpdateEnrollment *updateEnrollment = [cpSdk updateEnrollmentWithCpSdkConfigurati
 
 ## Extras
 
-[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md&branch=develop)
+[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/statuscodes.md&branch=develop)
