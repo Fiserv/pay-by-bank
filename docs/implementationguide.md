@@ -199,5 +199,7 @@ Merchants who want to process ACH Transactions through FirstAPI must make server
 
 >You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
 
-### Other APIs:
+
+### Client Next Steps
+  
 For more information on the other APIs within ConnectPay please visit the API Explorer on the navigation bar to the left.
