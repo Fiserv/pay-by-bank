@@ -1,37 +1,47 @@
 #  IOS – Mobile SDK Integration
+
 Utilize this guide for your SDK Integration with Apple iOS
 
 ## General Setup
+
 Drag and drop the provided Universal Binary (.framework file) into your project structure (you can drop this framework anywhere into your Xcode Project. Ideally, you would drop it into your "Frameworks" directory where your other frameworks exist.)
 
-<!-- theme: danger
-Note: During your drag and drop, Xcode will prompt you to configure whether the binary should live within your project structure as a copy or simply have a reference to the binary outside of your project structure. We want to ensure you have a deep copy of the binary in your project and not just a reference.
--->
+
+>Note: During your drag and drop, Xcode will prompt you to configure whether the binary should live within your project structure as a copy or simply have a reference to the binary outside of your project structure. We want to ensure you have a deep copy of the binary in your project and not just a reference.
+
 ## General Setup Part 2
+
 Ensure that the PaymentSDK Universal binary is linked and embedded, navigate to your target settings and ensure that the binary appears under the "Embedded Binaries" and "Linked Frameworks and Libraries" section. (If you don't see the PaymentSDK Universal library listed there, you can use the "+" button to manually embed and link the binary for your target).
 
 ## Configuration
+
 ### Step 1 Import
+
 Import the ConnectPay SDK
+
 ```ios
 import "PaymentSDK/PaymentSDK.h" 
 ```
+
 ### Step 1 Initialize
+
 Initialize the SDK with required information
-```java
+```ios
+
 CPSDK *cpSdk = [[CPSDK alloc] initWithApiKey:<API_KEY> andEnvironment:EnvironmentSandbox];
 ```
+
 ### Create ConnectPay Configuration
-```java
+
+```ios
 CPSdkConfiguration *configuration = [[CPSdkConfiguration alloc] initWithFdCustomerId:<FD_CUSTOMER_ID> encryptionKey:<ENCRYPTION_KEY> accessToken:<ACCESS_TOKEN>
 configId:<CONFIG_ID> andPostUrl:<POST_URL>];
 ```
 ## Use Case Integration
+
 Integrate into a specific use case of the ConnectPay SDK.
 
-<!-- theme: danger
-Note:Define any extraParam/default parameters to be passed into the Use Case as shown below: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)
--->
+>Note:Define any extraParam/default parameters to be passed into the Use Case as shown below: (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)
 
 ```json
 ManualEnrollmentConfiguration *extraParams = [[ManualEnrollmentConfiguration alloc] init]; extraParams.routingNumber = <ROUTING_NUMBER>;
@@ -67,69 +77,95 @@ extraParams.reportingField1 = <REPORTING_FIELD1>; // optional
 extraParams.reportingField2 = <REPORTING_FIELD2>; // optional 
 extraParams.reportingField3 = <REPORTING_FIELD3>; // optional
 ```
+
 ## Enrollments and Account Activities
+
 ### Enrollments
+
 #### Manual Enrollment
 
 Call the specific use case method exposed by the CP SDK class with the configuration, extra parameters and the handle to the callback method. For example, the below code snippet shows how to call the manual enrollment use case:
-```java
+
+```ios
 ManualEnrollment *manualEnrollment = [cpSdk manualEnrollmentWithCpSdkConfiguration:configuration andExtraParams:extraParams];
 [manualEnrollment startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
+
 Once a use case is called, the SDK will present the user interface for the consumer to key in the details. When the SDK completes the result of the specific use case (either success or error scenario) it is passed to the completion handler of the start method. Refer to the response section to see the structure of this response object.
 
 #### Micro Deposit Validation
+
 To call the Micro Deposit Validation use case (typically after the Manual Enrollment Use Case when customer receives the micro deposit in his account)
-```java
+
+```ios
 ManualDeposit *manualDeposit = [cpSdk manualDepositWithCpSdkConfiguration:configuration andManualDepositConfiguration:manualDepositConfiguration];
 [manualDeposit startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
 
 #### Bank Login Enrollment
+
 To call the Bank Login Enrollment use case with PayWithMyBank or AllData, use the below code
-```java
+
+```ios
 ManualEnrollment *manualEnrollment = [cpSdk manualEnrollmentWithCpSdkConfiguration:configuration andManualEnrollmentConfiguration:manualEnrollmentConfiguration];
 [manualEnrollment startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
-<!-- theme: danger 
-Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
--->
-```java
+ 
+>Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
+
+```ios
 ManualEnrollment *manualEnrollment = [cpSdk manualEnrollmentWithCpSdkConfiguration:configuration andManualEnrollmentConfiguration:manualEnrollmentConfiguration];
 [manualEnrollment startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
+
 #### Streamlined Enrollment
+
 To call the Streamlined Enrollment Use Case with AllData, use the below code sample:
-```java
+
+```ios
 StreamlinedEnrollmentConfiguration *extraParams = [[StreamlinedEnrollmentConfiguration alloc] init];
 StreamlinedEnrollment *streamlinedEnrolment = [cpSdk streamlinedEnrollmentWithCpSdkConfiguration:configuration andStreamlinedEnrollmentConfiguration: extraParams];
 [streamlinedEnrolment startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
+
 #### Close Enrollment
+
 To call the Close Enrollment
-```java
+
+```ios
 CloseAccount *closeAccount = [cpSdk closeAccountWithCpSdkConfiguration:configuration andCloseAccountConfiguration:closeAccountConfiguration];
 [closeAccount startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
+
 ### Account Activities
+
 #### Relink Account
+
 To call the Relink Account Use Case
-```java
+
+```ios
 RelinkEnrolmentConfiguration *relinkConfiguration = [[RelinkEnrolmentConfiguration alloc] init];
 RelinkEnrolment *relinkAccount = [cpSdk relinkEnrolmentWithCpSdkConfiguration:configuration andRelinkEnrolmentConfiguration:relinkConfiguration];
 [relinkAccount startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
+
 #### Account Validation
+
 To call the Account Validation use case:
-```java
+
+```ios
 AccountValidation *accountValidation = [cpSdk accountValidationWithCpSdkConfiguration:configuration andAccountValidationConfiguration:accountValidationConfiguration];
 ```
+
 #### Update Account
+
 To call Update Enrollment:
-```java
+
+```ios
 UpdateEnrollment *updateEnrollment = [cpSdk updateEnrollmentWithCpSdkConfiguration:configuration andUpdateEnrollmentConfiguration:manualEnrollmentConfiguration];
 [updateEnrollment startWithCompletionHandler:<PASS_YOUR_BLOCK_HERE>];
 ```
+
 <script>
   // Function to copy text to clipboard
   function copySnippet(snippetId) {
@@ -143,3 +179,8 @@ UpdateEnrollment *updateEnrollment = [cpSdk updateEnrollmentWithCpSdkConfigurati
     alert('Snippet copied to clipboard!');
   }
 </script>
+
+
+## Extras
+
+>If you experience Errors while developing, you will want to utilize our API Explorer (on the left) in the sample request and responses so that you can see the desired errors and why. 

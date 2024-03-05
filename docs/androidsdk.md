@@ -12,9 +12,12 @@ url 'https://gyftwallet.jfrog.io/gyftwallet/repo'
 dirs project(':app').file('libs')
 }
 ```
+
 ## Dependencies
+
 Add the following dependencies in the application: 
 ### Connect Pay Dependencies
+
 ```java
 implementation 'com.firstdata.util:library:3.0.11'
 implementation(name:'cpsdk-release-1.0.3.6', ext:'aar') 
@@ -24,6 +27,7 @@ implementation(name:'paywithmybank-android-sdk-2.2.1', ext:'aar')
 implementation(name:'TMXProfiling-RL-6.2-102', ext:'aar') 
 implementation(name:'TMXProfilingConnections-RL-6.2-102', ext:'aar')
 ```
+
 |Library|Version|Usage|
 |-------|-------|-----|
 |FirstData-Util|3.0.11|FirstData utility|
@@ -66,8 +70,10 @@ implementation group: 'commons-io', name: 'commons-io', version: 2.6
 |apache commons|1.8|Common Utility|
 |spongycastle|1.54.0.0|Crypto Utility|
 ### Android Component depdendency
+
 Place this in Android Manifest.xml
 ```xml
+
 <activity 
     android:name="com.firstdata.sdk.ui.SDKActivity" 
     android:launchMode="singleTop" 
@@ -84,8 +90,10 @@ Place this in Android Manifest.xml
     </intent-filter>
 </activity>
 ```
+
 ## SDK Initialization
 Prerequisite and steps involved to initialize the ConnectPay SDK:
+
 ```java
 CPSDK ( 
     API_KEY,
@@ -93,6 +101,7 @@ CPSDK (
     ApplicationContext, 
     DEBUG_LOGGING
 )
+```
 
 |Parameter|Usage|
 |---------|-----|
@@ -111,8 +120,11 @@ val cpsdk = CPSDK (
         )
 
 ```
+
 ## Prerequisite - Connect Pay-Configuration
+
 Create CPSDK client specific configuration required to launch the supported use cases object based on information received from the createSessionToken API call.
+
 |Parameter|Usage|
 |---------|-----|
 |USE_CASE_CONFIG_ID|Unique ID to launch the specific use-case|
@@ -124,6 +136,7 @@ Create CPSDK client specific configuration required to launch the supported use 
 |POST_URL|(Optional) End point to be called after the use case completion|
 
 Sample
+
 ```java
 val cpConfiguration = CPConfiguration (
     webConfiguration.configId, // Unique ID specific to the selected CP-SDK use case 
@@ -135,15 +148,19 @@ val cpConfiguration = CPConfiguration (
     "/cpsdksampleapp", //It must be changed with the "android:path" attribute's value as defined in your AndroidManifest file(for the above example "/cpsdksampleapp").
     webConfiguration.postUrl // (Optional) URL to be called after the use-case completion. )
 ```
+
 ### Extra Parameters
+
 Extra parameters to configure SDK with the pre-defined values:
+
 ```java
 val extraParams = webConfiguration.extraParams
 ```
+
 Extra Params for Enrollment sample:
 (It is mandatory to pass all the required fields in extra params for Streamlined enrollment flow.)
+
 ```json
-{
 "firstName": "John",
 "lastName": "Doe",
 "email": "john@email.com",
@@ -178,8 +195,11 @@ Extra Params for Enrollment sample:
 “reportingField2”: “<Reporting Field2>”, //optional 
 “reportingField3”: “<Reporting Field3>”, //optional
 ```
+
 ### Configuration Call Back
+
 Listener to listen the SDK use case initialization state with the give configuration. After the successful SDK initialization onSuccess callback will be called with the selected use case workflow object as argument. Using this object starts the workflow for the requested use case. In case of initialization error, the call back onError will be called with the error object as argument. End user application can handle the UI states in their application based on these callbacks.
+
 ```java
 val configurationCallback = object: ConfigurationCallback<Workflow> { 
     
@@ -194,16 +214,21 @@ val configurationCallback = object: ConfigurationCallback<Workflow> {
     }
 }
 ```
+
 ## SDK Use Case Integration
+
 To integrate into a specific use case of the ConnectPay SDK, below steps needs to be followed.
 Call the specific Use Case method exposed by the CP SDK class with the configuration, extra parameters, and the handle to the callback method. For example, the below code snippet shows how to call the manual enrollment use case.
+
 ```java
 cpsdk.manualEnrollment( 
     cpConfiguration,
     extraParams,
     configurationCallback as ConfigurationCallback<ManualEnrollment>)
 ```
+
 Once a use case is called, the SDK will present the user interface for the consumer to key in the details. When the SDK completes the use case (either success or error scenario), the onActivityResult of the parent activity will be fired. The result of the specific use case can be analyzed and used further by the Merchant mobile app.
+
 ```java
 override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) { 
   super.onActivityResult(requestCode, resultCode, data) 
@@ -212,42 +237,55 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
         ?.also { Toast.makeText(this, it, Toast.LENGTH_LONG).show() }
 }
 ```
+
 ## Enrollments and Account Activities
+
 ### Enrollments
+
 #### Manual Enrollment
+
 To call the Manual Enrollment Use Case, use the below code sample:
+
 ```java
 cpsdk.manualEnrollment( 
     cpConfiguration,
     gson.fromJson(extraParams, EnrollmentRequest::class.java), 
     configurationCallback as ConfigurationCallback<ManualEnrollment>)
 ```
+
 #### Micro Deposit Validation
+
 To call the Micro deposit Validation (typically after the Manual Enrollment Use Case when customer receives the micro deposit in his/her account), use the below code sample:
 ```java
+
 cpsdk.manualDeposit( 
     cpConfiguration,
     gson.fromJson(extraParams, AccountValidationRequest::class.java), 
     configurationCallback as ConfigurationCallback<ManualDeposit>)
 ```
+
 #### Bank Login Enrollment
+
 To call the Bank Login Enrollment Use Case with PayWithMyBank or AllData, use the below code sample:
+
 ```java
 cpsdk.pwmbEnrollment( 
     cpConfiguration,
     gson.fromJson(extraParams, EnrollmentRequest::class.java), 
     configurationCallback as ConfigurationCallback<PWMBEnrollment>)
 ```
-<!-- theme: danger 
-Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
--->
+
+>Note: To call the Enrollment use case with both the options (to let customer choose either manual or bank login), use the below code sample:
+
 ```java
 cpsdk.bothEnrollment( 
         cpConfiguration,
         gson.fromJson(extraParams, EnrollmentRequest::class.java), 
         configurationCallback as ConfigurationCallback<BothEnrollment>
 ```
+
 #### Streamlined Enrollment
+
 To call the Streamlined Enrollment Use Case with AllData, use the below code sample:
 ```java
 cpsdk.streamLinedEnrollment( 
@@ -255,36 +293,53 @@ cpsdk.streamLinedEnrollment(
     gson.fromJson(extraParams, EnrollmentRequest::class.java), 
     configurationCallback as ConfigurationCallback<StreamLinedEnrollment>)
 ```
+
 #### Close Enrollment
+
 To call the Close Enrollment use case, use the below code sample:
+
 ```java
 cpsdk.closeAccount( 
     cpConfiguration,
     gson.fromJson(extraParams, CloseAccountRequest::class.java), 
     configurationCallback as ConfigurationCallback<CloseAccount>)
 ```
+
 ### Account Activities
+
 #### Relink Account
+
 To call the Relink Account Use Case, use the below code sample:
+
 ```java
 cpsdk.relinkAccount( 
     cpConfiguration,
     gson.fromJson(extraParams, RelinkAccountRequest::class.java), 
     configurationCallback as ConfigurationCallback<RelinkAccount>)
+
 ```
+
 #### Account Validation
+
 To call the Account Validation Use Case, use the below code sample:
+
 ```java
 cpsdk.accountValidation( 
     cpConfiguration,
     gson.fromJson(extraParams, AccountValidationRequest::class.java), 
     configurationCallback as ConfigurationCallback<AccountValidation>)
 ```
+
 #### Update Account
+
 To call the Update Enrollment use case, use the below code sample:
+
 ```java
 cpsdk.updateEnrollment( 
     cpConfiguration,
     gson.fromJson(extraParams, EnrollmentRequest::class.java), 
     configurationCallback as ConfigurationCallback<UpdateEnrollment>)
 ```
+## Extras
+
+>If you experience Errors while developing, you will want to utilize our API Explorer (on the left) in the sample request and responses so that you can see the desired errors and why. 
