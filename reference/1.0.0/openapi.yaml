@@ -2,7 +2,7 @@ openapi: 3.0.3
 
 # This is your document metadata.
 info:
-  version: 4.6.1
+  version: 4.7.0
   title: PayByBank Specification
   description: |
     ### Fiserv PayByBank solution exposes a set of services to facilitate ACH account vaulting, authorization and settlement. 
@@ -36,7 +36,7 @@ tags:
 paths:
   '/security/createsessiontoken':
     # This is similar to a file directory of showing which is a subgroup of which
-    #Here Create Sesssion Token is under the Security Services folder/parent group 
+    #Here Create Sesssion Token is under the Security Services folder/parent group
     #It is also which type of RESTful API call it is which in this case it is a Post
     post:
       x-proxy-name: Create Session
@@ -1069,19 +1069,31 @@ components:
           properties:
             publicKeyRequired:
               type: string
-              description: Value should be 'true' if RSA public key is being requested
+              description: "Value should be 'true' if RSA public key is being requested"
+              minItems: 1
+              maxItems: 1
+              minLength: 4
+              maxLength: 5
         account:
-          description: Account array object is only required in CreateSessionToken call request body only for microDepositValidation, update, close consumer requests. For other requests account section is optional and not required.
+          description: "Account array object is only required in CreateSessionToken call request body only for microDepositValidation, update, close consumer requests. For other requests account section is optional and not required."
           type: array
           items:
             type: object
             properties:
               type:
                 type: string
-                description: Value "ACH" always needs to be passed in this field.
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 0
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
               fdAccountID:
                 type: string
-                description: fdAccountID for the consumers account is required in CreateSessionToken call request body only for microDepositValidation, update, close consumer requests. For other requests account section is optional and not required.
+                description: "fdAccountID for the consumers account is required in CreateSessionToken call request body only for microDepositValidation, update, close consumer requests. For other requests account section is optional and not required."
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 50
     GetPublicKeyRequest:
       type: object
       properties:
@@ -1090,10 +1102,18 @@ components:
           properties:
             publicKeyRequired:
               type: string
-              description: Value should be 'true' if RSA public key is being requested
+              description: "Value should be 'true' if RSA public key is being requested"
+              minItems: 1
+              maxItems: 1
+              minLength: 4
+              maxLength: 5
             publicKeyOverridable:
               type: string
-              description: This value should only be true if a new long lived public key needs to be generated before the last one has timed out.
+              description: "This value should only be 'true' if a new long lived public key needs to be generated before the last one has timed out."
+              minItems: 1
+              maxItems: 1
+              minLength: 4
+              maxLength: 5
     GetDataRequest:
       type: object
       properties:
@@ -1102,7 +1122,11 @@ components:
           properties:
             fdCustomerID:
               type: string
-              description: Consumer’s fdCustomerID generated in response to ProfileAdd request.
+              description: "Consumer’s fdCustomerID generated in response to ProfileAdd request."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
         account:
           type: array
           items:
@@ -1110,21 +1134,40 @@ components:
             properties:
               type:
                 type: string
-                description: Value "ACH" always needs to be passed in this field.
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 1
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
               fdAccountID:
                 type: string
-                description: Consumer’s fdAccountID generated in response to Consumer Enrollment.
+                description: "Consumer’s fdAccountID generated in response to Consumer Enrollment."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 50
               fetchAccountDetails:
                 type: array
+                description: "List types of data needed to be fetch for the consumer."
+                minItems: 0
+                maxItems: 1
                 items:
                   type: object
                   properties:
                     fetch:
                       type: string
-                      description: firstName-description
+                      description: "Group name of the data need to be fetch."
+                      minItems: 1
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 50
                     masked:
                       type: string
-                      description: masked-description
+                      description: "Set masking is required for that group or not. Allowable values are 'N' or 'Y'."
+                      minItems: 1
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 1
     EstablishRequest:
       type: object
       properties:
@@ -1133,23 +1176,39 @@ components:
           properties:
             fdCustomerID:
               type: string
-              description: Consumer’s fdCustomerID associated with this request.
+              description: "Consumer’s fdCustomerID associated with this request."
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
         account:
           type: array
+          minItems: 1
+          maxItems: 1
           items:
             type: object
             properties:
               type:
                 type: string
-                enum:
-                  - ACH
-                description: Value "ACH" always needs to be passed in this field.
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 1
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
               callType:
                 type: string
-                description: Defines the type of data pulled from bank. Should be agreed upon value during onboarding of a merchant. Allowable values are "pwmb.getBankInfo", "pwmb.getConsumerInfo", "pwmb.getAll"
+                description: "Defines the type of data pulled from bank. Should be agreed upon value during onboarding of a merchant. Allowable values are 'pwmb.getBankInfo', 'pwmb.getConsumerInfo', 'pwmb.getAll'."
+                minItems: 1
+                maxItems: 1
+                minLength: 11
+                maxLength: 20
               returnUrl:
                 type: string
-                description: When using a web interface, after the user completes the online bank login service, this url will be loaded to the browser with all the online bank login parameters appended to it.
+                description: "When using a web interface, after the user completes the online bank login service, this url will be loaded to the browser with all the online bank login parameters appended to it."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
     ValidateRequest:
       type: object
       properties:
@@ -1158,38 +1217,104 @@ components:
           properties:
             fdCustomerID:
               type: string
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
         account:
           type: array
+          minItems: 1
+          maxItems: 1
           items:
             type: object
             properties:
               type:
                 type: string
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 1
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
               userIdentificationDetails:
                 type: object
                 properties:
                   onlineBankTransactionId:
                     type: string
+                    description: "Transaction id returned by online bank login service."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
               requestSignature:
                 type: string
+                description: "requestSignature recived from establish call."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 50
               callType:
                 type: string
+                description: "Defines the information requested for enrollment purposes. Options are : pwmb.getBankInfo pwmb.getConsumerInfo pwmb.getAll. The primary call type is pwmb.getBankInfo which will return consumers masked routing and account information Using pwmb.getAll will retrieve both consumers bank info along with customer info on file (name, address, email and phone)."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
               oblTransactionType:
                 type: string
+                description: "Describes the type of transaction that was performed with online bank login service. 1 = Authorize."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
               merchantReference:
                 type: string
+                description: "This is a unique identifier we generate that allows us to tie back the establishcall to the validate call that comes in later."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
               status:
                 type: string
+                description: "Result/status of the online bank login service. 2 = Authorized."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
               panel:
                 type: string
+                description: "UI panel identifier, it should always be 1."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
               paymentType:
                 type: string
+                description: "Defines the payment type. 6 = Retrieval (i.e. actual payment is done outside of the online bank login service)."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
               paymentProviderType:
                 type: string
+                description: "Type of payment provider. Should always be 1 easy online debit."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
               paymentAccountVerified:
                 type: string
+                description: "Boolean that indicates whether the account was successfully verified or not."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
               returnUrl:
                 type: string
+                description: "When using a web interface, after the user completes the online bank login, this  url will be loaded to the browser with all the online bank login parameters appended to it."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
     ProfileAddRequest:
       type: object
       properties:
@@ -1198,7 +1323,11 @@ components:
           properties:
             externalID:
               type: string
-              description: This is the user’s unique identifier in the merchant system.
+              description: "This is the user’s unique identifier in the merchant system."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
     EnrollmentRequest:
       type: object
       properties:
