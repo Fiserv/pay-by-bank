@@ -264,7 +264,7 @@ paths:
           $ref: '#/components/responses/500-CPAPI_BANK_VALIDATE'
   '/consumerprofile/add':
     post:
-      x-proxy-name: Add
+      x-proxy-name: Consumer Profile Add
       x-group-name: Consumer Profile Management
       tags:
         - Consumer Profile Management
@@ -306,7 +306,7 @@ paths:
           $ref: '#/components/responses/500-CPAPI_CUSTOMER_ADD'
   '/consumerprofile/enrollment':
     post:
-      x-proxy-name: Enrollment
+      x-proxy-name: Consumer Enrollment
       x-group-name: Consumer Profile Management
       tags:
         - Consumer Profile Management
@@ -327,8 +327,6 @@ paths:
             examples:
               RequestPayloadSample:
                 $ref: '#/components/examples/EnrollmentPayloadSample'
-              ProfileAddPayloadSample:
-                $ref: '#/components/examples/ProfileAddPayloadSample'
       responses:
         '200':
           $ref: '#/components/responses/200-EnrollmentResponsePayloadSamples'
@@ -392,7 +390,7 @@ paths:
           $ref: '#/components/responses/500-CPAPI_CONSUMER_LOAD'
   '/consumerprofile/validate':
     post:
-      x-proxy-name: Bank Account Authentication
+      x-proxy-name: Consumer Bank Account Authentication
       x-group-name: Consumer Profile Management
       tags:
         - Consumer Profile Management
