@@ -30,7 +30,19 @@
 
 - sections:
   - title: Getting Started
-    link: docs/getting-started.md
+    link: ./docs/getting-started.md
+  - title: API Implementation Guide
+    link: ./docs/implementationguide.md
+  - title: SDK Implementation Guide
+    link: ./docs/connectpaysdklanding.md
+  - title: Common Use Cases
+    link: ./docs/Commonusecaseslanding.md
+  - title: Application Status Codes
+    link: ./docs/statuscodes.md
+  - title: Masking Details Codes
+    link: ./docs/maskingdetails.md 
+  - title: Encryption and Decryption Details
+    link: ./docs/headersencryptiondecryption.md 
 - sections:
   - title: Release notes
     sections:

@@ -5,23 +5,27 @@ The PIN Pad or device used to capture the payment source is connected to the ter
 Commerce Hub supports the following encrypted payment source types: [EMV chip and PIN](?path=docs/In-Person/Encrypted-Payments/EMV.md), [track data (magstripe)](?path=docs/In-Person/Encrypted-Payments/Track.md), NFC/contactless, and [manual entry (EMV fallback)](?path=docs/In-Person/Encrypted-Payments/Manual.md).
 
 ---
-- [Step 1: Create Keys](#step-1-create-keys)
-- [Step 2: Get Payment Details](#step-2-get-payment-details)
-- [Step 3: Process Payment](#step-3-process-payment)
-- [Step 4: Finalize Transaction](#step-4-finalize-transaction)
+- [Recipe #1](#recipe-1)
+  - [Step 1: Create Keys](#step-1-create-keys)
+  - [Step 2: Get payment details](#step-2-get-payment-details)
+  - [Step 3: Process Payment](#step-3-process-payment)
+  - [Step 4: Finalize Transaction](#step-4-finalize-transaction)
+        - [Example of a charge payload request using `dynamicDescriptors`.](#example-of-a-charge-payload-request-using-dynamicdescriptors)
+        - [Example of a charge (201: Created) response.](#example-of-a-charge-201-created-response)
+  - [See also](#see-also)
 
 
 ---
 
 ## Step 1: Create Keys
-The benefits of a encyrpted PIN Pad solution are:
+The benefits of encrypted PIN Pad solution are:
 - Reduced coding effort for the developer because the encryption handling is already implemented by the third party vendor
 - All forms of electronic payment are accepted
 - Faster payment improving the customer experience
 - Business security by enabling acceptance of chip and signature, and chip and PIN
 
 ## Step 2: Get payment details
-The benefits of a encyrpted PIN Pad solution are:
+The benefits of a encrypted PIN Pad solution are:
 - All forms of electronic payment are accepted
 - Faster payment improving the customer experience
 - Business security by enabling acceptance of chip and signature, and chip and PIN
@@ -51,8 +55,8 @@ The benefits of a encyrpted PIN Pad solution are:
 ```
 
 ## Step 3: Process Payment
-The benefits of a encyrpted PIN Pad solution are:
-- Reduced coding effort for the developer because the encryption handling is already implemented by the third party vendor
+The benefits of an encrypted PIN Pad solution are:
+- Reduce coding effort for the developer, because the encryption handling is already implemented by the third party vendor.
 - All forms of electronic payment are accepted
 - Business security by enabling acceptance of chip and signature, and chip and PIN
 <!-- theme: info -->
