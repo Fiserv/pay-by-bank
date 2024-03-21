@@ -327,8 +327,6 @@ paths:
             examples:
               RequestPayloadSample:
                 $ref: '#/components/examples/EnrollmentPayloadSample'
-              ProfileAddPayloadSample:
-                $ref: '#/components/examples/ProfileAddPayloadSample'
       responses:
         '200':
           $ref: '#/components/responses/200-EnrollmentResponsePayloadSamples'
@@ -790,10 +788,10 @@ paths:
       summary: |
                    Use this to submit the final transaction amount after the Authorize request is approved.
       description: |
-                   Use subscriberId, transactionId and merchantTransactionId from Authorize call in the Capture request.
-                  
-                   The transaction can also be sent in using ConnectPayPaymentNumber instead of fdAccountID.
-                     
+        Use subscriberId, transactionId and merchantTransactionId from Authorize call in the Capture request.
+        
+        The transaction can also be sent in using ConnectPayPaymentNumber instead of fdAccountID.
+
       parameters:
         - $ref: '#/components/parameters/contentTypeParam'
         - $ref: '#/components/parameters/apiKeyParam'
@@ -804,15 +802,15 @@ paths:
         content:
           application/json:
             schema:
-                 $ref: '#/components/schemas/ACHCaptureRequest'
+              $ref: '#/components/schemas/ACHCaptureRequest'
             examples:
-              RequestPayloadSample: 
+              RequestPayloadSample:
                 $ref: '#/components/examples/ACHCaptureRequestPayloadSample'
       responses:
         '200':
           $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
-        '401': 
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'           
+        '401':
+          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
   '/transaction/refund':
     post:
       x-proxy-name: Refund
@@ -820,9 +818,9 @@ paths:
       tags:
         - Transactions
       summary: |
-                   Use this to initiate a refund request from a previously approved purchase/authorized transaction.
+        Use this to initiate a refund request from a previously approved purchase/authorized transaction.
       description: |
-                   Use this to initiate a refund request from a previously approved purchase/authorized transaction. Please note that the refund will be processed on the original account used for the transaction. Use subscriberId, transactionId and merchantTransactionId from the Purchase/Capture call in the Refund request. The transaction can also be sent in using connectPayPaymentNumber instead of fdAccountID.                    
+        Use this to initiate a refund request from a previously approved purchase/authorized transaction. Please note that the refund will be processed on the original account used for the transaction. Use subscriberId, transactionId and merchantTransactionId from the Purchase/Capture call in the Refund request. The transaction can also be sent in using connectPayPaymentNumber instead of fdAccountID.
       parameters:
         - $ref: '#/components/parameters/contentTypeParam'
         - $ref: '#/components/parameters/apiKeyParam'
@@ -833,15 +831,15 @@ paths:
         content:
           application/json:
             schema:
-                 $ref: '#/components/schemas/ACHRefundRequest'
+              $ref: '#/components/schemas/ACHRefundRequest'
             examples:
-              RequestPayloadSample: 
+              RequestPayloadSample:
                 $ref: '#/components/examples/ACHRefundRequestPayloadSample'
       responses:
         '200':
           $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
-        '401': 
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample' 
+        '401':
+          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
   '/transaction/void':
     post:
       x-proxy-name: Void
@@ -849,9 +847,9 @@ paths:
       tags:
         - Transactions
       summary: |
-                   Use this to initiate a void request from a previously approved purchase/authorized transaction.
+        Use this to initiate a void request from a previously approved purchase/authorized transaction.
       description: |
-                   Use this to initiate a void request from a previously approved purchase/authorized transaction.  Please note that the void will be processed on the original account used for the transaction. Use SubscriberId, TransactionId and MerchantTransactionId from the Purchase/Capture call in the Void request. The transaction can also be sent in using connectPayPaymentNumber instead of fdAccountID.                    
+        Use this to initiate a void request from a previously approved purchase/authorized transaction.  Please note that the void will be processed on the original account used for the transaction. Use SubscriberId, TransactionId and MerchantTransactionId from the Purchase/Capture call in the Void request. The transaction can also be sent in using connectPayPaymentNumber instead of fdAccountID.
       parameters:
         - $ref: '#/components/parameters/contentTypeParam'
         - $ref: '#/components/parameters/apiKeyParam'
@@ -862,15 +860,15 @@ paths:
         content:
           application/json:
             schema:
-                 $ref: '#/components/schemas/ACHVoidRequest'
+              $ref: '#/components/schemas/ACHVoidRequest'
             examples:
-              RequestPayloadSample: 
+              RequestPayloadSample:
                 $ref: '#/components/examples/ACHVoidRequestPayloadSample'
       responses:
         '200':
           $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
-        '401': 
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample' 
+        '401':
+          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
   '/transaction/collectionfee':
     post:
       x-proxy-name: Collection Fee Notification
@@ -878,9 +876,9 @@ paths:
       tags:
         - Transactions
       summary: |
-                   Point of sale transaction use cases to display applicable state collection fee and cost to the consumer prior to transacting.
+        Point of sale transaction use cases to display applicable state collection fee and cost to the consumer prior to transacting.
       description: |
-                   Per Reg E requirements, this service is required for in-person, point of sale transaction use cases to display applicable state collection fee and cost to the consumer prior to transacting.  For other payment uses cases (i.e. online transactions) this service is not needed, rather a link to our collection fee and cost table is displayed in the checkout page.  Please refer to the Legal and Compliance section in the ConnectPay Merchant Guide.                    
+        Per Reg E requirements, this service is required for in-person, point of sale transaction use cases to display applicable state collection fee and cost to the consumer prior to transacting.  For other payment uses cases (i.e. online transactions) this service is not needed, rather a link to our collection fee and cost table is displayed in the checkout page.  Please refer to the Legal and Compliance section in the ConnectPay Merchant Guide.
       parameters:
         - $ref: '#/components/parameters/contentTypeParam'
         - $ref: '#/components/parameters/apiKeyParam'
@@ -891,15 +889,15 @@ paths:
         content:
           application/json:
             schema:
-                 $ref: '#/components/schemas/ACHCollectionFeeRequest'
+              $ref: '#/components/schemas/ACHCollectionFeeRequest'
             examples:
-              RequestPayloadSample: 
+              RequestPayloadSample:
                 $ref: '#/components/examples/ACHCollectionFeeRequestPayloadSample'
       responses:
         '200':
           $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
-        '401': 
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample' 
+        '401':
+          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
 components:
   parameters:
     apiKeyParam:
@@ -2121,6 +2119,48 @@ components:
                 maxItems: 1
                 minLength: 3
                 maxLength: 3
+              userIdentificationDetails:
+                type: object
+                properties:
+                  connectPayPaymentNumber:
+                    type: string
+                    description: "ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Max length 19."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 11
+                    maxLength: 19
+                  pin:
+                    type: string
+                    description: "Personal identification number. Currently supported length is 4-6 digits."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 4
+                    maxLength: 6
+    BankAccountAuthenticationRequest:
+      type: object
+      properties:
+        customer:
+          type: object
+          properties:
+            fdCustomerID:
+              type: string
+              description: "This is the user’s unique identifier fdCustomerID associated with this request."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
+        account:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 1
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
               fdAccountID:
                 type: string
                 description: "This is the user’s unique payment account identifier associated with this request."
@@ -2143,6 +2183,382 @@ components:
                 minLength: 4
                 maxLength: 7
     ConsumerUpdateRequest:
+      type: object
+      properties:
+        customer:
+          type: object
+          properties:
+            fdCustomerID:
+              type: string
+              description: "This is the user’s unique identifier fdCustomerID associated with this request."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
+        account:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 1
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
+              fdAccountID:
+                type: string
+                description: "This is the user’s unique payment account identifier associated with this request."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 50
+              userDetails:
+                type: object
+                properties:
+                  firstName:
+                    type: string
+                    description: "Customers first name."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
+                  lastName:
+                    type: string
+                    description: "Customers last name."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 50
+                  email:
+                    type: string
+                    description: "Customers E-Mail address."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 3
+                    maxLength: 75
+                  gender:
+                    type: string
+                    description: "Customers gender. Could be 'M' or 'F'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+                  dob:
+                    type: string
+                    description: "Customers date of birth. Format should be YYYYMMDD."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 8
+                    maxLength: 8
+                  memberSince:
+                    type: string
+                    description: "Date since when customer subscribed for merchant services."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 8
+                    maxLength: 8
+                  agreedTncVersion:
+                    type: string
+                    description: "Terms and Conditions version number customer signed up for."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 10
+              userAddressDetails:
+                type: object
+                properties:
+                  street:
+                    type: string
+                    description: "Customer's address street 1."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 50
+                  street2:
+                    type: string
+                    description: "Customer's address street 2."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 50
+                  state:
+                    type: string
+                    description: "Two letter US state code for customers address."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 2
+                    maxLength: 2
+                  city:
+                    type: string
+                    description: "City for customers address."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 50
+                  postalCode:
+                    type: string
+                    description: "Postal code for customers address."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 5
+                    maxLength: 5
+              userIdentificationDetails:
+                type: object
+                properties:
+                  connectPayPaymentNumberNew:
+                    type: string
+                    description: "New ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Payment number is usually updated when the old / existing payment number is lost or stolen."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 11
+                    maxLength: 19
+                  routingNumber:
+                    type: string
+                    description: "Consumer's updated routing transit number."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 9
+                    maxLength: 9
+                  accountNumber:
+                    type: string
+                    description: "Consumer's updated bank account number."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 17
+                  driverLicenseNumber:
+                    type: string
+                    description: "Consumer's Driver’s License Number."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 20
+                  driverLicenseState:
+                    type: string
+                    description: "Consumer's Driver’s License State."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 2
+                    maxLength: 2
+                  country:
+                    type: string
+                    description: "Value '840' always needs to be passed in this field."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 3
+                    maxLength: 3
+                  ssn:
+                    type: string
+                    description: "Customer's updated social security number."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 9
+                    maxLength: 9
+                  pin:
+                    type: string
+                    description: "Customer's existing pin on record needs to be populated in this field when trying to update pin."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 4
+                    maxLength: 6
+                  onlineBankTransactionId:
+                    type: string
+                    description: "This needs to be populated in case bank account is being updated using online bank login feature."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
+                  pinNew:
+                    type: string
+                    description: "Customer's new pin that he wants to update to in a pin update scenario."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 4
+                    maxLength: 6
+              userPhone:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      description: "Customer's phone type. Allowable values 'MOBILE', 'HOME', 'BUSINESS', 'OTHERS'."
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 4
+                      maxLength: 8
+                    number:
+                      type: string
+                      description: "Customer's updated phone number."
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 10
+                      maxLength: 10
+                    extension:
+                      type: string
+                      description: "Customer's updated phone number extension."
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                    primary:
+                      type: string
+                      description: "There should be mandatorily one primary phone 'Y' for a user. No primary phones, or more than one primary phone results in enrollment error."
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 1
+              sqnA:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    securityQuestionId:
+                      type: string
+                      description: "Question ID (some unique question identifier which uniquely identifies a question for merchant). Could use sequential numbers 1, 2, 3 if consumer has multiple security questions."
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 9
+                    securityQuestion:
+                      type: string
+                      description: "Security Question Text."
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 100
+                    securityAnswer:
+                      type: string
+                      description: "Security Answer Text."
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 100
+              userSysDetails:
+                type: object
+                properties:
+                  ipAddress:
+                    type: string
+                    description: "IPAddress of merchant system from where the request landed up in Telecheck."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 7
+                    maxLength: 15
+                  trueIpAddress:
+                    type: string
+                    description: "Consumer's IP Address."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 7
+                    maxLength: 15
+                  imei:
+                    type: string
+                    description: "IMEI of mobile device."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
+                  organizationId:
+                    type: string
+                    description: "Used for device ThreatMetrix fingerprinting services."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 10
+                  sessionId:
+                    type: string
+                    description: "Used for device ThreatMetrix fingerprinting services."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 128
+    ConsumerCloseRequest:
+      type: object
+      properties:
+        customer:
+          type: object
+          properties:
+            fdCustomerID:
+              type: string
+              description: "This is the user’s unique identifier fdCustomerID associated with this request."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
+        account:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 1
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
+              fdAccountID:
+                type: string
+                description: "This is the user’s unique payment identifier associated with this request."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 50
+              reason:
+                type: string
+                description: "Reason for consumer closing his or her account."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
+    GetAccountListRequest:
+      type: object
+      properties:
+        customer:
+          type: object
+          properties:
+            fdCustomerID:
+              type: string
+              description: "Consumer’s fdCustomerID generated in response to ProfileAdd request."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
+    GetAccountDetailsRequest:
+      type: object
+      properties:
+        customer:
+          type: object
+          properties:
+            fdCustomerID:
+              type: string
+              description: "Consumer’s fdCustomerID generated in response to ProfileAdd request."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
+        account:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 1
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
+              fdAccountID:
+                type: string
+                description: "This is the user’s unique payment identifier associated with this request."
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 50
+    ACHPurchaseRequest:
       type: object
       properties:
         customer:
@@ -2893,11 +3309,6 @@ components:
             paymentAccountVerified: "true"
             returnUrl: https://cat.api.firstdata.com/gateway/v2/connectpay/static/v1/build/index.html#/CPBankOnlyWidget/
     ProfileAddPayloadSample:
-      value:
-        componentX: L0WLCiqw0TT0tqaRH3Ksz4wdQFf2YAnIeiCScd+hrAWO2Hlv7lDsNnQpd+ORxkIjOHmwJuC58Q0tsc WnOI2Gh5DJ75wk5xnp/0RWQoB2+pTMGo6On+O+vFxkhVQRKlRgJu0G/RNZV4EFa1iBdDTY6UZL0I WtqDT1zwUiu+2NWAOdPDIbAIsekhJrhRAIFNsHeiYhUxBCsF+gxybJupB0XjGIWhAkPjO7AKPR1fXWU/ ZRifzsdu1/X43DSTz4d4/bYAD6iAaSBJUewSVwUG9OodeU84LYgdba4vRNa2G3BpzfomdvK6H1C8pj HjnVjUGP2F3IO6tMDnpAFZfrxvytlg==
-        componentY: K5BTgBGzhIux2ZnodU4MWRUVhUFbU4P376TLTHZa02nU2jVb2pAWK3gMfpEHsE7WeoLlNrzAJwR 1FJ679z4Oo/yWp7k39zamQNlMHvm6EYBBbxIemexBHIIqqNRFdHhq6S3pA6L/9ItyscEl5/zZIKxcx44hv CCPZOZUhnOTSc4ehPnYJhdJQFgIDhY5UPRRZntM8hP2hOPZTVz5D4re17bSYVOEEK7bmpGIWpf9p ERUj4MlUpyRpafNd2mQsZpXPvW3XZfHDbslO7o3LourFHRSqAfBHOfx+pwH+YcMwglnay/Ay2SYWyZ hKkD+UcHSkyBdk/AMdcKt1K9uCIPm/Q==
-        componentDelta: KKRKg/jPcb+r/3TZmhLP/KxrMEajXKvBYQd5jeGFm2OzznUvNHuyEhWyJc4RlXFRoLhwcj9eEuSOz0a bTAeU+Xw8hSMJ6kYhHokJ3ev8tgQ=
-    RequestBodyPayloadSample:
       value:
         customer:
           externalID : Merchant01Consumer65746635
@@ -4316,6 +4727,22 @@ components:
                   errorReason: Field did not have a valid format
             1010-InitializationVector:
               value: 
+                errorDetails:
+                  errorCode: 1035
+                  errorField: CallType
+                  errorReason: Required field is missing
+            1035-PassPhase:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 2d1897b7-82ad-1c9e-c453-494d7b6a0730
+                transactionStatusDescription: Input is invalid
+                errorDetails:
+                  errorCode: 1035
+                  errorField: PassPhase
+                  errorReason: Required field is missing
+            1035-InitializationVector:
+              value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
                 referenceTransactionID: ab06086c-2691-5687-9c2b-7b479365935d
@@ -4336,6 +4763,22 @@ components:
                   errorReason: Field did not have a valid format
             1020-fdCustomerID:
               value: 
+                errorDetails:
+                  errorCode: 1035
+                  errorField: InitializationVector
+                  errorReason: Required field is missing
+            1035-allData:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 195c7e91-d2ba-7b2a-1022-da088ae2a9a4
+                transactionStatusDescription: Input is invalid
+                errorDetails:
+                  errorCode: 1035
+                  errorField: allData
+                  errorReason: Required Block is missing
+            1035-adapter:
+              value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
                 referenceTransactionID: e8277c5c-c458-4e29-3637-671a92849582
@@ -4520,6 +4963,24 @@ components:
                 transactionStatusCode: 100
                 referenceTransactionID: c00ea59a-2694-cd65-c79e-e04e294c7192
                 transactionStatusDescription: Input is invalid
+                errorDetails:
+                  errorCode: 1035
+                  errorField: adapter
+                  errorReason: Required Block is missing
+            1040-customer:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: b20a6d4d-7530-3421-e730-5aeb9307d7ed
+                transactionStatusDescription: Input is invalid
+                errorDetails:
+                  errorCode: 1040
+                  errorField: customer
+                  errorReason: Required block did not have a value
+            1040-adapter:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
                 errorDetails:
                   errorCode: 1035
                   errorField: adapter
@@ -4821,42 +5282,42 @@ components:
                   errorField: externalID
                   errorReason: Field contained a bad value
             1030-externalID:
-              value: 
+              value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
                 referenceTransactionID: 691b65e6-72b9-94d0-a8b8-b4e01823667d
-                transactionStatusDescription: Input is invalid 
-                errorDetails: 
+                transactionStatusDescription: Input is invalid
+                errorDetails:
                   errorCode: 1030
                   errorField: externalID
                   errorReason: Required field did not have a value
             1035-externalID:
-              value: 
+              value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
                 referenceTransactionID: d2bdd7e0-62e9-5886-39a9-6dd915b1208d
-                transactionStatusDescription: Input is invalid 
-                errorDetails: 
+                transactionStatusDescription: Input is invalid
+                errorDetails:
                   errorCode: 1035
                   errorField: externalID
                   errorReason: Required field is missing
             1035-PassPhase:
-              value: 
+              value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
                 referenceTransactionID: 7c2a2d1d-5e7d-e83e-0670-12cbde98c3a6
                 transactionStatusDescription: Input is invalid
-                errorDetails: 
+                errorDetails:
                   errorCode: 1035
                   errorField: PassPhase
                   errorReason: Required field is missing
             1035-InitializationVector:
-              value: 
+              value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
                 referenceTransactionID: d7d56946-1967-d841-03ed-88c013e20dd8
                 transactionStatusDescription: Input is invalid
-                errorDetails: 
+                errorDetails:
                   errorCode: 1035
                   errorField: InitializationVector
                   errorReason: Required field is missing
@@ -5449,6 +5910,550 @@ components:
                   errorCode: 4550
                   errorField: PartnerID
                   errorReason: Partner is not opt for this service
+    403-CPAPI_ENROLLMENT:
+      description: |
+        Forbidden
+    409-CPAPI_ENROLLMENT:
+      description: |
+        Indicates a conflict with the current state of a resource
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            4920-ConnectPayPaymentNumber:
+              value:
+                transactionStatus: DECLINED
+                transactionStatusCode: 409
+                referenceTransactionID: 86d5501a-ae44-86ba-3773-4dc002110ac8
+                transactionStatusDescription: Conflict
+                errorDetails:
+                  errorCode: 4920
+                  errorField: ConnectPayPaymentNumber
+                  errorReason: ConnectPayPaymentNumber is already enrolled
+    500-CPAPI_ENROLLMENT:
+      description: |
+        An unexpected server error occured
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            5110-UCOMM_CLEAR_DATA:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: a1b22561-8107-1ae8-2831-3453242242bc
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5110
+                  errorField: UCOMM_CLEAR_DATA
+                  errorReason: Please try again after some time, If issue persist please contact customer support
+            5130-UCOMM_ADD:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: 8818a789-29a6-3d04-0e3e-5a66201c2468
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5130
+                  errorField: UCOMM_ADD
+                  errorReason: Please try again after some time, If issue persist please contact customer support
+            5140-UCOMM_GET_ALL_ACCOUNT:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: 209e5004-1d10-234c-0ab5-c2082ca62433
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5140
+                  errorField: UCOMM_GET_ALL_ACCOUNT
+                  errorReason: Please try again after some time, If issue persist please contact customer support
+            5210-MIE_ENROLLMENT:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: 000b9123-3682-1490-c7e6-36c293801562
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5210
+                  errorField: MIE_ENROLLMENT
+                  errorReason: Please try again after some time, If issue persist please contact customer support
+            5230-MIE_CLOSE:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: 0a54b13d-00e1-b849-d645-8bb966a876c1
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5230
+                  errorField: MIE_CLOSE
+                  errorReason: Please try again after some time, If issue persist please contact customer support
+            5340-PartnerID:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: b95a1880-0bd8-3818-c374-1208a84ab5c2
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5340
+                  errorField: PartnerID
+                  errorReason: Configuration Error, Please contact customer support
+            5340-SubscriberId:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: 07c1560a-a112-6467-0a58-131dc3b93b6b
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5340
+                  errorField: SubscriberId
+                  errorReason: Configuration Error, Please contact customer support
+            5340-AES:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: 00edc4b0-38e6-455b-d699-6967bb3d7343
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5340
+                  errorField: AES
+                  errorReason: Configuration Error, Please contact customer support
+            5340-PublicKeyExpired:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: 13bd93c8-4c50-76e9-4cc9-30d82212960e
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5340
+                  errorField: PublicKey Expired
+                  errorReason: Configuration Error, Please contact customer support
+    # This is the start of Consumer Load
+    200-ConsumerLoadResponsePayloadSamples:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: APPROVED
+                transactionStatusCode: 0
+                referenceTransactionID: 50c4df9a-cb57-4db5-a191-ea0327bd147e
+                transactionStatusDescription: Created
+                responseVerbiage: MIE Verify Profile Response Page 1 - Verification Success
+                nonce: 9E5048FAAA950394E0530AAE3307E7A6416
+                customer:
+                  fdCustomerID: CP87rx15814147322210000442tJpajq
+                account:
+                  - accountStatus: 70
+                    accountStatusDesc: PENDING_VALIDATIONS
+                    accountValidationDetails:
+                      - validationCode: 10
+                        validationCodeDesc: Bank Validation Status
+                        validationCodeStatus: PENDING
+                      - validationCode: 50
+                        validationCodeDesc: Pin Update Status
+                        validationCodeStatus: COMPLETE
+                      - validationCode: 70
+                        validationCodeDesc: Email Validation Status
+                        validationCodeStatus: COMPLETE
+                      - validationCode: 80
+                        validationCodeDesc: Phone Validation Status
+                        validationCodeStatus: COMPLETE
+    201-CPAPI_CONSUMER_LOAD:
+      description: |
+        The request was successfully fulfilled and resulted in one or multiple new resources being created
+    202-CPAPI_CONSUMER_LOAD:
+      description: |
+        The request has been accepted for processing, but the processing has not been finished yet
+    204-CPAPI_CONSUMER_LOAD:
+      description: |
+        The request has succeeded, but the client doesn't need to navigate away from its current page
+    400-CPAPI_CONSUMER_LOAD:
+      description: |
+        Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            2210-fdCustomerID:
+              value:
+                transactionStatus: DECLINED
+                transactionStatusCode: 140
+                referenceTransactionID: 8e74e642-030b-4f00-8d10-3732d87e3cd1
+                transactionStatusDescription: The Customer has already enrolled the maximum allowable number of accounts
+                responseVerbiage: The Customer has already enrolled the maximum allowable number of accounts
+                errorDetails:
+                  errorCode: 2210
+                  errorField: fdCustomerID
+                  errorReason: The Customer has already enrolled the maximum allowable number of accounts.
+    401-CPAPI_CONSUMER_LOAD:
+      description: |
+        Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            4550-PartnerID:
+              value:
+                transactionStatus: DECLINED
+                transactionStatusCode: 401
+                referenceTransactionID: 4a548be5-d3b0-c37c-8a09-4b005e84dcd3
+                transactionStatusDescription: Unauthorize
+                errorDetails:
+                  errorCode: 4550
+                  errorField: PartnerID
+                  errorReason: Partner is not opt for this service
+    403-CPAPI_CONSUMER_LOAD:
+      description: |
+        Forbidden
+    409-CPAPI_CONSUMER_LOAD:
+      description: |
+        Indicates a conflict with the current state of a resource
+    500-CPAPI_CONSUMER_LOAD:
+      description: |
+        An unexpected server error occured
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            5120-UCOMM_CUSTOMER_ADD:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: db214a8d-04c0-4cab-9c33-d0aa68a3902a
+                transactionStatusDescription: General Error
+                errorDetails:
+                  errorCode: 5120
+                  errorField: UCOMM_CUSTOMER_ADD
+                  errorReason: Please try again after some time, If issue persist please contact customer support
+    # This is the start of Consumer update
+    200-ConsumerUpdateResponsePayloadSamples:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: APPROVED
+                transactionStatusCode: 70
+                referenceTransactionID: 9642a26f-d109-4042-87ca-b0ef0dfc8699
+                transactionStatusDescription: Validations Pending
+                responseVerbiage: Update Enrollment Response Page 2 - Update Approved, BAA Pending
+                nonce: 92C0F834C6C20276E0530AAE33071E76131
+                teleCheckDetails:
+                  transactionId: "1400099000000000008038"
+                  tckResponseCode: "07"
+                  approvalCode: "7333"
+                  displayText: "APPROVED 7389"
+                  sequenceId: "0"
+                  ecaOfferCode: Y
+                customer:
+                  fdCustomerID: CP87rx15814147322210000442tJpajq
+                account:
+                  - accountStatus: 70
+                    accountStatusDesc: PENDING_VALIDATIONS
+                    accountValidationDetails:
+                      - validationCode: 10
+                        validationCodeDesc: Bank Validation Status
+                        validationCodeStatus: PENDING
+                      - validationCode: 50
+                        validationCodeDesc: Pin Update Status
+                        validationCodeStatus: COMPLETE
+                      - validationCode: 70
+                        validationCodeDesc: Email Validation Status
+                        validationCodeStatus: COMPLETE
+                      - validationCode: 80
+                        validationCodeDesc: Phone Validation Status
+                        validationCodeStatus: COMPLETE
+    201-CPAPI_CONSUMER_UPDATE:
+      description: |
+        The request was successfully fulfilled and resulted in one or multiple new resources being created
+    202-CPAPI_CONSUMER_UPDATE:
+      description: |
+        The request has been accepted for processing, but the processing has not been finished yet
+    204-CPAPI_CONSUMER_UPDATE:
+      description: |
+        The request has succeeded, but the client doesn't need to navigate away from its current page
+    400-CPAPI_CONSUMER_UPDATE:
+      description: |
+        Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            2040-ConnectPayPaymentNumber:
+              value:
+                transactionStatus: DECLINED
+                transactionStatusCode: 120
+                referenceTransactionID: ff5e247b-841a-4eb1-9ec7-a485a433d8fc
+                transactionStatusDescription: Consumer Cannot Be Validated
+                responseVerbiage: Update Enrollment Response Page 4 - Data Entry Error
+                errorDetails:
+                  errorCode: 2040
+                  errorField: ConnectPayPaymentNumber
+                  errorReason: Card and Pin combination does not match for consumer.
+    401-CPAPI_CONSUMER_UPDATE:
+      description: |
+        Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            4550-PartnerID:
+              value:
+                transactionStatus: DECLINED
+                transactionStatusCode: 401
+                referenceTransactionID: 4a548be5-d3b0-c37c-8a09-4b005e84dcd3
+                transactionStatusDescription: Unauthorize
+                errorDetails:
+                  errorCode: 4550
+                  errorField: PartnerID
+                  errorReason: Partner is not opt for this service
+    403-CPAPI_CONSUMER_UPDATE:
+      description: |
+        Forbidden
+    409-CPAPI_CONSUMER_UPDATE:
+      description: |
+        Indicates a conflict with the current state of a resource
+    500-CPAPI_CONSUMER_UPDATE:
+      description: |
+        An unexpected server error occured
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            1010-Street:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 18446d2b-6245-40f8-90e7-678278b0aa8c
+                transactionStatusDescription: Input is invalid
+                errorDetails:
+                  errorCode: 1010
+                  errorField: Street
+                  errorReason: Field did not have a valid format
+    # This is the start of Bank Account Authentication
+    200-BankAccountAuthenticationResponsePayloadSamples:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: APPROVED
+                transactionStatusCode: 0
+                referenceTransactionID: 50c4df9a-cb57-4db5-a191-ea0327bd147e
+                transactionStatusDescription: OK
+                responseVerbiage: BAA Validation Response Page 1 - Correct
+                nonce: 9E5048FAAA950394E0530AAE3307E7A6416
+                customer:
+                  fdCustomerID: CP87rx15814147322210000442tJpajq
+                account:
+                  - accountStatus: "10"
+                    accountStatusDesc: ACTIVE
+                    accountValidationDetails:
+                      - validationCode: "10"
+                        validationCodeDesc: Bank Validation Status
+                        validationCodeStatus: COMPLETE
+    201-CPAPI_BAA:
+      description: |
+        The request was successfully fulfilled and resulted in one or multiple new resources being created
+    202-CPAPI_BAA:
+      description: |
+        The request has been accepted for processing, but the processing has not been finished yet
+    204-CPAPI_BAA:
+      description: |
+        The request has succeeded, but the client doesn't need to navigate away from its current page
+    400-CPAPI_BAA:
+      description: |
+        Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            1010-AuthenticationAnswer:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: cbe626af-37e5-42f0-8af7-3f95afa9d41f
+                transactionStatusDescription: Input is invalid
+                responseVerbiage: Input is invalid
+                errorDetails:
+                  errorCode: 1010
+                  errorField: AuthenticationAnswer
+                  errorReason: Field did not have a valid format
+            4500-PartnerID:
+              value:
+                transactionStatus: DECLINED
+                transactionStatusCode: 450
+                referenceTransactionID: 99be0e16-3855-44b9-8acc-83f5654bc3dd
+                transactionStatusDescription: Partner Not Found
+                errorDetails:
+                  errorCode: 4500
+                  errorField: PartnerID
+                  errorReason: PartnerID not Found
+    401-CPAPI_BAA:
+      description: |
+        Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            4550-PartnerID:
+              value:
+                transactionStatus: DECLINED
+                transactionStatusCode: 401
+                referenceTransactionID: 4a548be5-d3b0-c37c-8a09-4b005e84dcd3
+                transactionStatusDescription: Unauthorize
+                errorDetails:
+                  errorCode: 4550
+                  errorField: PartnerID
+                  errorReason: Partner is not opt for this service
+    403-CPAPI_BAA:
+      description: |
+        Forbidden
+    409-CPAPI_BAA:
+      description: |
+        Indicates a conflict with the current state of a resource
+    500-CPAPI_BAA:
+      description: |
+        An unexpected server error occured
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            5120-UCOMM_CUSTOMER_ADD:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 500
+                referenceTransactionID: db214a8d-04c0-4cab-9c33-d0aa68a3902a
+                transactionStatusDescription: General Error
+    # This is the start of profile add
+    200-ConsumerCloseResponsePayloadSamples:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: APPROVED
+                transactionStatusCode: 0
+                referenceTransactionID: be6a5f6f-733c-4b00-8929-d0264ac3f80a
+                transactionStatusDescription: OK
+                responseVerbiage: MIE Close Service Response Page 1 - Closed Success
+                customer:
+                  fdCustomerID: CP87rx15814147322210000442tJpajq
+                account:
+                  - accountStatus: 40
+                    accountStatusDesc: CLOSED
+                    accountValidationDetails:
+                      - validationCode: 70
+                        validationCodeDesc: Email Validation Status
+                        validationCodeStatus: COMPLETE
+                      - validationCode: 80
+                        validationCodeDesc: Phone Validation Status
+                        validationCodeStatus: COMPLETE
+    201-CPAPI_CONSUMER_CLOSE:
+      description: |
+        The request was successfully fulfilled and resulted in one or multiple new resources being created
+    202-CPAPI_CONSUMER_CLOSE:
+      description: |
+        The request has been accepted for processing, but the processing has not been finished yet
+    204-CPAPI_CONSUMER_CLOSE:
+      description: |
+        The request has succeeded, but the client doesn't need to navigate away from its current page
+    400-CPAPI_CONSUMER_CLOSE:
+      description: |
+        Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            1010-fdAccountID:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: e8ab47a2-520a-5d33-4e03-253e19e257cb
+                transactionStatusDescription: Input is invalid
+                errorDetails:
+                  errorCode: 1010
+                  errorField: fdAccountID
+                  errorReason: Field did not have a valid format
+            1020-fdAccountID:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 02e34833-59b9-8787-5d5d-8dad20e14288
+                transactionStatusDescription: Input is invalid
+                errorDetails:
+                  errorCode: 1020
+                  errorField: fdAccountID
+                  errorReason: Field contained a bad value
+            1030-fdAccountID:
+              value:
+                transactionStatus: ERROR
+                transactionStatusCode: 100
+                referenceTransactionID: 691b65e6-72b9-94d0-a8b8-b4e01823667d
+                transactionStatusDescription: Input is invalid
+                errorDetails:
+                  errorCode: 1030
+                  errorField: fdAccountID
+                  errorReason: Required field did not have a value
+    401-CPAPI_CONSUMER_CLOSE:
+      description: |
+        Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            401-nan:
+              value:
+                transactionStatus:
+                transactionStatusCode: 401
+                referenceTransactionID: 2229da04-ae59-c994-d927-d0de759bbb6d
+                transactionStatusDescription: Unauthorized
+                errorDetails:
+                  errorCode: 401
+                  errorField: nan
+                  errorReason: Unauthorized
+            4550-PartnerID:
+              value:
+                transactionStatus: DECLINED
+                transactionStatusCode: 401
+                referenceTransactionID: 4a548be5-d3b0-c37c-8a09-4b005e84dcd3
+                transactionStatusDescription: Unauthorize
+                errorDetails:
+                  errorCode: 4550
+                  errorField: PartnerID
+                  errorReason: Partner is not opt for this service
+    403-CPAPI_CONSUMER_CLOSE:
+      description: |
+        Forbidden
+    409-CPAPI_CONSUMER_CLOSE:
+      description: |
+        Indicates a conflict with the current state of a resource
+    500-CPAPI_CONSUMER_CLOSE:
     403-CPAPI_ENROLLMENT:
       description: |
         Forbidden
