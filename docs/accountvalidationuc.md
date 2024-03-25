@@ -8,21 +8,17 @@ Sequence of activities for completing Account Validation scenario:
 
 ## Implementation Steps: Bank Login Process
 ### Create Session Token 
-<p>
+
 [Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
-</p>
 
 ### Initialize and Launch ConnectPay SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
-<p>
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
-</p>
-<p>
-[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
-</p>
-<p>
-[Android]((https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
-</p>
+
+[WebSDK](?path=documentation/websdk.md)
+
+[iOS](?path=documentation/iossdk.md)
+
+[Android](?path=documentation/androidsdk.md)
 
 ### Additional Steps
 <ol>
@@ -33,10 +29,10 @@ You will want to go to the specific mobile operating section and look to initial
   <li>Merchant server does a server to server GetData call to retrieve fdAccountId generated after consumer data update </li>
   <li>Merchant server stores/updates the `fdAccountId` against the `externalId`,for the payment instrument in question, in their system for future use </li>
 </ol>
-<!-- theme: danger 
-If Account Validation call is invoked multiple times for the same consumer and payment number, the consumer will receive a successful response with the same `fdAccountId` for the ConnectPay payment number, every time.
--->
-<p>Image on the flow of the activity</p>
+
+>If Account Validation call is invoked multiple times for the same consumer and payment number, the consumer will receive a successful response with the same `fdAccountId` for the ConnectPay payment number, every time.
+
+Image on the flow of the activity
 
 ### Issues with Integration
 [Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
