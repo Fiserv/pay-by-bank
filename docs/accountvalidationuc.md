@@ -9,17 +9,17 @@ Sequence of activities for completing Account Validation scenario:
 ## Implementation Steps: Bank Login Process
 ### Create Session Token 
 
-[Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
+[Create Session Token](?path=./docs/implementationguide.md)
+>Note: See section labeled Create Session Token
 
 ### Initialize and Launch ConnectPay SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
 
-[WebSDK](?path=documentation/websdk.md)
+[WebSDK](?path=./docs/websdk.md)
 
-[iOS](?path=documentation/iossdk.md)
+[iOS](?path=./docs/iossdk.md)
 
-[Android](?path=documentation/androidsdk.md)
-
+[Android](?path=./docs/androidsdk.md)
 ### Additional Steps
 <ol>
   <li>Pass necessary data to the SDK (including `fdCustomerId`)</li>

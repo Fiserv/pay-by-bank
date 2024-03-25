@@ -3,31 +3,23 @@
 
 ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different than other updates to consumer information and needs to be called out. At the end of the ConnectPayPaymentNumber update, the merchant needs to update their record with the new `fdAccountId` for the payment instrument.
 
-<!-- theme: danger 
-Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
--->
+
+>Note: Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
 
 ## Implementation Steps: Bank Login Process
 ### Create Session Token 
-<p>
 
-[Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
-</p>
+[Create Session Token](?path=./docs/implementationguide.md)
+>Note: See section labeled Create Session Token
 
 ### Initialize and Launch ConnectPay SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
-<p>
 
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
-</p>
-<p>
+[WebSDK](?path=./docs/websdk.md)
 
-[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
-</p>
-<p>
+[iOS](?path=./docs/iossdk.md)
 
-[Android]((https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
-</p>
+[Android](?path=./docs/androidsdk.md)
 
 ### Additional Steps
 <ol>

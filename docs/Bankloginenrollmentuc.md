@@ -1,9 +1,9 @@
 # Bank Login Enrollment Architecture
 ## Explanation of Feature
 This is the preferred method of consumer enrollment into ConnectPay
-<!-- theme: danger 
+
 >For uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps:
--->
+
 <p>
 The consumer is presented with an option to login into his/her bank account using their bank username and password. Once the consumer logs in, authorizes the bank account he/she wants to use for this enrollment, and submits, ConnectPay fetches the consumer demographic and/or bank information from the bank using a secure backend connection and populates all the details on the consumers enrollment screen. The consumer will then verify all the details and edit them as he/she sees fit (except for bank account details) and submits the enrollment.
 </p>
@@ -14,31 +14,24 @@ Sequence of activities for completing bank login enrollment:
 
 ## Implementation Steps: Bank Login Process
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
-<p>
 
-[Create Consumer Profile](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/implementationguide.md&branch=develop)
-</p>
+[Create Consumer Profile](?path=./docs/implementationguide.md)
 
 ### Create Session Token 
-<p>
 
-[Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
-</p>
+[Create Session Token](?path=./docs/implementationguide.md)
+>Note: See section labeled Create Session Token
+
 
 ### Initialize and Launch ConnectPay SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
-<p>
 
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
-</p>
-<p>
+[WebSDK](?path=./docs/websdk.md)
 
-[iOS]([(https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
-</p>
-<p>
+[iOS](?path=./docs/iossdk.md)
 
-[Android]((https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
-</p>
+[Android](?path=./docs/androidsdk.md)
+
 
 ### Additional Steps
 <p>Following are the steps to take to complete bank login</p>
