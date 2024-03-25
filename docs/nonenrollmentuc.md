@@ -13,6 +13,11 @@ This section would cover business use cases like Micro Deposit Validation,Consum
 [Create Session Token](?path=./docs/implementationguide.md)
 >Note: See section labeled Create Session Token
 
+
+>For uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps:
+[uCOM](?path=docs/documentation/Standard_Implementation_Guide.md)
+
+
 ### Initialize and Launch ConnectPay SDK
 
 You will want to go to the specific mobile operating section and look to initialize the App
