@@ -340,7 +340,6 @@ cpsdk.updateEnrollment(
     gson.fromJson(extraParams, EnrollmentRequest::class.java), 
     configurationCallback as ConfigurationCallback<UpdateEnrollment>)
 ```
-
 ## Extras
 
-[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md&branch=develop)
+>If you experience Errors while developing, you will want to utilize our API Explorer (on the left) in the sample request and responses so that you can see the desired errors and why. 

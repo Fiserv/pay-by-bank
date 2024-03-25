@@ -14,8 +14,9 @@ Drag and drop the provided Universal Binary (.framework file) into your project 
 Ensure that the PaymentSDK Universal binary is linked and embedded, navigate to your target settings and ensure that the binary appears under the "Embedded Binaries" and "Linked Frameworks and Libraries" section. (If you don't see the PaymentSDK Universal library listed there, you can use the "+" button to manually embed and link the binary for your target).
 
 ## Configuration
-### Step 1 Impor
-t
+
+### Step 1 Import
+
 Import the ConnectPay SDK
 
 ```ios
@@ -182,4 +183,4 @@ UpdateEnrollment *updateEnrollment = [cpSdk updateEnrollmentWithCpSdkConfigurati
 
 ## Extras
 
-[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md&branch=develop)
+>If you experience Errors while developing, you will want to utilize our API Explorer (on the left) in the sample request and responses so that you can see the desired errors and why. 

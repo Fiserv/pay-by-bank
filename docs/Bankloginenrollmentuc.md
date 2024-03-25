@@ -1,18 +1,19 @@
 # Bank Login Enrollment Architecture
+
 ## Explanation of Feature
+
 This is the preferred method of consumer enrollment into ConnectPay
 
 >For uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps:
 
-<p>
 The consumer is presented with an option to login into his/her bank account using their bank username and password. Once the consumer logs in, authorizes the bank account he/she wants to use for this enrollment, and submits, ConnectPay fetches the consumer demographic and/or bank information from the bank using a secure backend connection and populates all the details on the consumers enrollment screen. The consumer will then verify all the details and edit them as he/she sees fit (except for bank account details) and submits the enrollment.
-</p>
-<p>
+
 This method of enrollment is preferred because it is easier for a consumer to remember the bank username and password as opposed to routing and account number to be keyed in (manual enrollment process). Additionally this method of enrollment is, in most cases, instantly activated and the consumer is ready to transact once their enrollment is successful.
 Sequence of activities for completing bank login enrollment:
-</p>
+
 
 ## Implementation Steps: Bank Login Process
+
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
 
 [Create Consumer Profile](?path=./docs/implementationguide.md)
@@ -31,6 +32,7 @@ You will want to go to the specific mobile operating section and look to initial
 [iOS](?path=./docs/iossdk.md)
 
 [Android](?path=./docs/androidsdk.md)
+
 
 
 ### Additional Steps
@@ -64,7 +66,9 @@ You will want to go to the specific mobile operating section and look to initial
 </ol>
 
 ### Issues with Integration
+
 [Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
-<p>Image on the flow of the activity</p>
+
+Image on the flow of the activity
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Online Bank Login Enrollment Architecture.png" alt="Bank Login Architecture" class="center"></center>
 

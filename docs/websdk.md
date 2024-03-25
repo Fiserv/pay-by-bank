@@ -93,6 +93,7 @@ reportingField3: “<Reporting Field3>”, //optional
 ```
 
 Call the specific use case method exposed by the CP SDK with the configuration, extra parameters and the handle to the callback method.
+
 ## Enrollments and Account Activities
 
 ### Enrollments
@@ -235,4 +236,4 @@ If there was an error, the errorDetails object will be included. The response Ve
 
 ## Extras
 
-[ERROR CODE LIST](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/statuscodes.md&branch=develop)
+>If you experience Errors while developing, you will want to utilize our API Explorer (on the left) in the sample request and responses so that you can see the desired errors and why. 
