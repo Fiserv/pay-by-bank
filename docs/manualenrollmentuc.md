@@ -12,21 +12,21 @@ The consumer is in a pending validation status and will not be able to transact 
 
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
 
-[Create Consumer Profile](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/implementationguide.md&branch=develop)
+[Create Consumer Profile](?path=./docs/implementationguide.md)
 
 ### Create Session Token 
-
-[Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
+[Create Session Token](?path=./docs/implementationguide.md)
+>Note: See section labeled Create Session Token
 
 ### Initialize and Launch ConnectPay SDK 
 
 You will want to go to the specific mobile operating section and look to initialize the App
 
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
+[WebSDK](?path=./docs/websdk.md)
 
-[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
+[iOS](?path=./docs/iossdk.md)
 
-[Android](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
+[Android](?path=./docs/androidsdk.md)
 
 ### Additional Steps
 
