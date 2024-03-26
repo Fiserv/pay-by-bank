@@ -11,15 +11,16 @@ Sequence of activities for completing Account Validation scenario:
 
 [Create Session Token](../api/?type=post&path=/security/createsessiontoken)
 
-
 ### Initialize and Launch ConnectPay SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
+
 
 [WebSDK](?path=documentation/websdk.md)
 
 [iOS](?path=documentation/iossdk.md)
 
 [Android](?path=documentation/androidsdk.md)
+
 
 
 ### Additional Steps
@@ -31,9 +32,9 @@ You will want to go to the specific mobile operating section and look to initial
   <li>Merchant server does a server to server GetData call to retrieve fdAccountId generated after consumer data update </li>
   <li>Merchant server stores/updates the `fdAccountId` against the `externalId`,for the payment instrument in question, in their system for future use </li>
 </ol>
-<!-- theme: danger 
-If Account Validation call is invoked multiple times for the same consumer and payment number, the consumer will receive a successful response with the same `fdAccountId` for the ConnectPay payment number, every time.
--->
+
+>If Account Validation call is invoked multiple times for the same consumer and payment number, the consumer will receive a successful response with the same `fdAccountId` for the ConnectPay payment number, every time.
+
 <p>Image on the flow of the activity</p>
 
 ### Issues with Integration
