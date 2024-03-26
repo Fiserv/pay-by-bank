@@ -8,7 +8,7 @@ This section will guide the developer on how to implement one of ConnectPay's AP
 <p>
 The Create Session Token API call is used to create a session token and to retrieve the RSA public key. This API is secured as it requires the Authorization header that can only be derived using the API Secret stored in the Merchant’s server. Below is more information on the API specification as well as example request and response payloads. <p>
 
-[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
+[![](/assets/images/button.png '')](../api/?type=post&path=/security/createsessiontoken)
 
 
 Example Request Payload:
@@ -50,7 +50,7 @@ At this step, all prerequisites have been complete in order to make our first ca
 #### Add Consumer Profile
 The Create Consumer Profile call is mandatory for any new user enrollment. This is used to create an fdCustomerID for a provided external id (and other user information) by the merchant. <p>
 
-[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/consumerprofile/add&branch=develop&version=1.0.0)
+[![](/assets/images/button.png '')](../api/?type=post&path=/consumerprofile/add)
 
 #### Create Request Payload
 First and foremost, we need to create the request payload prior to encryption. The "externalID" can be whatever the developer would like. It is a unique identifier for each consumer and the should be incremented with each unique consumer. An example payload is shown below:
@@ -165,7 +165,7 @@ The manual enrollment is used when the end-user/consumer does not want to login 
 <br>
 The Consumer Enrollment call is for any new consumer enrollment purpose. This is used to perform a ConnectPay enrollment process for a provided consumer details payload. This API is secured, as it requires the Authorization header that can only be derived using the API Secret stored in the Merchant’s web server. <p>
 
-[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/consumerprofile/enrollment&branch=develop&version=1.0.0)
+[![](/assets/images/button.png '')](../api/?type=post&path=/consumerprofile/enrollment)
 </details>
 
 <details>
@@ -173,11 +173,10 @@ The Consumer Enrollment call is for any new consumer enrollment purpose. This is
 <br>
 Use this method to complete micro deposit validation to authenticate your bank account after a manual enrollment.ConnectPayAPI Direct Integration Guide. Kindly note it might take a few days for the micro deposits to appear on your bank account. Once bank account is successfully authenticated, the ACH payment option gets activated for transaction. For MAS to ConnectPayAPI Server call, MAS needs to pass the fdAccountID in payload request. <p>
 
-[![](/assets/images/button.png '')]()
+[![](/assets/images/button.png '')](../api/?type=post&path=/consumerprofile/validate)
 </details>
 
 <!-- type: tab-end -->
-
 
 ### Step 4: ACH Transactions
 These APIs are for the merchant to implement depending on the use case of the end-user/consumer. These API's are exclusively used for some form of processing ACH transactions.
@@ -186,7 +185,7 @@ These APIs are for the merchant to implement depending on the use case of the en
 <br>
 Merchants who want to process ACH Transactions through FirstAPI must make server-to-server calls and pass necessary encrypted payload as required for that particular case. Use this to initiate purchase/sale transaction request where final amount is known. <p>
 
-[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/transaction/purchase&branch=develop&version=1.0.0)
+[![](/assets/images/button.png '')](../api/?type=post&path=/transaction/purchase)
 </details>
 
 <details>
@@ -194,7 +193,7 @@ Merchants who want to process ACH Transactions through FirstAPI must make server
 <br>
 Merchants who want to process ACH Transactions through FirstAPI must make server-to-server calls and pass necessary encrypted payload as required for that particular case. Use this to initiate purchase/sale transaction request where final amount is known. <p>
 
-[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/transaction/authorize&branch=develop&version=1.0.0)
+[![](/assets/images/button.png '')](../api/?type=post&path=/transaction/authorize)
 </details>
 
 >You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
