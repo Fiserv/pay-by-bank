@@ -16,22 +16,22 @@ Sequence of activities for completing bank login enrollment:
 
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
 
-[Create Consumer Profile](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./documentation/implementationguide.md&branch=develop)
+[Create Consumer Profile](h?path=./documentation/implementationguide.md)
 
 
 ### Create Session Token 
 
-[Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
+[Create Session Token](../api/?type=post&path=/security/createsessiontoken)
 
 
 ### Initialize and Launch ConnectPay SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
 
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
+[WebSDK](?path=documentation/websdk.md)
 
-[iOS]([(https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
+[iOS](?path=documentation/iossdk.md)
 
-[Android]((https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
+[Android](?path=documentation/androidsdk.md)
 
 ### Additional Steps
 <p>Following are the steps to take to complete bank login</p>
@@ -44,8 +44,8 @@ You will want to go to the specific mobile operating section and look to initial
   <li>Consumer verifies and edits information (except bank number) and submits data for enrollment</li>
   <li>SDK completes enrollment process and returns NONCE to merchantApp</li>
   <li>NONCE passed back to merchant server</li>
-  <li>Merchant server does a server-to-server GetData call to retrieve fdAccountId generated after consumer data vaulting. Merchant receives the current consumer status as a part of this call</li>
-  <li>Merchant server stores the fdCustomerId,fdAccountId(optional) against the `externalId` in their system for future use</li>
+  <li>Merchant server does a server-to-server GetData call to retrieve `fdAccountId` generated after consumer data vaulting. Merchant receives the current consumer status as a part of this call</li>
+  <li>Merchant server stores the `fdCustomerId`,`fdAccountId`(optional) against the `externalId` in their system for future use</li>
 </ol>
 
 ### Additional uCOM Steps

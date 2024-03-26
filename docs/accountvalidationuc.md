@@ -29,7 +29,7 @@ You will want to go to the specific mobile operating section and look to initial
   <li>SDK presents the screens to consumer to capture consumer information</li>
   <li>SDK completes update process and returns NONCE to merchantApp</li>
   <li>NONCE passed back to merchant server</li>
-  <li>Merchant server does a server to server GetData call to retrieve fdAccountId generated after consumer data update </li>
+  <li>Merchant server does a server to server GetData call to retrieve `fdAccountId` generated after consumer data update </li>
   <li>Merchant server stores/updates the `fdAccountId` against the `externalId`,for the payment instrument in question, in their system for future use </li>
 </ol>
 
