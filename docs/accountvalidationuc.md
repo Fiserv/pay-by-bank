@@ -20,6 +20,7 @@ You will want to go to the specific mobile operating section and look to initial
 [iOS](?path=./docs/iossdk.md)
 
 [Android](?path=./docs/androidsdk.md)
+
 ### Additional Steps
 <ol>
   <li>Pass necessary data to the SDK (including `fdCustomerId`)</li>
