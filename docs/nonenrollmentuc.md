@@ -3,23 +3,29 @@
 ## Explanation of Feature
 
 This section would cover business use cases like Micro Deposit Validation,Consumer Updates (other than ConnectPayPaymentNumber updates) and ACH account closure.
+ 
+>For uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps:
+[uCOM](?path=./docs/documentation/Standard_Implementation_Guide.md)
+
+### Create Session Token 
+
+[Create Session Token](?path=./docs/implementationguide.md)
+>Note: See section labeled Create Session Token
+
 
 >For uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps:
 
-### Create Session Token
-
-[Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
 
 ### Initialize and Launch ConnectPay SDK
 
 You will want to go to the specific mobile operating section and look to initialize the App
 
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
 
-[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
+[WebSDK](?path=./docs/websdk.md)
 
-[Android](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
+[iOS](?path=./docs/iossdk.md)
 
+[Android](?path=./docs/androidsdk.md)
 
 ### Additional Steps
 <ol>
