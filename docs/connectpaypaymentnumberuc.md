@@ -11,17 +11,17 @@ ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different
 
 ### Create Session Token
 
-[Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
+[Create Session Token](../api/?type=post&path=/security/createsessiontoken)
 
 
 ### Initialize and Launch ConnectPay SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
 
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/websdk.md&branch=develop)
+[WebSDK](?path=documentation/websdk.md)
 
-[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/iossdk.md&branch=develop)
+[iOS](?path=documentation/iossdk.md)
 
-[Android]((https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=documentation/androidsdk.md&branch=develop)
+[Android](?path=documentation/androidsdk.md)
 
 
 ### Additional Steps
