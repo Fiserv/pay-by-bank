@@ -1,8 +1,8 @@
 # Implementation Guide  
-> Please refer to the prerequisites page prior to making any calls. The prerequisites page can be referred on the [Headers and Encryption](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/headersencryptiondecryption.md&branch=develop) here.
+> Please refer to the prerequisites page prior to making any calls. The prerequisites page can be referred on the [Headers and Encryption](?path=./docs/headersencryptiondecryption.md) here.
 
 ## How to Utilize API
-This section will guide the developer on how to implement one of ConnectPay's APIs. We will use the "Add Consumer Profile" API for this example as well as the "Create Session Token" API as it is a mandatory substep to use most of ConnectPay's API.
+This section will guide the developer on how to implement one of ConnectPay's APIs. We will use the "Add Consumer Profile" API for this example as well as the "Create Session Token" API as it is a mandatory sub-step to use most of ConnectPay's API.
 
 ###  Step 1: Create Session Token
 <p>
@@ -133,22 +133,22 @@ The online bank login is used when the end-user/consumer would like to login usi
 <br>
 Use this as the first step in online bank login process. The output from this service needs to be passed to online bank login processor to initiate the bank login IFRAME.<p>
 
-[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/onlinebanklogin/establish&branch=develop&version=1.0.0)
+[![](/assets/images/button.png '')](../api/?type=post&path=/onlinebanklogin/establish)
 </details>
 
 <details>
 <summary>Step b: Validate Online Bank Login</summary>
 <br>
-Use this method to after consumer has completed bank selection process, to pull all consumer information available on bank records to be displayed on consumer’s screen Consumer can view and edit the enrollment form prepopulated with the data from above step. Bank information is the only set of fields which should be not editable. <p>
+Use this method to after consumer has completed bank selection process, to pull all consumer information available on bank records to be displayed on consumer’s screen Consumer can view and edit the enrollment form pre-populated with the data from above step. Bank information is the only set of fields which should be not editable. <p>
 
-[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/onlinebanklogin/validate&branch=develop&version=1.0.0)
+[![](/assets/images/button.png '')](../api/?type=post&path=/onlinebanklogin/validate)
 </details>
 <details>
 <summary>Step c: Consumer Enrollment</summary>
 <br>
 The Consumer Enrollment call is for any new consumer enrollment purpose. This is used to perform a ConnectPay enrollment process for a provided consumer details payload. This API is secured, as it requires the Authorization header that can only be derived using the API Secret stored in the Merchant’s web server. <p>
 
-[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/consumerprofile/enrollment&branch=develop&version=1.0.0)
+[![](/assets/images/button.png '')](../api/?type=post&path=/consumerprofile/enrollment)
 </details>
 
 <!--
