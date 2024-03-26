@@ -29,7 +29,6 @@ You will want to go to the specific mobile operating section and look to initial
 
 [Android](?path=./docs/androidsdk.md)
 
-
 ### Additional Steps
 
 <ol>

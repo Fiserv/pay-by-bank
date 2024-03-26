@@ -15,6 +15,7 @@ ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different
 
 >Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
 
+
 ### Initialize and Launch ConnectPay SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
 
@@ -23,7 +24,6 @@ You will want to go to the specific mobile operating section and look to initial
 [iOS](?path=./docs/iossdk.md)
 
 [Android](?path=./docs/androidsdk.md)
-
 
 ### Additional Steps
 <ol>
