@@ -1,21 +1,21 @@
 # SDK Implementation Guide
 
-Follow the appropriate steps to complete. Based on the overall architecture diagram, the Merchant server is required to integrate with the below ConnectPay services exposed through First API (Fiserv's API gateway).
+Follow the appropriate steps to complete. Based on the overall architecture diagram, the Merchant server is required to integrate with the below PaybyBank services exposed through First API (Fiserv's API gateway).
 
 ## Overview 
-This integration guide provides an overview of steps required to integrate the ConnectPay SDKs and APIs with the merchant’s mobile and web applications. This guide is targeted to be used by technical representatives of a merchant’s mobile/web development team.
+This integration guide provides an overview of steps required to integrate the PaybyBank SDKs and APIs with the merchant’s mobile and web applications. This guide is targeted to be used by technical representatives of a merchant’s mobile/web development team.
 
-ConnectPay is an ACH solution offered by Fiserv’s TeleCheck Platform. This solution offers capabilities for consumers to enroll their bank account(s) with TeleCheck. Each enrolled account is represented by a unique ConnectPay Payment number and token. Either the ConnectPay Payment Number or token can be used by the merchant to make payments in this ACH solution.
+PaybyBank is an ACH solution offered by Fiserv’s TeleCheck Platform. This solution offers capabilities for consumers to enroll their bank account(s) with TeleCheck. Each enrolled account is represented by a unique PaybyBank Payment number and token. Either the ConnectPay Payment Number or token can be used by the merchant to make payments in this ACH solution.
 
-This ConnectPay SDK guide provides a drop-in solution for merchants with its own built-in UI and workflow for enrollment use cases. For each use case, the SDK will show end-to-end UI (multi-step, multi- screen) and make ConnectPay API calls in the background to complete the use case. The merchant can choose to use all or just single use case via SDK.
+This PaybyBank SDK guide provides a drop-in solution for merchants with its own built-in UI and workflow for enrollment use cases. For each use case, the SDK will show end-to-end UI (multi-step, multi- screen) and make PaybyBank API calls in the background to complete the use case. The merchant can choose to use all or just single use case via SDK.
 
 ## Pre-Requisites
 
 As part of the Fiserv’s merchant onboarding process, the merchant will be provided with the following:
 |       |                                                              |
 |-------|--------------------------------------------------------------|
-|API Key|This represents the Merchant’s identity to the ConnectPay APIs|
-|API Secret|This piece of information helps in authorizing the merchant (using HMAC) to invoke the services on ConnectPay API.It is highly recommended that the merchant should store this value securely (preferably with a strong encryption mechanism) and protect it from unauthorized access. This key should not be stored in client facing application (mobile apps/front end web apps) and never be shared with non-authorized systems and personnel. In the event that this information is compromised, the merchant should immediately notify the Fiserv Team. A new API Key and Secret would be generated and sent to the merchant to be used going forward.|
+|API Key|This represents the Merchant’s identity to the PaybyBank APIs|
+|API Secret|This piece of information helps in authorizing the merchant (using HMAC) to invoke the services on PaybyBank API.It is highly recommended that the merchant should store this value securely (preferably with a strong encryption mechanism) and protect it from unauthorized access. This key should not be stored in client facing application (mobile apps/front end web apps) and never be shared with non-authorized systems and personnel. In the event that this information is compromised, the merchant should immediately notify the Fiserv Team. A new API Key and Secret would be generated and sent to the merchant to be used going forward.|
 |Subscriber ID|This represents the Merchant’s account within the TeleCheck system|
 |Page Configuration IDs|Each SDK use case is associated with a unique page configuration ID, which is used by the merchant’s mobile app to launch the specific use case.|
 
@@ -27,7 +27,7 @@ Merchants using Universal Commerce Solution (uCom) will receive an additional se
 |Certification API End Point|https://cat.api.firstdata.com/gateway/v2 |/connectpay|
 |Production API End Point   |https://prod.api.firstdata.com/gateway/v2|/connectpay|
 
-> Please refer to the following guide that outlines header details that is mandatory prior to making any calls. The prerequisites page can be referred on the [Headers and Encryption](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/headersencryptiondecryption.md&branch=develop) here.
+> Please refer to the following guide that outlines header details that is mandatory prior to making any calls. The prerequisites page can be referred on the [Headers and Encryption](?path=./docs/headersencryptiondecryption.md) here.
 
 ## SDK Configurations 
 The SDK provides a variety of configurations like the color, theme, field titles, error messages, multi- language (English/Spanish or any language) support, and information to be collected by the user.
@@ -52,14 +52,14 @@ The below calls are used in most of the ConnectPay use cases. An overall underst
 ### Create Consumer Profile
 The first step in the enrollment process is to create the fdCustomerId. ConnectPay merchants need to make a server-to-server call to Fiserv to create a unique fdCustomerId for the consumer (if the consumer does not have an existing fdCustomerId) by providing an externalId. ExternalID is a unique attribute on the merchant’s system to identify the consumer. uCom merchants using ConnectPay should be calling the uComAPI for creating the fdCustomerId.
 
-[Consumer Profile](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/consumerprofile/add&branch=develop&version=1.0.0)
+[Consumer Profile](../api/?type=post&path=/consumerprofile/add)
 
 ### Create Session Token
 For all functionalities in ConnectPay, the merchant’s server needs to make a server-to-server call to ConnectPay to get a Public Encryption Key and Session Token. The Public Encryption Key would be used in the payload encryption process described later in the document. The Session Token (OAuth2 Token) is a time-limited (10 Minutes duration) token which is sent back to the merchant’s server.
 
 The merchant’s server needs to pass the Public Encryption Key and Session Token to the ConnectPay SDK. The SDK uses the Session Token to authorize itself with ConnectPay for the functional flows and uses the Public Encryption Key for the full payload encryption before the transmission over the network.
 
-[Create Session Token](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/security/createsessiontoken&branch=develop&version=1.0.0)
+[Create Session Token](../api/?type=post&path=/security/createsessiontoken)
 
 ## SDK Use Cases
 The ConnectPay SDK comes in three flavors, IOS, Android, and Web.
@@ -76,12 +76,12 @@ In the use cases described above where a NONCE is sent back to the Merchant serv
 ## Next Steps
 >Note: Now that you have a basic understanding of the SDK. Here are other Please follow to the common use case landing page to better understand Architecture and next steps
 
-[Common Use Cases](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/Commonusecaseslanding.md&branch=develop)
+[Common Use Cases](?path=./docs/Commonusecaseslanding.md)
 
 Direct Links to flavors of SDK.
 
-[iOS](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/iossdk.md&branch=develop)
+[iOS](?path=docs/iossdk.md)
 
-[Android](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/androidsdk.md&branch=develop)
+[Android](h?path=docs/androidsdk.md)
 
-[WebSDK](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/websdk.md&branch=develop)
+[WebSDK](?path=docs/websdk.md)

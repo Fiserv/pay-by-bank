@@ -13,7 +13,7 @@ ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different
 [Create Session Token](?path=./docs/implementationguide.md)
 >Note: See section labeled Create Session Token
 
-### Initialize and Launch ConnectPay SDK 
+### Initialize and Launch PaybyBank SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
 
 [WebSDK](?path=./docs/websdk.md)
