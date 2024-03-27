@@ -1,7 +1,7 @@
 {
 
   "title": "Pay by Bank",
-  "name": "Pay by Bank",
+  "name": "PaybyBank",
   "brand": "Fiserv",
   "brandLogoURL": "https://raw.githubusercontent.com/Fiserv/Banking-Product-Cards/develop/assets/images/4_Cards-min%20copy.jpg",
   "solution": [
