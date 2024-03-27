@@ -4,7 +4,6 @@
 
 This section would cover business use cases like Micro Deposit Validation,Consumer Updates (other than ConnectPayPaymentNumber updates) and ACH account closure.
 
-
 >For uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps:
 [uCOM](?path=./docs/documentation/Standard_Implementation_Guide.md)
 

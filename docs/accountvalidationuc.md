@@ -1,9 +1,9 @@
 # Account Validation Architecture
 ## Explanation of Feature
-This use case should be used in the scenario where the consumer enrollment is already present on the ConnectPay backend, and the consumer wishes to load the existing enrollment into his/her mobile app.
+This use case should be used in the scenario where the consumer enrollment is already present on the PaybyBank backend, and the consumer wishes to load the existing enrollment into his/her mobile app.
 For uCom merchants, skip the details in this section and refer to
 
-The consumer will be provided with a screen to provide their ConnectPayPaymentNumber and PIN for an existing enrollment. Once the consumer submits this page, ConnectPay validates the ConnectPayPaymentNumber and PIN combination. If the validation is successful, the consumer data is updated in vault for mobile processing and a `fdAccountId` is generated for this ConnectPayPaymentNumber.
+The consumer will be provided with a screen to provide their PaybyBank PaymentNumber and PIN for an existing enrollment. Once the consumer submits this page, ConnectPay validates the PaybyBank PaymentNumber and PIN combination. If the validation is successful, the consumer data is updated in vault for mobile processing and a `fdAccountId` is generated for this PaybyBank PaymentNumber.
 Sequence of activities for completing Account Validation scenario:
 
 ## Implementation Steps: Bank Login Process
@@ -12,7 +12,7 @@ Sequence of activities for completing Account Validation scenario:
 [Create Session Token](?path=./docs/implementationguide.md)
 >Note: See section labeled Create Session Token
 
-### Initialize and Launch ConnectPay SDK 
+### Initialize and Launch PaybyBank SDK 
 You will want to go to the specific mobile operating section and look to initialize the App
 
 [WebSDK](?path=./docs/websdk.md)
