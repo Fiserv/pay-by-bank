@@ -1,5 +1,5 @@
 # Implementation Guide  
-> Please refer to the prerequisites page prior to making any calls. The prerequisites page can be referred on the [Headers and Encryption](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/headersencryptiondecryption.md&branch=develop) here.
+> Please refer to the prerequisites page prior to making any calls. The prerequisites page can be referred on the [Headers and Encryption](?path=./docs/headersencryptiondecryption.md) here.
 
 ## How to Utilize API
 This section will guide the developer on how to implement one of ConnectPay's APIs. We will use the "Add Consumer Profile" API for this example as well as the "Create Session Token" API as it is a mandatory substep to use most of ConnectPay's API.
@@ -141,7 +141,8 @@ Use this as the first step in online bank login process. The output from this se
 <br>
 Use this method to after consumer has completed bank selection process, to pull all consumer information available on bank records to be displayed on consumer’s screen Consumer can view and edit the enrollment form prepopulated with the data from above step. Bank information is the only set of fields which should be not editable. <p>
 
-[![](/assets/images/button.png '')](../api/?type=post&path=/onlinebanklogin/validate&)
+[![](/assets/images/button.png '')](../api/?type=post&path=/onlinebanklogin/validate)
+
 </details>
 <details>
 <summary>Step c: Consumer Enrollment</summary>
@@ -178,7 +179,6 @@ Use this method to complete micro deposit validation to authenticate your bank a
 
 <!-- type: tab-end -->
 
-
 ### Step 4: ACH Transactions
 These APIs are for the merchant to implement depending on the use case of the end-user/consumer. These API's are exclusively used for some form of processing ACH transactions.
 <details>
@@ -186,7 +186,7 @@ These APIs are for the merchant to implement depending on the use case of the en
 <br>
 Merchants who want to process ACH Transactions through FirstAPI must make server-to-server calls and pass necessary encrypted payload as required for that particular case. Use this to initiate purchase/sale transaction request where final amount is known. <p>
 
-[![](/assets/images/button.png '')](h../api/?type=post&path=/transaction/purchase)
+[![](/assets/images/button.png '')](../api/?type=post&path=/transaction/purchase)
 </details>
 
 <details>

@@ -12,6 +12,7 @@ The consumer is in a pending validation status and will not be able to transact 
 
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
 
+
 [Create Consumer Profile](?path=./docs/implementationguide.md)
 
 ### Create Session Token 

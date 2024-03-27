@@ -14,7 +14,8 @@ ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different
 >Note: See section labeled Create Session Token
 
 ### Initialize and Launch PaybyBank SDK 
-You will want to go to the specific mobile operating section and look to initialize the App
+
+>Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
 
 [WebSDK](?path=./docs/websdk.md)
 

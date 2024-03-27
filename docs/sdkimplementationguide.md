@@ -82,6 +82,6 @@ Direct Links to flavors of SDK.
 
 [iOS](?path=docs/iossdk.md)
 
-[Android](h?path=docs/androidsdk.md)
+[Android](?path=docs/androidsdk.md)
 
 [WebSDK](?path=docs/websdk.md)
