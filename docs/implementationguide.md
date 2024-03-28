@@ -142,8 +142,8 @@ Use this as the first step in online bank login process. The output from this se
 Use this method to after consumer has completed bank selection process, to pull all consumer information available on bank records to be displayed on consumer’s screen Consumer can view and edit the enrollment form prepopulated with the data from above step. Bank information is the only set of fields which should be not editable. <p>
 
 [![](/assets/images/button.png '')](../api/?type=post&path=/onlinebanklogin/validate)
-
 </details>
+
 <details>
 <summary>Step c: Consumer Enrollment</summary>
 <br>
@@ -198,7 +198,6 @@ Merchants who want to process ACH Transactions through FirstAPI must make server
 </details>
 
 >You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
-
 
 ### Client Next Steps
   
