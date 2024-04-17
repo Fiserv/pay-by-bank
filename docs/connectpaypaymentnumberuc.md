@@ -43,8 +43,6 @@ ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different
   <li>Merchant server stores/updates the new fdAccountId against the externalId,for the payment instrument in question, in their system for future use</li>
 </ol>
 
-### Issues with Integration
-
-[Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
+### Image of Flow
 
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Payment Number Architecture.png" alt="ConnectPay Payment Number Update" class="center"></center>
