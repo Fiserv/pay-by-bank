@@ -35,6 +35,5 @@ You will want to go to the specific mobile operating section and look to initial
 
 Image on the flow of the activity
 
-### Issues with Integration
-[Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
+### Image of Flow
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Account Validation Architecture.png" alt="Non Enrollment Architecture" class="center"></center>

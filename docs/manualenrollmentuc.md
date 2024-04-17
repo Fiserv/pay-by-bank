@@ -42,9 +42,7 @@ You will want to go to the specific mobile operating section and look to initial
 
 >Note: Merchant server stores the fdCustomerId, fdAccountId (optional) against the externalID in their system for future use.
 
-### Issues with Integration
-
-[Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
+### Image of Flow
 
 Image on the flow of the activity
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Manual Enrollment Arch.png" alt="Manual Enrollment Architecture" class="center"></center>

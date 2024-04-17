@@ -41,9 +41,7 @@ You will want to go to the specific mobile operating section and look to initial
   <li>SDK completes update process and displays response to consumer</li>
 </ol>
 
-### Issues with Integration
-
-[Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
+### Image of Flow
 
 Image on the flow of the activity
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Non-Enrollment Architecture.png" alt="Non Enrollment Architecture" class="center"></center>

@@ -5,8 +5,9 @@ Depending on merchant setup, ACH Transactions can be sent to ConnectPay using Un
 >Note: Below is information on PaybyBank Payment through FirstAPI. For uCOM and Buypass, you will need to refer to the respective Implementation guide links below for setup*
 
 
-[uCOM](?path=docs/documentation/Standard_Implementation_Guide.md)
-[Buypass](https://developer.fiserv.com/product/)
+[uCOM](?path=./docs/documentation/Standard_Implementation_Guide.md)
+<br>
+[Buypass](Coming Soon)
 
 ## Explanation of Feature
 All payments are server-to-server communication between the merchant server and FirstAPI. Transactions can be initiated using `fdAccountId` or, PaybyBank PaymentNumber
