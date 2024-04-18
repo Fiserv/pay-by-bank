@@ -25,7 +25,6 @@ All payments are server-to-server communication between the merchant server and 
   <li>ConnectPay at FirstAPI responds back with encrypted response payload</li>
   <li>Merchant server decrypts response payload and takes action accordingly</li>
 
-### Issues with Integration
-[Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
+### Image of Flow
 <p>Image on the flow of the activity</p>
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/ACH Transaction Arch.png" alt="ACH Transaction Architecture" class="center"></center>

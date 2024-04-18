@@ -44,5 +44,4 @@ ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different
 </ol>
 
 ### Image of Flow
-
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Payment Number Architecture.png" alt="ConnectPay Payment Number Update" class="center"></center>

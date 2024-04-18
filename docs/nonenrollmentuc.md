@@ -42,6 +42,4 @@ You will want to go to the specific mobile operating section and look to initial
 </ol>
 
 ### Image of Flow
-
-Image on the flow of the activity
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Non-Enrollment Architecture.png" alt="Non Enrollment Architecture" class="center"></center>

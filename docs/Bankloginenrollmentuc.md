@@ -66,6 +66,5 @@ You will want to go to the specific mobile operating section and look to initial
 </ol>
 
 ### Image of Flow
-Image on the flow of the activity
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Online Bank Login Enrollment Architecture.png" alt="Bank Login Architecture" class="center"></center>
 
