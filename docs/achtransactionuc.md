@@ -9,11 +9,14 @@ Depending on merchant setup, ACH Transactions can be sent to ConnectPay using Un
 <br>
 [Buypass](Coming Soon)
 
+>Note: Below is information on ConnectPayPayment through FirstAPI. For uCOM and Buypass, you will need to refer to the respective Implementation guide links below for setup*
+
 ## Explanation of Feature
 All payments are server-to-server communication between the merchant server and FirstAPI. Transactions can be initiated using `fdAccountId` or, PaybyBank PaymentNumber
 
 ## Implementation Steps: ACH Transaction Process
 ### Create Session Token 
+
 
 [Create Session Token](?path=./docs/implementationguide.md)
 >Note: See section labeled Create Session Token
