@@ -1,21 +1,21 @@
 # SDK Implementation Guide
 
-Follow the appropriate steps to complete. Based on the overall architecture diagram, the Merchant server is required to integrate with the below ConnectPay services exposed through First API (Fiserv's API gateway).
+Follow the appropriate steps to complete. Based on the overall architecture diagram, the Merchant server is required to integrate with the below PaybyBank services exposed through First API (Fiserv's API gateway).
 
 ## Overview 
-This integration guide provides an overview of steps required to integrate the ConnectPay SDKs and APIs with the merchant’s mobile and web applications. This guide is targeted to be used by technical representatives of a merchant’s mobile/web development team.
+This integration guide provides an overview of steps required to integrate the PaybyBank SDKs and APIs with the merchant’s mobile and web applications. This guide is targeted to be used by technical representatives of a merchant’s mobile/web development team.
 
-ConnectPay is an ACH solution offered by Fiserv’s TeleCheck Platform. This solution offers capabilities for consumers to enroll their bank account(s) with TeleCheck. Each enrolled account is represented by a unique ConnectPay Payment number and token. Either the ConnectPay Payment Number or token can be used by the merchant to make payments in this ACH solution.
+PaybyBank is an ACH solution offered by Fiserv’s TeleCheck Platform. This solution offers capabilities for consumers to enroll their bank account(s) with TeleCheck. Each enrolled account is represented by a unique PaybyBank Payment number and token. Either the ConnectPay Payment Number or token can be used by the merchant to make payments in this ACH solution.
 
-This ConnectPay SDK guide provides a drop-in solution for merchants with its own built-in UI and workflow for enrollment use cases. For each use case, the SDK will show end-to-end UI (multi-step, multi- screen) and make ConnectPay API calls in the background to complete the use case. The merchant can choose to use all or just single use case via SDK.
+This PaybyBank SDK guide provides a drop-in solution for merchants with its own built-in UI and workflow for enrollment use cases. For each use case, the SDK will show end-to-end UI (multi-step, multi- screen) and make PaybyBank API calls in the background to complete the use case. The merchant can choose to use all or just single use case via SDK.
 
 ## Pre-Requisites
 
 As part of the Fiserv’s merchant onboarding process, the merchant will be provided with the following:
 |       |                                                              |
 |-------|--------------------------------------------------------------|
-|API Key|This represents the Merchant’s identity to the ConnectPay APIs|
-|API Secret|This piece of information helps in authorizing the merchant (using HMAC) to invoke the services on ConnectPay API.It is highly recommended that the merchant should store this value securely (preferably with a strong encryption mechanism) and protect it from unauthorized access. This key should not be stored in client facing application (mobile apps/front end web apps) and never be shared with non-authorized systems and personnel. In the event that this information is compromised, the merchant should immediately notify the Fiserv Team. A new API Key and Secret would be generated and sent to the merchant to be used going forward.|
+|API Key|This represents the Merchant’s identity to the PaybyBank APIs|
+|API Secret|This piece of information helps in authorizing the merchant (using HMAC) to invoke the services on PaybyBank API.It is highly recommended that the merchant should store this value securely (preferably with a strong encryption mechanism) and protect it from unauthorized access. This key should not be stored in client facing application (mobile apps/front end web apps) and never be shared with non-authorized systems and personnel. In the event that this information is compromised, the merchant should immediately notify the Fiserv Team. A new API Key and Secret would be generated and sent to the merchant to be used going forward.|
 |Subscriber ID|This represents the Merchant’s account within the TeleCheck system|
 |Page Configuration IDs|Each SDK use case is associated with a unique page configuration ID, which is used by the merchant’s mobile app to launch the specific use case.|
 

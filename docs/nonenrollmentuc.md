@@ -5,21 +5,31 @@
 This section would cover business use cases like Micro Deposit Validation,Consumer Updates (other than ConnectPayPaymentNumber updates) and ACH account closure.
 
 >For uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps:
+[uCOM](?path=./docs/documentation/Standard_Implementation_Guide.md)
 
-### Create Session Token
+### Create Session Token 
+
+
+[Create Session Token](?path=./docs/implementationguide.md)
+>Note: See section labeled Create Session Token
+
+>For uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps:
+
+[uCOM](https://developer.fiserv.com/product/ConnectedCommerce/docs/?path=docs/documentation/Standard_Implementation_Guide.md)
 
 [Create Session Token](../api/?type=post&path=/security/createsessiontoken)
+
 
 ### Initialize and Launch ConnectPay SDK
 
 You will want to go to the specific mobile operating section and look to initialize the App
 
-[WebSDK](?path=documentation/websdk.md)
 
-[iOS](?path=documentation/iossdk.md)
+[WebSDK](?path=./docs/websdk.md)
 
-[Android](?path=documentation/androidsdk.md)
+[iOS](?path=./docs/iossdk.md)
 
+[Android](?path=./docs/androidsdk.md)
 
 ### Additional Steps
 <ol>
@@ -35,9 +45,5 @@ You will want to go to the specific mobile operating section and look to initial
   <li>SDK completes update process and displays response to consumer</li>
 </ol>
 
-### Issues with Integration
-
-[Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
-
-Image on the flow of the activity
+### Image of Flow
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Non-Enrollment Architecture.png" alt="Non Enrollment Architecture" class="center"></center>
