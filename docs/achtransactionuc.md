@@ -5,7 +5,7 @@ Depending on merchant setup, ACH Transactions can be sent to ConnectPay using Un
 >Note: Below is information on PaybyBank Payment through FirstAPI. For uCOM and Buypass, you will need to refer to the respective Implementation guide links below for setup*
 
 
-[uCOM](?path=./docs/documentation/Standard_Implementation_Guide.md)
+[uCOM](?path=https://developer.fiserv.com/product/ConnectedCommerce/docs/?path=docs/documentation/Standard_Implementation_Guide.md&branch=main)
 <br>
 [Buypass](Coming Soon)
 
