@@ -23,7 +23,7 @@
 The HMAC signature is used in all calls made through our API and is a necessary step to receive a successful response from the system.
 
 ### High Level Flow
-1. Get the apikey or the merchant's ConnectPay FirstAPI key
+1. Get the apikey or the merchant's ConnectPay(PaybyBank) FirstAPI key
 2. Get and save the current UTC timestamp, to the millisecond
 3. Concatenate the two paramters to output apikey:timestamp
 4. Get the request payload or the actual content passed as a post request
@@ -317,6 +317,6 @@ public static String decrypt(byte[] privateKey, String inputData,String rsaAlgoT
 
 >After completing this setup please proceed to your appropriate integration to continue: 
 
-[API Integration](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/implementationguide.md&branch=develop)
+[API Integration](?path=./docs/implementationguide.md)
 
-[SDK Integration](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=docs/sdkimplementationguide.md&branch=develop)
+[SDK Integration](?path=./docs/sdkimplementationguide.md)

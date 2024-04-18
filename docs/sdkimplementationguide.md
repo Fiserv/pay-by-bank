@@ -76,7 +76,7 @@ In the use cases described above where a NONCE is sent back to the Merchant serv
 ## Next Steps
 >Note: Now that you have a basic understanding of the SDK. Here are other Please follow to the common use case landing page to better understand Architecture and next steps
 
-[Common Use Cases](https://qa-developer.fiserv.com/product/ConnectPay/docs/?path=./docs/Commonusecaseslanding.md&branch=develop)
+[Common Use Cases](path=./docs/Commonusecaseslanding.md)
 
 Direct Links to flavors of SDK.
 
