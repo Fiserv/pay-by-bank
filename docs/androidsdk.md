@@ -342,4 +342,4 @@ cpsdk.updateEnrollment(
 ```
 ## Extras
 
->If you experience Errors while developing, you will want to utilize our API Explorer (on the left) in the sample request and responses so that you can see the desired errors and why. 
+>If you experience Errors while developing, you will want to utilize our API Explorer (on the left) in the sample request and responses so that you can see the desired errors and why.

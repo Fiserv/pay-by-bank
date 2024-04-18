@@ -143,6 +143,7 @@ Use this method to after consumer has completed bank selection process, to pull 
 
 [![](/assets/images/button.png '')](../api/?type=post&path=/onlinebanklogin/validate)
 </details>
+
 <details>
 <summary>Step c: Consumer Enrollment</summary>
 <br>
@@ -178,7 +179,6 @@ Use this method to complete micro deposit validation to authenticate your bank a
 
 <!-- type: tab-end -->
 
-
 ### Step 4: ACH Transactions
 These APIs are for the merchant to implement depending on the use case of the end-user/consumer. These API's are exclusively used for some form of processing ACH transactions.
 <details>
@@ -198,7 +198,6 @@ Merchants who want to process ACH Transactions through FirstAPI must make server
 </details>
 
 >You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
-
 
 ### Client Next Steps
 For more information on the other APIs within ConnectPay please visit the API Explorer on the navigation bar to the left.

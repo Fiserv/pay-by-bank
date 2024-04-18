@@ -4,25 +4,24 @@
 
 ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different than other updates to consumer information and needs to be called out. At the end of the ConnectPayPaymentNumber update, the merchant needs to update their record with the new `fdAccountId` for the payment instrument.
 
->Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
 
+>Note: Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
 
 ## Implementation Steps: Bank Login Process
+### Create Session Token 
+[Create Session Token](?path=./docs/implementationguide.md)
+>Note: See section labeled Create Session Token
 
-### Create Session Token
-
-[Create Session Token](../api/?type=post&path=/security/createsessiontoken)
+### Initialize and Launch PaybyBank SDK 
 
 
-### Initialize and Launch ConnectPay SDK 
-You will want to go to the specific mobile operating section and look to initialize the App
+>Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
 
-[WebSDK](?path=documentation/websdk.md)
+[WebSDK](?path=./docs/websdk.md)
 
-[iOS](?path=documentation/iossdk.md)
+[iOS](?path=./docs/iossdk.md)
 
-[Android](?path=documentation/androidsdk.md)
-
+[Android](?path=./docs/androidsdk.md)
 
 ### Additional Steps
 <ol>
@@ -44,8 +43,5 @@ You will want to go to the specific mobile operating section and look to initial
   <li>Merchant server stores/updates the new fdAccountId against the externalId,for the payment instrument in question, in their system for future use</li>
 </ol>
 
-### Issues with Integration
-
-[Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
-
+### Image of Flow
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Payment Number Architecture.png" alt="ConnectPay Payment Number Update" class="center"></center>

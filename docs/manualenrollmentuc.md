@@ -12,21 +12,25 @@ The consumer is in a pending validation status and will not be able to transact 
 
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
 
-[Create Consumer Profile](?path=./documentation/implementationguide.md)
+[Create Consumer Profile](?path=./docs/implementationguide.md)
+
 
 ### Create Session Token 
+[Create Session Token](?path=./docs/implementationguide.md)
+>Note: See section labeled Create Session Token
 
-[Create Session Token](../api/?type=post&path=/security/createsessiontoken)
 
 ### Initialize and Launch ConnectPay SDK 
 
 You will want to go to the specific mobile operating section and look to initialize the App
 
-[WebSDK](?path=documentation/websdk.md)
 
-[iOS](?path=documentation/iossdk.md)
+[WebSDK](?path=./docs/websdk.md)
 
-[Android](?path=documentation/androidsdk.md)
+[iOS](?path=./docs/iossdk.md)
+
+[Android](?path=./docs/androidsdk.md)
+
 
 ### Additional Steps
 
@@ -41,9 +45,5 @@ You will want to go to the specific mobile operating section and look to initial
 
 >Note: Merchant server stores the fdCustomerId, fdAccountId (optional) against the externalID in their system for future use.
 
-### Issues with Integration
-
-[Fiserv Implementation Support Team](mailto:DL-GBL-VASDelivery@fiserv.com)
-
-Image on the flow of the activity
+### Image of Flow
 <center><img src="https://raw.githubusercontent.com/Fiserv/connect-pay/develop/assets/images/Manual Enrollment Arch.png" alt="Manual Enrollment Architecture" class="center"></center>
