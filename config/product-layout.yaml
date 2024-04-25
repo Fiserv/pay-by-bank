@@ -28,17 +28,46 @@
 # the delivery of this work
 ################################################################################
 header:
-  productName: REPLACEME
-  productionDescription: REPLACEME
-  whoIsItFor: REPLACEME
+  productName: Pay By Bank
+  productionDescription: Seamlessly and instantly connect consumers to bank account payments via apps and digital banking at a low cost. Design low cost payment channels to fit your business and customer needs under a warranty of funds, without chargebacks and next-day funding. Link customer bank account payments to everything from loyalty cards and payment fobs to a variety of IOT enabled devices. Also accept ACH on file for recurring payments.
+  whoIsItFor: Anywhere your consumer uses a card, help them link to a bank account. With one provider for ACH enrollment, payments and settlement services, streamline across all channels. Optimize funding with a warranty of funds and next-day funding.
   image: 
     link: "/assets/images/Fiserv_Logo.jpg"
     altText: REPLACEME™
+getStarted: /docs/getting-started.md
+steps:  
+  learnSteps:
+    - title: Learn
+      description: >
+        Follow our documentation and easy to use examples to build your own mobile or web integrated online applications. 
+      link:
+  buildSteps:
+    - title: Build
+      description: >
+        Get your application up and running with our proprietary integration tools and keys. 
+      link:
+  validateSteps:
+    - title: API Explorer
+      description: >
+        Interact with our api interface for better understanding of the APIs. 
+      link:
+  deploySteps:
+    - title: Deploy
+      description: >
+        Deploy your applications and test in our certification environment for quality assurance testing.  Once ready promote your application to our production environment. 
+      link:
+benefits:
+  - title: More Revenue, Optimized Transactions
+    description: Anywhere your consumer uses a card, help them link to a bank account. With one provider for ACH enrollment, payments and settlement services, streamline across all channels. Optimize funding with a warranty of funds and next-day funding. 
+  - title: Digital ACH Payment Channels
+    description: Design low cost payment channels to fit your business and customer needs under a warranty of funds, without chargebacks and next-day funding. Link customer bank account payments to everything from loyalty cards and payment fobs to a variety of IOT enabled devices. Also accept ACH on file for recurring payments.
+  - title: Consumer Incentives
+    description: Increase your sales by giving consumers incentives when they use your store-branded loyalty solution to pay for purchases from their bank account.
 featuredFeatures:
-  - title: REPLACE ME
-    description:  REPLACE ME
-    tags: ["REPLACEME", "REPLACEME", "REPLACEME"]
-    bullets: ["REPLACEME", "REPLACEME" ]  
+  - title: Online Bank Login Enrollments
+    description:  One time, low friction customer enrollment enables access for easier payments of all types. Allow your customer to use their banking login for app-based consumer facing forms for ACH on-file enrollment, validation and updates.
+    #tags: ["REPLACEME", "REPLACEME", "REPLACEME"]
+    #bullets: ["REPLACEME", "REPLACEME" ]  
     relatedDocs:
       - relatedDoc: 
         title: REPLACEME
@@ -48,10 +77,6 @@ featuredFeatures:
         title: REPLACEME
         description: REPLACEME
         link: ./docs/REPLACE-ME2.md
-      - relatedDoc: 
-        title: REPLACEME
-        description: REPLACEME
-        link: ./docs/REPLACE-ME3.md
     relatedAPIs:
       - relatedAPI: 
         title: REPLACEME
@@ -63,8 +88,51 @@ featuredFeatures:
         description: REPLACEME
         type: "post"        
         path: "/v1/REPLACEME2"
+  - title: Consumer Profile Management
+    description:  One time, low friction customer enrollment enables access for easier payments of all types. Allow your customer to use their banking login for app-based consumer facing forms for ACH on-file enrollment, validation and updates.
+    #tags: ["REPLACEME", "REPLACEME", "REPLACEME"]
+    #bullets: ["REPLACEME", "REPLACEME" ]  
+    relatedDocs:
+      - relatedDoc: 
+        title: REPLACEME
+        description: REPLACEME
+        link: ./docs/REPLACE-ME1.md
+      - relatedDoc: 
+        title: REPLACEME
+        description: REPLACEME
+        link: ./docs/REPLACE-ME2.md
+    relatedAPIs:
       - relatedAPI: 
         title: REPLACEME
         description: REPLACEME
-        type: "get"        
-        path: "/v1/REPLACEME3"
+        type: "patch"        
+        path: "/v1/REPLACEME1"
+      - relatedAPI: 
+        title: REPLACEME
+        description: REPLACEME
+        type: "post"        
+        path: "/v1/REPLACEME2"
+  - title: Pay By Bank Account
+    description:  98% Approval rate on transaction counts. 30% Average realized savings versus interchange. 99% Coverage for US banking population.
+    #tags: ["REPLACEME", "REPLACEME", "REPLACEME"]
+    #bullets: ["REPLACEME", "REPLACEME" ]  
+    relatedDocs:
+      - relatedDoc: 
+        title: REPLACEME
+        description: REPLACEME
+        link: ./docs/REPLACE-ME1.md
+      - relatedDoc: 
+        title: REPLACEME
+        description: REPLACEME
+        link: ./docs/REPLACE-ME2.md
+    relatedAPIs:
+      - relatedAPI: 
+        title: REPLACEME
+        description: REPLACEME
+        type: "patch"        
+        path: "/v1/REPLACEME1"
+      - relatedAPI: 
+        title: REPLACEME
+        description: REPLACEME
+        type: "post"        
+        path: "/v1/REPLACEME2"
