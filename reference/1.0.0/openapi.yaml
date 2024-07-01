@@ -1703,8 +1703,12 @@ components:
                 maxLength: 3
               dataSource:
                 type: string
-                description: 
-              userDetails:
+                description: This field is used for the merchant to denote if consumer bank account data was retrieved via a bank login
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 1
+              userDetails: 
                 type: object
                 properties:
                   firstName:
@@ -2715,7 +2719,7 @@ components:
                     minLength: 1          
                     maxLength: 100
                   productCode:
-                    type: string
+                    type: number
                     description: Product code identifies the highest ticket item in the purchase and is used in the risk analysis of the transaction. Value should be unsigned numeric.
                     minItems: 0
                     maxItems: 1
@@ -2726,34 +2730,34 @@ components:
                         properties:
                           firstName:
                             type: string
-                            description:
+                            description: Individual's first name
                           lastName:
                             type: string
-                            description: 
+                            description: Individual's last name
                           addressline:
                             type: string
-                            description:
+                            description: Individual's address line 
                           addressline2:
-                            type: string
-                            description:
+                            type: string 
+                            description: Individual's second address line (if applicable)
                           city:
                             type: string
-                            description:
+                            description: Individual's city
                           state:
                             type: string
-                            description:
+                            description: Individual's state
                           zip: 
                             type: string
-                            description:
+                            description: Individual's zip code
                           phone:
                             type: string
-                            description:
+                            description: Individual's phone number
                           email:
                             type: string
-                            description:
+                            description: Individual's email address
                           isoCountyCode: 
                             type: string
-                            description:
+                            description: Individual's ISO country code
               userSysDetails:
                 type: object
                 properties:
@@ -3684,6 +3688,7 @@ components:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
+            fdAccountID: "CPlgPO15804795190661084P4u9zY"
             userIdentificationDetails: {}
             transactionDetails:
               amount: 1050
