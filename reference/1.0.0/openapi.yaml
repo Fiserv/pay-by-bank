@@ -2692,7 +2692,7 @@ components:
                     maxLength: 3
                   pinData:  
                     type: string
-                    description:
+                    description: Customer's PIN number
                     minItems: 0
                     maxItems: 1
                     minLength: 1          
@@ -2711,13 +2711,13 @@ components:
                     maxItems: 1
                     minLength: 1          
                     maxLength: 1
-                  splitShipmentFlag:
+                  creditDebitIndicator:
                     type: string
-                    description: Optional field denoting that this is a Split Shipment Original Authorization. The Authorization life will be counted from the time of this transaction and the Authorization Range will be based on the Amount of this transaction.
-                    minItems: 1
+                    description: D = Debit is used for all purchase/sale use cases. If no value is sent we will default it to "D" to Debit.
+                    minItems: 0
                     maxItems: 1
                     minLength: 1          
-                    maxLength: 100
+                    maxLength: 1
                   productCode:
                     type: number
                     description: Product code identifies the highest ticket item in the purchase and is used in the risk analysis of the transaction. Value should be unsigned numeric.
@@ -3693,9 +3693,10 @@ components:
             transactionDetails:
               amount: 1050
               currencyCode: "USD"
+              pinData: "1234"
               merchantTransactionId : "17021542392"
-              recurringPayment: R
-              creditDebitIndicator: D
+              recurringPayment: "R"
+              creditDebitIndicator: "D"
               productCode: 770100
             billingDetails:
               firstName: "Digambar"
