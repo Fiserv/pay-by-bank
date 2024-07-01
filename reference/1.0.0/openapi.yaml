@@ -626,9 +626,29 @@ paths:
                 $ref: '#/components/examples/ACHPurchaseRequestPayloadSample'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
+          $ref: '#/components/responses/200-TransactionPurchaseResponsePayloadSamples'
+        '460':
+          $ref: '#/components/responses/400-TransactionPurchaseResponsePayloadSamples'
+        '409':
+          $ref: '#/components/responses/409-TransactionPurchaseResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+        '100':
+          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
+        '120':
+          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
+        '130':
+          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
+        '140':
+          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
+        '150':
+          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
+        '300':
+          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
+        '500':
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+        '504':
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION'      
   '/transaction/authorize':
     post:
       x-proxy-name: Authorize
@@ -657,9 +677,29 @@ paths:
                 $ref: '#/components/examples/ACHAuthorizeRequestPayloadSample'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
+          $ref: '#/components/responses/200-TransactionAuthResponsePayloadSamples'
+        '400':
+          $ref: '#/components/responses/400-TransactionAuthResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+        '409':
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
+        '100':
+          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
+        '120':
+          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
+        '130':
+          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
+        '140':
+          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
+        '150':
+          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
+        '300':
+          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
+        '500':
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+        '504':
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
   '/transaction/capture':
     post:
       x-proxy-name: Capture
@@ -689,9 +729,29 @@ paths:
                 $ref: '#/components/examples/ACHCaptureRequestPayloadSample'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
+          $ref: '#/components/responses/200-TransactionCaptureResponsePayloadSamples'
+        '400':
+          $ref: '#/components/responses/400-TransactionCaptureResponsePayloadSamples'
+        '409':
+          $ref: '#/components/responses/409-TransactionCaptureResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+        '100':
+          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
+        '120':
+          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
+        '130':
+          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
+        '140':
+          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
+        '150':
+          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
+        '300':
+          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
+        '500':
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+        '504':
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
   '/transaction/refund':
     post:
       x-proxy-name: Refund
@@ -718,9 +778,29 @@ paths:
                 $ref: '#/components/examples/ACHRefundRequestPayloadSample'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
+          $ref: '#/components/responses/200-TransactionRefundResponsePayloadSamples'
+        '400':
+          $ref: '#/components/responses/400-TransactionRefundResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+        '409':
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
+        '100':
+          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
+        '120':
+          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
+        '130':
+          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
+        '140':
+          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
+        '150':
+          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
+        '300':
+          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
+        '500':
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+        '504':
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
   '/transaction/void':
     post:
       x-proxy-name: Void
@@ -747,9 +827,29 @@ paths:
                 $ref: '#/components/examples/ACHVoidRequestPayloadSample'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionResponsePayloadSamples'
+          $ref: '#/components/responses/200-TransactionVoidResponsePayloadSamples'
+        '400':
+          $ref: '#/components/responses/400-TransactionVoidResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+        '409':
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
+        '100':
+          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
+        '120':
+          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
+        '130':
+          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
+        '140':
+          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
+        '150':
+          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
+        '300':
+          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
+        '500':
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+        '504':
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
   '/transaction/collectionfee':
     post:
       x-proxy-name: Collection Fee Notification
@@ -1028,7 +1128,7 @@ components:
                     description: Consumer's Bank account number.
                     minItems: 0
                     maxItems: 1
-                    minLength: 1
+                    minLength: 3
                     maxLength: 17
                   onlineBankTransactionId:
                     type: string
@@ -1601,7 +1701,14 @@ components:
                 maxItems: 1
                 minLength: 3
                 maxLength: 3
-              userDetails:
+              dataSource:
+                type: string
+                description: This field is used for the merchant to denote if consumer bank account data was retrieved via a bank login
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 1
+              userDetails: 
                 type: object
                 properties:
                   firstName:
@@ -1713,8 +1820,50 @@ components:
                     description: "Consumer's Bank account number."
                     minItems: 1
                     maxItems: 1
-                    minLength: 1
+                    minLength: 3
                     maxLength: 17
+                  bankAccountActualLastFour:
+                    type: string
+                    description: "This is the last four digits of the consumer's real bank account number."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 4
+                    maxLength: 4
+                  realCurrentBalance:
+                    type: string
+                    description: "This field represents the runtime harvested current balance of the bank account."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0
+                    # maxLength: 4
+                  realAvailableBalance:
+                    type: string
+                    description: "This field represents the runtime harvested available balance of the bank account."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0
+                    # maxLength: 4
+                  postedCurrentBalance:
+                    type: string
+                    description: "This field represents the posted (previous EOD) current balance of the bank account."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0
+                    # maxLength: 4
+                  postedAvailableBalance:
+                    type: string
+                    description: "This field represents the posted (previous EOD)  available balance of the bank account."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0
+                    # maxLength: 4
+                  supplementalID:
+                    type: string
+                    description: "This field is used to capture a merchant supplied account identifier."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0
+                    # maxLength: 4
                   connectPayPaymentNumber:
                     type: string
                     description: "ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Max length 19."
@@ -1933,6 +2082,42 @@ components:
                     maxItems: 1
                     minLength: 1
                     maxLength: 128
+        Aggregator:
+          type: array
+          items:
+            type: object
+            properties:
+              adapter:
+                type: string
+                description: "This field is the identifier fors the Data Aggregator used to enable the bank login experience."
+                minItems: 0
+                maxItems: 1
+                minLength: 8
+                maxLength: 8
+              allData:
+                type: object
+                properties:
+                  partnerId:
+                    type: string
+                    description: "This field is the unique identifier for the integrator within the data aggregator's systems."
+                    minItems: 0
+                    maxItems: 1
+                    # minLength: 1
+                    # maxLength: 25
+                  homeId:
+                    type: string
+                    description: "This field is the unique identifier for the merchant setup within Data Aggrergator."
+                    minItems: 0
+                    maxItems: 1
+                    # minLength: 1
+                    # maxLength: 50
+                  accountId:
+                    type: string
+                    description: "This field is the unique identifier for the customer account setup within Data Aggrergator."
+                    minItems: 0
+                    maxItems: 1
+                    # minLength: 1
+                    # maxLength: 50
     ConsumerLoadRequest:
       type: object
       properties:
@@ -2165,7 +2350,7 @@ components:
                     description: "Consumer's updated bank account number."
                     minItems: 0
                     maxItems: 1
-                    minLength: 1
+                    minLength: 3
                     maxLength: 17
                   driverLicenseNumber:
                     type: string
@@ -2397,6 +2582,7 @@ components:
                 maxItems: 1
                 minLength: 1
                 maxLength: 50
+                
     ACHPurchaseRequest:
       type: object
       properties:
@@ -2406,12 +2592,68 @@ components:
             subscriberID:
               type: string
               description: Transaction Subscriber ID
+        merchantIdentificationDetails:
+          type: object
+          properties:
+            backendMerchantID:
+              type: string
+              description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            authChannel:
+              type: string
+              description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            storeID:
+              type: string
+              description: Merchants Store number
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            tenderMaterial:
+              type: string
+              description: Digital (Non Face2Face) or Physical (ECA)
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 10
+            businessType:
+              type: string
+              description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            businessActivityType: 
+              type: string
+              description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            fullfillmentType: 
+              type: string
+              description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
         customer:
           type: object
           properties:
             fdCustomerID:
               type: string
               description: Consumers fdCustomerID associated with this request.
+              minItems: 0
+              maxItems: 1
+              minLength: 1          
+              maxLength: 50
         account:
           type: array
           items:
@@ -2420,9 +2662,17 @@ components:
               type:
                 type: string
                 description: Type of account.
+                minItems: 0
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
               fdAccountID:
                 type: string
                 description: Consumers fdAccountID associated with this request .Either fdAccountID or connectPaymentNumber is needed.
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 50
               userIdentificationDetails:
                 type: object
               transactionDetails:
@@ -2431,27 +2681,163 @@ components:
                   amount:
                     type: number
                     description: Processed Amount in cents. 1299 = $12.99.
+                    minItems: 1
+                    maxItems: 1
                   currencyCode:
                     type: string
                     description: USD - Only supports US Dollars.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 3          
+                    maxLength: 3
+                  pinData:  
+                    type: string
+                    description: Customer's PIN number
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 32
                   merchantTransactionId:
                     type: string
                     description: Merchant's unique transaction ID. Required to process secondary transactions like void and refund. For Authorize/Capture transactions, merchant_transaction_id submitted during Capture transactions will be required to process void and refund requests.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
                   recurringPayment:
                     type: string
                     description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
                   creditDebitIndicator:
                     type: string
-                    description: D=Debit is used for all purchase/sale use cases. If no value is sent we will default it to D to Debit.
+                    description: D = Debit is used for all purchase/sale use cases. If no value is sent we will default it to "D" to Debit.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
+                  productCode:
+                    type: number
+                    description: Product code identifies the highest ticket item in the purchase and is used in the risk analysis of the transaction. Value should be unsigned numeric.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 6
+                  billingDetails:
+                        type: object
+                        properties:
+                          firstName:
+                            type: string
+                            description: Individual's first name
+                          lastName:
+                            type: string
+                            description: Individual's last name
+                          addressline:
+                            type: string
+                            description: Individual's address line 
+                          addressline2:
+                            type: string 
+                            description: Individual's second address line (if applicable)
+                          city:
+                            type: string
+                            description: Individual's city
+                          state:
+                            type: string
+                            description: Individual's state
+                          zip: 
+                            type: string
+                            description: Individual's zip code
+                          phone:
+                            type: string
+                            description: Individual's phone number
+                          email:
+                            type: string
+                            description: Individual's email address
+                          isoCountyCode: 
+                            type: string
+                            description: Individual's ISO country code
               userSysDetails:
                 type: object
                 properties:
+                  orderIPaddress:
+                    type: string
+                    description: "IPAddress of merchant system from where the request landed up in Telecheck."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 7
+                    maxLength: 15
+                  imei:
+                    type: string
+                    description: "IMEI of mobile device."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
                   organizationId:
                     type: string
-                    description: Organization ID used for device fingerprinting services.
+                    description: "Organization ID used for device fingerprinting services."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0         
+                    maxLength: 10
                   sessionId:
                     type: string
-                    description: Session ID used for device fingerprinting services.
+                    description: "Session ID used for device fingerprinting services."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 128
+              genericCodes:
+                type: object
+                properties:
+                  genericCode1:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+                  genericCode2:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+                  genericCode3:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+              genericFlags:
+                type: object
+                properties:
+                  genericFlag1:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+                  genericFlag2:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+                  genericFlag3:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+                  
     ACHAuthorizeRequest:
       type: object
       properties:
@@ -2460,13 +2846,28 @@ components:
           properties:
             subscriberID:
               type: string
-              description: Transaction Subscriber ID
+              description: "Transaction Subscriber ID"
+              minItems: 0
+              maxItems: 1
+              # minLength: 1          
+              # maxLength: 30
         customer:
           type: object
           properties:
             fdCustomerID:
               type: string
-              description: Consumers fdCustomerID associated with this request.
+              description: "Consumers fdCustomerID associated with this request."
+              minItems: 0
+              maxItems: 1
+              minLength: 1          
+              maxLength: 50
+        connectPaymentNumber:
+          type: string
+          description: "Consumer's connect payment number"
+          minItems: 0
+          maxItems: 1
+          minLength: 1          
+          maxLength: 19
         account:
           type: array
           items:
@@ -2474,12 +2875,18 @@ components:
             properties:
               type:
                 type: string
-                description: Type of account.
+                description: "Type of account."
+                minItems: 1
+                maxItems: 1
+                minLength: 3          
+                maxLength: 3
               fdAccountID:
                 type: string
-                description: Consumers fdAccountID associated with this request .Either fdAccountID or connectPaymentNumber is needed.
-              userIdentificationDetails:
-                type: object
+                description: "Consumers fdAccountID associated with this request .Either fdAccountID or connectPaymentNumber is needed."
+                minItems: 0
+                maxItems: 1
+                minLength: 1          
+                maxLength: 5
               transactionDetails:
                 type: object
                 properties:
@@ -2487,36 +2894,68 @@ components:
                     type: number
                     nullable: false
                     description: Processed Amount in cents. 1299 = $12.99.
+                    minItems: 1
+                    maxItems: 1
                   currencyCode:
                     type: string
                     description: USD - Only supports US Dollars.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 3          
+                    maxLength: 3
                   pinData:
                     type: string
                     description: This is the encrypted pin block for validating the transaction.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 32
                   merchantTransactionId:
                     type: string
                     description: Merchant's unique transaction ID. Required to process secondary transactions like void and refund. For Authorize/Capture transactions, merchant_transaction_id submitted during Capture transactions will be required to process void and refund requests.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
                   recurringPayment:
                     type: string
                     description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
-                  creditDebitIndicator:
-                    type: string
-                    description: D=Debit is used for all purchase/sale use cases. If no value is sent we will default it to D to Debit.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
                   splitShipmentFlag:
                     type: string
                     description: Optional field denoting that this is a Split Shipment Original Authorization. The Authorization life will be counted from the time of this transaction and the Authorization Range will be based on the Amount of this transaction.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
                   productCode:
                     type: string
                     description: Product code identifies the highest ticket item in the purchase and is used in the risk analysis of the transaction. Value should be unsigned numeric.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 6
               userSysDetails:
                 type: object
                 properties:
                   organizationId:
                     type: string
                     description: Organization ID used for device fingerprinting services.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0         
+                    maxLength: 10
                   sessionId:
                     type: string
                     description: Session ID used for device fingerprinting services.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 128
+
     ACHCaptureRequest:
       type: object
       properties:
@@ -2526,12 +2965,18 @@ components:
             subscriberID:
               type: string
               description: Transaction Subscriber ID
+              minItems: 1
+              maxItems: 1
         customer:
           type: object
           properties:
             fdCustomerID:
               type: string
               description: Consumers fdCustomerID associated with this request.
+              minItems: 0
+              maxItems: 1
+              minLength: 1          
+              maxLength: 50
         account:
           type: array
           items:
@@ -2540,39 +2985,91 @@ components:
               type:
                 type: string
                 description: Type of account.
+                minItems: 1
+                maxItems: 1
+                minLength: 3          
+                maxLength: 3
               userIdentificationDetails:
                 type: object
                 properties:
                   connectPayPaymentNumber:
                     type: string
                     description: ConnectPay Payment number.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 11          
+                    maxLength: 19
               transactionDetails:
                 type: object
                 properties:
                   transactionId:
                     type: string
-                    description: Unique ID for each Transaction which could be used to trace a transaction..
+                    description: Unique ID for each Transaction which could be used to trace a transaction.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
                   amount:
                     type: number
                     nullable: false
                     description: Processed Amount in cents. 1299 = $12.99.
+                    minItems: 1
+                    maxItems: 1
                   currencyCode:
                     type: string
                     description: USD - Only supports US Dollars.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 3          
+                    maxLength: 3
                   merchantTransactionId:
                     type: string
                     description: Merchant's unique transaction ID. Required to process secondary transactions like void and refund. For Authorize/Capture transactions, merchant_transaction_id submitted during Capture transactions will be required to process void and refund requests.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
                   splitShipmentFlag:
                     type: string
                     description: Optional field denoting that this is a Split Shipment Original Authorization. The Authorization life will be counted from the time of this transaction and the Authorization Range will be based on the Amount of this transaction.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
                   splitShipmentId:
                     type: string
                     description: This optional field is only required for Split Shipment Capture transaction. The format will be x/y where numerical values 01/99 through 99/99 are accepted.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
                   productCode:
                     type: string
                     description: Product code identifies the highest ticket item in the purchase and is used in the risk analysis of the transaction. Value should be unsigned numeric.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 6
+              userSysDetails:
+                type: object
+                properties:
+                  organizationId: 
+                    type: string
+                    description: Used for device fingerprinting services. ThreatMetrix.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0          
+                    maxLength: 10
+                  sessionId:
+                    type: string
+                    description: Used for device fingerprinting services. ThreatMetrix.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0          
+                    maxLength: 128
+
     ACHRefundRequest:
-      type: object
+      type: array
       properties:
         partner:
           type: object
@@ -2580,12 +3077,70 @@ components:
             subscriberID:
               type: string
               description: Transaction Subscriber ID
+              minItems: 1
+              maxItems: 1
+        merchantIdentificationDetails:
+          type: object
+          properties:
+            backendMerchantID:
+              type: string
+              description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            authChannel:
+              type: string
+              description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            storeID:
+              type: string
+              description: Merchants Store number
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            tenderMaterial:
+              type: string
+              description: Digital (Non Face2Face) or Physical (ECA)
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 10
+            businessType:
+              type: string
+              description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            businessActivityType: 
+              type: string
+              description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            fullfillmentType: 
+              type: string
+              description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
         customer:
           type: object
           properties:
             fdCustomerID:
               type: string
               description: Consumers fdCustomerID associated with this request.
+              minItems: 0
+              maxItems: 1
+              minLength: 1          
+              maxLength: 50
         account:
           type: array
           items:
@@ -2594,39 +3149,95 @@ components:
               type:
                 type: string
                 description: Type of account.
+                minItems: 1
+                maxItems: 1
+                minLength: 3        
+                maxLength: 3
+              fdAccountID:
+                type: string
+                description: Consumers fdCustomerID associated with this request
+                minItems: 0
+                maxItems: 1
+                minLength: 1          
+                maxLength: 5
               userIdentificationDetails:
                 type: object
                 properties:
                   connectPayPaymentNumber:
                     type: string
                     description: ConnectPay Payment Number.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 11          
+                    maxLength: 19
+                  accountNumber: 
+                    type: string
+                    description: Consumer's account number 
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 3          
+                    maxLength: 17
+                  routingNumber:
+                    type: string
+                    description: Consumer's routing number 
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 9          
+                    maxLength: 9
               transactionDetails:
                 type: object
                 properties:
                   transactionId:
                     type: string
                     description: Unique ID for each Transaction which could be used to trace a transaction..
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
                   amount:
                     type: number
                     description: Processed Amount in cents. 1299 = $12.99.
+                    minItems: 0
+                    maxItems: 1
                   currencyCode:
                     type: string
                     description: USD - Only supports US Dollars.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 3          
+                    maxLength: 3
                   merchantTransactionId:
                     type: string
                     description: Merchant's unique transaction ID. Required to process secondary transactions like void and refund. For Authorize/Capture transactions, merchant_transaction_id submitted during Capture transactions will be required to process void and refund requests.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
                   recurringPayment:
                     type: string
                     description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
               userSysDetails:
                 type: object
                 properties:
                   organizationId:
                     type: string
                     description: Organization ID used for device fingerprinting services.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0         
+                    maxLength: 10
                   sessionId:
                     type: string
                     description: Session ID used for device fingerprinting services.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0          
+                    maxLength: 128
+
     ACHVoidRequest:
       type: object
       properties:
@@ -2636,12 +3247,70 @@ components:
             subscriberID:
               type: string
               description: Transaction Subscriber ID
+              minItems: 1
+              maxItems: 1          
+        merchantIdentificationDetails:
+          type: object
+          properties:
+            backendMerchantID:
+              type: string
+              description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            authChannel:
+              type: string
+              description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            storeID:
+              type: string
+              description: Merchants Store number
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            tenderMaterial:
+              type: string
+              description: Digital (Non Face2Face) or Physical (ECA)
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 10
+            businessType:
+              type: string
+              description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            businessActivityType: 
+              type: string
+              description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
+            fullfillmentType: 
+              type: string
+              description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
+              minItems: 1
+              maxItems: 1
+              minLength: 1          
+              maxLength: 30
         customer:
           type: object
           properties:
             fdCustomerID:
               type: string
               description: Consumers fdCustomerID associated with this request.
+              minItems: 0
+              maxItems: 1
+              minLength: 1          
+              maxLength: 50
         account:
           type: array
           items:
@@ -2650,36 +3319,95 @@ components:
               type:
                 type: string
                 description: Type of account.
+                minItems: 1
+                maxItems: 1
+                minLength: 3        
+                maxLength: 3
+              fdAccountID:
+                type: string
+                description: Consumers fdCustomerID associated with this request
+                minItems: 0
+                maxItems: 1
+                minLength: 1          
+                maxLength: 5
               userIdentificationDetails:
                 type: object
                 properties:
                   connectPayPaymentNumber:
                     type: string
                     description: ConnectPay Payment Number.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 11          
+                    maxLength: 19
+                  accountNumber: 
+                    type: string
+                    description: Consumer's account number 
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 3          
+                    maxLength: 17
+                  routingNumber:
+                    type: string
+                    description: Consumer's routing number 
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 9          
+                    maxLength: 9
               transactionDetails:
                 type: object
                 properties:
                   transactionId:
                     type: string
                     description: Unique ID for each Transaction which could be used to trace a transaction..
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
                   amount:
                     type: number
                     description: Processed Amount in cents. 1299 = $12.99.
+                    minItems: 0
+                    maxItems: 1
                   currencyCode:
                     type: string
                     description: USD - Only supports US Dollars.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 3          
+                    maxLength: 3
                   merchantTransactionId:
                     type: string
                     description: Merchant's unique transaction ID. Required to process secondary transactions like void and refund. For Authorize/Capture transactions, merchant_transaction_id submitted during Capture transactions will be required to process void and refund requests.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
+                  recurringPayment:
+                    type: string
+                    description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
               userSysDetails:
                 type: object
                 properties:
                   organizationId:
                     type: string
                     description: Organization ID used for device fingerprinting services.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0         
+                    maxLength: 10
                   sessionId:
                     type: string
                     description: Session ID used for device fingerprinting services.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0          
+                    maxLength: 128
+
     ACHCollectionFeeRequest:
       type: object
       properties:
@@ -2779,8 +3507,10 @@ components:
       value:
         customer:
           fdCustomerID : CP87rx15814147322210000442tJpajq
+          externalID : ""
         account:
           - type: ACH
+            dataSource: "0/1"
             userDetails:
               firstName: Harry
               lastName: Smith
@@ -2799,6 +3529,12 @@ components:
             userIdentificationDetails:
               routingNumber: "141313134"
               accountNumber: "4444444444"
+              bankAccountActualLastFour: ""
+              realCurrentBalance: ""
+              realAvailableBalance: ""
+              postedCurrentBalance: ""
+              postedAvailableBalance: ""
+              supplementalID: ""
               connectPayPaymentNumber: ""
               corporateAccountFlag: personal_check
               driverLicenseNumber: "85123430"
@@ -2841,6 +3577,12 @@ components:
               imei: "548624521256523"
               organizationId: Ozvk1dz
               sessionId: jhgd87f658adbasjhbdas765d
+        Aggregator:
+          adapter: ""
+          allData:
+            partnerId: ""
+            homeId: ""
+            accountId: ""
     ConsumerLoadSample:
       value:
         customer:
@@ -2934,37 +3676,69 @@ components:
       value:
         partner:
           subscriberID : "36005712"
+          merchantIdentificationDetails:
+            backendMerchantID: "123456789999"
+            authChannel: "WEB"
+            storeID: "1234567890"
+            tenderMaterial: "Digital"
+            businessType: "Consumer"
+            businessActivityType: "Pharmacy"
+            fullfillmentType: "Curb-side"
         customer:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
+            fdAccountID: "CPlgPO15804795190661084P4u9zY"
             userIdentificationDetails: {}
             transactionDetails:
               amount: 1050
               currencyCode: "USD"
+              pinData: "1234"
               merchantTransactionId : "17021542392"
-              recurringPayment: R
-              creditDebitIndicator: D
+              recurringPayment: "R"
+              creditDebitIndicator: "D"
               productCode: 770100
+            billingDetails:
+              firstName: "Digambar"
+              lastName: "Dash"
+              addressLine: "112 PDTR"
+              addressLine2: "KDP"
+              city: "Texas"
+              state: "WA"
+              zip: "840"
+              phone: "9988776655"
+              email: "suma.panyam@fiserv.com"
+              isoCountryCode: "CA"                   
             userSysDetails:
+              orderIPaddress: "12.12.12.12"
+              imei: "654321"
               organizationId: s0b500qh
               sessionId: 3ca6ee0408028f118f102ed0b64779353789ebe3
+            genericCodes: 
+                genericCode1: "1234"
+                genericCode2: "3456"
+                genericCode3: "2345"
+            genericFlags: 
+                genericFlag1: "Y"
+                genericFlag2: "Y"
+                genericFlags3: "Y"
     ACHAuthorizeRequestPayloadSample:
       value:
         partner:
           subscriberID : "36005712"
         customer:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
+        connectPaymentNumber: ""
         account:
           - type: "ACH"
-            userIdentificationDetails: {}
+            # userIdentificationDetails: {}
             transactionDetails:
               amount: 1050
               currencyCode: "USD"
               pinData: ""
               merchantTransactionId : "17021542392"
               recurringPayment: R
-              creditDebitIndicator: D
+              # creditDebitIndicator: D
               splitShipmentFlag: "Y"
               productCode: 770100
             userSysDetails:
@@ -2989,16 +3763,30 @@ components:
               splitShipmentFlag: "Y"
               splitShipmentId: "01/99"
               productCode: 770100
+            userSysDetails:
+              organizationId: ""
+              sessionId: ""
     ACHRefundRequestPayloadSample:
       value:
         partner:
           subscriberID : "36005712"
+          merchantIdentificationDetails:
+            backendMerchantID: "123456789999"
+            authChannel: "WEB"
+            storeID: "1234567890"
+            tenderMaterial: "Digital"
+            businessType: "Consumer"
+            businessActivityType: "Pharmacy"
+            fullfillmentType: "Curb-side"
         customer:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
+            fdAccountId: "12345"
             userIdentificationDetails: {
-              connectPayPaymentNumber: "2000000008000586"
+              connectPayPaymentNumber: "2000000008000586",
+              accountNumber: "7682787",
+              routingNumber: "111906271"
             }
             transactionDetails:
               transactionId: "1400320000000007761093"
@@ -3013,6 +3801,14 @@ components:
       value:
         partner:
           subscriberID : "36005712"
+          merchantIdentificationDetails:
+            backendMerchantID: "123456789999"
+            authChannel: "WEB"
+            storeID: "1234567890"
+            tenderMaterial: "Digital"
+            businessType: "Consumer"
+            businessActivityType: "Pharmacy"
+            fullfillmentType: "Curb-side"
         customer:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
@@ -4641,7 +5437,7 @@ components:
                 referenceTransactionID: 03978cc3-db3a-47aa-8b64-ca1db28ec77c
                 transactionStatusDescription: Created
                 responseVerbiage: Your enrollment is approved but pending bank account validation. You should receive a welcome email from our company with the next steps to validate and activate your account.
-                nonce: 9E5048FAAA900394E0530AAE3307E7A6408
+                # nonce: 9E5048FAAA900394E0530AAE3307E7A6408
                 teleCheckDetails:
                   transactionId: "1400099000000000011052"
                   tckResponseCode: "07"
@@ -4658,6 +5454,8 @@ components:
                       - validationCode: "10"
                         validationCodeDesc: Bank Validation Status
                         validationCodeStatus: PENDING
+                userIdentificationDetails:
+                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"	
     201-CPAPI_ENROLLMENT:
       description: |
         The request was successfully fulfilled and resulted in one or multiple new resources being created
@@ -6532,7 +7330,7 @@ components:
         application/json:
           schema:
             oneOf:
-              - $ref: '#/components/schemas/CPAPIGenericResponse'
+              - $ref: '#components/schemas/CPAPIGenericResponse'
           examples:
             ResponsePayloadSample-Approved:
               value:
@@ -6546,3 +7344,311 @@ components:
                   approvalCode: 1707
                   achTransactionStatus: 1
                   dateTime: "2019-10-18T20:40:29.993Z"
+    #Purchase Responses
+    200-TransactionPurchaseResponsePayloadSamples:
+      description: Successful ACH Purchase response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: APPROVED
+                transactionStatusCode: 0
+                referenceTransactionID: 0021-a65578cd-465b-7b21-e929-25af55ddeff5
+                transactionStatusDescription: Approved
+                teleCheckDetails:
+                  transactionId: "1400320000000008765525"
+                  tckResponseCode: "07"
+                  approvalCode: "2322"
+                  achTransactionStatus: "1"
+                  dateTime: "2023-09-29T13:38:08.754Z"
+    400-TransactionPurchaseResponsePayloadSamples:
+      description: Unsuccessful ACH Purchase response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 460
+                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487602645d"
+                transactionStatusDescription: "Code 3 is a Risk Decline"
+                responseVerbiage: "Code 3 is a Risk Decline"
+                errorDetails: 
+                  errorCode: 6140,
+                  errorReason: "Risk Decline/Business evaluation failed"
+                teleCheckDetails:
+                  transactionId: "1400020000000004746122"
+                  tckResponseCode: "88"
+                  denialRecordNumber: "3655833"
+                  achTransactionStatus: "3"
+                  dateTime: "2023-08-10T10:31:12.824Z"
+    409-TransactionPurchaseResponsePayloadSamples:
+      description: Unsuccessful ACH Purchase response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 409
+                referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
+                transactionStatusDescription: "Conflict"
+                responseVerbiage: "Conflict"
+                errorDetails: 
+                  errorCode: 4970,
+                  errorReason: "There can not be a duplicate transaction used for an ECA sale"
+                teleCheckDetails:
+                  transactionId: "1400310000032032552630"
+                  tckResponseCode: "07"   
+                  approvalCode: "2767"              
+                  achTransactionStatus: "1"
+                  dateTime: "2023-09-27T13:23:39.126Z"
+
+    #Refund Responses
+    200-TransactionRefundResponsePayloadSamples:
+      description: Successful ACH Refund response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: APPROVED
+                transactionStatusCode: 0
+                referenceTransactionID: 0021-9d934997-f446-4db0-acc8-051405caf942
+                transactionStatusDescription: Adjustment accepted for processing
+                teleCheckDetails:
+                  transactionId: "1400320000000008763701"
+                  tckResponseCode: "26"
+                  achTransactionStatus: "1"
+                  dateTime: "2023-09-27T13:12:48.941Z"
+    400-TransactionRefundResponsePayloadSamples:
+      description: Unsuccessful ACH Refund response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "ERROR" 
+                transactionStatusCode: 400
+                referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                transactionStatusDescription: "Invalid Amount"
+                responseVerbiage: "Invalid Amount"
+                errorDetails: 
+                  errorCode: 6200,
+                  errorReason: "Refund or partial amount is > original sale amount"
+                teleCheckDetails:
+                  transactionId: "1400320000000008763706"
+                  tckResponseCode: "80"                  
+                  achTransactionStatus: "0"
+                  dateTime: "2023-09-27T13:23:39.126Z"
+  
+  #Void Responses
+    200-TransactionVoidResponsePayloadSamples:
+      description: Successful ACH Void response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: "APPROVED"
+                transactionStatusCode: 0
+                referenceTransactionID: "0021-7354b748-e511-546d-ee35-20a2b7556c38"
+                transactionStatusDescription: "Approved"
+                teleCheckDetails:
+                  transactionId: "1400310000000590961896"
+                  tckResponseCode: "OK"
+                  achTransactionStatus: "1"
+                  dateTime: "2023-10-03T07:19:02.745Z"
+    400-TransactionVoidResponsePayloadSamples:
+      description: Unsuccessful ACH Void response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "ERROR" 
+                transactionStatusCode: 400
+                referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                transactionStatusDescription: "Invalid Amount"
+                responseVerbiage: "Invalid Amount"
+                errorDetails: 
+                  errorCode: 6200,
+                  errorReason: "Refund or partial amount is > original sale amount"
+                teleCheckDetails:
+                  transactionId: "1400320000000008763706"
+                  tckResponseCode: "80"                  
+                  achTransactionStatus: "0"
+                  dateTime: "2023-09-27T13:23:39.126Z"
+  
+  #Auth Responses
+    200-TransactionAuthResponsePayloadSamples:
+      description: Successful ACH Authorize response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: "APPROVED"
+                transactionStatusCode: 0
+                referenceTransactionID: "3dd1ca44-f7c0-8484-3c69-1c35b3932c06"
+                transactionStatusDescription: "Approved"
+                teleCheckDetails:
+                  transactionId: "1400320000000007761092"
+                  tckResponseCode: "07"
+                  approvalCode: "1707"
+                  achTransactionStatus: "1"
+                  dateTime: "2023-10-03T07:19:02.745Z"
+    400-TransactionAuthResponsePayloadSamples:
+      description: Unsuccessful ACH Authorize response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 400
+                referenceTransactionID: 0021-b7e51e34-00c5-48af-82f2-c8253c445a44
+                transactionStatusDescription: Invalid Amount
+                responseVerbiage: "Invalid Amount"
+                errorDetails: 
+                  errorCode: 6200,
+                  errorReason: "Refund or partial amount is > original sale amount"
+                teleCheckDetails:
+                  transactionId: "1400320000000008763706"
+                  tckResponseCode: "80"                 
+                  achTransactionStatus: "0"
+                  dateTime: "2023-09-27T13:23:39.126Z"
+
+  #Capture Responses
+    200-TransactionCaptureResponsePayloadSamples:
+      description: Successful ACH Capture response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: "APPROVED"
+                transactionStatusCode: 0
+                referenceTransactionID: "0021-e0e92b08-385f-7175-c9f8-eff8e9049dcd"
+                transactionStatusDescription: "Approved"
+                teleCheckDetails:
+                  transactionId: "1400310000032032552630"
+                  tckResponseCode: "07"
+                  approvalCode: "2767"
+                  achTransactionStatus: "1"
+                  dateTime: "2023-08-23T19:55:49.969Z"
+    400-TransactionCaptureResponsePayloadSamples:
+      description: Unsuccessful ACH Capture response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 400
+                referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                transactionStatusDescription: "Invalid Amount"
+                responseVerbiage: "Invalid Amount"
+                errorDetails: 
+                  errorCode: 6200,
+                  errorReason: "Refund or partial amount is > original sale amount"
+                teleCheckDetails:
+                  transactionId: "1400310000032032552630"
+                  tckResponseCode: "07"   
+                  approvalCode: "2767"              
+                  achTransactionStatus: "1"
+                  dateTime: "2023-09-27T13:23:39.126Z"
+    409-TransactionCaptureResponsePayloadSamples:
+      description: Unsuccessful ACH Capture response.
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#components/schemas/CPAPIGenericResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 409
+                referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
+                transactionStatusDescription: "Conflict"
+                responseVerbiage: "Conflict"
+                errorDetails: 
+                  errorCode: 4970,
+                  errorReason: "There can not be a duplicate transaction used for an ECA sale"
+                teleCheckDetails:
+                  transactionId: "1400310000032032552630"
+                  tckResponseCode: "07"   
+                  approvalCode: "2767"              
+                  achTransactionStatus: "1"
+                  dateTime: "2023-09-27T13:23:39.126Z"
+  
+  #Transaction API's Common Error Codes:
+    401-CPAPI_TRANSACTION:
+      description: |
+        Unauthorize - Partner is not opt for this service
+    409-CPAPI_TRANSACTION:
+      description: |
+        Conflict - There can not be a duplicate transaction used for an ECA sale
+    460-CPAPI_TRANSACTION:
+      description: |
+        Ineligible - The transactions is not eligible for Electronic Conversion or Draft
+    100-CPAPI_TRANSACTION:
+      description: |
+        Input invalid - Required block did not have a value
+    120-CPAPI_TRANSACTION:
+      description: |
+        Consumer Cannot Be Validated - The enrollment record was not found or is inactive
+    130-CPAPI_TRANSACTION:
+      description: |
+        Partner Cannot Be Validated	- Merchant does not exist
+    140-CPAPI_TRANSACTION:
+      description: |
+        Customer profile not found - Customer profile not found
+    150-CPAPI_TRANSACTION:
+      description: |
+        Account detail not found - Account detail not found
+    300-CPAPI_TRANSACTION:
+      description: |
+        Transaction is rejected because the customer's FI has blocked the connection from TeleCheck.
+    500-CPAPI_TRANSACTION:
+      description: |
+        General error - Please try again after some time, If issue persist please contact customer support
+    504-CPAPI_TRANSACTION:
+      description: |
+        Payment Gateway Timeout
+    
