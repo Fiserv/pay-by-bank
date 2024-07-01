@@ -7645,4 +7645,3 @@ components:
     504-CPAPI_TRANSACTION:
       description: |
         Payment Gateway Timeout
-    
