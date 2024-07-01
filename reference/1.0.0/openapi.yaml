@@ -1128,7 +1128,7 @@ components:
                     description: Consumer's Bank account number.
                     minItems: 0
                     maxItems: 1
-                    minLength: 1
+                    minLength: 3
                     maxLength: 17
                   onlineBankTransactionId:
                     type: string
@@ -1816,7 +1816,7 @@ components:
                     description: "Consumer's Bank account number."
                     minItems: 1
                     maxItems: 1
-                    minLength: 1
+                    minLength: 3
                     maxLength: 17
                   bankAccountActualLastFour:
                     type: string
@@ -2346,7 +2346,7 @@ components:
                     description: "Consumer's updated bank account number."
                     minItems: 0
                     maxItems: 1
-                    minLength: 1
+                    minLength: 3
                     maxLength: 17
                   driverLicenseNumber:
                     type: string
@@ -3171,8 +3171,8 @@ components:
                     description: Consumer's account number 
                     minItems: 0
                     maxItems: 1
-                    minLength: 7          
-                    maxLength: 7
+                    minLength: 3          
+                    maxLength: 17
                   routingNumber:
                     type: string
                     description: Consumer's routing number 
@@ -3341,8 +3341,8 @@ components:
                     description: Consumer's account number 
                     minItems: 0
                     maxItems: 1
-                    minLength: 7          
-                    maxLength: 7
+                    minLength: 3          
+                    maxLength: 17
                   routingNumber:
                     type: string
                     description: Consumer's routing number 
