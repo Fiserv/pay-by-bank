@@ -931,6 +931,429 @@ components:
       schema:
         type: string
   schemas:
+    CPAPITransactionDeclineResponseCode3: 
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: Overall status of the call.
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+        errorDetails:
+          type: object
+          properties:
+            errorCode:
+              type: string
+              description: Code signifying what kind of error occurred.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 4
+            errorReason:
+              type: string
+              description: Short description of the error.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 100
+        teleCheckDetails:
+          type: object
+          properties:
+            transactionId:
+              type: string
+              description: Telecheck unique transaction ID. Required to process secondary transactions like capture/void/refund/recurring/splitshipment.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 22
+            tckResponseCode:
+              type: string
+              description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+            denialRecordNumber:
+              type: string
+              description: 7-digit denial record number, used only for declined transactions.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 7
+            achTransactionStatus:
+              type: string
+              description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 1
+            dateTime:
+              type: string
+              description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
+              minItems: 0
+              maxItems: 1
+              minLength: 24
+              maxLength: 24
+    CPAPITransactionDeclineResponseDuplicate: 
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: Overall status of the call.
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+        errorDetails:
+          type: object
+          properties:
+            errorCode:
+              type: string
+              description: Code signifying what kind of error occurred.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 4
+            errorReason:
+              type: string
+              description: Short description of the error.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 100
+        teleCheckDetails:
+          type: object
+          properties:
+            transactionId:
+              type: string
+              description: Telecheck unique transaction ID. Required to process secondary transactions like capture/void/refund/recurring/splitshipment.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 22
+            tckResponseCode:
+              type: string
+              description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+            approvalCode:
+              type: string
+              description: Telecheck approval code.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+            achTransactionStatus:
+              type: string
+              description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 1
+            dateTime:
+              type: string
+              description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
+              minItems: 0
+              maxItems: 1
+              minLength: 24
+              maxLength: 24
+    CPAPITransactionDeclineResponse: 
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: Overall status of the call.
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+        errorDetails:
+          type: object
+          properties:
+            errorCode:
+              type: string
+              description: Code signifying what kind of error occurred.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 4
+            errorReason:
+              type: string
+              description: Short description of the error.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 100
+        teleCheckDetails:
+          type: object
+          properties:
+            transactionId:
+              type: string
+              description: Telecheck unique transaction ID. Required to process secondary transactions like capture/void/refund/recurring/splitshipment.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 22
+            tckResponseCode:
+              type: string
+              description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+            achTransactionStatus:
+              type: string
+              description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 1
+            dateTime:
+              type: string
+              description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
+              minItems: 0
+              maxItems: 1
+              minLength: 24
+              maxLength: 24
+    CPAPITransactionApproveResponse: 
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: Overall status of the call.
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        teleCheckDetails:
+          type: object
+          properties:
+            transactionId:
+              type: string
+              description: Telecheck unique transaction ID. Required to process secondary transactions like capture/void/refund/recurring/splitshipment.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 22
+            tckResponseCode:
+              type: string
+              description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+            achTransactionStatus:
+              type: string
+              description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 1
+            dateTime:
+              type: string
+              description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
+              minItems: 0
+              maxItems: 1
+              minLength: 24
+              maxLength: 24
+    CPAPITransactionApprovalCodeResponse: 
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: Overall status of the call.
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        teleCheckDetails:
+          type: object
+          properties:
+            transactionId:
+              type: string
+              description: Telecheck unique transaction ID. Required to process secondary transactions like capture/void/refund/recurring/splitshipment.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 22
+            tckResponseCode:
+              type: string
+              description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+            approvalCode:
+              type: string
+              description: Telecheck approval code.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+            achTransactionStatus:
+              type: string
+              description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 1
+            dateTime:
+              type: string
+              description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
+              minItems: 0
+              maxItems: 1
+              minLength: 24
+              maxLength: 24
     CPAPIGenericResponse:
       type: object
       properties:
@@ -963,9 +1386,9 @@ components:
           type: string
           description: Short description of statusCode.
           maxItems: 1
-          minItems: 1
+          minItems: 0
           minLength: 1
-          maxLength: 30
+          maxLength: 100
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -1011,6 +1434,13 @@ components:
           items:
             type: object
             properties:
+              fdAccountID:
+                type: string
+                description: Consumers fdCustomerID associated with this request
+                minItems: 0
+                maxItems: 1
+                minLength: 1          
+                maxLength: 5           
               accountStatus:
                 type: string
                 description: Denotes the overall status of the ACH payment device.
@@ -1677,7 +2107,7 @@ components:
           properties:
             externalID:
               type: string
-              description: "This is the user’s unique identifier in the merchant system."
+              description: "Use this field only when the merchant is configured to create profile, enroll and getData (fdAccountID) in a single API call. fdCustomerID is optional when this field is passed in the request."
               minItems: 1
               maxItems: 1
               minLength: 1
@@ -2592,58 +3022,58 @@ components:
             subscriberID:
               type: string
               description: Transaction Subscriber ID
-        merchantIdentificationDetails:
-          type: object
-          properties:
-            backendMerchantID:
-              type: string
-              description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            authChannel:
-              type: string
-              description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            storeID:
-              type: string
-              description: Merchants Store number
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            tenderMaterial:
-              type: string
-              description: Digital (Non Face2Face) or Physical (ECA)
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 10
-            businessType:
-              type: string
-              description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            businessActivityType: 
-              type: string
-              description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            fullfillmentType: 
-              type: string
-              description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
+            merchantIdentificationDetails:
+              type: object
+              properties:
+                backendMerchantID:
+                  type: string
+                  description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                authChannel:
+                  type: string
+                  description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                storeID:
+                  type: string
+                  description: Merchants Store number
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                tenderMaterial:
+                  type: string
+                  description: Digital (Non Face2Face) or Physical (ECA)
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 10
+                businessType:
+                  type: string
+                  description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                businessActivityType: 
+                  type: string
+                  description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                fullfillmentType: 
+                  type: string
+                  description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
         customer:
           type: object
           properties:
@@ -3069,7 +3499,7 @@ components:
                     maxLength: 128
 
     ACHRefundRequest:
-      type: array
+      type: object
       properties:
         partner:
           type: object
@@ -3079,58 +3509,58 @@ components:
               description: Transaction Subscriber ID
               minItems: 1
               maxItems: 1
-        merchantIdentificationDetails:
-          type: object
-          properties:
-            backendMerchantID:
-              type: string
-              description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            authChannel:
-              type: string
-              description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            storeID:
-              type: string
-              description: Merchants Store number
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            tenderMaterial:
-              type: string
-              description: Digital (Non Face2Face) or Physical (ECA)
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 10
-            businessType:
-              type: string
-              description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            businessActivityType: 
-              type: string
-              description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            fullfillmentType: 
-              type: string
-              description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
+            merchantIdentificationDetails:
+              type: object
+              properties:
+                backendMerchantID:
+                  type: string
+                  description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                authChannel:
+                  type: string
+                  description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                storeID:
+                  type: string
+                  description: Merchants Store number
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                tenderMaterial:
+                  type: string
+                  description: Digital (Non Face2Face) or Physical (ECA)
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 10
+                businessType:
+                  type: string
+                  description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                businessActivityType: 
+                  type: string
+                  description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                fullfillmentType: 
+                  type: string
+                  description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
         customer:
           type: object
           properties:
@@ -3249,58 +3679,58 @@ components:
               description: Transaction Subscriber ID
               minItems: 1
               maxItems: 1          
-        merchantIdentificationDetails:
-          type: object
-          properties:
-            backendMerchantID:
-              type: string
-              description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            authChannel:
-              type: string
-              description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            storeID:
-              type: string
-              description: Merchants Store number
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            tenderMaterial:
-              type: string
-              description: Digital (Non Face2Face) or Physical (ECA)
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 10
-            businessType:
-              type: string
-              description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            businessActivityType: 
-              type: string
-              description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
-            fullfillmentType: 
-              type: string
-              description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
-              minItems: 1
-              maxItems: 1
-              minLength: 1          
-              maxLength: 30
+            merchantIdentificationDetails:
+              type: object
+              properties:
+                backendMerchantID:
+                  type: string
+                  description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                authChannel:
+                  type: string
+                  description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                storeID:
+                  type: string
+                  description: Merchants Store number
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                tenderMaterial:
+                  type: string
+                  description: Digital (Non Face2Face) or Physical (ECA)
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 10
+                businessType:
+                  type: string
+                  description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                businessActivityType: 
+                  type: string
+                  description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
+                fullfillmentType: 
+                  type: string
+                  description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
+                  minItems: 1
+                  maxItems: 1
+                  minLength: 1          
+                  maxLength: 30
         customer:
           type: object
           properties:
@@ -5430,14 +5860,14 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPIGenericResponse'
           examples:
-            ResponsePayloadSample-Approved:
+            ResponsePayloadSample-Approved-WithNonce:
               value:
                 transactionStatus: APPROVED
                 transactionStatusCode: "70"
                 referenceTransactionID: 03978cc3-db3a-47aa-8b64-ca1db28ec77c
                 transactionStatusDescription: Created
                 responseVerbiage: Your enrollment is approved but pending bank account validation. You should receive a welcome email from our company with the next steps to validate and activate your account.
-                # nonce: 9E5048FAAA900394E0530AAE3307E7A6408
+                nonce: 9E5048FAAA900394E0530AAE3307E7A6408
                 teleCheckDetails:
                   transactionId: "1400099000000000011052"
                   tckResponseCode: "07"
@@ -5449,6 +5879,32 @@ components:
                   fdCustomerID: CP87rx15814147322210000442tJpajq
                 account:
                   - accountStatus: "70"
+                    accountStatusDesc: PENDING_VALIDATIONS
+                    accountValidationDetails:
+                      - validationCode: "10"
+                        validationCodeDesc: Bank Validation Status
+                        validationCodeStatus: PENDING
+                userIdentificationDetails:
+                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"	
+            ResponsePayloadSample-Approved-WithFDAccountID:
+              value:
+                transactionStatus: APPROVED
+                transactionStatusCode: "70"
+                referenceTransactionID: 03978cc3-db3a-47aa-8b64-ca1db28ec77c
+                transactionStatusDescription: Created
+                responseVerbiage: Your enrollment is approved but pending bank account validation. You should receive a welcome email from our company with the next steps to validate and activate your account.
+                teleCheckDetails:
+                  transactionId: "1400099000000000011052"
+                  tckResponseCode: "07"
+                  approvalCode: "7350"
+                  displayText: "APPROVED 1414"
+                  sequenceId: "0"
+                  ecaOfferCode: "Y"
+                customer:
+                  fdCustomerID: CP87rx15814147322210000442tJpajq
+                account:
+                    fdAccountID: "CPQyoO170227815252548083xZesD1"	
+                    accountStatus: "70"
                     accountStatusDesc: PENDING_VALIDATIONS
                     accountValidationDetails:
                       - validationCode: "10"
@@ -7350,8 +7806,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
           examples:
             ResponsePayloadSample-Approved:
               value:
@@ -7370,8 +7825,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
           examples:
             ResponsePayloadSample-Declined:
               value:
@@ -7394,8 +7848,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
             ResponsePayloadSample-Declined:
               value:
@@ -7420,8 +7873,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionApproveResponse'
           examples:
             ResponsePayloadSample-Approved:
               value:
@@ -7439,8 +7891,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
             ResponsePayloadSample-Declined:
               value:
@@ -7464,8 +7915,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionApproveResponse'
           examples:
             ResponsePayloadSample-Approved:
               value:
@@ -7483,8 +7933,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
             ResponsePayloadSample-Declined:
               value:
@@ -7508,8 +7957,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
           examples:
             ResponsePayloadSample-Approved:
               value:
@@ -7528,8 +7976,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
             ResponsePayloadSample-Declined:
               value:
@@ -7553,8 +8000,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
           examples:
             ResponsePayloadSample-Approved:
               value:
@@ -7573,8 +8019,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
             ResponsePayloadSample-Declined:
               value:
@@ -7597,8 +8042,7 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
             ResponsePayloadSample-Declined:
               value:
