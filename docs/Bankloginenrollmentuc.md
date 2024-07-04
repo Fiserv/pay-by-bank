@@ -17,12 +17,14 @@ Sequence of activities for completing bank login enrollment:
 
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
 
+
 [Create Consumer Profile](?path=./docs/implementationguide.md)
 
 ### Create Session Token 
 
 [Create Session Token](?path=./docs/implementationguide.md)
 >Note: See section labeled Create Session Token
+
 
 
 ### Initialize and Launch ConnectPay SDK 
@@ -46,8 +48,8 @@ You will want to go to the specific mobile operating section and look to initial
   <li>Consumer verifies and edits information (except bank number) and submits data for enrollment</li>
   <li>SDK completes enrollment process and returns NONCE to merchantApp</li>
   <li>NONCE passed back to merchant server</li>
-  <li>Merchant server does a server-to-server GetData call to retrieve fdAccountId generated after consumer data vaulting. Merchant receives the current consumer status as a part of this call</li>
-  <li>Merchant server stores the fdCustomerId,fdAccountId(optional) against the `externalId` in their system for future use</li>
+  <li>Merchant server does a server-to-server GetData call to retrieve `fdAccountId` generated after consumer data vaulting. Merchant receives the current consumer status as a part of this call</li>
+  <li>Merchant server stores the `fdCustomerId`,`fdAccountId`(optional) against the `externalId` in their system for future use</li>
 </ol>
 
 ### Additional uCOM Steps

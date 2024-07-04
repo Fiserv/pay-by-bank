@@ -319,5 +319,5 @@ public static String decrypt(byte[] privateKey, String inputData,String rsaAlgoT
 
 [API Integration](?path=./docs/implementationguide.md)
 
-[SDK Integration](?path=docs/sdkimplementationguide.md)
+[SDK Integration](?path=./docs/sdkimplementationguide.md)
 
