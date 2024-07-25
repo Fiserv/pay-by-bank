@@ -715,7 +715,7 @@ paths:
       #         RequestPayloadSample:
       #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
       responses:
-        '200-SampleData':
+        '200':
           $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
   '/authlanguage/partner/{partnerID}':
     get:
@@ -736,7 +736,7 @@ paths:
       #         RequestPayloadSample:
       #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
       responses:
-        '200-SampleData':
+        '200':
           $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
   '/transaction/purchase':
     post:
@@ -8414,7 +8414,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPIAuthLanguageTncIDSuccessResponse'
           examples:
-            ResponsePayloadSample-Declined:
+            ResponsePayloadSample-Success:
               value:
                 tncID: 3,
                 tncStatus: "ACTIVE"
