@@ -636,14 +636,14 @@ paths:
         TBD.
       parameters:
         - $ref: '#/components/parameters/username'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              # $ref: '#/components/schemas/ACHAuthLanguageReques'
-            examples:
-              RequestPayloadSample:
-                # $ref: '#/components/examples/ACHAuthLanguageRequestPayloadSampl'
+      # requestBody:
+      #   content:
+      #     application/json:
+      #       schema:
+      #         # $ref: '#/components/schemas/ACHAuthLanguageReques'
+      #       examples:
+      #         RequestPayloadSample:
+      #           # $ref: '#/components/examples/ACHAuthLanguageRequestPayloadSampl'
       responses:
         '200':
           $ref: '#/components/responses/200-AuthLanguageActivateResponsePayloadSamples'
@@ -685,14 +685,14 @@ paths:
         Get the Auth Language / Terms&Conditions for given tncID
       description: |
         TBD.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
-            examples:
-              RequestPayloadSample:
-                # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+      # requestBody:
+      #   content:
+      #     application/json:
+      #       schema:
+      #         # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+      #       examples:
+      #         RequestPayloadSample:
+      #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
       responses:
         '200':
           $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
@@ -706,17 +706,17 @@ paths:
         Get latest version of Terms & Conditions for given Partner AND language. If no language specified then default is 'en' for English
       description: |
         TBD.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
-            examples:
-              RequestPayloadSample:
-                # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
-      responses:
-        '200':
-          # $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
+      # requestBody:
+      #   content:
+      #     application/json:
+      #       schema:
+      #         # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+      #       examples:
+      #         RequestPayloadSample:
+      #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+      # responses:
+      #   '200':
+      #     # $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
   '/authlanguage/partner/{partnerID}':
     get:
       x-proxy-name: TncID
@@ -727,17 +727,17 @@ paths:
         Get latest version of Terms & Conditions for given Partner AND language. If no language specified then default is 'en' for English
       description: |
         TBD.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
-            examples:
-              RequestPayloadSample:
-                # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
-      responses:
-        '200':
-          # $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
+      # requestBody:
+      #   content:
+      #     application/json:
+      #       schema:
+      #         # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+      #       examples:
+      #         RequestPayloadSample:
+      #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+      # responses:
+      #   '200':
+      #     # $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
   '/transaction/purchase':
     post:
       x-proxy-name: Purchase
