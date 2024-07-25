@@ -32,6 +32,8 @@ tags:
     description: These set of services assist pulling ACH wallet information for consumer on file to select one of the valted account for PayByBank Transactions
   - name: Transactions
     description: These set of services are for processing ACH Transactions
+  - name: Auth Language 
+    description: This decription is yet to be decided 
 # This is the endpoint that will show
 paths:
   '/security/createsessiontoken':
@@ -599,6 +601,143 @@ paths:
           $ref: '#/components/responses/409-CPAPI_GET_ACCOUNT_DETAILS'
         '500':
           $ref: '#/components/responses/500-CPAPI_GET_ACCOUNT_DETAILS'
+  '/authlanguage/create':
+    post:
+      x-proxy-name: Create
+      x-group-name: Auth Language
+      tags:
+        - Auth Language
+      summary: |
+        Create DRAFT Auth Language / Terms&Conditions for Merchant for the template identified by KEY.
+      description: |
+        TBD.
+      parameters:
+        - $ref: '#/components/parameters/username'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ACHAuthLanguageRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ACHAuthLanguageRequestPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-AuthLanguageResponsePayloadSamples'
+  '/authlanguage/activate':
+    post:
+      x-proxy-name: Activate
+      x-group-name: Auth Language
+      tags:
+        - Auth Language
+      summary: |
+        Activate DRAFT Auth Language / Terms&Conditions by Reviewing and Approving.
+      description: |
+        TBD.
+      parameters:
+        - $ref: '#/components/parameters/username'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ACHAuthLanguageReques'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ACHAuthLanguageRequestPayloadSampl'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-AuthLanguageActivateResponsePayloadSamples'
+  '/authlanguage/generate':
+    post:
+      x-proxy-name: Generate
+      x-group-name: Auth Language
+      tags:
+        - Auth Language
+      summary: |
+        Generate the Auth Language with Fully replaced placeholders.
+      description: |
+        TBD.
+      parameters:
+        - $ref: '#/components/parameters/username'
+        - $ref: '#/components/parameters/partnerID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ACHAuthLanguageGenerateRequest'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSample'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-AuthLanguageGenerateResponsePayloadSamples'
+        '100':
+          $ref: '#/components/responses/100-AuthLanguageGenerateResponsePayloadSamples'
+        '500':
+          $ref: '#/components/responses/500-AuthLanguageGenerateResponsePayloadSamples'
+  '/authlanguage/tnc/{tncID}':
+    get:
+      x-proxy-name: TncID
+      x-group-name: Auth Language
+      tags:
+        - Auth Language
+      summary: |
+        Get the Auth Language / Terms&Conditions for given tncID
+      description: |
+        TBD.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
+  '/authlanguage/partner/{partnerID}/{language}':
+    get:
+      x-proxy-name: TncID
+      x-group-name: Auth Language
+      tags:
+        - Auth Language
+      summary: |
+        Get latest version of Terms & Conditions for given Partner AND language. If no language specified then default is 'en' for English
+      description: |
+        TBD.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
+  '/authlanguage/partner/{partnerID}':
+    get:
+      x-proxy-name: TncID
+      x-group-name: Auth Language
+      tags:
+        - Auth Language
+      summary: |
+        Get latest version of Terms & Conditions for given Partner AND language. If no language specified then default is 'en' for English
+      description: |
+        TBD.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+            examples:
+              RequestPayloadSample:
+                $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+      responses:
+        '200':
+          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
   '/transaction/purchase':
     post:
       x-proxy-name: Purchase
@@ -881,6 +1020,20 @@ paths:
           $ref: '#/components/responses/401-AuthenticationErrorPayloadSample'
 components:
   parameters:
+    username:
+      name: Username
+      description: The customer's Username, <ProvideUserName>.
+      in: header
+      required: true
+      schema:
+        type: string
+    partnerID:
+      name: PartnerID
+      description: Please pass the partnerID, <ProvidePartnerId>.
+      in: header
+      required: true
+      schema:
+        type: string
     apiKeyParam:
       name: Api-Key
       description: An API key is a string value passed by a client app or sdk to the PayByBank. The key uniquely identifies the client app or sdk.
@@ -1281,6 +1434,144 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
+    CPAPIAuthLanguageApprovalCodeResponse:
+      type: object
+      properties:
+        tncID:
+          type: string
+          description: ""
+        tncStatus:
+          type: string
+          description: ""
+        transactionStatus:
+          type: string
+          description: ""
+        transactionStatusCode:
+          type: number
+          description: ""
+        referenceTransactionID:
+          type: string
+          description: ""
+        transactionStatusDescription:
+          type: string
+          description: ""
+    CPAPIAuthLanguageActivateApprovalCodeResponse:
+      type: object
+      properties:
+        tncID:
+          type: string
+          description: ""
+        tncStatus:
+          type: string
+          description: ""
+        transactionStatus:
+          type: string
+          description: ""
+        transactionStatusCode:
+          type: number
+          description: ""
+        transactionStatusDescription:
+          type: string
+          description: ""
+    CPAPIAuthLanguageGenerateApprovalCodeResponse:
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: ""
+        transactionStatusCode:
+          type: number
+          description: ""
+        refenreceTransactionID:
+          type: string
+          description: ""
+        agreedTncTransactionID:
+          type: string
+          description: ""
+        content:
+          type: string
+          description: ""    
+    CPAPIAuthLanguageGenerateErrorCodeResponse:
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: ""
+        transactionStatusCode:
+          type: number
+          description: ""
+        refenreceTransactionID:
+          type: string
+          description: ""
+        transactionStatusDescription:
+          type: string
+          description: ""
+        errorDetails:
+          type: object
+          properties:
+            errorCode:
+              type: number
+              decription: ""
+            errorField:
+              type: string
+              decription: ""
+            errorReason:
+              type: string
+              decription: ""
+    CPAPIAuthLanguageTncIDSuccessResponse:
+      type: object
+      properties:
+        tncID:
+          type: number
+          description: ""
+        tncStatus:
+          type: string
+          description: ""
+        description:
+          type: string
+          description: ""
+        tncIdentificationDetails:
+          type: object
+          properties:
+            language:
+              type: number
+              decription: ""
+            partnerID:
+              type: string
+              decription: ""
+            authChannel:
+              type: string
+              decription: ""
+            checkType:
+              type: number
+              decription: ""
+            recurringPayment:
+              type: string
+              decription: ""
+            businessLine:
+              type: string
+              decription: ""   
+        createdBy:
+          type: string
+          description: ""
+        placeholderList:
+          type: string
+          description: ""
+        placeholderLookup:
+          type: string
+          description: ""
+        content:
+          type: string
+          description: ""
+        transactionStatus:
+          type: string
+          description: ""
+        transactionStatusCode:
+          type: number
+          description: ""
+        referenceTransactionID:
+          type: string
+          description: ""  
     CPAPITransactionApprovalCodeResponse: 
       type: object
       properties:
@@ -3011,7 +3302,156 @@ components:
                 minItems: 1
                 maxItems: 1
                 minLength: 1
-                maxLength: 50                
+                maxLength: 50
+    ACHAuthLanguageRequest:
+      type: object
+      properties:
+        tncIdentificationDetails:
+          type: object
+          properties:
+            language: 
+              type: string
+              description: ""
+            authChannel: 
+              type: string
+              description: ""
+            checkType: 
+              type: string
+              description: ""
+            recurringPayment: 
+              type: string
+              description: ""
+            businessLine: 
+              type: string
+              description: ""
+        placeHolderList: 
+          type: string
+          decription: ""
+        placeHolderLookup:
+          type: string
+          decription: ""
+        description:  
+          type: string
+          description: ""
+        content: 
+          type: string
+          decription: ""        
+    ACHAuthLanguageGenerateRequest:
+      type: object
+      properties:
+        language:
+          type: string
+          description: ""
+        partner:
+          type: object
+          properties:
+            subscriberID:
+              type: string
+              description: Transaction Subscriber ID
+            merchantIdentificationDetails:
+              type: object
+              properties:
+                authChannel:
+                  type: string
+                  description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
+                backendMerchantID:
+                  type: string
+                  description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
+        account:
+          type: array
+          items:
+            type: object
+            properties:
+              userIdentificationDetails:
+                type: object
+                properties: 
+                  checkType:
+                    type: string
+                    description: ""
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 4
+                    maxLength: 4 
+                  accountType:
+                    type: string
+                    description: ""
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 4
+                    maxLength: 4
+                  routingNumber:
+                    type: string
+                    description: "Consumer's bank Routing transit number."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 9
+                    maxLength: 9
+              transactionDetails:
+                type: object
+                properties:
+                  amount: 
+                    type: string
+                    description: ""
+                  dateTime: 
+                    type: string
+                    description: ""         
+                  billingDetails: 
+                    type: object
+                    properties:
+                      firstName:
+                        type: string
+                        description: ""
+                      lastName:
+                        type: string 
+                        description: ""
+                      state:
+                        type: string
+                        description: ""
+              recurringPayment:
+                type: string 
+                description: ""
+              recurringPaymentDetails:
+                type: object
+                properties:
+                  frequency:
+                    type: string
+                    description: ""
+                  startDate:
+                    type: string
+                    description: ""            
+                  recurDate:
+                    type: string
+                    description: ""
+                  endDate:
+                    type: string
+                    description: ""
+        tncPlaceHolders:
+          type: object
+          properties:
+            originatorName: 
+              type: string 
+              decription: ""
+            merchantSupportNumber: 
+              type: string 
+              decription: ""
+            serviceHoursOfOperation: 
+              type: string 
+              decription: ""
+            eSignAckLink: 
+              type: string 
+              decription: ""
+            additionalCost: 
+              type: string 
+              decription: ""
+            companyName: 
+              type: string 
+              decription: ""
+            revokeDays: 
+              type: string 
+              decription: ""
+            teleCheckSupportNumber: 
+              type: string 
+              decription: ""             
     ACHPurchaseRequest:
       type: object
       properties:
@@ -4157,6 +4597,53 @@ components:
         account:
           - type: ACH
             fdAccountID: CP0hCA1583183750214467CFr5aq
+    ACHAuthLanguageRequestPayloadSample:
+      value:
+        tncIdentificationDetails:
+          language: "en"
+          authChannel: "WEB"
+          checkType: "P"
+          recurringPayment: "R"
+          businessLine: "Warranty"
+        placeholderList: "dateTime,firstName,lastName,amount,accountType,routingNumber,accountNumber,state,startDate,frequency,recurDate,endDate,originatorName,merchantSupportNumber,serviceHoursOfOperation,additionalCost,companyName,originatorName,revokeDays,teleCheckSupportNumber,eSignAckLink"
+        placeholderLookup: "state=state_return_fee"
+        description: "Enlish: WEB-Personal-Recurring-Warranty AuthLanguage"
+        content:  "Today, being [dateTime], I’d like to confirm that you, [firstName] [lastName], are authorizing a one-time payment in the amount of [amount] to be processed as an electronic funds transfer (EFT) or draft drawn from your [accountType] account identified as routing number [routingNumber] and account number [accountNumber] and, if necessary, electronic credits or debits to your account to correct errors. \n Your payment will be processed within 1-2 banking days. Do you authorize your account to be debited as described? (If consumer answers “Yes,” continue. If consumer answers “No,” stop the authorization process). \n If the payment returns unpaid, do you authorize [originatorName] or our service provider to collect the payment and a one-time return item fee and, if applicable, costs, by EFT(s) or draft(s) drawn from your account. Your state return fee is [state_return_fee].(If consumer answers “Yes,” continue. If consumer answers “No,” stop the authorization process). \nYou may call [merchantSupportNumber] during [serviceHoursOfOperation] with any questions. \nDue to the speed of electronic payment processing do you understand that you will have until theend of this phone call to revoke this authorization by telling me you wish to revoke it? (If consumer answers “Yes,” continue. If consumer answers No,stop the authorization process). \nBased on the terms and conditions we have discussed, and the disclosures made to you, do you agree to and authorizethe payment? (If consumer answers “Yes,” continue. If consumer answers “No,” stop the authorization process). Sample Content for Recurring payment: starting on [startDate] and [frequency] thereafter on the [recurDate] ending on [endDate] to be processed as electronic funds transfers (EFT) AND additional Placeholders: Additiona Cost [additionalCost] , Company Name : [companyName] , Orizinator name: [originatorName], Revoke Days : [revokeDays], Tele Check SupportNumber: [teleCheckSupportNumber], Electronic Sign Acknowledge Link: [eSignAckLink] "
+    ACHAuthLanguageGenerateRequestPayloadSample:
+      value: 
+        language: "en"
+        partner:
+          subscriberID: "2017462"
+          merchantIdentificationDetails:
+            authChannel:"WEB"
+            backendMerchantID:"372746210882"
+        account:
+          userIdentificationDetails:
+            checkType: "P"
+            accountType: "Checking"
+            routingNumber: "00001234"
+          transactionDetails:
+            amount: "100.12"
+            dateTime: "2024-02-22T18:42:19.00Z"
+            billingDetails:
+              firstName: "John"
+              lastName: "Doe"
+              state: "GA"
+          recurringPayment": "R"
+          recurringPaymentDetails:
+            frequency: "Monthly"
+            startDate: "2024-02-22"
+            recurDate: "2024-03-22"
+            endDate: "2025-02-22"
+        tncPlaceHolders: 
+          originatorName: "Smit John"
+          merchantSupportNumber: "+18001234111"
+          serviceHoursOfOperation: "9:00am EST to 6:00pm EST"
+          eSignAckLink: "https://signLink.fiserv.one"
+          additionalCost: "25.00"
+          companyName: "Fiserv"
+          revokeDays: "10"
+          teleCheckSupportNumber: "+18004561234"
     ACHPurchaseRequestPayloadSample:
       value:
         partner:
@@ -7842,6 +8329,110 @@ components:
                   errorCode: 5340
                   errorField: PublicKey Expired
                   errorReason: Configuration Error, Please contact customer support
+    # This is the start of Auth Language 
+    200-AuthLanguageResponsePayloadSamples:
+      description: Successful Auth Language Create Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIAuthLanguageApprovalCodeResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                tncID: "35"
+                tncStatus: "DRAFT"
+                transactionStatus: "SUCCESS"
+                transactionStatusCode: 201
+                referenceTransactionID: "66423a0c7efdbe6ed69692d33f92a20b"
+                transactionStatusDescription: "Terms And Conditions / AuthLanguage is Created"
+    200-AuthLanguageActivateResponsePayloadSamples:
+      description: Successful Auth Language Activate Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIAuthLanguageActivateApprovalCodeResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                tncID: "35"
+                tncStatus: "DRAFT"
+                transactionStatus: "SUCCESS"
+                transactionStatusCode: 200
+                transactionStatusDescription: "Terms And Conditions / AuthLanguage is Created"
+    200-AuthLanguageGenerateResponsePayloadSamples:
+      description: Successful Auth Language Activate Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIAuthLanguageGenerateApprovalCodeResponse'
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: "SUCCESS"
+                transactionStatusCode: 200
+                refenreceTransactionID: "65d7919622410ea1b88f51fb8701465c"
+                agreedTncTransactionID: "12d7919622410ea1b88f51fb87076546k"  
+                content: "Today, being 2024-02-22T18:42:19+00:00, I, John Doe, by entering my routing and account number above and clicking “Authorize,” I authorize 100.12 starting on 2024-02-24 and Monthly thereafter on the 2024-03-22 ending on 2025-02-22 to be processed as electronic funds transfers (EFT) or drafts drawn from my checking or savings account as indicated above and, if necessary, to have my account electronically credited or debited to correct errors. If any of the payments return unpaid, I authorize you or your service provider to collect the payment and a one-time return item fee and, if applicable, costs, by EFT(s) or draft(s) drawn from my account. Click here to view your state’s returned item fee and, if applicable, costs 1.45. I understand that this authorization will remain in full force and effect until I notify you that I wish to revoke it by calling. I consent to the use of Electronic Records and Signatures https://fiserv.com/signature-link/1234. PLEASE PRINT A COPY OF THIS PAGE FOR YOUR RECORDS. ALTERNATIVELY, CONTACT US AT +1 800456789 TO LEARN HOW YOU CAN OBTAIN A COPY."                
+    100-AuthLanguageGenerateResponsePayloadSamples:
+      description: Declined Auth Language Generate Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIAuthLanguageGenerateErrorCodeResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "ERROR"
+                transactionStatusCode: 100
+                refenreceTransactionID: "663d467d3534e52ba86001a656b9585a"
+                transactionStatusDescription": "Input is invalid"
+                errorDetails:
+                  errorCode: 2000
+                  errorField: "PlaceHolderList from Request=[dateTime, merchantSupportNumber, lastName, amount, originatorName, teleCheckSupportNumber, endDate, revokeDays, accountType, companyName, accountNumber, state_return_fee, frequency, routingNumber, eSignAckLink, serviceHoursOfOperation, recurDate, startDate, additionalCost], TemplatePlaceholdersList=[dateTime, merchantSupportNumber, lastName, amount, originatorName, teleCheckSupportNumber, endDate, revokeDays, accountType, companyName, accountNumber, state_return_fee, frequency, firstName, routingNumber, eSignAckLink, serviceHoursOfOperation, recurDate, startDate, additionalCost]"
+                  errorReason: "Placeholders between content and placeholderList do not match."
+    500-AuthLanguageGenerateResponsePayloadSamples:
+      description: Declined Auth Language Generate Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIAuthLanguageGenerateErrorCodeResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "ERROR"
+                transactionStatusCode: 500
+                refenreceTransactionID: "669120d44626cde1b0a19df284d1aca1"
+                transactionStatusDescription": "General Error"
+                errorDetails:
+                  errorCode: 500
+                  errorField: "Invalid Response from CP-API Collection Auth"
+                  errorReason: "General Error"
+    200-AuthLanguageTNCResponsePayloadSamples:
+      description: Successful Auth Language TncID GET Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPIAuthLanguageTncIDSuccessResponse'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                tncID: 3,
+                tncStatus: "ACTIVE"
+                description: "Enlish: WEB-Personal-Recurring-Warranty AuthLanguage"
+                tncIdentificationDetails: 
+                    language: "en"
+                    partnerID: "CPAPI_APP"
+                    authChannel: "WEB"
+                    checkType: "P"
+                    recurringPayment: "R"
+                    businessLine: "Warranty"
+                createdBy: "Tirupathi Mandala"
+                placeholderList: "dateTime,firstName,lastName,amount,startDate,frequency,recurDate,endDate,state,eSignActLink"
+                placeholderLookup: "state=state_return_fee"
+                content: "Change-4, Today, being [dateTime], I, [firstName] [lastName], by entering my routing and account number above and clicking “Authorize,” I authorize [amount] starting on [startDate] and [frequency] thereafter on the [recurDate] ending on [endDate] to be processed as electronic funds transfers (EFT) or drafts drawn from my checking or savings account as indicated above and, if necessary, to have my account electronically credited or debited to correct errors. If any of the payments return unpaid, I authorize you or your service provider to collect the payment and a one-time return item fee and, if applicable, costs, by EFT(s) or draft(s) drawn from my account. Click here to view your state’s returned item fee and, if applicable, costs [state_return_fee]. I understand that this authorization will remain in full force and effect until I notify you that I wish to revoke it by calling.  I consent to the use of Electronic Records and Signatures [eSignActLink] PLEASE PRINT A COPY OF THIS PAGE FOR YOUR RECORDS. ALTERNATIVELY, CONTACT US AT +1 800456789 TO LEARN HOW YOU CAN OBTAIN A COPY. "
+                transactionStatus: "SUCCESS"
+                transactionStatusCode: 200
+                referenceTransactionID: "66295ae58ad4465fce69d457d2683d9c"                 
     # This is the start of Transactions 
     200-TransactionResponsePayloadSamples:
       description: Successful ACH Purchase response.
