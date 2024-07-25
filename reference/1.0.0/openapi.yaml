@@ -33,7 +33,7 @@ tags:
   - name: Transactions
     description: These set of services are for processing ACH Transactions
   - name: Auth Language 
-    description: This decription is yet to be decided 
+    description: This description is yet to be decided 
 # This is the endpoint that will show
 paths:
   '/security/createsessiontoken':
@@ -1535,22 +1535,22 @@ components:
           properties:
             language:
               type: number
-              decription: ""
+              description: ""
             partnerID:
               type: string
-              decription: ""
+              description: ""
             authChannel:
               type: string
-              decription: ""
+              description: ""
             checkType:
               type: number
-              decription: ""
+              description: ""
             recurringPayment:
               type: string
-              decription: ""
+              description: ""
             businessLine:
               type: string
-              decription: ""   
+              description: ""   
         createdBy:
           type: string
           description: ""
@@ -3326,16 +3326,16 @@ components:
               description: ""
         placeHolderList: 
           type: string
-          decription: ""
+          description: ""
         placeHolderLookup:
           type: string
-          decription: ""
+          description: ""
         description:  
           type: string
           description: ""
         content: 
           type: string
-          decription: ""        
+          description: ""        
     ACHAuthLanguageGenerateRequest:
       type: object
       properties:
@@ -3430,28 +3430,28 @@ components:
           properties:
             originatorName: 
               type: string 
-              decription: ""
+              description: ""
             merchantSupportNumber: 
               type: string 
-              decription: ""
+              description: ""
             serviceHoursOfOperation: 
               type: string 
-              decription: ""
+              description: ""
             eSignAckLink: 
               type: string 
-              decription: ""
+              description: ""
             additionalCost: 
               type: string 
-              decription: ""
+              description: ""
             companyName: 
               type: string 
-              decription: ""
+              description: ""
             revokeDays: 
               type: string 
-              decription: ""
+              description: ""
             teleCheckSupportNumber: 
               type: string 
-              decription: ""             
+              description: ""             
     ACHPurchaseRequest:
       type: object
       properties:
