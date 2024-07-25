@@ -640,10 +640,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ACHAuthLanguageReques'
+              # $ref: '#/components/schemas/ACHAuthLanguageReques'
             examples:
               RequestPayloadSample:
-                $ref: '#/components/examples/ACHAuthLanguageRequestPayloadSampl'
+                # $ref: '#/components/examples/ACHAuthLanguageRequestPayloadSampl'
       responses:
         '200':
           $ref: '#/components/responses/200-AuthLanguageActivateResponsePayloadSamples'
@@ -689,10 +689,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+              # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
             examples:
               RequestPayloadSample:
-                $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+                # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
       responses:
         '200':
           $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
@@ -710,13 +710,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+              # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
             examples:
               RequestPayloadSample:
-                $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+                # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
       responses:
         '200':
-          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
+          # $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
   '/authlanguage/partner/{partnerID}':
     get:
       x-proxy-name: TncID
@@ -731,13 +731,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
+              # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
             examples:
               RequestPayloadSample:
-                $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
+                # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
       responses:
         '200':
-          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
+          # $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
   '/transaction/purchase':
     post:
       x-proxy-name: Purchase
