@@ -714,9 +714,9 @@ paths:
       #       examples:
       #         RequestPayloadSample:
       #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
-      # responses:
-      #   '200':
-      #     # $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
+      responses:
+        '200-SampleData':
+          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
   '/authlanguage/partner/{partnerID}':
     get:
       x-proxy-name: TncID
@@ -735,9 +735,9 @@ paths:
       #       examples:
       #         RequestPayloadSample:
       #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
-      # responses:
-      #   '200':
-      #     # $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSample'
+      responses:
+        '200-SampleData':
+          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
   '/transaction/purchase':
     post:
       x-proxy-name: Purchase
