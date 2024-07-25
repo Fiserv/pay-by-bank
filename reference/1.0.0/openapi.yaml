@@ -1511,13 +1511,13 @@ components:
           properties:
             errorCode:
               type: number
-              decription: ""
+              description: ""
             errorField:
               type: string
-              decription: ""
+              description: ""
             errorReason:
               type: string
-              decription: ""
+              description: ""
     CPAPIAuthLanguageTncIDSuccessResponse:
       type: object
       properties:
@@ -8420,12 +8420,12 @@ components:
                 tncStatus: "ACTIVE"
                 description: "Enlish: WEB-Personal-Recurring-Warranty AuthLanguage"
                 tncIdentificationDetails: 
-                    language: "en"
-                    partnerID: "CPAPI_APP"
-                    authChannel: "WEB"
-                    checkType: "P"
-                    recurringPayment: "R"
-                    businessLine: "Warranty"
+                  language: "en"
+                  partnerID: "CPAPI_APP"
+                  authChannel: "WEB"
+                  checkType: "P"
+                  recurringPayment: "R"
+                  businessLine: "Warranty"
                 createdBy: "Tirupathi Mandala"
                 placeholderList: "dateTime,firstName,lastName,amount,startDate,frequency,recurDate,endDate,state,eSignActLink"
                 placeholderLookup: "state=state_return_fee"
