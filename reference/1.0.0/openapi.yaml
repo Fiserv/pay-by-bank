@@ -3711,7 +3711,6 @@ components:
             required:
               - type
               - fdAccountID
-      required: []
     ACHAuthorizeRequest:
       type: object
       properties:
