@@ -32,8 +32,6 @@ tags:
     description: These set of services assist pulling ACH wallet information for consumer on file to select one of the valted account for PayByBank Transactions
   - name: Transactions
     description: These set of services are for processing ACH Transactions
-  - name: Auth Language 
-    description: This description is yet to be decided 
 # This is the endpoint that will show
 paths:
   '/security/createsessiontoken':
@@ -601,143 +599,6 @@ paths:
           $ref: '#/components/responses/409-CPAPI_GET_ACCOUNT_DETAILS'
         '500':
           $ref: '#/components/responses/500-CPAPI_GET_ACCOUNT_DETAILS'
-  '/authlanguage/create':
-    post:
-      x-proxy-name: Create
-      x-group-name: Auth Language
-      tags:
-        - Auth Language
-      summary: |
-        Create DRAFT Auth Language / Terms&Conditions for Merchant for the template identified by KEY.
-      description: |
-        TBD.
-      parameters:
-        - $ref: '#/components/parameters/username'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ACHAuthLanguageRequest'
-            examples:
-              RequestPayloadSample:
-                $ref: '#/components/examples/ACHAuthLanguageRequestPayloadSample'
-      responses:
-        '200':
-          $ref: '#/components/responses/200-AuthLanguageResponsePayloadSamples'
-  '/authlanguage/activate':
-    post:
-      x-proxy-name: Activate
-      x-group-name: Auth Language
-      tags:
-        - Auth Language
-      summary: |
-        Activate DRAFT Auth Language / Terms&Conditions by Reviewing and Approving.
-      description: |
-        TBD.
-      parameters:
-        - $ref: '#/components/parameters/username'
-      # requestBody:
-      #   content:
-      #     application/json:
-      #       schema:
-      #         # $ref: '#/components/schemas/ACHAuthLanguageReques'
-      #       examples:
-      #         RequestPayloadSample:
-      #           # $ref: '#/components/examples/ACHAuthLanguageRequestPayloadSampl'
-      responses:
-        '200':
-          $ref: '#/components/responses/200-AuthLanguageActivateResponsePayloadSamples'
-  '/authlanguage/generate':
-    post:
-      x-proxy-name: Generate
-      x-group-name: Auth Language
-      tags:
-        - Auth Language
-      summary: |
-        Generate the Auth Language with Fully replaced placeholders.
-      description: |
-        TBD.
-      parameters:
-        - $ref: '#/components/parameters/username'
-        - $ref: '#/components/parameters/partnerID'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ACHAuthLanguageGenerateRequest'
-            examples:
-              RequestPayloadSample:
-                $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSample'
-      responses:
-        '200':
-          $ref: '#/components/responses/200-AuthLanguageGenerateResponsePayloadSamples'
-        '100':
-          $ref: '#/components/responses/100-AuthLanguageGenerateResponsePayloadSamples'
-        '500':
-          $ref: '#/components/responses/500-AuthLanguageGenerateResponsePayloadSamples'
-  '/authlanguage/tnc/{tncID}':
-    get:
-      x-proxy-name: TncID
-      x-group-name: Auth Language
-      tags:
-        - Auth Language
-      summary: |
-        Get the Auth Language / Terms&Conditions for given tncID
-      description: |
-        TBD.
-      # requestBody:
-      #   content:
-      #     application/json:
-      #       schema:
-      #         # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
-      #       examples:
-      #         RequestPayloadSample:
-      #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
-      responses:
-        '200':
-          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
-  '/authlanguage/partner/{partnerID}/{language}':
-    get:
-      x-proxy-name: TncID
-      x-group-name: Auth Language
-      tags:
-        - Auth Language
-      summary: |
-        Get latest version of Terms & Conditions for given Partner AND language. If no language specified then default is 'en' for English
-      description: |
-        TBD.
-      # requestBody:
-      #   content:
-      #     application/json:
-      #       schema:
-      #         # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
-      #       examples:
-      #         RequestPayloadSample:
-      #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
-      responses:
-        '200':
-          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
-  '/authlanguage/partner/{partnerID}':
-    get:
-      x-proxy-name: TncID
-      x-group-name: Auth Language
-      tags:
-        - Auth Language
-      summary: |
-        Get latest version of Terms & Conditions for given Partner AND language. If no language specified then default is 'en' for English
-      description: |
-        TBD.
-      # requestBody:
-      #   content:
-      #     application/json:
-      #       schema:
-      #         # $ref: '#/components/schemas/ACHAuthLanguageGenerateReques'
-      #       examples:
-      #         RequestPayloadSample:
-      #           # $ref: '#/components/examples/ACHAuthLanguageGenerateRequestPayloadSampl'
-      responses:
-        '200':
-          $ref: '#/components/responses/200-AuthLanguageTNCResponsePayloadSamples'
   '/transaction/purchase':
     post:
       x-proxy-name: Purchase
@@ -814,7 +675,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ACHAuthorizeRequest'
             examples:
-              RequestPayloadSample:
+              EnrolledRequestPayloadSample:
                 $ref: '#/components/examples/ACHAuthorizeRequestPayloadSample'
       responses:
         '200':
@@ -866,7 +727,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ACHCaptureRequest'
             examples:
-              RequestPayloadSample:
+              EnrolledRequestPayloadSample:
                 $ref: '#/components/examples/ACHCaptureRequestPayloadSample'
       responses:
         '200':
@@ -915,8 +776,10 @@ paths:
             schema:
               $ref: '#/components/schemas/ACHRefundRequest'
             examples:
-              RequestPayloadSample:
+              EnrolledRequestPayloadSample:
                 $ref: '#/components/examples/ACHRefundRequestPayloadSample'
+              NonEnrolledRequestPayloadSample:
+                $ref: '#/components/examples/ACHRefundRequestPayloadSample2'
       responses:
         '200':
           $ref: '#/components/responses/200-TransactionRefundResponsePayloadSamples'
@@ -964,8 +827,10 @@ paths:
             schema:
               $ref: '#/components/schemas/ACHVoidRequest'
             examples:
-              RequestPayloadSample:
+              EnrolledRequestPayloadSample:
                 $ref: '#/components/examples/ACHVoidRequestPayloadSample'
+              NonEnrolledRequestPayloadSample:
+                $ref: '#/components/examples/ACHVoidRequestPayloadSample2'
       responses:
         '200':
           $ref: '#/components/responses/200-TransactionVoidResponsePayloadSamples'
@@ -1436,144 +1301,6 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
-    CPAPIAuthLanguageApprovalCodeResponse:
-      type: object
-      properties:
-        tncID:
-          type: string
-          description: ""
-        tncStatus:
-          type: string
-          description: ""
-        transactionStatus:
-          type: string
-          description: ""
-        transactionStatusCode:
-          type: number
-          description: ""
-        referenceTransactionID:
-          type: string
-          description: ""
-        transactionStatusDescription:
-          type: string
-          description: ""
-    CPAPIAuthLanguageActivateApprovalCodeResponse:
-      type: object
-      properties:
-        tncID:
-          type: string
-          description: ""
-        tncStatus:
-          type: string
-          description: ""
-        transactionStatus:
-          type: string
-          description: ""
-        transactionStatusCode:
-          type: number
-          description: ""
-        transactionStatusDescription:
-          type: string
-          description: ""
-    CPAPIAuthLanguageGenerateApprovalCodeResponse:
-      type: object
-      properties:
-        transactionStatus:
-          type: string
-          description: ""
-        transactionStatusCode:
-          type: number
-          description: ""
-        refenreceTransactionID:
-          type: string
-          description: ""
-        agreedTncTransactionID:
-          type: string
-          description: ""
-        content:
-          type: string
-          description: ""    
-    CPAPIAuthLanguageGenerateErrorCodeResponse:
-      type: object
-      properties:
-        transactionStatus:
-          type: string
-          description: ""
-        transactionStatusCode:
-          type: number
-          description: ""
-        refenreceTransactionID:
-          type: string
-          description: ""
-        transactionStatusDescription:
-          type: string
-          description: ""
-        errorDetails:
-          type: object
-          properties:
-            errorCode:
-              type: number
-              description: ""
-            errorField:
-              type: string
-              description: ""
-            errorReason:
-              type: string
-              description: ""
-    CPAPIAuthLanguageTncIDSuccessResponse:
-      type: object
-      properties:
-        tncID:
-          type: number
-          description: ""
-        tncStatus:
-          type: string
-          description: ""
-        description:
-          type: string
-          description: ""
-        tncIdentificationDetails:
-          type: object
-          properties:
-            language:
-              type: number
-              description: ""
-            partnerID:
-              type: string
-              description: ""
-            authChannel:
-              type: string
-              description: ""
-            checkType:
-              type: number
-              description: ""
-            recurringPayment:
-              type: string
-              description: ""
-            businessLine:
-              type: string
-              description: ""   
-        createdBy:
-          type: string
-          description: ""
-        placeholderList:
-          type: string
-          description: ""
-        placeholderLookup:
-          type: string
-          description: ""
-        content:
-          type: string
-          description: ""
-        transactionStatus:
-          type: string
-          description: ""
-        transactionStatusCode:
-          type: number
-          description: ""
-        referenceTransactionID:
-          type: string
-          description: ""  
     CPAPITransactionApprovalCodeResponse: 
       type: object
       properties:
@@ -3304,156 +3031,7 @@ components:
                 minItems: 1
                 maxItems: 1
                 minLength: 1
-                maxLength: 50
-    ACHAuthLanguageRequest:
-      type: object
-      properties:
-        tncIdentificationDetails:
-          type: object
-          properties:
-            language: 
-              type: string
-              description: ""
-            authChannel: 
-              type: string
-              description: ""
-            checkType: 
-              type: string
-              description: ""
-            recurringPayment: 
-              type: string
-              description: ""
-            businessLine: 
-              type: string
-              description: ""
-        placeHolderList: 
-          type: string
-          description: ""
-        placeHolderLookup:
-          type: string
-          description: ""
-        description:  
-          type: string
-          description: ""
-        content: 
-          type: string
-          description: ""        
-    ACHAuthLanguageGenerateRequest:
-      type: object
-      properties:
-        language:
-          type: string
-          description: ""
-        partner:
-          type: object
-          properties:
-            subscriberID:
-              type: string
-              description: Transaction Subscriber ID
-            merchantIdentificationDetails:
-              type: object
-              properties:
-                authChannel:
-                  type: string
-                  description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
-                backendMerchantID:
-                  type: string
-                  description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
-        account:
-          type: array
-          items:
-            type: object
-            properties:
-              userIdentificationDetails:
-                type: object
-                properties: 
-                  checkType:
-                    type: string
-                    description: ""
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 4
-                    maxLength: 4 
-                  accountType:
-                    type: string
-                    description: ""
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 4
-                    maxLength: 4
-                  routingNumber:
-                    type: string
-                    description: "Consumer's bank Routing transit number."
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 9
-                    maxLength: 9
-              transactionDetails:
-                type: object
-                properties:
-                  amount: 
-                    type: string
-                    description: ""
-                  dateTime: 
-                    type: string
-                    description: ""         
-                  billingDetails: 
-                    type: object
-                    properties:
-                      firstName:
-                        type: string
-                        description: ""
-                      lastName:
-                        type: string 
-                        description: ""
-                      state:
-                        type: string
-                        description: ""
-              recurringPayment:
-                type: string 
-                description: ""
-              recurringPaymentDetails:
-                type: object
-                properties:
-                  frequency:
-                    type: string
-                    description: ""
-                  startDate:
-                    type: string
-                    description: ""            
-                  recurDate:
-                    type: string
-                    description: ""
-                  endDate:
-                    type: string
-                    description: ""
-        tncPlaceHolders:
-          type: object
-          properties:
-            originatorName: 
-              type: string 
-              description: ""
-            merchantSupportNumber: 
-              type: string 
-              description: ""
-            serviceHoursOfOperation: 
-              type: string 
-              description: ""
-            eSignAckLink: 
-              type: string 
-              description: ""
-            additionalCost: 
-              type: string 
-              description: ""
-            companyName: 
-              type: string 
-              description: ""
-            revokeDays: 
-              type: string 
-              description: ""
-            teleCheckSupportNumber: 
-              type: string 
-              description: ""             
+                maxLength: 50            
     ACHPurchaseRequest:
       type: object
       properties:
@@ -3624,8 +3202,7 @@ components:
                 required:
                   - amount
                   - currencyCode
-                  - merchantTransactionId
-                  - productCode
+                  - merchantTransactionId                  
               userSysDetails:
                 type: object
                 properties:
@@ -3710,7 +3287,6 @@ components:
                     maxLength: 1
             required:
               - type
-              - fdAccountID
     ACHAuthorizeRequest:
       type: object
       properties:
@@ -3719,127 +3295,9 @@ components:
           properties:
             subscriberID:
               type: string
-              description: "Transaction Subscriber ID"
-              minItems: 0
-              maxItems: 1
-              # minLength: 1          
-              # maxLength: 30
-        customer:
-          type: object
-          properties:
-            fdCustomerID:
-              type: string
-              description: "Consumers fdCustomerID associated with this request."
-              minItems: 0
-              maxItems: 1
-              minLength: 1          
-              maxLength: 50
-        connectPaymentNumber:
-          type: string
-          description: "Consumer's connect payment number"
-          minItems: 0
-          maxItems: 1
-          minLength: 1          
-          maxLength: 19
-        account:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-                description: "Type of account."
-                minItems: 1
-                maxItems: 1
-                minLength: 3          
-                maxLength: 3
-              fdAccountID:
-                type: string
-                description: "Consumers fdAccountID associated with this request .Either fdAccountID or connectPaymentNumber is needed."
-                minItems: 0
-                maxItems: 1
-                minLength: 1          
-                maxLength: 5
-              transactionDetails:
-                type: object
-                properties:
-                  amount:
-                    type: number
-                    nullable: false
-                    description: Processed Amount in cents. 1299 = $12.99.
-                    minItems: 1
-                    maxItems: 1
-                  currencyCode:
-                    type: string
-                    description: USD - Only supports US Dollars.
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 3          
-                    maxLength: 3
-                  pinData:
-                    type: string
-                    description: This is the encrypted pin block for validating the transaction.
-                    minItems: 0
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 32
-                  merchantTransactionId:
-                    type: string
-                    description: Merchant's unique transaction ID. Required to process secondary transactions like void and refund. For Authorize/Capture transactions, merchant_transaction_id submitted during Capture transactions will be required to process void and refund requests.
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 100
-                  recurringPayment:
-                    type: string
-                    description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
-                    minItems: 0
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 1
-                  splitShipmentFlag:
-                    type: string
-                    description: Optional field denoting that this is a Split Shipment Original Authorization. The Authorization life will be counted from the time of this transaction and the Authorization Range will be based on the Amount of this transaction.
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 100
-                  productCode:
-                    type: string
-                    description: Product code identifies the highest ticket item in the purchase and is used in the risk analysis of the transaction. Value should be unsigned numeric.
-                    minItems: 0
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 6
-              userSysDetails:
-                type: object
-                properties:
-                  organizationId:
-                    type: string
-                    description: Organization ID used for device fingerprinting services.
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 0         
-                    maxLength: 10
-                  sessionId:
-                    type: string
-                    description: Session ID used for device fingerprinting services.
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 128
-
-    ACHCaptureRequest:
-      type: object
-      properties:
-        partner:
-          type: object
-          properties:
-            subscriberID:
-              type: string
               description: Transaction Subscriber ID
-              minItems: 1
-              maxItems: 1
+          required:
+            - subscriberID
         customer:
           type: object
           properties:
@@ -3858,34 +3316,43 @@ components:
               type:
                 type: string
                 description: Type of account.
+                minItems: 0
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
+              fdAccountID:
+                type: string
+                description: Consumers fdAccountID associated with this request. Either fdAccountID or connectPaymentNumber is needed.
                 minItems: 1
                 maxItems: 1
-                minLength: 3          
-                maxLength: 3
+                minLength: 1
+                maxLength: 50
               userIdentificationDetails:
                 type: object
-                properties:
-                  connectPayPaymentNumber:
+                properties: 
+                  connectPayPaymentNumberNew:
                     type: string
-                    description: ConnectPay Payment number.
+                    description: "New ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Payment number is usually updated when the old / existing payment number is lost or stolen."
                     minItems: 0
                     maxItems: 1
-                    minLength: 11          
-                    maxLength: 19
+                    minLength: 11
+                    maxLength: 19                
+                  postedCurrentBalance:
+                    type: string
+                    description: "Current balance received at the time of last sucessful balance pull. Required for Enrolled users. Either current or available balance is required. If not received, NULL. DO NOT send for Manual Enrollments "
+                    minLength: 1
+                    maxLength: 10 
+                  postedAvailableBalance:
+                    type: string
+                    description: "Available balance received at the time of last sucessful balance pull. Required for Enrolled users. Either current or available balance is required. If not received, NULL. DO NOT send for Manual Enrollments "
+                    minLength: 1
+                    maxLength: 10                                                                                              
               transactionDetails:
                 type: object
                 properties:
-                  transactionId:
-                    type: string
-                    description: Unique ID for each Transaction which could be used to trace a transaction.
-                    minItems: 1
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 100
                   amount:
-                    type: number
-                    nullable: false
-                    description: Processed Amount in cents. 1299 = $12.99.
+                    type: string
+                    description: Processed Amount in cents. i.e, 1299 = $12.99.
                     minItems: 1
                     maxItems: 1
                   currencyCode:
@@ -3902,16 +3369,218 @@ components:
                     maxItems: 1
                     minLength: 1          
                     maxLength: 100
-                  splitShipmentFlag:
+                  recurringPayment:
                     type: string
-                    description: Optional field denoting that this is a Split Shipment Original Authorization. The Authorization life will be counted from the time of this transaction and the Authorization Range will be based on the Amount of this transaction.
+                    description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
                     minItems: 0
                     maxItems: 1
                     minLength: 1          
                     maxLength: 1
-                  splitShipmentId:
+                  splitShipmentFlag: 
                     type: string
-                    description: This optional field is only required for Split Shipment Capture transaction. The format will be x/y where numerical values 01/99 through 99/99 are accepted.
+                    description: Y or N, It is the shipment flag.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
+                  creditDebitIndicator:
+                    type: string
+                    description: D = Debit is used for all purchase/sale use cases. If no value is sent we will default it to "D" to Debit.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
+                  productCode:
+                    type: string
+                    description: Product code identifies the highest ticket item in the purchase and is used in the risk analysis of the transaction. Value should be unsigned numeric.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 6                                         
+                required:
+                  - amount
+                  - currencyCode
+                  - merchantTransactionId                  
+              userSysDetails:
+                type: object
+                properties:
+                  orderIPaddress:
+                    type: string
+                    description: "IPAddress of merchant system from where the request landed up in Telecheck."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 7
+                    maxLength: 15
+                  imei:
+                    type: string
+                    description: "IMEI of mobile device."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
+                  organizationId:
+                    type: string
+                    description: "Organization ID used for device fingerprinting services."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 0         
+                    maxLength: 10
+                  sessionId:
+                    type: string
+                    description: "Session ID used for device fingerprinting services."
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 128
+              genericCodes:
+                type: object
+                properties:
+                  genericCode1:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+                  genericCode2:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+                  genericCode3:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+              genericFlags:
+                type: object
+                properties:
+                  genericFlag1:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+                  genericFlag2:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+                  genericFlag3:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+            required:
+              - type
+    ACHCaptureRequest:
+      type: object
+      properties:
+        partner:
+          type: object
+          properties:
+            subscriberID:
+              type: string
+              description: Transaction Subscriber ID
+          required:
+            - subscriberID
+        customer:
+          type: object
+          properties:
+            fdCustomerID:
+              type: string
+              description: Consumers fdCustomerID associated with this request.
+              minItems: 0
+              maxItems: 1
+              minLength: 1          
+              maxLength: 50
+        account:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: Type of account.
+                minItems: 0
+                maxItems: 1
+                minLength: 3
+                maxLength: 3
+              fdAccountID:
+                type: string
+                description: Consumers fdAccountID associated with this request. Either fdAccountID or connectPaymentNumber is needed.
+                minItems: 1
+                maxItems: 1
+                minLength: 1
+                maxLength: 50
+              userIdentificationDetails:
+                type: object
+                properties: 
+                  connectPayPaymentNumberNew:
+                    type: string
+                    description: "New ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Payment number is usually updated when the old / existing payment number is lost or stolen."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 11
+                    maxLength: 19                
+                  postedCurrentBalance:
+                    type: string
+                    description: "Current balance received at the time of last sucessful balance pull. Required for Enrolled users. Either current or available balance is required. If not received, NULL. DO NOT send for Manual Enrollments "
+                    minLength: 1
+                    maxLength: 10 
+                  postedAvailableBalance:
+                    type: string
+                    description: "Available balance received at the time of last sucessful balance pull. Required for Enrolled users. Either current or available balance is required. If not received, NULL. DO NOT send for Manual Enrollments "
+                    minLength: 1
+                    maxLength: 10                                                                                              
+              transactionDetails:
+                type: object
+                properties:
+                  amount:
+                    type: string
+                    description: Processed Amount in cents. i.e, 1299 = $12.99.
+                    minItems: 1
+                    maxItems: 1
+                  currencyCode:
+                    type: string
+                    description: USD - Only supports US Dollars.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 3          
+                    maxLength: 3
+                  merchantTransactionId:
+                    type: string
+                    description: Merchant's unique transaction ID. Required to process secondary transactions like void and refund. For Authorize/Capture transactions, merchant_transaction_id submitted during Capture transactions will be required to process void and refund requests.
+                    minItems: 1
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
+                  recurringPayment:
+                    type: string
+                    description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
+                  splitShipmentFlag: 
+                    type: string
+                    description: Y or N, It is the shipment flag.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
+                  creditDebitIndicator:
+                    type: string
+                    description: D = Debit is used for all purchase/sale use cases. If no value is sent we will default it to "D" to Debit.
                     minItems: 0
                     maxItems: 1
                     minLength: 1          
@@ -3923,24 +3592,106 @@ components:
                     maxItems: 1
                     minLength: 1          
                     maxLength: 6
+                  transactionId:
+                    type: string
+                    description: Unique ID for each Transaction which could be used to trace a transaction..
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 100
+                  splitShipmentId:
+                    type: string
+                    description: It is the shipment ID.
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1          
+                    maxLength: 1
+                required:
+                  - amount
+                  - currencyCode
+                  - merchantTransactionId
+                  - transactionId                  
               userSysDetails:
                 type: object
                 properties:
-                  organizationId: 
+                  orderIPaddress:
                     type: string
-                    description: Used for device fingerprinting services. ThreatMetrix.
+                    description: "IPAddress of merchant system from where the request landed up in Telecheck."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 7
+                    maxLength: 15
+                  imei:
+                    type: string
+                    description: "IMEI of mobile device."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
+                  organizationId:
+                    type: string
+                    description: "Organization ID used for device fingerprinting services."
                     minItems: 1
                     maxItems: 1
-                    minLength: 0          
+                    minLength: 0         
                     maxLength: 10
                   sessionId:
                     type: string
-                    description: Used for device fingerprinting services. ThreatMetrix.
+                    description: "Session ID used for device fingerprinting services."
                     minItems: 1
                     maxItems: 1
-                    minLength: 0          
+                    minLength: 1          
                     maxLength: 128
-
+              genericCodes:
+                type: object
+                properties:
+                  genericCode1:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+                  genericCode2:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+                  genericCode3:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client. Mapping of values defined during boarding."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 8
+              genericFlags:
+                type: object
+                properties:
+                  genericFlag1:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+                  genericFlag2:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+                  genericFlag3:
+                    type: string
+                    description: "Used for enrollment decisioning provided by client (i.e. VIP status). Mapping of value defined during boarding. Allowed values 'Y', 'N'."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 1
+            required:
+              - type
     ACHRefundRequest:
       type: object
       properties:
@@ -3952,58 +3703,8 @@ components:
               description: Transaction Subscriber ID
               minItems: 1
               maxItems: 1
-            merchantIdentificationDetails:
-              type: object
-              properties:
-                backendMerchantID:
-                  type: string
-                  description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                authChannel:
-                  type: string
-                  description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                storeID:
-                  type: string
-                  description: Merchants Store number
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                tenderMaterial:
-                  type: string
-                  description: Digital (Non Face2Face) or Physical (ECA)
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 10
-                businessType:
-                  type: string
-                  description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                businessActivityType: 
-                  type: string
-                  description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                fullfillmentType: 
-                  type: string
-                  description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
+          required:
+            - subscriberID                      
         customer:
           type: object
           properties:
@@ -4057,18 +3758,17 @@ components:
                     maxItems: 1
                     minLength: 9          
                     maxLength: 9
+                  checkType:
+                    type: string
+                    description: "The type of checkl"
+                  manualCheckNumber:
+                    type: string
+                    description: "The manual check number"
               transactionDetails:
                 type: object
-                properties:
-                  transactionId:
-                    type: string
-                    description: Unique ID for each Transaction which could be used to trace a transaction..
-                    minItems: 0
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 100
+                properties:                
                   amount:
-                    type: number
+                    type: string
                     description: Processed Amount in cents. 1299 = $12.99.
                     minItems: 0
                     maxItems: 1
@@ -4086,31 +3786,52 @@ components:
                     maxItems: 1
                     minLength: 1          
                     maxLength: 100
-                  recurringPayment:
+                  transactionId:
                     type: string
-                    description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
+                    description: Unique ID for each Transaction which could be used to trace a transaction..
                     minItems: 0
                     maxItems: 1
                     minLength: 1          
-                    maxLength: 1
+                    maxLength: 100
+                required:
+                  - amount
+                  - currencyCode
+                  - merchantTransactionId
+                  - transactionId
               userSysDetails:
                 type: object
                 properties:
+                  orderIPaddress:
+                    type: string
+                    description: "IPAddress of merchant system from where the request landed up in Telecheck."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 7
+                    maxLength: 15
+                  imei:
+                    type: string
+                    description: "IMEI of mobile device."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
                   organizationId:
                     type: string
-                    description: Organization ID used for device fingerprinting services.
+                    description: "Organization ID used for device fingerprinting services."
                     minItems: 1
                     maxItems: 1
                     minLength: 0         
                     maxLength: 10
                   sessionId:
                     type: string
-                    description: Session ID used for device fingerprinting services.
+                    description: "Session ID used for device fingerprinting services."
                     minItems: 1
                     maxItems: 1
-                    minLength: 0          
+                    minLength: 1          
                     maxLength: 128
-
+            required:
+              - type
+              - transactionDetails
     ACHVoidRequest:
       type: object
       properties:
@@ -4121,59 +3842,9 @@ components:
               type: string
               description: Transaction Subscriber ID
               minItems: 1
-              maxItems: 1          
-            merchantIdentificationDetails:
-              type: object
-              properties:
-                backendMerchantID:
-                  type: string
-                  description: e.g. North backend MID, CommerceHub MID, Any other BE MID, Rules - merchantIdentificationDetails section is mandatory if subscriberID is not supplied
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                authChannel:
-                  type: string
-                  description: WEB, Phone, In-Person (implies ICA, CBP, Remote Pay)
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                storeID:
-                  type: string
-                  description: Merchants Store number
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                tenderMaterial:
-                  type: string
-                  description: Digital (Non Face2Face) or Physical (ECA)
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 10
-                businessType:
-                  type: string
-                  description: Consumer, Business, Payment on Account, Government, Payroll, Check Cashing
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                businessActivityType: 
-                  type: string
-                  description: Different sections within the same merchant store can have separate subscriberIDs. For e.g. Vision vs Pharmacy vs Garden in super store, slot machine vs. poker table in Casino, etc.
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
-                fullfillmentType: 
-                  type: string
-                  description: Delivery, Pick-up, Curb-side, Third-Party Delivery, In-person, Pump
-                  minItems: 1
-                  maxItems: 1
-                  minLength: 1          
-                  maxLength: 30
+              maxItems: 1
+          required:
+            - subscriberID                      
         customer:
           type: object
           properties:
@@ -4227,18 +3898,17 @@ components:
                     maxItems: 1
                     minLength: 9          
                     maxLength: 9
+                  checkType:
+                    type: string
+                    description: "The type of checkl"
+                  manualCheckNumber:
+                    type: string
+                    description: "The manual check number"
               transactionDetails:
                 type: object
-                properties:
-                  transactionId:
-                    type: string
-                    description: Unique ID for each Transaction which could be used to trace a transaction..
-                    minItems: 0
-                    maxItems: 1
-                    minLength: 1          
-                    maxLength: 100
+                properties:                
                   amount:
-                    type: number
+                    type: string
                     description: Processed Amount in cents. 1299 = $12.99.
                     minItems: 0
                     maxItems: 1
@@ -4256,31 +3926,52 @@ components:
                     maxItems: 1
                     minLength: 1          
                     maxLength: 100
-                  recurringPayment:
+                  transactionId:
                     type: string
-                    description: S or Null = Single/non-recurring Payment (one time sale) R = Recurring Payment. Required when submitting recurring/bill payment transactions.
+                    description: Unique ID for each Transaction which could be used to trace a transaction..
                     minItems: 0
                     maxItems: 1
                     minLength: 1          
-                    maxLength: 1
+                    maxLength: 100
+                required:
+                  - amount
+                  - currencyCode
+                  - merchantTransactionId
+                  - transactionId
               userSysDetails:
                 type: object
                 properties:
+                  orderIPaddress:
+                    type: string
+                    description: "IPAddress of merchant system from where the request landed up in Telecheck."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 7
+                    maxLength: 15
+                  imei:
+                    type: string
+                    description: "IMEI of mobile device."
+                    minItems: 0
+                    maxItems: 1
+                    minLength: 1
+                    maxLength: 25
                   organizationId:
                     type: string
-                    description: Organization ID used for device fingerprinting services.
+                    description: "Organization ID used for device fingerprinting services."
                     minItems: 1
                     maxItems: 1
                     minLength: 0         
                     maxLength: 10
                   sessionId:
                     type: string
-                    description: Session ID used for device fingerprinting services.
+                    description: "Session ID used for device fingerprinting services."
                     minItems: 1
                     maxItems: 1
-                    minLength: 0          
+                    minLength: 1          
                     maxLength: 128
-
+            required:
+              - type
+              - transactionDetails                
     ACHCollectionFeeRequest:
       type: object
       properties:
@@ -4545,53 +4236,6 @@ components:
         account:
           - type: ACH
             fdAccountID: CP0hCA1583183750214467CFr5aq
-    ACHAuthLanguageRequestPayloadSample:
-      value:
-        tncIdentificationDetails:
-          language: "en"
-          authChannel: "WEB"
-          checkType: "P"
-          recurringPayment: "R"
-          businessLine: "Warranty"
-        placeholderList: "dateTime,firstName,lastName,amount,accountType,routingNumber,accountNumber,state,startDate,frequency,recurDate,endDate,originatorName,merchantSupportNumber,serviceHoursOfOperation,additionalCost,companyName,originatorName,revokeDays,teleCheckSupportNumber,eSignAckLink"
-        placeholderLookup: "state=state_return_fee"
-        description: "Enlish: WEB-Personal-Recurring-Warranty AuthLanguage"
-        content:  "Today, being [dateTime], I’d like to confirm that you, [firstName] [lastName], are authorizing a one-time payment in the amount of [amount] to be processed as an electronic funds transfer (EFT) or draft drawn from your [accountType] account identified as routing number [routingNumber] and account number [accountNumber] and, if necessary, electronic credits or debits to your account to correct errors. \n Your payment will be processed within 1-2 banking days. Do you authorize your account to be debited as described? (If consumer answers “Yes,” continue. If consumer answers “No,” stop the authorization process). \n If the payment returns unpaid, do you authorize [originatorName] or our service provider to collect the payment and a one-time return item fee and, if applicable, costs, by EFT(s) or draft(s) drawn from your account. Your state return fee is [state_return_fee].(If consumer answers “Yes,” continue. If consumer answers “No,” stop the authorization process). \nYou may call [merchantSupportNumber] during [serviceHoursOfOperation] with any questions. \nDue to the speed of electronic payment processing do you understand that you will have until theend of this phone call to revoke this authorization by telling me you wish to revoke it? (If consumer answers “Yes,” continue. If consumer answers No,stop the authorization process). \nBased on the terms and conditions we have discussed, and the disclosures made to you, do you agree to and authorizethe payment? (If consumer answers “Yes,” continue. If consumer answers “No,” stop the authorization process). Sample Content for Recurring payment: starting on [startDate] and [frequency] thereafter on the [recurDate] ending on [endDate] to be processed as electronic funds transfers (EFT) AND additional Placeholders: Additiona Cost [additionalCost] , Company Name : [companyName] , Orizinator name: [originatorName], Revoke Days : [revokeDays], Tele Check SupportNumber: [teleCheckSupportNumber], Electronic Sign Acknowledge Link: [eSignAckLink] "
-    ACHAuthLanguageGenerateRequestPayloadSample:
-      value: 
-        language: "en"
-        partner:
-          subscriberID: "2017462"
-          merchantIdentificationDetails:
-            authChannel:"WEB"
-            backendMerchantID:"372746210882"
-        account:
-          userIdentificationDetails:
-            checkType: "P"
-            accountType: "Checking"
-            routingNumber: "00001234"
-          transactionDetails:
-            amount: "100.12"
-            dateTime: "2024-02-22T18:42:19.00Z"
-            billingDetails:
-              firstName: "John"
-              lastName: "Doe"
-              state: "GA"
-          recurringPayment": "R"
-          recurringPaymentDetails:
-            frequency: "Monthly"
-            startDate: "2024-02-22"
-            recurDate: "2024-03-22"
-            endDate: "2025-02-22"
-        tncPlaceHolders: 
-          originatorName: "Smit John"
-          merchantSupportNumber: "+18001234111"
-          serviceHoursOfOperation: "9:00am EST to 6:00pm EST"
-          eSignAckLink: "https://signLink.fiserv.one"
-          additionalCost: "25.00"
-          companyName: "Fiserv"
-          revokeDays: "10"
-          teleCheckSupportNumber: "+18004561234"
     ACHPurchaseRequestPayloadSample:
       value:
         partner:
@@ -4676,22 +4320,34 @@ components:
           subscriberID : "36005712"
         customer:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
-        connectPaymentNumber: ""
         account:
           - type: "ACH"
-            userIdentificationDetails: {}
-            transactionDetails:
-              amount: 1050
-              currencyCode: "USD"
-              pinData: ""
-              merchantTransactionId : "17021542392"
-              recurringPayment: R
-              creditDebitIndicator: D
-              splitShipmentFlag: "Y"
-              productCode: 770100
+            fdAccountID: "CPlgPO15804795190661084P4u9zY"
+            userIdentificationDetails:
+              connectPayPaymentNumber: "6139531082086874860"
+              postedCurrentBalance: "4800"
+              postedAvailableBalance: "4200"
             userSysDetails:
               organizationId: s0b500qh
               sessionId: 3ca6ee0408028f118f102ed0b64779353789ebe3
+              orderIPaddress: "12.12.12.12"
+              imei: "654321"
+            transactionDetails:
+              amount: "6273"
+              currencyCode: "USD"
+              merchantTransactionId : "WGD3YP2R00000EQSZ"
+              recurringPayment: "R"
+              creditDebitIndicator: "D"
+              splitShipmentFlag: "Y"
+              productCode: "770100"  
+            genericCodes: 
+                genericCode1: "1234"
+                genericCode2: "3456"
+                genericCode3: "2345"
+            genericFlags: 
+                genericFlag1: "Y"
+                genericFlag2: "Y"
+                genericFlags3: "Y"
     ACHCaptureRequestPayloadSample:
       value:
         partner:
@@ -4700,78 +4356,116 @@ components:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
-            userIdentificationDetails: {
-              connectPayPaymentNumber: "2000000008000586"
-            }
-            transactionDetails:
-              transactionId: "1400320000000007761093"
-              amount: 1050
-              currencyCode: "USD"
-              merchantTransactionId : "17021542392"
-              splitShipmentFlag: "Y"
-              splitShipmentId: "01/99"
-              productCode: 770100
+            fdAccountID: "CPlgPO15804795190661084P4u9zY"
+            userIdentificationDetails:
+              connectPayPaymentNumber: "6139531082086874860"
+              postedCurrentBalance: "4800"
+              postedAvailableBalance: "4200"
             userSysDetails:
-              organizationId: ""
-              sessionId: ""
+              organizationId: s0b500qh
+              sessionId: 3ca6ee0408028f118f102ed0b64779353789ebe3
+              orderIPaddress: "12.12.12.12"
+              imei: "654321"
+            transactionDetails:
+              amount: "1691"
+              currencyCode: "USD"
+              merchantTransactionId : "WN0Y4FB800001RAL1"
+              recurringPayment: "R"
+              creditDebitIndicator: "D"
+              splitShipmentFlag: "Y"
+              splitShipmentId: "10/99"
+              transactionId: "1400310000037545584785"
+              productCode: "770100"                
+            genericCodes: 
+                genericCode1: "1234"
+                genericCode2: "3456"
+                genericCode3: "2345"
+            genericFlags: 
+                genericFlag1: "Y"
+                genericFlag2: "Y"
+                genericFlags3: "Y"
     ACHRefundRequestPayloadSample:
       value:
         partner:
           subscriberID : "36005712"
-          merchantIdentificationDetails:
-            backendMerchantID: "123456789999"
-            authChannel: "WEB"
-            storeID: "1234567890"
-            tenderMaterial: "Digital"
-            businessType: "Consumer"
-            businessActivityType: "Pharmacy"
-            fullfillmentType: "Curb-side"
         customer:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
-            fdAccountId: "12345"
-            userIdentificationDetails: {
-              connectPayPaymentNumber: "2000000008000586",
-              accountNumber: "7682787",
-              routingNumber: "111906271"
-            }
+            userIdentificationDetails:
+              connectPayPaymentNumber: "2000000008000586"
             transactionDetails:
-              transactionId: "1400320000000007761093"
-              amount: 1050
+              amount: "73"
               currencyCode: "USD"
               merchantTransactionId : "17021542392"
-              recurringPayment: "Y"
+              transactionId: "1400320000000007761093"
             userSysDetails:
-              organizationId: s0b500qh
-              sessionId: 3ca6ee0408028f118f102ed0b64779353789ebe3
+              organizationId: "s0b500qh"
+              sessionId: "3ca6ee0408028f118f102ed0b64779353789ebe3"
+              orderIPaddress: "12.12.12.12"
+              imei: "654321"
+    ACHRefundRequestPayloadSample2:
+      value:
+        partner:
+          subscriberID : "36005712"
+        account:
+          - type: "ACH"
+            userIdentificationDetails:
+              routingNumber: "*****0076"
+              accountNumber: "******6298"
+              manualCheckNumber: "930033"
+              checkType: "P"
+            transactionDetails:
+              amount: "73"
+              currencyCode: "USD"
+              merchantTransactionId : "17021542392"
+              transactionId: "1400320000000007761093"
+            userSysDetails:
+              organizationId: "s0b500qh"
+              sessionId: "3ca6ee0408028f118f102ed0b64779353789ebe3"
+              orderIPaddress: "12.12.12.12"
+              imei: "654321"
     ACHVoidRequestPayloadSample:
       value:
         partner:
           subscriberID : "36005712"
-          merchantIdentificationDetails:
-            backendMerchantID: "123456789999"
-            authChannel: "WEB"
-            storeID: "1234567890"
-            tenderMaterial: "Digital"
-            businessType: "Consumer"
-            businessActivityType: "Pharmacy"
-            fullfillmentType: "Curb-side"
         customer:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
-            userIdentificationDetails: {
+            userIdentificationDetails:
               connectPayPaymentNumber: "2000000008000586"
-            }
             transactionDetails:
-              transactionId: "1400320000000007761093"
-              amount: 1050
+              amount: "73"
               currencyCode: "USD"
               merchantTransactionId : "17021542392"
+              transactionId: "1400320000000007761093"
             userSysDetails:
-              organizationId: s0b500qh
-              sessionId: 3ca6ee0408028f118f102ed0b64779353789ebe3
+              organizationId: "s0b500qh"
+              sessionId: "3ca6ee0408028f118f102ed0b64779353789ebe3"
+              orderIPaddress: "12.12.12.12"
+              imei: "654321"
+    ACHVoidRequestPayloadSample2:
+      value:
+        partner:
+          subscriberID : "36005712"
+        account:
+          - type: "ACH"
+            userIdentificationDetails:
+              routingNumber: "*****0076"
+              accountNumber: "******6298"
+              manualCheckNumber: "930033"
+              checkType: "P"
+            transactionDetails:
+              amount: "73"
+              currencyCode: "USD"
+              merchantTransactionId : "17021542392"
+              transactionId: "1400320000000007761093"
+            userSysDetails:
+              organizationId: "s0b500qh"
+              sessionId: "3ca6ee0408028f118f102ed0b64779353789ebe3"
+              orderIPaddress: "12.12.12.12"
+              imei: "654321"              
     ACHCollectionFeeRequestPayloadSample:
       value:
         partner:
@@ -8296,111 +7990,7 @@ components:
                 errorDetails:
                   errorCode: 5340
                   errorField: PublicKey Expired
-                  errorReason: Configuration Error, Please contact customer support
-    # This is the start of Auth Language 
-    200-AuthLanguageResponsePayloadSamples:
-      description: Successful Auth Language Create Response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPIAuthLanguageApprovalCodeResponse'
-          examples:
-            ResponsePayloadSample-Approved:
-              value:
-                tncID: "35"
-                tncStatus: "DRAFT"
-                transactionStatus: "SUCCESS"
-                transactionStatusCode: 201
-                referenceTransactionID: "66423a0c7efdbe6ed69692d33f92a20b"
-                transactionStatusDescription: "Terms And Conditions / AuthLanguage is Created"
-    200-AuthLanguageActivateResponsePayloadSamples:
-      description: Successful Auth Language Activate Response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPIAuthLanguageActivateApprovalCodeResponse'
-          examples:
-            ResponsePayloadSample-Approved:
-              value:
-                tncID: "35"
-                tncStatus: "DRAFT"
-                transactionStatus: "SUCCESS"
-                transactionStatusCode: 200
-                transactionStatusDescription: "Terms And Conditions / AuthLanguage is Created"
-    200-AuthLanguageGenerateResponsePayloadSamples:
-      description: Successful Auth Language Activate Response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPIAuthLanguageGenerateApprovalCodeResponse'
-          examples:
-            ResponsePayloadSample-Approved:
-              value:
-                transactionStatus: "SUCCESS"
-                transactionStatusCode: 200
-                refenreceTransactionID: "65d7919622410ea1b88f51fb8701465c"
-                agreedTncTransactionID: "12d7919622410ea1b88f51fb87076546k"  
-                content: "Today, being 2024-02-22T18:42:19+00:00, I, John Doe, by entering my routing and account number above and clicking “Authorize,” I authorize 100.12 starting on 2024-02-24 and Monthly thereafter on the 2024-03-22 ending on 2025-02-22 to be processed as electronic funds transfers (EFT) or drafts drawn from my checking or savings account as indicated above and, if necessary, to have my account electronically credited or debited to correct errors. If any of the payments return unpaid, I authorize you or your service provider to collect the payment and a one-time return item fee and, if applicable, costs, by EFT(s) or draft(s) drawn from my account. Click here to view your state’s returned item fee and, if applicable, costs 1.45. I understand that this authorization will remain in full force and effect until I notify you that I wish to revoke it by calling. I consent to the use of Electronic Records and Signatures https://fiserv.com/signature-link/1234. PLEASE PRINT A COPY OF THIS PAGE FOR YOUR RECORDS. ALTERNATIVELY, CONTACT US AT +1 800456789 TO LEARN HOW YOU CAN OBTAIN A COPY."                
-    100-AuthLanguageGenerateResponsePayloadSamples:
-      description: Declined Auth Language Generate Response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPIAuthLanguageGenerateErrorCodeResponse'
-          examples:
-            ResponsePayloadSample-Declined:
-              value:
-                transactionStatus: "ERROR"
-                transactionStatusCode: 100
-                refenreceTransactionID: "663d467d3534e52ba86001a656b9585a"
-                transactionStatusDescription": "Input is invalid"
-                errorDetails:
-                  errorCode: 2000
-                  errorField: "PlaceHolderList from Request=[dateTime, merchantSupportNumber, lastName, amount, originatorName, teleCheckSupportNumber, endDate, revokeDays, accountType, companyName, accountNumber, state_return_fee, frequency, routingNumber, eSignAckLink, serviceHoursOfOperation, recurDate, startDate, additionalCost], TemplatePlaceholdersList=[dateTime, merchantSupportNumber, lastName, amount, originatorName, teleCheckSupportNumber, endDate, revokeDays, accountType, companyName, accountNumber, state_return_fee, frequency, firstName, routingNumber, eSignAckLink, serviceHoursOfOperation, recurDate, startDate, additionalCost]"
-                  errorReason: "Placeholders between content and placeholderList do not match."
-    500-AuthLanguageGenerateResponsePayloadSamples:
-      description: Declined Auth Language Generate Response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPIAuthLanguageGenerateErrorCodeResponse'
-          examples:
-            ResponsePayloadSample-Declined:
-              value:
-                transactionStatus: "ERROR"
-                transactionStatusCode: 500
-                refenreceTransactionID: "669120d44626cde1b0a19df284d1aca1"
-                transactionStatusDescription": "General Error"
-                errorDetails:
-                  errorCode: 500
-                  errorField: "Invalid Response from CP-API Collection Auth"
-                  errorReason: "General Error"
-    200-AuthLanguageTNCResponsePayloadSamples:
-      description: Successful Auth Language TncID GET Response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPIAuthLanguageTncIDSuccessResponse'
-          examples:
-            ResponsePayloadSample-Success:
-              value:
-                tncID: 3,
-                tncStatus: "ACTIVE"
-                description: "Enlish: WEB-Personal-Recurring-Warranty AuthLanguage"
-                tncIdentificationDetails: 
-                  language: "en"
-                  partnerID: "CPAPI_APP"
-                  authChannel: "WEB"
-                  checkType: "P"
-                  recurringPayment: "R"
-                  businessLine: "Warranty"
-                createdBy: "Tirupathi Mandala"
-                placeholderList: "dateTime,firstName,lastName,amount,startDate,frequency,recurDate,endDate,state,eSignActLink"
-                placeholderLookup: "state=state_return_fee"
-                content: "Change-4, Today, being [dateTime], I, [firstName] [lastName], by entering my routing and account number above and clicking “Authorize,” I authorize [amount] starting on [startDate] and [frequency] thereafter on the [recurDate] ending on [endDate] to be processed as electronic funds transfers (EFT) or drafts drawn from my checking or savings account as indicated above and, if necessary, to have my account electronically credited or debited to correct errors. If any of the payments return unpaid, I authorize you or your service provider to collect the payment and a one-time return item fee and, if applicable, costs, by EFT(s) or draft(s) drawn from my account. Click here to view your state’s returned item fee and, if applicable, costs [state_return_fee]. I understand that this authorization will remain in full force and effect until I notify you that I wish to revoke it by calling.  I consent to the use of Electronic Records and Signatures [eSignActLink] PLEASE PRINT A COPY OF THIS PAGE FOR YOUR RECORDS. ALTERNATIVELY, CONTACT US AT +1 800456789 TO LEARN HOW YOU CAN OBTAIN A COPY. "
-                transactionStatus: "SUCCESS"
-                transactionStatusCode: 200
-                referenceTransactionID: "66295ae58ad4465fce69d457d2683d9c"                 
+                  errorReason: Configuration Error, Please contact customer support           
     # This is the start of Transactions 
     200-TransactionResponsePayloadSamples:
       description: Successful ACH Purchase response.
