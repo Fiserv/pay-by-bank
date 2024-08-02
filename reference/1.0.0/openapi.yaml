@@ -3053,6 +3053,8 @@ components:
               maxItems: 1
               minLength: 1          
               maxLength: 50
+          required:
+            - fdCustomerID
         account:
           type: array
           items:
@@ -3232,6 +3234,9 @@ components:
                     maxItems: 1
                     minLength: 1          
                     maxLength: 128
+                required:
+                  - organizationId
+                  - sessionId
               genericCodes:
                 type: object
                 properties:
@@ -4334,7 +4339,7 @@ components:
               recurringPayment: "R"
               creditDebitIndicator: "D"
               splitShipmentFlag: "Y"
-              productCode: "Dishwasher Detergents"  
+              productCode: "770100"  
             genericCodes: 
                 genericCode1: "1234"
                 genericCode2: "3456"
