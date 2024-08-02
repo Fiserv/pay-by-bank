@@ -3077,9 +3077,9 @@ components:
               userIdentificationDetails:
                 type: object
                 properties: 
-                  connectPayPaymentNumberNew:
+                  connectPayPaymentNumber:
                     type: string
-                    description: "New ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Payment number is usually updated when the old / existing payment number is lost or stolen."
+                    description: "ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Payment number is usually updated when the old / existing payment number is lost or stolen."
                     minItems: 0
                     maxItems: 1
                     minLength: 11
@@ -3330,7 +3330,7 @@ components:
               userIdentificationDetails:
                 type: object
                 properties: 
-                  connectPayPaymentNumberNew:
+                  connectPayPaymentNumber:
                     type: string
                     description: "New ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Payment number is usually updated when the old / existing payment number is lost or stolen."
                     minItems: 0
@@ -3525,9 +3525,9 @@ components:
               userIdentificationDetails:
                 type: object
                 properties: 
-                  connectPayPaymentNumberNew:
+                  connectPayPaymentNumber:
                     type: string
-                    description: "New ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Payment number is usually updated when the old / existing payment number is lost or stolen."
+                    description: "ConnectPay payment number uniquely identifies consumer enrollment and is the payment number used for future transactions. Required as an input when consumer is in possession of and enrolling a physical card (i.e. loyalty card or equivalent) to be used for future payment. Payment number is usually updated when the old / existing payment number is lost or stolen."
                     minItems: 0
                     maxItems: 1
                     minLength: 11
@@ -3594,7 +3594,7 @@ components:
                     maxLength: 6
                   transactionId:
                     type: string
-                    description: Unique ID for each Transaction which could be used to trace a transaction..
+                    description: Unique ID for the primary transaction being requested to update (void, refund capture).
                     minItems: 0
                     maxItems: 1
                     minLength: 1          
@@ -3788,7 +3788,7 @@ components:
                     maxLength: 100
                   transactionId:
                     type: string
-                    description: Unique ID for each Transaction which could be used to trace a transaction..
+                    description: Unique ID for the primary transaction being requested to update (void, refund capture).
                     minItems: 0
                     maxItems: 1
                     minLength: 1          
@@ -3928,7 +3928,7 @@ components:
                     maxLength: 100
                   transactionId:
                     type: string
-                    description: Unique ID for each Transaction which could be used to trace a transaction..
+                    description: Unique ID for the primary transaction being requested to update (void, refund capture).
                     minItems: 0
                     maxItems: 1
                     minLength: 1          
@@ -4244,7 +4244,7 @@ components:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
-            fdAccountID: "CPlgPO15804795190661084P4u9zY"
+            fdAccountID: "CPlgPO15804795190661084P4u8xY"
             userIdentificationDetails:
               connectPayPaymentNumber: "6139531082086874860"
               postedCurrentBalance: "4800"
@@ -4392,6 +4392,7 @@ components:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
+            fdAccountID: "CPlgPO15804795190661084P4u8xY"
             userIdentificationDetails:
               connectPayPaymentNumber: "2000000008000586"
             transactionDetails:
@@ -4433,6 +4434,7 @@ components:
           fdCustomerID : "CP1GWQ15714334637260000266MNpu7Q"
         account:
           - type: "ACH"
+            fdAccountID: "CPlgPO15804795190661084P4u8xY"
             userIdentificationDetails:
               connectPayPaymentNumber: "2000000008000586"
             transactionDetails:
