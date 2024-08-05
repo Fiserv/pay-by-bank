@@ -624,7 +624,7 @@ paths:
             examples:
               EnrolledRequestPayloadSample:
                 $ref: '#/components/examples/ACHPurchaseRequestPayloadSample'
-              NonEnrolledRequestPayloadSample::
+              NonEnrolledRequestPayloadSample:
                 $ref: '#/components/examples/ACHPurchaseRequestPayloadSample2'
       responses:
         '200':
