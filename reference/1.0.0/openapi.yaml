@@ -325,13 +325,15 @@ paths:
             schema:
               $ref: '#/components/schemas/EnrollmentRequest'
             examples:
-              RequestPayloadSample:
+              RequestPayloadSample1:
                 $ref: '#/components/examples/EnrollmentPayloadSample'
+              RequestPayloadSample2:
+                $ref: '#/components/examples/EnrollmentPayloadSample2'
       responses:
-        '200':
-          $ref: '#/components/responses/200-EnrollmentResponsePayloadSamples'
         '201':
-          $ref: '#/components/responses/201-CPAPI_ENROLLMENT'
+          $ref: '#/components/responses/201-EnrollmentResponsePayloadSamples'
+        '200':
+          $ref: '#/components/responses/200-CPAPI_ENROLLMENT'
         '202':
           $ref: '#/components/responses/202-CPAPI_ENROLLMENT'
         '204':
@@ -632,7 +634,7 @@ paths:
         '460':
           $ref: '#/components/responses/400-TransactionPurchaseResponsePayloadSamples'
         '409':
-          $ref: '#/components/responses/409-TransactionPurchaseResponsePayloadSamples'
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '401':
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '100':
@@ -1048,6 +1050,107 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
+    CPAPITransactionCommonErrorCode:
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: Overall status of the call.
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+    CPAPITransactionCommonErrorCode2:
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: Overall status of the call.
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+        errorDetails:
+          type: object
+          properties:
+            errorCode:
+              type: string
+              description: Code signifying what kind of error occurred.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 4
+            errorReason:
+              type: string
+              description: Short description of the error.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 100
     CPAPITransactionDeclineResponseDuplicate: 
       type: object
       properties:
@@ -2210,6 +2313,11 @@ components:
                     maxItems: 1
                     minLength: 1
                     maxLength: 10
+                required: 
+                  - email 
+                  - firstName
+                  - lastName
+                  - memberSince
               userAddressDetails:
                 type: object
                 properties:
@@ -2363,6 +2471,10 @@ components:
                     maxItems: 1
                     minLength: 4
                     maxLength: 6
+                required: 
+                  - accountNumber
+                  - bankAccountActualLastFour
+                  - routingNumber
               sqnA:
                 type: array
                 items:
@@ -2422,6 +2534,10 @@ components:
                       maxItems: 1
                       minLength: 1
                       maxLength: 1
+                  required: 
+                    - number
+                    - primary
+                    - type
               reportingFields:
                 type: object
                 properties:
@@ -2532,6 +2648,8 @@ components:
                     maxItems: 1
                     minLength: 1
                     maxLength: 128
+            required:
+              - type
         Aggregator:
           type: array
           items:
@@ -2542,7 +2660,7 @@ components:
                 description: "This field is the identifier fors the Data Aggregator used to enable the bank login experience."
                 minItems: 0
                 maxItems: 1
-                minLength: 8
+                minLength: 1
                 maxLength: 8
               allData:
                 type: object
@@ -2668,7 +2786,7 @@ components:
               minItems: 1
               maxItems: 1
               minLength: 1
-              maxLength: 50
+              maxLength: 50          
         account:
           type: array
           items:
@@ -4069,12 +4187,11 @@ components:
           externalID : Merchant01Consumer65746635
     EnrollmentPayloadSample:
       value:
-        customer:
-          fdCustomerID : CP87rx15814147322210000442tJpajq
-          externalID : ""
+        customer:          
+          externalID : "92b57ed6608841389b907d85806ff317"
         account:
           - type: ACH
-            dataSource: "0/1"
+            dataSource: "1"
             userDetails:
               firstName: Harry
               lastName: Smith
@@ -4091,20 +4208,20 @@ components:
               country: "840"
               postalCode: "77063"
             userIdentificationDetails:
-              routingNumber: "141313134"
-              accountNumber: "4444444444"
-              bankAccountActualLastFour: ""
-              realCurrentBalance: ""
-              realAvailableBalance: ""
-              postedCurrentBalance: ""
-              postedAvailableBalance: ""
-              supplementalID: ""
-              connectPayPaymentNumber: ""
+              routingNumber: "****3134"
+              accountNumber: "*****4444"
+              bankAccountActualLastFour: "2367"
+              realCurrentBalance: "8270"
+              realAvailableBalance: "6270"
+              postedCurrentBalance: "8270"
+              postedAvailableBalance: "6270"
+              supplementalID: "2345"
+              connectPayPaymentNumber: "1639635999123456789"
               corporateAccountFlag: personal_check
               driverLicenseNumber: "85123430"
               driverLicenseState: TX
               ssn: "123456789"
-              onlineBankTransactionId: ""
+              onlineBankTransactionId: "12345"
               pin: "1234"
             sqnA:
               - securityQuestionId: "1234"
@@ -4142,11 +4259,90 @@ components:
               organizationId: Ozvk1dz
               sessionId: jhgd87f658adbasjhbdas765d
         Aggregator:
-          adapter: ""
+          adapter: "ALL_DATA"
           allData:
-            partnerId: ""
-            homeId: ""
-            accountId: ""
+            partnerId: "51130088"
+            homeId: "51130088"
+            accountId: "159143987"
+    EnrollmentPayloadSample2:
+      value:
+        customer:
+          fdCustomerID : "CP87rx15814147322210000442tJpajq"          
+        account:
+          - type: ACH
+            dataSource: "1"
+            userDetails:
+              firstName: Harry
+              lastName: Smith
+              email: harry.smith@firstdata.com
+              gender: M
+              dob: "19001010"
+              memberSince: "19001010"
+              agreedTncVersion: v1
+            userAddressDetails:
+              street: "7979 Westheimer"
+              street2: "APT 229"
+              state: TX
+              city: Houston
+              country: "840"
+              postalCode: "77063"
+            userIdentificationDetails:
+              routingNumber: "****3134"
+              accountNumber: "*****4444"
+              bankAccountActualLastFour: "2367"
+              realCurrentBalance: "8270"
+              realAvailableBalance: "6270"
+              postedCurrentBalance: "8270"
+              postedAvailableBalance: "6270"
+              supplementalID: "2345"
+              connectPayPaymentNumber: "1639635999123456789"
+              corporateAccountFlag: personal_check
+              driverLicenseNumber: "85123430"
+              driverLicenseState: TX
+              ssn: "123456789"
+              onlineBankTransactionId: "12345"
+              pin: "1234"
+            sqnA:
+              - securityQuestionId: "1234"
+                securityQuestion: What is the name of your pet dog ?
+                securityAnswer: Bingo
+            userPhone:
+              - type: MOBILE
+                number: "1234567890"
+                extension: ""
+                primary: "Y"
+              - type: HOME
+                number: "2234567890"
+                extension: ""
+                primary: "N"
+              - type: BUSINESS
+                number: "3234567890"
+                extension: "1234"
+                primary: "N"
+            reportingFields:
+              reportingField1: "123"
+              reportingField2: "456"
+              reportingField3: "789"
+            genericCodes:
+              genericCode1: "1"
+              genericCode2: "2"
+              genericCode3: "3"
+            genericFlags:
+              genericFlag1: "F"
+              genericFlag2: "Y"
+              genericFlag3: "Z"
+            userSysDetails:
+              ipAddress: "10.10.10.10"
+              trueIpAddress: "11.11.11.11"
+              imei: "548624521256523"
+              organizationId: Ozvk1dz
+              sessionId: jhgd87f658adbasjhbdas765d
+        Aggregator:
+          adapter: "ALL_DATA"
+          allData:
+            partnerId: "51130088"
+            homeId: "51130088"
+            accountId: "159143987"
     ConsumerLoadSample:
       value:
         customer:
@@ -4167,56 +4363,63 @@ components:
             authenticationAnswer: "7854"
     ConsumerUpdateSample:
       value:
-        customer:
-          fdCustomerID : "CP87rx15814147322210000442tJpajq"
         account:
-          - type: "ACH"
-            fdAccountID: "ERT87rx15814147322210000442tJprwerw"
-            userDetails:
-              firstName: "John"
-              lastName: "Doe"
-              email: "john.doe@fiserv.com"
-              gender: "M"
-              dob: "19880624"
-              memberSince: "20221121"
-              agreedTncVersion: "1"
-            userAddressDetails:
-              street: "1000 Main Street"
-              street2: "APT 2603"
-              city: "Houston"
-              state: "TX"
-              postalCode: "77471"
-            userIdentificationDetails:
-              connectPayPaymentNumberNew: "1639635999123456780"
-              routingNumber: "121000358"
-              accountNumber: "2020202020"
-              driverLicenseNumber: "87654321"
-              driverLicenseState: "TX"
-              country: "840"
-              ssn: "123456789"
-              pin: "1234"
-              pinNew: "4567"
-            userPhone:
-              - type: "MOBILE"
-                number: "9876543210"
-                primary: "Y"
-              - type: "BUSINESS"
-                number: "1800123456"
-                extension: "1234"
-                primary: "N"
-            sqnA:
-              - securityQuestionId: 1
-                securityQuestion: "What is your pets name ?"
-                securityAnswer: "Bingo"
-              - securityQuestionId: 2
-                securityQuestion: "What is name of the street where you lived in fifth standard ?"
-                securityAnswer: "Riverdale Drive"
-            userSysDetails:
-              ipAddress: "201.156.57.158"
-              trueIpAddress: "201.99.125.45"
-              imei: "45245515455544"
-              organizationId: "ofd-ssd345"
-              sessionId: "4564558798072384983279878787"
+          type: "ACH"
+          userIdentificationDetails:
+            pin: "****"
+            pinNew: "****"
+        customer:
+          fdCustomerID: "CPC9Qpaf17228867370181037022pIQH94"
+        # customer:
+        #   fdCustomerID : "CP87rx15814147322210000442tJpajq"
+        # account:
+        #   - type: "ACH"
+        #     fdAccountID: "ERT87rx15814147322210000442tJprwerw"
+        #     userDetails:
+        #       firstName: "John"
+        #       lastName: "Doe"
+        #       email: "john.doe@fiserv.com"
+        #       gender: "M"
+        #       dob: "19880624"
+        #       memberSince: "20221121"
+        #       agreedTncVersion: "1"
+        #     userAddressDetails:
+        #       street: "1000 Main Street"
+        #       street2: "APT 2603"
+        #       city: "Houston"
+        #       state: "TX"
+        #       postalCode: "77471"
+        #     userIdentificationDetails:
+        #       connectPayPaymentNumberNew: "1639635999123456780"
+        #       routingNumber: "121000358"
+        #       accountNumber: "2020202020"
+        #       driverLicenseNumber: "87654321"
+        #       driverLicenseState: "TX"
+        #       country: "840"
+        #       ssn: "123456789"
+        #       pin: "1234"
+        #       pinNew: "4567"
+        #     userPhone:
+        #       - type: "MOBILE"
+        #         number: "9876543210"
+        #         primary: "Y"
+        #       - type: "BUSINESS"
+        #         number: "1800123456"
+        #         extension: "1234"
+        #         primary: "N"
+        #     sqnA:
+        #       - securityQuestionId: 1
+        #         securityQuestion: "What is your pets name ?"
+        #         securityAnswer: "Bingo"
+        #       - securityQuestionId: 2
+        #         securityQuestion: "What is name of the street where you lived in fifth standard ?"
+        #         securityAnswer: "Riverdale Drive"
+        #     userSysDetails:
+        #       ipAddress: "201.156.57.158"
+        #       trueIpAddress: "201.99.125.45"
+        #       imei: "45245515455544"
+        #       organizationId: "ofd-ssd345"
+        #       sessionId: "4564558798072384983279878787"
     ConsumerCloseSample:
       value:
         customer:
@@ -6067,7 +6270,7 @@ components:
                   errorField: UCOMM_CUSTOMER_ADD
                   errorReason: Please try again after some time, If issue persist please contact customer support
     #This is the start of enrollment
-    200-EnrollmentResponsePayloadSamples:
+    201-EnrollmentResponsePayloadSamples:
       description: Success
       content:
         application/json:
@@ -6126,7 +6329,7 @@ components:
                         validationCodeStatus: PENDING
                 userIdentificationDetails:
                   accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"	
-    201-CPAPI_ENROLLMENT:
+    200-CPAPI_ENROLLMENT:
       description: |
         The request was successfully fulfilled and resulted in one or multiple new resources being created
     202-CPAPI_ENROLLMENT:
@@ -6806,6 +7009,33 @@ components:
                   errorReason: Please try again after some time, If issue persist please contact customer support
     # This is the start of Consumer update
     200-ConsumerUpdateResponsePayloadSamples:
+      description: Success
+      content:
+        application/json:
+          examples:
+            ResponsePayloadSample-Approved:
+              value:
+                transactionStatus: "APPROVED"
+                transactionStatusCode: 0
+                referenceTransactionID: "0021-cf88ac74-0d98-a800-347a-3296202faa75"
+                transactionStatusDescription: "OK"
+                responseVerbiage: "You have successfully updated your Nitro<sup>&reg;</sup> card account!"
+                customer:
+                  fdCustomerID: CPC9Qpaf17228867370181037022pIQH94
+                account:
+                  accountStatus: "10"
+                  accountStatusDesc: "ACTIVE"
+                  accountValidationDetails:
+                    validationCode: "70"
+                    validationCodeDesc: "Email Validation Status"
+                    validationCodeStatus: "COMPLETE"                    
+                    validationCode2: "10"
+                    validationCodeDesc2: "Bank Validation Status"
+                    validationCodeStatus2: "COMPLETE"
+                    validationCode3: "50"
+                    validationCodeDesc3: "Pin Update Status"
+                    validationCodeStatus3: "COMPLETE"
+    200-ConsumerUpdateResponsePayloadOLDSamples:
       description: Success
       content:
         application/json:
@@ -8080,7 +8310,6 @@ components:
                   approvalCode: "2767"              
                   achTransactionStatus: "1"
                   dateTime: "2023-09-27T13:23:39.126Z"
-
     #Refund Responses
     200-TransactionRefundResponsePayloadSamples:
       description: Successful ACH Refund response.
@@ -8278,10 +8507,7 @@ components:
   #Transaction API's Common Error Codes:
     401-CPAPI_TRANSACTION:
       description: |
-        Unauthorize - Partner is not opt for this service
-    409-CPAPI_TRANSACTION:
-      description: |
-        Conflict - There can not be a duplicate transaction used for an ECA sale
+        Unauthorize - Partner is not opt for this service    
     460-CPAPI_TRANSACTION:
       description: |
         Ineligible - The transactions is not eligible for Electronic Conversion or Draft
@@ -8303,10 +8529,58 @@ components:
     300-CPAPI_TRANSACTION:
       description: |
         Transaction is rejected because the customer's FI has blocked the connection from TeleCheck.
+    409-CPAPI_TRANSACTION: 
+      description: Conflict - There can not be a duplicate transaction used for an ECA sale
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+          examples:
+            ResponsePayloadSample-Declined:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 409
+                referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
+                transactionStatusDescription: "Conflict"
+                responseVerbiage: "Conflict"
+                errorDetails: 
+                  errorCode: 4970,
+                  errorReason: "There can not be a duplicate transaction used for an ECA sale"
+                teleCheckDetails:
+                  transactionId: "1400310000032032552630"
+                  tckResponseCode: "07"   
+                  approvalCode: "2767"              
+                  achTransactionStatus: "1"
+                  dateTime: "2023-09-27T13:23:39.126Z"
     500-CPAPI_TRANSACTION:
-      description: |
-        General error - Please try again after some time, If issue persist please contact customer support
+      description: General error - Please try again after some time, If issue persist please contact customer support
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
+          examples:
+            ResponsePayloadSample-Declined:
+              value: 
+                transactionStatus: "ERROR"
+                transactionStatusCode: 500
+                referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
+                transactionStatusDescription: "General Error"
+                responseVerbiage: "General Error"
     504-CPAPI_TRANSACTION:
-      description: |
-        Payment Gateway Timeout
+      description: Payment Gateway Timeout
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
+          examples:
+            ResponsePayloadSample-Declined:
+              value: 
+                transactionStatus: "ERROR"
+                transactionStatusCode: 504
+                referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
+                transactionStatusDescription: "Gateway Timeout"
+                responseVerbiage: "Gateway Timeout"
+                errorDetails:
+                  errorCode: 5040
+                  errorReason: "Payment Gateway timeout"
     
