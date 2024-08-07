@@ -6277,39 +6277,39 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPIGenericResponse'
           examples:
-            ResponsePayloadSample-Approved-WithNonce:
-              value:
-                transactionStatus: APPROVED
-                transactionStatusCode: "70"
-                referenceTransactionID: 03978cc3-db3a-47aa-8b64-ca1db28ec77c
-                transactionStatusDescription: Created
-                responseVerbiage: Your enrollment is approved but pending bank account validation. You should receive a welcome email from our company with the next steps to validate and activate your account.
-                nonce: 9E5048FAAA900394E0530AAE3307E7A6408
-                teleCheckDetails:
-                  transactionId: "1400099000000000011052"
-                  tckResponseCode: "07"
-                  approvalCode: "7350"
-                  displayText: "APPROVED 1414"
-                  sequenceId: "0"
-                  ecaOfferCode: "Y"
-                customer:
-                  fdCustomerID: CP87rx15814147322210000442tJpajq
-                account:
-                  - accountStatus: "70"
-                    accountStatusDesc: PENDING_VALIDATIONS
-                    accountValidationDetails:
-                      - validationCode: "10"
-                        validationCodeDesc: Bank Validation Status
-                        validationCodeStatus: PENDING
-                userIdentificationDetails:
-                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"	
             ResponsePayloadSample-Approved-WithFDAccountID:
               value:
-                transactionStatus: APPROVED
-                transactionStatusCode: "70"
-                referenceTransactionID: 03978cc3-db3a-47aa-8b64-ca1db28ec77c
-                transactionStatusDescription: Created
-                responseVerbiage: Your enrollment is approved but pending bank account validation. You should receive a welcome email from our company with the next steps to validate and activate your account.
+                transactionStatus: "APPROVED"
+                transactionStatusCode: 0
+                referenceTransactionID: "03978cc3-db3a-47aa-8b64-ca1db28ec77c"
+                transactionStatusDescription: "Created"                
+                teleCheckDetails:
+                  transactionId: "1400099000000000011052"
+                  tckResponseCode: "07"
+                  approvalCode: "4176"
+                  displayText: "APPROVED"
+                  sequenceId: "185121"
+                  ecaOfferCode: "Y"
+                customer:
+                  fdCustomerID: "CP87rx15814147322210000442tJpajq"
+                account:
+                    fdAccountID: "CPQyoO170227815252548083xZesD1"	
+                    accountStatus: "10"
+                    accountStatusDesc: "ACTIVE"
+                    accountValidationDetails:
+                      - validationCode: "10"
+                        validationCodeDesc: "Bank Validation Status"
+                        validationCodeStatus: "COMPLETE"
+                userIdentificationDetails:
+                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"
+            ResponsePayloadSample-Approved-WithNonce:
+              value:
+                transactionStatus: "APPROVED"
+                transactionStatusCode: 70
+                referenceTransactionID: "03978cc3-db3a-47aa-8b64-ca1db28ec77c"
+                transactionStatusDescription: "Created"
+                responseVerbiage: "Your enrollment is approved but pending bank account validation. You should receive a welcome email from our company with the next steps to validate and activate your account."
+                nonce: "9E5048FAAA900394E0530AAE3307E7A6408"
                 teleCheckDetails:
                   transactionId: "1400099000000000011052"
                   tckResponseCode: "07"
@@ -6318,17 +6318,16 @@ components:
                   sequenceId: "0"
                   ecaOfferCode: "Y"
                 customer:
-                  fdCustomerID: CP87rx15814147322210000442tJpajq
+                  fdCustomerID: "CP87rx15814147322210000442tJpajq"
                 account:
-                    fdAccountID: "CPQyoO170227815252548083xZesD1"	
-                    accountStatus: "70"
-                    accountStatusDesc: PENDING_VALIDATIONS
+                  - accountStatus: "70"
+                    accountStatusDesc: "PENDING_VALIDATIONS"
                     accountValidationDetails:
                       - validationCode: "10"
-                        validationCodeDesc: Bank Validation Status
-                        validationCodeStatus: PENDING
+                        validationCodeDesc: "Bank Validation Status"
+                        validationCodeStatus: "PENDING"
                 userIdentificationDetails:
-                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"	
+                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"	            	
     200-CPAPI_ENROLLMENT:
       description: |
         The request was successfully fulfilled and resulted in one or multiple new resources being created
