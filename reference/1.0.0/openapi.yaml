@@ -716,7 +716,6 @@ paths:
         Use subscriberId, transactionId and merchantTransactionId from Authorize call in the Capture request.
         
         The transaction can also be sent in using ConnectPayPaymentNumber instead of fdAccountID.
-
       parameters:
         - $ref: '#/components/parameters/contentTypeParam'
         - $ref: '#/components/parameters/apiKeyParam'
@@ -3180,8 +3179,8 @@ components:
             properties:
               type:
                 type: string
-                description: Type of account.
-                minItems: 0
+                description: "Value 'ACH' always needs to be passed in this field."
+                minItems: 1
                 maxItems: 1
                 minLength: 3
                 maxLength: 3
@@ -5827,10 +5826,10 @@ components:
                 transactionStatusCode: 100
                 referenceTransactionID: 06e8e947-9a92-9165-8dd8-7627b8e111d7
                 transactionStatusDescription: Input is invalid
-                errorDetails:
-                  errorCode: 1035
-                  errorField: CallType
-                  errorReason: Required field is missing
+                errorDetails: 
+                  errorCode: 1010
+                  errorField: PassPhase
+                  errorReason: Field did not have a valid format
             1035-PassPhase:
               value:
                 transactionStatus: ERROR
@@ -5845,12 +5844,12 @@ components:
               value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
-                referenceTransactionID: d55a3059-c047-3276-0589-4d1db2ed042c
+                referenceTransactionID: ab06086c-2691-5687-9c2b-7b479365935d
                 transactionStatusDescription: Input is invalid
-                errorDetails:
-                  errorCode: 1035
+                errorDetails: 
+                  errorCode: 1010
                   errorField: InitializationVector
-                  errorReason: Required field is missing
+                  errorReason: Field did not have a valid format
             1035-allData:
               value:
                 transactionStatus: ERROR
@@ -5865,12 +5864,13 @@ components:
               value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
-                referenceTransactionID: c00ea59a-2694-cd65-c79e-e04e294c7192
+                referenceTransactionID: e8277c5c-c458-4e29-3637-671a92849582
                 transactionStatusDescription: Input is invalid
-                errorDetails:
-                  errorCode: 1035
-                  errorField: adapter
-                  errorReason: Required Block is missing
+                errorDetails: 
+                  errorCode: 1020
+                  errorField: fdCustomerID
+                  errorReason: Field contained a bad value
+ 
             1040-customer:
               value:
                 transactionStatus: ERROR
@@ -5885,12 +5885,10 @@ components:
               value:
                 transactionStatus: ERROR
                 transactionStatusCode: 100
-                referenceTransactionID: d886c9d3-4547-c4b4-63e1-5743b50da1c4
-                transactionStatusDescription: Required block did not have a value
                 errorDetails:
-                  errorCode: 1040
+                  errorCode: 1035
                   errorField: adapter
-                  errorReason: Required block did not have a value
+                  errorReason: Required Block is missing
             1045-customer:
               value:
                 transactionStatus: ERROR
@@ -6163,10 +6161,10 @@ components:
                 transactionStatusCode: 100
                 referenceTransactionID: d7d56946-1967-d841-03ed-88c013e20dd8
                 transactionStatusDescription: Input is invalid
-                errorDetails:
-                  errorCode: 1035
-                  errorField: InitializationVector
-                  errorReason: Required field is missing
+                errorDetails: 
+                  errorCode: 1020
+                  errorField: externalID
+                  errorReason: Field contained a bad value
             1040-customer:
               value:
                 transactionStatus: ERROR
@@ -7327,6 +7325,16 @@ components:
           schema:
             $ref: '#components/schemas/CPAPIGenericResponse'
           examples:
+            401-nan:
+              value:
+                transactionStatus:
+                transactionStatusCode: 401
+                referenceTransactionID: 2229da04-ae59-c994-d927-d0de759bbb6d
+                transactionStatusDescription: Unauthorized
+                errorDetails:
+                  errorCode: 401
+                  errorField: nan
+                  errorReason: Unauthorized
             4550-PartnerID:
               value:
                 transactionStatus: DECLINED
@@ -7344,24 +7352,7 @@ components:
       description: |
         Indicates a conflict with the current state of a resource
     500-CPAPI_CONSUMER_CLOSE:
-      description: |
-        An unexpected server error occured
-      content:
-        application/json:
-          schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
-          examples:
-            5340-ConfigurationError:
-              value:
-                transactionStatus: ERROR
-                transactionStatusCode: 500
-                referenceTransactionID: db214a8d-04c0-4cab-9c33-d0aa68a3902a
-                transactionStatusDescription: General Error
-                errorDetails:
-                  errorCode: 5340
-                  errorField: PublicKey Expired
-                  errorReason: Configuration Error, Please contact customer support support
-    # This is the start of Get Data
+      description: Error
     200-GetDataResponsePayloadSamples:
       description: Success
       content:

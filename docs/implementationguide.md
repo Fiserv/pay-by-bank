@@ -139,7 +139,7 @@ Use this as the first step in online bank login process. The output from this se
 <details>
 <summary>Step b: Validate Online Bank Login</summary>
 <br>
-Use this method to after consumer has completed bank selection process, to pull all consumer information available on bank records to be displayed on consumer’s screen Consumer can view and edit the enrollment form prepopulated with the data from above step. Bank information is the only set of fields which should be not editable. <p>
+Use this method to after consumer has completed bank selection process, to pull all consumer information available on bank records to be displayed on consumer’s screen Consumer can view and edit the enrollment form pre-populated with the data from above step. Bank information is the only set of fields which should be not editable. <p>
 
 [![](/assets/images/button.png '')](../api/?type=post&path=/onlinebanklogin/validate)
 </details>
@@ -172,7 +172,7 @@ The Consumer Enrollment call is for any new consumer enrollment purpose. This is
 <details>
 <summary>Step b: Micro-Deposit Validation</summary>
 <br>
-Use this method to complete micro deposit validation to authenticate your bank account after a manual enrollment.ConnectPayAPI Direct Integration Guide. Kindly note it might take a few days for the micro deposits to appear on your bank account. Once bank account is successfully authenticated, the ACH payment option gets activated for transaction. For MAS to ConnectPayAPI Server call, MAS needs to pass the fdAccountID in payload request. <p>
+Use this method to complete micro deposit validation to authenticate your bank account after a manual enrollment.ConnectPayAPI Direct Integration Guide. Kindly note it might take a few days for the micro deposits to appear on your bank account. Once bank account is successfully authenticated, the ACH payment option gets activated for transaction. For MAS to ConnectPayAPI Server call, MAS needs to pass the `fdAccountID` in payload request. <p>
 
 [![](/assets/images/button.png '')](../api/?type=post&path=/consumerprofile/validate)
 </details>
@@ -200,5 +200,4 @@ Merchants who want to process ACH Transactions through FirstAPI must make server
 >You have successfully completed an ACH transaction. For information on other ConnectPay APIs, please look below for the API specification:
 
 ### Client Next Steps
-  
 For more information on the other APIs within ConnectPay please visit the API Explorer on the navigation bar to the left.
