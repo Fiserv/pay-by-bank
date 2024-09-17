@@ -507,10 +507,6 @@ paths:
           $ref: '#/components/responses/400-CPAPI_CONSUMER_CLOSE'
         '401':
           $ref: '#/components/responses/401-CPAPI_CONSUMER_CLOSE'
-        '403':
-          $ref: '#/components/responses/403-CPAPI_CONSUMER_CLOSE'
-        '409':
-          $ref: '#/components/responses/409-CPAPI_CONSUMER_CLOSE'
         '500':
           $ref: '#/components/responses/500-CPAPI_CONSUMER_CLOSE'
   '/account/getaccountlist':
