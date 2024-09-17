@@ -637,16 +637,6 @@ paths:
           $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '401':
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
-        '100':
-          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
-        '120':
-          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
-        '130':
-          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
-        '140':
-          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
-        '150':
-          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
         '300':
           $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
@@ -688,16 +678,6 @@ paths:
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           $ref: '#/components/responses/409-CPAPI_TRANSACTION'
-        '100':
-          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
-        '120':
-          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
-        '130':
-          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
-        '140':
-          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
-        '150':
-          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
         '300':
           $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
@@ -740,16 +720,6 @@ paths:
           $ref: '#/components/responses/409-TransactionCaptureResponsePayloadSamples'
         '401':
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
-        '100':
-          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
-        '120':
-          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
-        '130':
-          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
-        '140':
-          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
-        '150':
-          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
         '300':
           $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
@@ -791,16 +761,6 @@ paths:
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           $ref: '#/components/responses/409-CPAPI_TRANSACTION'
-        '100':
-          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
-        '120':
-          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
-        '130':
-          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
-        '140':
-          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
-        '150':
-          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
         '300':
           $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
@@ -842,16 +802,6 @@ paths:
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           $ref: '#/components/responses/409-CPAPI_TRANSACTION'
-        '100':
-          $ref: '#/components/responses/100-CPAPI_TRANSACTION'
-        '120':
-          $ref: '#/components/responses/120-CPAPI_TRANSACTION'
-        '130':
-          $ref: '#/components/responses/130-CPAPI_TRANSACTION'
-        '140':
-          $ref: '#/components/responses/140-CPAPI_TRANSACTION'
-        '150':
-          $ref: '#/components/responses/150-CPAPI_TRANSACTION'
         '300':
           $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
@@ -7120,12 +7070,6 @@ components:
                   errorCode: 4550
                   errorField: PartnerID
                   errorReason: Partner is not opt for this service
-    403-CPAPI_CONSUMER_UPDATE:
-      description: |
-        Forbidden
-    409-CPAPI_CONSUMER_UPDATE:
-      description: |
-        Indicates a conflict with the current state of a resource
     500-CPAPI_CONSUMER_UPDATE:
       description: |
         An unexpected server error occured
@@ -7337,12 +7281,6 @@ components:
                   errorCode: 4550
                   errorField: PartnerID
                   errorReason: Partner is not opt for this service
-    403-CPAPI_CONSUMER_CLOSE:
-      description: |
-        Forbidden
-    409-CPAPI_CONSUMER_CLOSE:
-      description: |
-        Indicates a conflict with the current state of a resource
     500-CPAPI_CONSUMER_CLOSE:
       description: |
         An unexpected server error occured
@@ -8251,7 +8189,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
           examples:
-            ResponsePayloadSample-Approved:
+            200-Approved:
               value:
                 transactionStatus: APPROVED
                 transactionStatusCode: 0
@@ -8270,7 +8208,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
           examples:
-            ResponsePayloadSample-Declined:
+            460-TransactionNotValid:
               value:
                 transactionStatus: "DECLINED" 
                 transactionStatusCode: 460
@@ -8293,7 +8231,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
-            ResponsePayloadSample-Declined:
+            409-Conflict:
               value:
                 transactionStatus: "DECLINED" 
                 transactionStatusCode: 409
@@ -8317,7 +8255,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApproveResponse'
           examples:
-            ResponsePayloadSample-Approved:
+            200-Approved:
               value:
                 transactionStatus: APPROVED
                 transactionStatusCode: 0
@@ -8335,7 +8273,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
-            ResponsePayloadSample-Declined:
+            400-InvalidAmount:
               value:
                 transactionStatus: "ERROR" 
                 transactionStatusCode: 400
@@ -8350,6 +8288,17 @@ components:
                   tckResponseCode: "80"                  
                   achTransactionStatus: "0"
                   dateTime: "2023-09-27T13:23:39.126Z"
+            400-AccountDetailNotFound:
+              value:
+                transactionStatus: "ERROR" 
+                transactionStatusCode: 150
+                referenceTransactionID: "0021-f758abdd-d529-9d71-4680-e49b15gh678a"
+                transactionStatusDescription: "Account detail not found"
+                responseVerbiage: "Account detail not found"
+                errorDetails: 
+                  errorCode: 2310
+                  errorField: "fdAccountID"
+                  errorReason: "Account detail not found"
   
   #Void Responses
     200-TransactionVoidResponsePayloadSamples:
@@ -8359,7 +8308,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApproveResponse'
           examples:
-            ResponsePayloadSample-Approved:
+            200-Approved:
               value:
                 transactionStatus: "APPROVED"
                 transactionStatusCode: 0
@@ -8377,7 +8326,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
-            ResponsePayloadSample-Declined:
+            400-InvalidAmount:
               value:
                 transactionStatus: "ERROR" 
                 transactionStatusCode: 400
@@ -8390,6 +8339,21 @@ components:
                 teleCheckDetails:
                   transactionId: "1400320000000008763706"
                   tckResponseCode: "80"                  
+                  achTransactionStatus: "0"
+                  dateTime: "2023-09-27T13:23:39.126Z"
+            400-TransactionNotFound:
+              value:
+                transactionStatus: "ERROR" 
+                transactionStatusCode: 400
+                referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                transactionStatusDescription: "Original Transaction Not Found"
+                responseVerbiage: "Original Transaction Not Found"
+                errorDetails: 
+                  errorCode: 6210,
+                  errorReason: "The requested action failed, the original transaction was not found in our records"
+                teleCheckDetails:
+                  transactionId: "140032000000000876389"
+                  tckResponseCode: "81"                  
                   achTransactionStatus: "0"
                   dateTime: "2023-09-27T13:23:39.126Z"
   
@@ -8504,30 +8468,18 @@ components:
                   dateTime: "2023-09-27T13:23:39.126Z"
   
   #Transaction API's Common Error Codes:
-    401-CPAPI_TRANSACTION:
+    200-CPAPI_TRANSACTION:
       description: |
-        Unauthorize - Partner is not opt for this service    
-    460-CPAPI_TRANSACTION:
-      description: |
-        Ineligible - The transactions is not eligible for Electronic Conversion or Draft
-    100-CPAPI_TRANSACTION:
-      description: |
-        Input invalid - Required block did not have a value
-    120-CPAPI_TRANSACTION:
-      description: |
-        Consumer Cannot Be Validated - The enrollment record was not found or is inactive
-    130-CPAPI_TRANSACTION:
-      description: |
-        Partner Cannot Be Validated	- Merchant does not exist
-    140-CPAPI_TRANSACTION:
-      description: |
-        Customer profile not found - Customer profile not found
-    150-CPAPI_TRANSACTION:
-      description: |
-        Account detail not found - Account detail not found
+        Approved transaction.
     300-CPAPI_TRANSACTION:
       description: |
         Transaction is rejected because the customer's FI has blocked the connection from TeleCheck.
+    400-CPAPI_TRANSACTION:
+      description: |
+        Input is invalid.
+    401-CPAPI_TRANSACTION:
+      description: |
+        Unauthorize - Partner is not opt for this service
     409-CPAPI_TRANSACTION: 
       description: Conflict - There can not be a duplicate transaction used for an ECA sale
       content:
@@ -8535,7 +8487,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
-            ResponsePayloadSample-Declined:
+            409-Conflict:
               value:
                 transactionStatus: "DECLINED" 
                 transactionStatusCode: 409
@@ -8550,7 +8502,10 @@ components:
                   tckResponseCode: "07"   
                   approvalCode: "2767"              
                   achTransactionStatus: "1"
-                  dateTime: "2023-09-27T13:23:39.126Z"
+                  dateTime: "2023-09-27T13:23:39.126Z"    
+    460-CPAPI_TRANSACTION:
+      description: |
+        Ineligible - The transactions is not eligible for Electronic Conversion or Draft
     500-CPAPI_TRANSACTION:
       description: General error - Please try again after some time, If issue persist please contact customer support
       content:
@@ -8558,7 +8513,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
           examples:
-            ResponsePayloadSample-Declined:
+            500-GeneralError:
               value: 
                 transactionStatus: "ERROR"
                 transactionStatusCode: 500
@@ -8572,7 +8527,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
           examples:
-            ResponsePayloadSample-Declined:
+            504-GatewayTimeout:
               value: 
                 transactionStatus: "ERROR"
                 transactionStatusCode: 504
