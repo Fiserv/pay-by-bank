@@ -623,14 +623,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/200-TransactionPurchaseResponsePayloadSamples'
-        '460':
+        '400':
           $ref: '#/components/responses/400-TransactionPurchaseResponsePayloadSamples'
-        '409':
-          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '401':
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
-        '300':
-          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
+        '409':
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
           $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
@@ -670,8 +668,6 @@ paths:
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           $ref: '#/components/responses/409-CPAPI_TRANSACTION'
-        '300':
-          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
           $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
@@ -712,8 +708,6 @@ paths:
           $ref: '#/components/responses/409-TransactionCaptureResponsePayloadSamples'
         '401':
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
-        '300':
-          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
           $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
@@ -753,8 +747,6 @@ paths:
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           $ref: '#/components/responses/409-CPAPI_TRANSACTION'
-        '300':
-          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
           $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
@@ -794,8 +786,6 @@ paths:
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           $ref: '#/components/responses/409-CPAPI_TRANSACTION'
-        '300':
-          $ref: '#/components/responses/300-CPAPI_TRANSACTION'
         '500':
           $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
@@ -8181,7 +8171,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
           examples:
-            200-Approved:
+            Approved:
               value:
                 transactionStatus: APPROVED
                 transactionStatusCode: 0
@@ -8200,7 +8190,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
           examples:
-            460-TransactionNotValid:
+            TransactionNotValid:
               value:
                 transactionStatus: "DECLINED" 
                 transactionStatusCode: 460
@@ -8208,7 +8198,7 @@ components:
                 transactionStatusDescription: "Code 3 is a Risk Decline"
                 responseVerbiage: "Code 3 is a Risk Decline"
                 errorDetails: 
-                  errorCode: 6140,
+                  errorCode: 6140
                   errorReason: "Risk Decline/Business evaluation failed"
                 teleCheckDetails:
                   transactionId: "1400020000000004746122"
@@ -8216,29 +8206,21 @@ components:
                   denialRecordNumber: "3655833"
                   achTransactionStatus: "3"
                   dateTime: "2023-08-10T10:31:12.824Z"
-    409-TransactionPurchaseResponsePayloadSamples:
-      description: Unsuccessful ACH Purchase response.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-          examples:
-            409-Conflict:
+            BankAccountConnectionError:
               value:
                 transactionStatus: "DECLINED" 
-                transactionStatusCode: 409
-                referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
-                transactionStatusDescription: "Conflict"
-                responseVerbiage: "Conflict"
+                transactionStatusCode: 300
+                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607859f"
+                transactionStatusDescription: "Bank Account Connection Error"
+                responseVerbiage: "Bank Account Connection Error"
                 errorDetails: 
-                  errorCode: 4970,
-                  errorReason: "There can not be a duplicate transaction used for an ECA sale"
+                  errorCode: 3050
+                  errorReason: "Account Status is Disconnected Can not Locate Acct"
                 teleCheckDetails:
-                  transactionId: "1400310000032032552630"
-                  tckResponseCode: "07"   
-                  approvalCode: "2767"              
-                  achTransactionStatus: "1"
-                  dateTime: "2023-09-27T13:23:39.126Z"
+                  transactionId: "1400020000000005678934"
+                  tckResponseCode: "3050"
+                  achTransactionStatus: "0"
+                  dateTime: "2023-08-10T10:31:12.824Z"                
     #Refund Responses
     200-TransactionRefundResponsePayloadSamples:
       description: Successful ACH Refund response.
@@ -8247,7 +8229,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApproveResponse'
           examples:
-            200-Approved:
+            Approved:
               value:
                 transactionStatus: APPROVED
                 transactionStatusCode: 0
@@ -8265,7 +8247,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
-            400-InvalidAmount:
+            InvalidAmount:
               value:
                 transactionStatus: "ERROR" 
                 transactionStatusCode: 400
@@ -8280,7 +8262,7 @@ components:
                   tckResponseCode: "80"                  
                   achTransactionStatus: "0"
                   dateTime: "2023-09-27T13:23:39.126Z"
-            400-AccountDetailNotFound:
+            AccountDetailNotFound:
               value:
                 transactionStatus: "ERROR" 
                 transactionStatusCode: 150
@@ -8300,7 +8282,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApproveResponse'
           examples:
-            200-Approved:
+            Approved:
               value:
                 transactionStatus: "APPROVED"
                 transactionStatusCode: 0
@@ -8318,7 +8300,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
-            400-InvalidAmount:
+            InvalidAmount:
               value:
                 transactionStatus: "ERROR" 
                 transactionStatusCode: 400
@@ -8333,7 +8315,7 @@ components:
                   tckResponseCode: "80"                  
                   achTransactionStatus: "0"
                   dateTime: "2023-09-27T13:23:39.126Z"
-            400-TransactionNotFound:
+            TransactionNotFound:
               value:
                 transactionStatus: "ERROR" 
                 transactionStatusCode: 400
@@ -8357,7 +8339,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
           examples:
-            ResponsePayloadSample-Approved:
+            Approved:
               value:
                 transactionStatus: "APPROVED"
                 transactionStatusCode: 0
@@ -8376,7 +8358,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
-            ResponsePayloadSample-Declined:
+            InvalidAmount:
               value:
                 transactionStatus: "DECLINED" 
                 transactionStatusCode: 400
@@ -8400,7 +8382,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
           examples:
-            ResponsePayloadSample-Approved:
+            Approved:
               value:
                 transactionStatus: "APPROVED"
                 transactionStatusCode: 0
@@ -8419,7 +8401,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
-            ResponsePayloadSample-Declined:
+            InvalidAmount:
               value:
                 transactionStatus: "DECLINED" 
                 transactionStatusCode: 400
@@ -8442,7 +8424,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
-            ResponsePayloadSample-Declined:
+            Conflict:
               value:
                 transactionStatus: "DECLINED" 
                 transactionStatusCode: 409
@@ -8479,7 +8461,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
-            409-Conflict:
+            Conflict:
               value:
                 transactionStatus: "DECLINED" 
                 transactionStatusCode: 409
@@ -8505,7 +8487,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
           examples:
-            500-GeneralError:
+            GeneralError:
               value: 
                 transactionStatus: "ERROR"
                 transactionStatusCode: 500
@@ -8519,7 +8501,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
           examples:
-            504-GatewayTimeout:
+            GatewayTimeout:
               value: 
                 transactionStatus: "ERROR"
                 transactionStatusCode: 504
