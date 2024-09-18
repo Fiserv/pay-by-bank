@@ -713,13 +713,41 @@ paths:
         '400':
           $ref: '#/components/responses/400-TransactionAuthResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+          description: Unauthorize - Partner is not opt for this service
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
-          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
+          description: Conflict - There can not be a duplicate transaction used for an ECA sale
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+          description: General error - Please try again after some time, If issue persist please contact customer support
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
+              examples:
+                "":
+                  $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
+          description: Payment Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
+              examples:
+                "":
+                  $ref: '#/components/responses/504-CPAPI_TRANSACTION'            
   '/transaction/capture':
     post:
       x-proxy-name: Capture
@@ -752,14 +780,42 @@ paths:
           $ref: '#/components/responses/200-TransactionCaptureResponsePayloadSamples'
         '400':
           $ref: '#/components/responses/400-TransactionCaptureResponsePayloadSamples'
-        '409':
-          $ref: '#/components/responses/409-TransactionCaptureResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+          description: Unauthorize - Partner is not opt for this service
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+        '409':
+          description: Conflict - There can not be a duplicate transaction used for an ECA sale
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+          description: General error - Please try again after some time, If issue persist please contact customer support
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
+              examples:
+                "":
+                  $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
+          description: Payment Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
+              examples:
+                "":
+                  $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
   '/transaction/refund':
     post:
       x-proxy-name: Refund
@@ -792,13 +848,41 @@ paths:
         '400':
           $ref: '#/components/responses/400-TransactionRefundResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+          description: Unauthorize - Partner is not opt for this service
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
-          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
+          description: Conflict - There can not be a duplicate transaction used for an ECA sale
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+          description: General error - Please try again after some time, If issue persist please contact customer support
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
+              examples:
+                "":
+                  $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
+          description: Payment Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
+              examples:
+                "":
+                  $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
   '/transaction/void':
     post:
       x-proxy-name: Void
@@ -831,13 +915,41 @@ paths:
         '400':
           $ref: '#/components/responses/400-TransactionVoidResponsePayloadSamples'
         '401':
-          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+          description: Unauthorize - Partner is not opt for this service
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
-          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
+          description: Conflict - There can not be a duplicate transaction used for an ECA sale
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+          description: General error - Please try again after some time, If issue persist please contact customer support
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
+              examples:
+                "":
+                  $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
+          description: Payment Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
+              examples:
+                "":
+                  $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
   '/transaction/collectionfee':
     post:
       x-proxy-name: Collection Fee Notification
