@@ -628,7 +628,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
               examples:
-                "":
+                Approved:
+                  summary: 
                   $ref: '#/components/responses/200-TransactionPurchaseResponsePayloadSamples'
         '400':
           description: Successful ACH Purchase response.
@@ -638,12 +639,16 @@ paths:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
               examples:
                 RiskDecline:
+                  summary:
                   $ref: '#/components/responses/400-RiskDecline'
                 BankAccountConnectionError:
+                  summary:
                   $ref: '#/components/responses/400-ConnectionError'
                 InvalidInput:
+                  summary:
                   $ref: '#/components/responses/400-InvalidInput'
                 NegativeDecline:
+                  summary:
                   $ref: '#/components/responses/400-NegativeDecline'
         '401':
           description: Unauthorize - Partner is not opt for this service
@@ -652,7 +657,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Unauthorize:
+                  summary:
                   $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           description: Conflict - There can not be a duplicate transaction used for an ECA sale
@@ -661,7 +667,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Conflict:
+                  summary:
                   $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
           description: General error - Please try again after some time, If issue persist please contact customer support
@@ -670,7 +677,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
               examples:
-                "":
+                Error:
+                  summary:
                   $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
           description: Payment Gateway Timeout
@@ -679,7 +687,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
               examples:
-                "":
+                Timeout:
+                  summary:
                   $ref: '#/components/responses/504-CPAPI_TRANSACTION'      
   '/transaction/authorize':
     post:
@@ -719,7 +728,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Unauthorize:
+                  summary:
                   $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           description: Conflict - There can not be a duplicate transaction used for an ECA sale
@@ -728,7 +738,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Conflict:
+                  summary:
                   $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
           description: General error - Please try again after some time, If issue persist please contact customer support
@@ -737,7 +748,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
               examples:
-                "":
+                Error:
+                  summary:
                   $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
           description: Payment Gateway Timeout
@@ -746,7 +758,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
               examples:
-                "":
+                Timeout:
+                  summary:
                   $ref: '#/components/responses/504-CPAPI_TRANSACTION'            
   '/transaction/capture':
     post:
@@ -787,7 +800,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Unauthorize:
+                  summary:
                   $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           description: Conflict - There can not be a duplicate transaction used for an ECA sale
@@ -796,7 +810,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Conflict:
+                  summary:
                   $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
           description: General error - Please try again after some time, If issue persist please contact customer support
@@ -805,7 +820,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
               examples:
-                "":
+                Error:
+                  summary:
                   $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
           description: Payment Gateway Timeout
@@ -814,7 +830,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
               examples:
-                "":
+                Timeout:
+                  summary:
                   $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
   '/transaction/refund':
     post:
@@ -854,7 +871,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Unauthorize:
+                  summary:
                   $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           description: Conflict - There can not be a duplicate transaction used for an ECA sale
@@ -863,7 +881,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Conflict:
+                  summary:
                   $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
           description: General error - Please try again after some time, If issue persist please contact customer support
@@ -872,7 +891,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
               examples:
-                "":
+                Error:
+                  summary:
                   $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
           description: Payment Gateway Timeout
@@ -881,7 +901,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
               examples:
-                "":
+                Timeout:
+                  summary:
                   $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
   '/transaction/void':
     post:
@@ -921,7 +942,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Unauthorize:
+                  summary:
                   $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
           description: Conflict - There can not be a duplicate transaction used for an ECA sale
@@ -930,7 +952,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
               examples:
-                "":
+                Conflict:
+                  summary:
                   $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
           description: General error - Please try again after some time, If issue persist please contact customer support
@@ -939,7 +962,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
               examples:
-                "":
+                Error:
+                  summary:
                   $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
           description: Payment Gateway Timeout
@@ -948,7 +972,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
               examples:
-                "":
+                Timeout:
+                  summary:
                   $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
   '/transaction/collectionfee':
     post:
