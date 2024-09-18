@@ -622,17 +622,65 @@ paths:
                 $ref: '#/components/examples/ACHPurchaseRequestPayloadSample2'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionPurchaseResponsePayloadSamples'
+          description: Successful ACH Purchase response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
+              examples:
+                "":
+                  $ref: '#/components/responses/200-TransactionPurchaseResponsePayloadSamples'
         '400':
-          $ref: '#/components/responses/400-TransactionPurchaseResponsePayloadSamples'
+          description: Successful ACH Purchase response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
+              examples:
+                RiskDecline:
+                  $ref: '#/components/responses/400-RiskDecline'
+                BankAccountConnectionError:
+                  $ref: '#/components/responses/400-ConnectionError'
+                InvalidInput:
+                  $ref: '#/components/responses/400-InvalidInput'
+                NegativeDecline:
+                  $ref: '#/components/responses/400-NegativeDecline'
         '401':
-          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
+          description: Unauthorize - Partner is not opt for this service
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
-          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
+          description: Conflict - There can not be a duplicate transaction used for an ECA sale
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                "":
+                  $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
+          description: General error - Please try again after some time, If issue persist please contact customer support
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
+              examples:
+                "":
+                  $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          $ref: '#/components/responses/504-CPAPI_TRANSACTION'      
+          description: Payment Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
+              examples:
+                "":
+                  $ref: '#/components/responses/504-CPAPI_TRANSACTION'      
   '/transaction/authorize':
     post:
       x-proxy-name: Authorize
@@ -8165,62 +8213,78 @@ components:
                   dateTime: "2019-10-18T20:40:29.993Z"
     #Purchase Responses
     200-TransactionPurchaseResponsePayloadSamples:
-      description: Successful ACH Purchase response.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
-          examples:
-            Approved:
-              value:
-                transactionStatus: APPROVED
-                transactionStatusCode: 0
-                referenceTransactionID: 0021-a65578cd-465b-7b21-e929-25af55ddeff5
-                transactionStatusDescription: Approved
-                teleCheckDetails:
-                  transactionId: "1400320000000008765525"
-                  tckResponseCode: "07"
-                  approvalCode: "2322"
-                  achTransactionStatus: "1"
-                  dateTime: "2023-09-29T13:38:08.754Z"
-    400-TransactionPurchaseResponsePayloadSamples:
-      description: Unsuccessful ACH Purchase response.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
-          examples:
-            TransactionNotValid:
-              value:
-                transactionStatus: "DECLINED" 
-                transactionStatusCode: 460
-                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487602645d"
-                transactionStatusDescription: "Code 3 is a Risk Decline"
-                responseVerbiage: "Code 3 is a Risk Decline"
-                errorDetails: 
-                  errorCode: 6140
-                  errorReason: "Risk Decline/Business evaluation failed"
-                teleCheckDetails:
-                  transactionId: "1400020000000004746122"
-                  tckResponseCode: "88"
-                  denialRecordNumber: "3655833"
-                  achTransactionStatus: "3"
-                  dateTime: "2023-08-10T10:31:12.824Z"
-            BankAccountConnectionError:
-              value:
-                transactionStatus: "DECLINED" 
-                transactionStatusCode: 300
-                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607859f"
-                transactionStatusDescription: "Bank Account Connection Error"
-                responseVerbiage: "Bank Account Connection Error"
-                errorDetails: 
-                  errorCode: 3050
-                  errorReason: "Account Status is Disconnected Can not Locate Acct"
-                teleCheckDetails:
-                  transactionId: "1400020000000005678934"
-                  tckResponseCode: "3050"
-                  achTransactionStatus: "0"
-                  dateTime: "2023-08-10T10:31:12.824Z"                
+      value:
+        transactionStatus: APPROVED
+        transactionStatusCode: 0
+        referenceTransactionID: 0021-a65578cd-465b-7b21-e929-25af55ddeff5
+        transactionStatusDescription: Approved
+        teleCheckDetails:
+          transactionId: "1400320000000008765525"
+          tckResponseCode: "07"
+          approvalCode: "2322"
+          achTransactionStatus: "1"
+          dateTime: "2023-09-29T13:38:08.754Z"
+    400-RiskDecline:
+      value:
+        transactionStatus: "DECLINED" 
+        transactionStatusCode: 460
+        referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487602645d"
+        transactionStatusDescription: "Code 3 is a Risk Decline"
+        responseVerbiage: "Code 3 is a Risk Decline"
+        errorDetails: 
+          errorCode: 6140
+          errorReason: "Risk Decline/Business evaluation failed"
+        teleCheckDetails:
+          transactionId: "1400020000000004746122"
+          tckResponseCode: "88"
+          denialRecordNumber: "3655833"
+          achTransactionStatus: "3"
+          dateTime: "2023-08-10T10:31:12.824Z"
+    400-ConnectionError:
+      value:
+        transactionStatus: "DECLINED" 
+        transactionStatusCode: 300
+        referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607859f"
+        transactionStatusDescription: "Bank Account Connection Error"
+        responseVerbiage: "Bank Account Connection Error"
+        errorDetails: 
+          errorCode: 3050
+          errorReason: "Account Status is Disconnected Can not Locate Acct"
+        teleCheckDetails:
+          transactionId: "1400020000000005678934"
+          tckResponseCode: "3050"
+          achTransactionStatus: "0"
+          dateTime: "2023-08-10T10:31:12.824Z"
+    400-InvalidInput:
+      value:
+        transactionStatus: "ERROR" 
+        transactionStatusCode: 100
+        referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
+        transactionStatusDescription: "Input is invalid"
+        responseVerbiage: "Input is invalid"
+        errorDetails: 
+          errorCode: 1020
+          errorReason: "The transactions has an invalid or missing value in one or more fields"
+        teleCheckDetails:
+          transactionId: "1400020000000005672222"
+          tckResponseCode: "27"
+          achTransactionStatus: "0"
+          dateTime: "2023-08-10T10:31:12.824Z"
+    400-NegativeDecline:
+      value:
+        transactionStatus: "DECLINED" 
+        transactionStatusCode: 460
+        referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487609898y"
+        transactionStatusDescription: "Transaction Not Valid"
+        responseVerbiage: "Transaction Not Valid"
+        errorDetails: 
+          errorCode: 6100
+          errorReason: "The transaction is not a valid transaction for store"
+        teleCheckDetails:
+          transactionId: "1400020000000005673232"
+          tckResponseCode: "46"
+          achTransactionStatus: "0"
+          dateTime: "2023-08-10T10:31:12.824Z"                
     #Refund Responses
     200-TransactionRefundResponsePayloadSamples:
       description: Successful ACH Refund response.
@@ -8452,63 +8516,49 @@ components:
       description: |
         Input is invalid.
     401-CPAPI_TRANSACTION:
-      description: |
-        Unauthorize - Partner is not opt for this service
+      value:
+        transactionStatus: "DECLINED" 
+        transactionStatusCode: 401
+        referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077e88g"
+        transactionStatusDescription: "Unauthorize"
+        responseVerbiage: "Unauthorize"
+        errorDetails: 
+          errorCode: 4550,
+          errorReason: "Partner is not opt for this service"
     409-CPAPI_TRANSACTION: 
-      description: Conflict - There can not be a duplicate transaction used for an ECA sale
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-          examples:
-            Conflict:
-              value:
-                transactionStatus: "DECLINED" 
-                transactionStatusCode: 409
-                referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
-                transactionStatusDescription: "Conflict"
-                responseVerbiage: "Conflict"
-                errorDetails: 
-                  errorCode: 4970,
-                  errorReason: "There can not be a duplicate transaction used for an ECA sale"
-                teleCheckDetails:
-                  transactionId: "1400310000032032552630"
-                  tckResponseCode: "07"   
-                  approvalCode: "2767"              
-                  achTransactionStatus: "1"
-                  dateTime: "2023-09-27T13:23:39.126Z"    
+      value:
+        transactionStatus: "DECLINED" 
+        transactionStatusCode: 409
+        referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
+        transactionStatusDescription: "Conflict"
+        responseVerbiage: "Conflict"
+        errorDetails: 
+          errorCode: 4970,
+          errorReason: "There can not be a duplicate transaction used for an ECA sale"
+        teleCheckDetails:
+          transactionId: "1400310000032032552630"
+          tckResponseCode: "07"   
+          approvalCode: "2767"              
+          achTransactionStatus: "1"
+          dateTime: "2023-09-27T13:23:39.126Z"    
     460-CPAPI_TRANSACTION:
       description: |
         Ineligible - The transactions is not eligible for Electronic Conversion or Draft
     500-CPAPI_TRANSACTION:
-      description: General error - Please try again after some time, If issue persist please contact customer support
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
-          examples:
-            GeneralError:
-              value: 
-                transactionStatus: "ERROR"
-                transactionStatusCode: 500
-                referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
-                transactionStatusDescription: "General Error"
-                responseVerbiage: "General Error"
+      value: 
+        transactionStatus: "ERROR"
+        transactionStatusCode: 500
+        referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
+        transactionStatusDescription: "General Error"
+        responseVerbiage: "General Error"
     504-CPAPI_TRANSACTION:
-      description: Payment Gateway Timeout
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
-          examples:
-            GatewayTimeout:
-              value: 
-                transactionStatus: "ERROR"
-                transactionStatusCode: 504
-                referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
-                transactionStatusDescription: "Gateway Timeout"
-                responseVerbiage: "Gateway Timeout"
-                errorDetails:
-                  errorCode: 5040
-                  errorReason: "Payment Gateway timeout"
+      value: 
+        transactionStatus: "ERROR"
+        transactionStatusCode: 504
+        referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
+        transactionStatusDescription: "Gateway Timeout"
+        responseVerbiage: "Gateway Timeout"
+        errorDetails:
+          errorCode: 5040
+          errorReason: "Payment Gateway timeout"
     
