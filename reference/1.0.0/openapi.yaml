@@ -1097,6 +1097,7 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
+          example: "DECLINED"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -1104,6 +1105,7 @@ components:
           minItems: 1
           minLength: 1
           maxLength: 3
+          example: 409
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -1111,6 +1113,7 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
+          example: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -1118,6 +1121,7 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
+          example: "Conflict"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -1125,6 +1129,7 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
+          example: "Conflict"
         errorDetails:
           type: object
           properties:
@@ -1135,6 +1140,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 4
+              example: "4970"
             errorReason:
               type: string
               description: Short description of the error.
@@ -1142,6 +1148,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 100
+              example: "There can not be a duplicate transaction used for an ECA sale"
         teleCheckDetails:
           type: object
           properties:
@@ -1152,6 +1159,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
+              example: "1400310000032032552630"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -1159,6 +1167,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "07"
             approvalCode:
               type: string
               description: Telecheck approval code.
@@ -1166,6 +1175,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "2767"
             achTransactionStatus:
               type: string
               description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
@@ -1173,6 +1183,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 1
+              example: "1"
             dateTime:
               type: string
               description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
@@ -1180,6 +1191,7 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
+              example: "2023-09-27T13:23:39.126Z"
     CPAPITransactionDeclineResponse: 
       type: object
       properties:
@@ -1350,6 +1362,7 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
+          example: "APPROVED"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -1357,6 +1370,7 @@ components:
           minItems: 1
           minLength: 1
           maxLength: 3
+          example: 0
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -1364,6 +1378,7 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
+          example: "0021-a65578cd-465b-7b21-e929-25af55ddeff5"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -1371,6 +1386,7 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
+          example: "Approved"
         teleCheckDetails:
           type: object
           properties:
@@ -1381,6 +1397,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
+              example: "1400320000000008765525"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -1388,6 +1405,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "07"
             approvalCode:
               type: string
               description: Telecheck approval code.
@@ -1395,6 +1413,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "2322"
             achTransactionStatus:
               type: string
               description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
@@ -1402,6 +1421,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 1
+              example: "1"
             dateTime:
               type: string
               description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
@@ -1409,6 +1429,7 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
+              example: "2023-09-29T13:38:08.754Z"
     CPAPIGenericResponse:
       type: object
       properties:
@@ -6225,10 +6246,10 @@ components:
                 customer:
                   fdCustomerID: "CP87rx15814147322210000442tJpajq"
                 account:
-                    fdAccountID: "CPQyoO170227815252548083xZesD1"	
-                    accountStatus: "10"
-                    accountStatusDesc: "ACTIVE"
-                    accountValidationDetails:
+                  fdAccountID: "CPQyoO170227815252548083xZesD1"
+                  accountStatus: "10"
+                  accountStatusDesc: "ACTIVE"
+                  accountValidationDetails:
                       - validationCode: "10"
                         validationCodeDesc: "Bank Validation Status"
                         validationCodeStatus: "COMPLETE"
@@ -6259,7 +6280,7 @@ components:
                         validationCodeDesc: "Bank Validation Status"
                         validationCodeStatus: "PENDING"
                 userIdentificationDetails:
-                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"	            	
+                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"
     200-CPAPI_ENROLLMENT:
       description: |
         The request was successfully fulfilled and resulted in one or multiple new resources being created
@@ -8445,9 +8466,6 @@ components:
     200-CPAPI_TRANSACTION:
       description: |
         Approved transaction.
-    300-CPAPI_TRANSACTION:
-      description: |
-        Transaction is rejected because the customer's FI has blocked the connection from TeleCheck.
     400-CPAPI_TRANSACTION:
       description: |
         Input is invalid.
@@ -8477,9 +8495,6 @@ components:
                   approvalCode: "2767"              
                   achTransactionStatus: "1"
                   dateTime: "2023-09-27T13:23:39.126Z"    
-    460-CPAPI_TRANSACTION:
-      description: |
-        Ineligible - The transactions is not eligible for Electronic Conversion or Draft
     500-CPAPI_TRANSACTION:
       description: General error - Please try again after some time, If issue persist please contact customer support
       content:
