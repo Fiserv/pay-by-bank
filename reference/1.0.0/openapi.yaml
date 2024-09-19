@@ -622,100 +622,17 @@ paths:
                 $ref: '#/components/examples/ACHPurchaseRequestPayloadSample2'
       responses:
         '200':
-          description: Successful ACH Purchase response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
-              examples:
-                Approved:
-                  $ref: '#/components/examples/Approved'
+          $ref: '#/components/responses/200-TransactionPurchaseResponsePayloadSamples'
         '400':
-          description: Successful ACH Purchase response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
-              examples:
-                RiskDecline:
-                  $ref: '#/components/examples/RiskDecline'
-                BankAccountConnectionError:
-                  $ref: '#/components/examples/BankAccountConnectionError'
-                InvalidInput:
-                  $ref: '#/components/examples/InvalidInput'
-                NegativeDecline:
-                  $ref: '#/components/examples/NegativeDecline'
+          $ref: '#/components/responses/400-TransactionPurchaseResponsePayloadSamples'
         '401':
-          description: Unauthorize - Partner is not opt for this service
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              example:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 401
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077e88g"
-                    transactionStatusDescription: "Unauthorize"
-                    responseVerbiage: "Unauthorize"
-                    errorDetails: 
-                      errorCode: 4550,
-                      errorReason: "Partner is not opt for this service"
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
-          description: Conflict - There can not be a duplicate transaction used for an ECA sale
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 409
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
-                    transactionStatusDescription: "Conflict"
-                    responseVerbiage: "Conflict"
-                    errorDetails: 
-                      errorCode: 4970,
-                      errorReason: "There can not be a duplicate transaction used for an ECA sale"
-                    teleCheckDetails:
-                      transactionId: "1400310000032032552630"
-                      tckResponseCode: "07"   
-                      approvalCode: "2767"              
-                      achTransactionStatus: "1"
-                      dateTime: "2023-09-27T13:23:39.126Z"
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          description: General error - Please try again after some time, If issue persist please contact customer support
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 500
-                    referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
-                    transactionStatusDescription: "General Error"
-                    responseVerbiage: "General Error"
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          description: Payment Gateway Timeout
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 504
-                    referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
-                    transactionStatusDescription: "Gateway Timeout"
-                    responseVerbiage: "Gateway Timeout"
-                    errorDetails:
-                      errorCode: 5040
-                      errorReason: "Payment Gateway timeout"      
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION'      
   '/transaction/authorize':
     post:
       x-proxy-name: Authorize
@@ -785,76 +702,13 @@ paths:
                       achTransactionStatus: "0"
                       dateTime: "2023-09-27T13:23:39.126Z"
         '401':
-          description: Unauthorize - Partner is not opt for this service
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 401
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077e88g"
-                    transactionStatusDescription: "Unauthorize"
-                    responseVerbiage: "Unauthorize"
-                    errorDetails: 
-                      errorCode: 4550,
-                      errorReason: "Partner is not opt for this service"
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
-          description: Conflict - There can not be a duplicate transaction used for an ECA sale
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 409
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
-                    transactionStatusDescription: "Conflict"
-                    responseVerbiage: "Conflict"
-                    errorDetails: 
-                      errorCode: 4970,
-                      errorReason: "There can not be a duplicate transaction used for an ECA sale"
-                    teleCheckDetails:
-                      transactionId: "1400310000032032552630"
-                      tckResponseCode: "07"   
-                      approvalCode: "2767"              
-                      achTransactionStatus: "1"
-                      dateTime: "2023-09-27T13:23:39.126Z"
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          description: General error - Please try again after some time, If issue persist please contact customer support
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 500
-                    referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
-                    transactionStatusDescription: "General Error"
-                    responseVerbiage: "General Error"
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          description: Payment Gateway Timeout
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 504
-                    referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
-                    transactionStatusDescription: "Gateway Timeout"
-                    responseVerbiage: "Gateway Timeout"
-                    errorDetails:
-                      errorCode: 5040
-                      errorReason: "Payment Gateway timeout"            
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION'       
   '/transaction/capture':
     post:
       x-proxy-name: Capture
@@ -903,99 +757,15 @@ paths:
                       achTransactionStatus: "1"
                       dateTime: "2023-08-23T19:55:49.969Z"
         '400':
-          description: Unsuccessful ACH Capture response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                InvalidAmount:
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 400
-                    referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
-                    transactionStatusDescription: "Invalid Amount"
-                    responseVerbiage: "Invalid Amount"
-                    errorDetails: 
-                      errorCode: 6200,
-                      errorReason: "Refund or partial amount is > original sale amount"
-                    teleCheckDetails:
-                      transactionId: "1400310000032032552630"
-                      tckResponseCode: "07"   
-                      approvalCode: "2767"              
-                      achTransactionStatus: "1"
-                      dateTime: "2023-09-27T13:23:39.126Z"
-        '401':
-          description: Unauthorize - Partner is not opt for this service
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 401
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077e88g"
-                    transactionStatusDescription: "Unauthorize"
-                    responseVerbiage: "Unauthorize"
-                    errorDetails: 
-                      errorCode: 4550,
-                      errorReason: "Partner is not opt for this service"
+          $ref: '#/components/responses/400-TransactionCaptureResponsePayloadSamples'
         '409':
-          description: Conflict - There can not be a duplicate transaction used for an ECA sale
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 409
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
-                    transactionStatusDescription: "Conflict"
-                    responseVerbiage: "Conflict"
-                    errorDetails: 
-                      errorCode: 4970,
-                      errorReason: "There can not be a duplicate transaction used for an ECA sale"
-                    teleCheckDetails:
-                      transactionId: "1400310000032032552630"
-                      tckResponseCode: "07"   
-                      approvalCode: "2767"              
-                      achTransactionStatus: "1"
-                      dateTime: "2023-09-27T13:23:39.126Z"
+          $ref: '#/components/responses/409-TransactionCaptureResponsePayloadSamples'
+        '401':
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '500':
-          description: General error - Please try again after some time, If issue persist please contact customer support
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 500
-                    referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
-                    transactionStatusDescription: "General Error"
-                    responseVerbiage: "General Error"
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          description: Payment Gateway Timeout
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 504
-                    referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
-                    transactionStatusDescription: "Gateway Timeout"
-                    responseVerbiage: "Gateway Timeout"
-                    errorDetails:
-                      errorCode: 5040
-                      errorReason: "Payment Gateway timeout"       
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
   '/transaction/refund':
     post:
       x-proxy-name: Refund
@@ -1075,76 +845,13 @@ paths:
                       errorField: "fdAccountID"
                       errorReason: "Account detail not found"
         '401':
-          description: Unauthorize - Partner is not opt for this service
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 401
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077e88g"
-                    transactionStatusDescription: "Unauthorize"
-                    responseVerbiage: "Unauthorize"
-                    errorDetails: 
-                      errorCode: 4550,
-                      errorReason: "Partner is not opt for this service"
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
-          description: Conflict - There can not be a duplicate transaction used for an ECA sale
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 409
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
-                    transactionStatusDescription: "Conflict"
-                    responseVerbiage: "Conflict"
-                    errorDetails: 
-                      errorCode: 4970,
-                      errorReason: "There can not be a duplicate transaction used for an ECA sale"
-                    teleCheckDetails:
-                      transactionId: "1400310000032032552630"
-                      tckResponseCode: "07"   
-                      approvalCode: "2767"              
-                      achTransactionStatus: "1"
-                      dateTime: "2023-09-27T13:23:39.126Z"
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          description: General error - Please try again after some time, If issue persist please contact customer support
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 500
-                    referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
-                    transactionStatusDescription: "General Error"
-                    responseVerbiage: "General Error"
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          description: Payment Gateway Timeout
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 504
-                    referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
-                    transactionStatusDescription: "Gateway Timeout"
-                    responseVerbiage: "Gateway Timeout"
-                    errorDetails:
-                      errorCode: 5040
-                      errorReason: "Payment Gateway timeout"       
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
   '/transaction/void':
     post:
       x-proxy-name: Void
@@ -1228,76 +935,13 @@ paths:
                       achTransactionStatus: "0"
                       dateTime: "2023-09-27T13:23:39.126Z"
         '401':
-          description: Unauthorize - Partner is not opt for this service
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 401
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077e88g"
-                    transactionStatusDescription: "Unauthorize"
-                    responseVerbiage: "Unauthorize"
-                    errorDetails: 
-                      errorCode: 4550,
-                      errorReason: "Partner is not opt for this service"
+          $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
-          description: Conflict - There can not be a duplicate transaction used for an ECA sale
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
-                "":
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 409
-                    referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
-                    transactionStatusDescription: "Conflict"
-                    responseVerbiage: "Conflict"
-                    errorDetails: 
-                      errorCode: 4970,
-                      errorReason: "There can not be a duplicate transaction used for an ECA sale"
-                    teleCheckDetails:
-                      transactionId: "1400310000032032552630"
-                      tckResponseCode: "07"   
-                      approvalCode: "2767"              
-                      achTransactionStatus: "1"
-                      dateTime: "2023-09-27T13:23:39.126Z"
+          $ref: '#/components/responses/409-CPAPI_TRANSACTION'
         '500':
-          description: General error - Please try again after some time, If issue persist please contact customer support
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 500
-                    referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
-                    transactionStatusDescription: "General Error"
-                    responseVerbiage: "General Error"
+          $ref: '#/components/responses/500-CPAPI_TRANSACTION'
         '504':
-          description: Payment Gateway Timeout
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
-              examples:
-                "":
-                  value: 
-                    transactionStatus: "ERROR"
-                    transactionStatusCode: 504
-                    referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
-                    transactionStatusDescription: "Gateway Timeout"
-                    responseVerbiage: "Gateway Timeout"
-                    errorDetails:
-                      errorCode: 5040
-                      errorReason: "Payment Gateway timeout"       
+          $ref: '#/components/responses/504-CPAPI_TRANSACTION' 
   '/transaction/collectionfee':
     post:
       x-proxy-name: Collection Fee Notification
@@ -1605,6 +1249,7 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
+          example: "DECLINED"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -1612,6 +1257,7 @@ components:
           minItems: 1
           minLength: 1
           maxLength: 3
+          example: 409
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -1619,6 +1265,7 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
+          example: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -1626,6 +1273,7 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
+          example: "Conflict"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -1633,6 +1281,7 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
+          example: "Conflict"
         errorDetails:
           type: object
           properties:
@@ -1643,6 +1292,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 4
+              example: "4970"
             errorReason:
               type: string
               description: Short description of the error.
@@ -1650,6 +1300,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 100
+              example: "There can not be a duplicate transaction used for an ECA sale"
         teleCheckDetails:
           type: object
           properties:
@@ -1660,6 +1311,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
+              example: "1400310000032032552630"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -1667,6 +1319,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "07"
             approvalCode:
               type: string
               description: Telecheck approval code.
@@ -1674,6 +1327,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "2767"
             achTransactionStatus:
               type: string
               description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
@@ -1681,6 +1335,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 1
+              example: "1"
             dateTime:
               type: string
               description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
@@ -1688,6 +1343,7 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
+              example: "2023-09-27T13:23:39.126Z"
     CPAPITransactionDeclineResponse: 
       type: object
       properties:
@@ -1858,6 +1514,7 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
+          example: "APPROVED"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -1865,6 +1522,7 @@ components:
           minItems: 1
           minLength: 1
           maxLength: 3
+          example: 0
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -1872,6 +1530,7 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
+          example: "0021-a65578cd-465b-7b21-e929-25af55ddeff5"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -1879,6 +1538,7 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
+          example: "Approved"
         teleCheckDetails:
           type: object
           properties:
@@ -1889,6 +1549,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
+              example: "1400320000000008765525"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -1896,6 +1557,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "07"
             approvalCode:
               type: string
               description: Telecheck approval code.
@@ -1903,6 +1565,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "2322"
             achTransactionStatus:
               type: string
               description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
@@ -1910,6 +1573,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 1
+              example: "1"
             dateTime:
               type: string
               description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
@@ -1917,6 +1581,7 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
+              example: "2023-09-29T13:38:08.754Z"
     CPAPIGenericResponse:
       type: object
       properties:
@@ -6807,10 +6472,10 @@ components:
                 customer:
                   fdCustomerID: "CP87rx15814147322210000442tJpajq"
                 account:
-                    fdAccountID: "CPQyoO170227815252548083xZesD1"	
-                    accountStatus: "10"
-                    accountStatusDesc: "ACTIVE"
-                    accountValidationDetails:
+                  fdAccountID: "CPQyoO170227815252548083xZesD1"
+                  accountStatus: "10"
+                  accountStatusDesc: "ACTIVE"
+                  accountValidationDetails:
                       - validationCode: "10"
                         validationCodeDesc: "Bank Validation Status"
                         validationCodeStatus: "COMPLETE"
@@ -6841,7 +6506,7 @@ components:
                         validationCodeDesc: "Bank Validation Status"
                         validationCodeStatus: "PENDING"
                 userIdentificationDetails:
-                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"	            	
+                  accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"
     200-CPAPI_ENROLLMENT:
       description: |
         The request was successfully fulfilled and resulted in one or multiple new resources being created
@@ -8745,7 +8410,63 @@ components:
                   approvalCode: 1707
                   achTransactionStatus: 1
                   dateTime: "2019-10-18T20:40:29.993Z"
-    #Purchase Responses               
+    #Purchase Responses
+    200-TransactionPurchaseResponsePayloadSamples:
+      description: Successful ACH Purchase response.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
+          example:
+            value:
+              transactionStatus: APPROVED
+              transactionStatusCode: 0
+              referenceTransactionID: 0021-a65578cd-465b-7b21-e929-25af55ddeff5
+              transactionStatusDescription: Approved
+              teleCheckDetails:
+                transactionId: "1400320000000008765525"
+                tckResponseCode: "07"
+                approvalCode: "2322"
+                achTransactionStatus: "1"
+                dateTime: "2023-09-29T13:38:08.754Z"
+    400-TransactionPurchaseResponsePayloadSamples:
+      description: Unsuccessful ACH Purchase response.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
+          examples:
+            TransactionNotValid:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 460
+                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487602645d"
+                transactionStatusDescription: "Code 3 is a Risk Decline"
+                responseVerbiage: "Code 3 is a Risk Decline"
+                errorDetails: 
+                  errorCode: 6140
+                  errorReason: "Risk Decline/Business evaluation failed"
+                teleCheckDetails:
+                  transactionId: "1400020000000004746122"
+                  tckResponseCode: "88"
+                  denialRecordNumber: "3655833"
+                  achTransactionStatus: "3"
+                  dateTime: "2023-08-10T10:31:12.824Z"
+            BankAccountConnectionError:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 300
+                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607859f"
+                transactionStatusDescription: "Bank Account Connection Error"
+                responseVerbiage: "Bank Account Connection Error"
+                errorDetails: 
+                  errorCode: 3050
+                  errorReason: "Account Status is Disconnected Can not Locate Acct"
+                teleCheckDetails:
+                  transactionId: "1400020000000005678934"
+                  tckResponseCode: "3050"
+                  achTransactionStatus: "0"
+                  dateTime: "2023-08-10T10:31:12.824Z"                
     #Refund Responses
     200-TransactionRefundResponsePayloadSamples:
       description: Successful ACH Refund response.
@@ -8967,5 +8688,67 @@ components:
                   dateTime: "2023-09-27T13:23:39.126Z"
   
   #Transaction API's Common Error Codes:
-  
+    200-CPAPI_TRANSACTION:
+      description: |
+        Approved transaction.
+    400-CPAPI_TRANSACTION:
+      description: |
+        Input is invalid.
+    401-CPAPI_TRANSACTION:
+      description: |
+        Unauthorize - Partner is not opt for this service
+    409-CPAPI_TRANSACTION: 
+      description: Conflict - There can not be a duplicate transaction used for an ECA sale
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+          examples:
+            Conflict:
+              value:
+                transactionStatus: "DECLINED" 
+                transactionStatusCode: 409
+                referenceTransactionID: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
+                transactionStatusDescription: "Conflict"
+                responseVerbiage: "Conflict"
+                errorDetails: 
+                  errorCode: 4970,
+                  errorReason: "There can not be a duplicate transaction used for an ECA sale"
+                teleCheckDetails:
+                  transactionId: "1400310000032032552630"
+                  tckResponseCode: "07"   
+                  approvalCode: "2767"              
+                  achTransactionStatus: "1"
+                  dateTime: "2023-09-27T13:23:39.126Z"    
+    500-CPAPI_TRANSACTION:
+      description: General error - Please try again after some time, If issue persist please contact customer support
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPITransactionCommonErrorCode'
+          examples:
+            GeneralError:
+              value: 
+                transactionStatus: "ERROR"
+                transactionStatusCode: 500
+                referenceTransactionID: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
+                transactionStatusDescription: "General Error"
+                responseVerbiage: "General Error"
+    504-CPAPI_TRANSACTION:
+      description: Payment Gateway Timeout
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CPAPITransactionCommonErrorCode2'
+          examples:
+            GatewayTimeout:
+              value: 
+                transactionStatus: "ERROR"
+                transactionStatusCode: 504
+                referenceTransactionID: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
+                transactionStatusDescription: "Gateway Timeout"
+                responseVerbiage: "Gateway Timeout"
+                errorDetails:
+                  errorCode: 5040
+                  errorReason: "Payment Gateway timeout"
     
