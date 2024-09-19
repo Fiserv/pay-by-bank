@@ -8191,19 +8191,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
-          examples:
-            Approved:
-              value:
-                transactionStatus: APPROVED
-                transactionStatusCode: 0
-                referenceTransactionID: 0021-a65578cd-465b-7b21-e929-25af55ddeff5
-                transactionStatusDescription: Approved
-                teleCheckDetails:
-                  transactionId: "1400320000000008765525"
-                  tckResponseCode: "07"
-                  approvalCode: "2322"
-                  achTransactionStatus: "1"
-                  dateTime: "2023-09-29T13:38:08.754Z"
+          example:
+            value:
+              transactionStatus: APPROVED
+              transactionStatusCode: 0
+              referenceTransactionID: 0021-a65578cd-465b-7b21-e929-25af55ddeff5
+              transactionStatusDescription: Approved
+              teleCheckDetails:
+                transactionId: "1400320000000008765525"
+                tckResponseCode: "07"
+                approvalCode: "2322"
+                achTransactionStatus: "1"
+                dateTime: "2023-09-29T13:38:08.754Z"
     400-TransactionPurchaseResponsePayloadSamples:
       description: Unsuccessful ACH Purchase response.
       content:
