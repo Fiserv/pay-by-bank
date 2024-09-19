@@ -628,18 +628,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
               examples:
-                "":
-                  value:
-                    transactionStatus: APPROVED
-                    transactionStatusCode: 0
-                    referenceTransactionID: 0021-a65578cd-465b-7b21-e929-25af55ddeff5
-                    transactionStatusDescription: Approved
-                    teleCheckDetails:
-                      transactionId: "1400320000000008765525"
-                      tckResponseCode: "07"
-                      approvalCode: "2322"
-                      achTransactionStatus: "1"
-                      dateTime: "2023-09-29T13:38:08.754Z"
+                Approved:
+                  $ref: '#/components/examples/Approved'
         '400':
           description: Successful ACH Purchase response.
           content:
@@ -648,73 +638,20 @@ paths:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseCode3'
               examples:
                 RiskDecline:
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 460
-                    referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487602645d"
-                    transactionStatusDescription: "Code 3 is a Risk Decline"
-                    responseVerbiage: "Code 3 is a Risk Decline"
-                    errorDetails: 
-                      errorCode: 6140
-                      errorReason: "Risk Decline/Business evaluation failed"
-                    teleCheckDetails:
-                      transactionId: "1400020000000004746122"
-                      tckResponseCode: "88"
-                      denialRecordNumber: "3655833"
-                      achTransactionStatus: "3"
-                      dateTime: "2023-08-10T10:31:12.824Z"
+                  $ref: '#/components/examples/RiskDecline'
                 BankAccountConnectionError:
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 300
-                    referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607859f"
-                    transactionStatusDescription: "Bank Account Connection Error"
-                    responseVerbiage: "Bank Account Connection Error"
-                    errorDetails: 
-                      errorCode: 3050
-                      errorReason: "Account Status is Disconnected Can not Locate Acct"
-                    teleCheckDetails:
-                      transactionId: "1400020000000005678934"
-                      tckResponseCode: "3050"
-                      achTransactionStatus: "0"
-                      dateTime: "2023-08-10T10:31:12.824Z"
+                  $ref: '#/components/examples/BankAccountConnectionError'
                 InvalidInput:
-                  value:
-                    transactionStatus: "ERROR" 
-                    transactionStatusCode: 100
-                    referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
-                    transactionStatusDescription: "Input is invalid"
-                    responseVerbiage: "Input is invalid"
-                    errorDetails: 
-                      errorCode: 1020
-                      errorReason: "The transactions has an invalid or missing value in one or more fields"
-                    teleCheckDetails:
-                      transactionId: "1400020000000005672222"
-                      tckResponseCode: "27"
-                      achTransactionStatus: "0"
-                      dateTime: "2023-08-10T10:31:12.824Z"
+                  $ref: '#/components/examples/InvalidInput'
                 NegativeDecline:
-                  value:
-                    transactionStatus: "DECLINED" 
-                    transactionStatusCode: 460
-                    referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487609898y"
-                    transactionStatusDescription: "Transaction Not Valid"
-                    responseVerbiage: "Transaction Not Valid"
-                    errorDetails: 
-                      errorCode: 6100
-                      errorReason: "The transaction is not a valid transaction for store"
-                    teleCheckDetails:
-                      transactionId: "1400020000000005673232"
-                      tckResponseCode: "46"
-                      achTransactionStatus: "0"
-                      dateTime: "2023-08-10T10:31:12.824Z"
+                  $ref: '#/components/examples/NegativeDecline'
         '401':
           description: Unauthorize - Partner is not opt for this service
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
-              examples:
+              example:
                 "":
                   value:
                     transactionStatus: "DECLINED" 
@@ -807,9 +744,46 @@ paths:
                 $ref: '#/components/examples/ACHAuthorizeRequestPayloadSample'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionAuthResponsePayloadSamples'
+          description: Successful ACH Authorize response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
+              examples:
+                Approved:
+                  value:
+                    transactionStatus: "APPROVED"
+                    transactionStatusCode: 0
+                    referenceTransactionID: "3dd1ca44-f7c0-8484-3c69-1c35b3932c06"
+                    transactionStatusDescription: "Approved"
+                    teleCheckDetails:
+                      transactionId: "1400320000000007761092"
+                      tckResponseCode: "07"
+                      approvalCode: "1707"
+                      achTransactionStatus: "1"
+                      dateTime: "2023-10-03T07:19:02.745Z"
         '400':
-          $ref: '#/components/responses/400-TransactionAuthResponsePayloadSamples'
+          description: Unsuccessful ACH Authorize response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
+              examples:
+                InvalidAmount:
+                  value:
+                    transactionStatus: "DECLINED" 
+                    transactionStatusCode: 400
+                    referenceTransactionID: 0021-b7e51e34-00c5-48af-82f2-c8253c445a44
+                    transactionStatusDescription: Invalid Amount
+                    responseVerbiage: "Invalid Amount"
+                    errorDetails: 
+                      errorCode: 6200,
+                      errorReason: "Refund or partial amount is > original sale amount"
+                    teleCheckDetails:
+                      transactionId: "1400320000000008763706"
+                      tckResponseCode: "80"                 
+                      achTransactionStatus: "0"
+                      dateTime: "2023-09-27T13:23:39.126Z"
         '401':
           description: Unauthorize - Partner is not opt for this service
           content:
@@ -910,9 +884,47 @@ paths:
                 $ref: '#/components/examples/ACHCaptureRequestPayloadSample'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionCaptureResponsePayloadSamples'
+          description: Successful ACH Capture response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionApprovalCodeResponse'
+              examples:
+                Approved:
+                  value:
+                    transactionStatus: "APPROVED"
+                    transactionStatusCode: 0
+                    referenceTransactionID: "0021-e0e92b08-385f-7175-c9f8-eff8e9049dcd"
+                    transactionStatusDescription: "Approved"
+                    teleCheckDetails:
+                      transactionId: "1400310000032032552630"
+                      tckResponseCode: "07"
+                      approvalCode: "2767"
+                      achTransactionStatus: "1"
+                      dateTime: "2023-08-23T19:55:49.969Z"
         '400':
-          $ref: '#/components/responses/400-TransactionCaptureResponsePayloadSamples'
+          description: Unsuccessful ACH Capture response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+              examples:
+                InvalidAmount:
+                  value:
+                    transactionStatus: "DECLINED" 
+                    transactionStatusCode: 400
+                    referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                    transactionStatusDescription: "Invalid Amount"
+                    responseVerbiage: "Invalid Amount"
+                    errorDetails: 
+                      errorCode: 6200,
+                      errorReason: "Refund or partial amount is > original sale amount"
+                    teleCheckDetails:
+                      transactionId: "1400310000032032552630"
+                      tckResponseCode: "07"   
+                      approvalCode: "2767"              
+                      achTransactionStatus: "1"
+                      dateTime: "2023-09-27T13:23:39.126Z"
         '401':
           description: Unauthorize - Partner is not opt for this service
           content:
@@ -1012,9 +1024,56 @@ paths:
                 $ref: '#/components/examples/ACHRefundRequestPayloadSample2'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionRefundResponsePayloadSamples'
+          description: Successful ACH Refund response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionApproveResponse'
+              examples:
+                Approved:
+                  value:
+                    transactionStatus: APPROVED
+                    transactionStatusCode: 0
+                    referenceTransactionID: 0021-9d934997-f446-4db0-acc8-051405caf942
+                    transactionStatusDescription: Adjustment accepted for processing
+                    teleCheckDetails:
+                      transactionId: "1400320000000008763701"
+                      tckResponseCode: "26"
+                      achTransactionStatus: "1"
+                      dateTime: "2023-09-27T13:12:48.941Z"
         '400':
-          $ref: '#/components/responses/400-TransactionRefundResponsePayloadSamples'
+          description: Unsuccessful ACH Refund response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
+              examples:
+                InvalidAmount:
+                  value:
+                    transactionStatus: "ERROR" 
+                    transactionStatusCode: 400
+                    referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                    transactionStatusDescription: "Invalid Amount"
+                    responseVerbiage: "Invalid Amount"
+                    errorDetails: 
+                      errorCode: 6200,
+                      errorReason: "Refund or partial amount is > original sale amount"
+                    teleCheckDetails:
+                      transactionId: "1400320000000008763706"
+                      tckResponseCode: "80"                  
+                      achTransactionStatus: "0"
+                      dateTime: "2023-09-27T13:23:39.126Z"
+                AccountDetailNotFound:
+                  value:
+                    transactionStatus: "ERROR" 
+                    transactionStatusCode: 150
+                    referenceTransactionID: "0021-f758abdd-d529-9d71-4680-e49b15gh678a"
+                    transactionStatusDescription: "Account detail not found"
+                    responseVerbiage: "Account detail not found"
+                    errorDetails: 
+                      errorCode: 2310
+                      errorField: "fdAccountID"
+                      errorReason: "Account detail not found"
         '401':
           description: Unauthorize - Partner is not opt for this service
           content:
@@ -1114,9 +1173,60 @@ paths:
                 $ref: '#/components/examples/ACHVoidRequestPayloadSample2'
       responses:
         '200':
-          $ref: '#/components/responses/200-TransactionVoidResponsePayloadSamples'
+          description: Successful ACH Void response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionApproveResponse'
+              examples:
+                Approved:
+                  value:
+                    transactionStatus: "APPROVED"
+                    transactionStatusCode: 0
+                    referenceTransactionID: "0021-7354b748-e511-546d-ee35-20a2b7556c38"
+                    transactionStatusDescription: "Approved"
+                    teleCheckDetails:
+                      transactionId: "1400310000000590961896"
+                      tckResponseCode: "OK"
+                      achTransactionStatus: "1"
+                      dateTime: "2023-10-03T07:19:02.745Z"
         '400':
-          $ref: '#/components/responses/400-TransactionVoidResponsePayloadSamples'
+          description: Unsuccessful ACH Void response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
+              examples:
+                InvalidAmount:
+                  value:
+                    transactionStatus: "ERROR" 
+                    transactionStatusCode: 400
+                    referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                    transactionStatusDescription: "Invalid Amount"
+                    responseVerbiage: "Invalid Amount"
+                    errorDetails: 
+                      errorCode: 6200,
+                      errorReason: "Refund or partial amount is > original sale amount"
+                    teleCheckDetails:
+                      transactionId: "1400320000000008763706"
+                      tckResponseCode: "80"                  
+                      achTransactionStatus: "0"
+                      dateTime: "2023-09-27T13:23:39.126Z"
+                TransactionNotFound:
+                  value:
+                    transactionStatus: "ERROR" 
+                    transactionStatusCode: 400
+                    referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                    transactionStatusDescription: "Original Transaction Not Found"
+                    responseVerbiage: "Original Transaction Not Found"
+                    errorDetails: 
+                      errorCode: 6210,
+                      errorReason: "The requested action failed, the original transaction was not found in our records"
+                    teleCheckDetails:
+                      transactionId: "140032000000000876389"
+                      tckResponseCode: "81"                  
+                      achTransactionStatus: "0"
+                      dateTime: "2023-09-27T13:23:39.126Z"
         '401':
           description: Unauthorize - Partner is not opt for this service
           content:
@@ -4847,6 +4957,80 @@ components:
                 genericFlag1: "Y"
                 genericFlag2: "Y"
                 genericFlags3: "Y"
+    Approved: 
+      value:
+        transactionStatus: APPROVED
+        transactionStatusCode: 0
+        referenceTransactionID: 0021-a65578cd-465b-7b21-e929-25af55ddeff5
+        transactionStatusDescription: Approved
+        teleCheckDetails:
+          transactionId: "1400320000000008765525"
+          tckResponseCode: "07"
+          approvalCode: "2322"
+          achTransactionStatus: "1"
+          dateTime: "2023-09-29T13:38:08.754Z"
+    RiskDecline:
+      value:
+        transactionStatus: "DECLINED" 
+        transactionStatusCode: 460
+        referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487602645d"
+        transactionStatusDescription: "Code 3 is a Risk Decline"
+        responseVerbiage: "Code 3 is a Risk Decline"
+        errorDetails: 
+          errorCode: 6140
+          errorReason: "Risk Decline/Business evaluation failed"
+        teleCheckDetails:
+          transactionId: "1400020000000004746122"
+          tckResponseCode: "88"
+          denialRecordNumber: "3655833"
+          achTransactionStatus: "3"
+          dateTime: "2023-08-10T10:31:12.824Z"
+    BankAccountConnectionError:
+      value:
+        transactionStatus: "DECLINED" 
+        transactionStatusCode: 300
+        referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607859f"
+        transactionStatusDescription: "Bank Account Connection Error"
+        responseVerbiage: "Bank Account Connection Error"
+        errorDetails: 
+          errorCode: 3050
+          errorReason: "Account Status is Disconnected Can not Locate Acct"
+        teleCheckDetails:
+          transactionId: "1400020000000005678934"
+          tckResponseCode: "3050"
+          achTransactionStatus: "0"
+          dateTime: "2023-08-10T10:31:12.824Z"
+    InvalidInput:
+      value:
+        transactionStatus: "ERROR" 
+        transactionStatusCode: 100
+        referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
+        transactionStatusDescription: "Input is invalid"
+        responseVerbiage: "Input is invalid"
+        errorDetails: 
+          errorCode: 1020
+          errorReason: "The transactions has an invalid or missing value in one or more fields"
+        teleCheckDetails:
+          transactionId: "1400020000000005672222"
+          tckResponseCode: "27"
+          achTransactionStatus: "0"
+          dateTime: "2023-08-10T10:31:12.824Z"
+    NegativeDecline:
+      value:
+        transactionStatus: "DECLINED" 
+        transactionStatusCode: 460
+        referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487609898y"
+        transactionStatusDescription: "Transaction Not Valid"
+        responseVerbiage: "Transaction Not Valid"
+        errorDetails: 
+          errorCode: 6100
+          errorReason: "The transaction is not a valid transaction for store"
+        teleCheckDetails:
+          transactionId: "1400020000000005673232"
+          tckResponseCode: "46"
+          achTransactionStatus: "0"
+          dateTime: "2023-08-10T10:31:12.824Z"
+    
     ACHAuthorizeRequestPayloadSample:
       value:
         partner:
