@@ -332,18 +332,10 @@ paths:
       responses:
         '201':
           $ref: '#/components/responses/201-EnrollmentResponsePayloadSamples'
-        '200':
-          $ref: '#/components/responses/200-CPAPI_ENROLLMENT'
-        '202':
-          $ref: '#/components/responses/202-CPAPI_ENROLLMENT'
-        '204':
-          $ref: '#/components/responses/204-CPAPI_ENROLLMENT'
         '400':
           $ref: '#/components/responses/400-CPAPI_ENROLLMENT'
         '401':
           $ref: '#/components/responses/401-CPAPI_ENROLLMENT'
-        '403':
-          $ref: '#/components/responses/403-CPAPI_ENROLLMENT'
         '409':
           $ref: '#/components/responses/409-CPAPI_ENROLLMENT'
         '500':
@@ -459,12 +451,6 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/200-ConsumerUpdateResponsePayloadSamples'
-        '201':
-          $ref: '#/components/responses/201-CPAPI_CONSUMER_UPDATE'
-        '202':
-          $ref: '#/components/responses/202-CPAPI_CONSUMER_UPDATE'
-        '204':
-          $ref: '#/components/responses/204-CPAPI_CONSUMER_UPDATE'
         '400':
           $ref: '#/components/responses/400-CPAPI_CONSUMER_UPDATE'
         '401':
@@ -497,16 +483,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/200-ConsumerCloseResponsePayloadSamples'
-        '201':
-          $ref: '#/components/responses/201-CPAPI_CONSUMER_CLOSE'
-        '202':
-          $ref: '#/components/responses/202-CPAPI_CONSUMER_CLOSE'
-        '204':
-          $ref: '#/components/responses/204-CPAPI_CONSUMER_CLOSE'
         '400':
           $ref: '#/components/responses/400-CPAPI_CONSUMER_CLOSE'
         '401':
           $ref: '#/components/responses/401-CPAPI_CONSUMER_CLOSE'
+        '409':
+          $ref: '#/components/responses/409-CPAPI_ENROLLMENT'
         '500':
           $ref: '#/components/responses/500-CPAPI_CONSUMER_CLOSE'
   '/account/getaccountlist':
@@ -663,7 +645,7 @@ paths:
         '200':
           $ref: '#/components/responses/200-CPAPI_TRANSACTION'
         '400':
-          $ref: '#/components/responses/400-TransactionAuthResponsePayloadSamples'
+          $ref: '#/components/responses/400-TransactionPurchaseResponsePayloadSamples'
         '401':
           $ref: '#/components/responses/401-CPAPI_TRANSACTION'
         '409':
@@ -899,15 +881,13 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
-          example: "ERROR"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
           maxItems: 1
           minItems: 1
           minLength: 1
-          maxLength: 3
-          example: 100
+          maxLength: 3        
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -915,7 +895,6 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
-          example: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -923,7 +902,6 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
-          example: "Input is invalid"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -931,7 +909,6 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
-          example: "Input is invalid"
         errorDetails:
           type: object
           properties:
@@ -942,7 +919,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 4
-              example: 1020
             errorReason:
               type: string
               description: Short description of the error.
@@ -950,7 +926,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 100
-              example: "The transactions has an invalid or missing value in one or more fields"
         teleCheckDetails:
           type: object
           properties:
@@ -961,7 +936,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
-              example: "1400020000000005672222"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -969,7 +943,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
-              example: "27"
             denialRecordNumber:
               type: string
               description: 7-digit denial record number, used only for declined transactions.
@@ -1120,7 +1093,6 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
-          example: "DECLINED"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -1128,7 +1100,6 @@ components:
           minItems: 1
           minLength: 1
           maxLength: 3
-          example: 409
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -1136,7 +1107,6 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
-          example: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -1144,7 +1114,6 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
-          example: "Conflict"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -1152,7 +1121,6 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
-          example: "Conflict"
         errorDetails:
           type: object
           properties:
@@ -1163,7 +1131,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 4
-              example: "4970"
             errorReason:
               type: string
               description: Short description of the error.
@@ -1171,7 +1138,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 100
-              example: "There can not be a duplicate transaction used for an ECA sale"
         teleCheckDetails:
           type: object
           properties:
@@ -1182,7 +1148,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
-              example: "1400310000032032552630"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -1190,7 +1155,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
-              example: "07"
             approvalCode:
               type: string
               description: Telecheck approval code.
@@ -1198,7 +1162,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
-              example: "2767"
             achTransactionStatus:
               type: string
               description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
@@ -1206,7 +1169,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 1
-              example: "1"
             dateTime:
               type: string
               description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
@@ -1214,7 +1176,6 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
-              example: "2023-09-27T13:23:39.126Z"
     CPAPITransactionUnauthorized: 
       type: object
       properties:
@@ -1519,6 +1480,564 @@ components:
               minLength: 24
               maxLength: 24
               example: "2023-09-29T13:38:08.754Z"
+    CPAPIUpdate400ErrorResponse:
+      type: object
+      properties:
+        transactionStatus:
+          description: Overall status of the call.
+          type: string
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+          example: "DECLINED"
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+          example: 120
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+          example: "ff5e247b-841a-4eb1-9ec7-a485a433d8fc"
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+          example: "Consumer Cannot Be Validated"
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+          example: "Update Enrollment Response Page 4 - Data Entry Error"          
+        errorDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: Code signifying what kind of error occurred.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 4
+                example: 2040
+              errorField:
+                type: string
+                description: Signifies which input field that caused the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 30
+                example: "ConnectPayPaymentNumber"
+              errorReason:
+                type: string
+                description: Short description of the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
+                example: "Card and Pin combination does not match for consumer."
+    CPAPIGenericErrorResponse:
+      type: object
+      properties:
+        transactionStatus:
+          description: Overall status of the call.
+          type: string
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        errorDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: Code signifying what kind of error occurred.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 4
+              errorField:
+                type: string
+                description: Signifies which input field that caused the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 30
+              errorReason:
+                type: string
+                description: Short description of the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
+    CPAPIGenericError401Response:
+      type: object
+      properties:
+        transactionStatus:
+          description: Overall status of the call.
+          type: string
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+          example: "DECLINED"
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+          example: 401
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+          example: "4a548be5-d3b0-c37c-8a09-4b005e84dcd3"
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+          example: "Unauthorize"
+        errorDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: Code signifying what kind of error occurred.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 4
+                example: 4550
+              errorField:
+                type: string
+                description: Signifies which input field that caused the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 30
+                example: "PartnerID"
+              errorReason:
+                type: string
+                description: Short description of the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
+                example: "Partner is not opt for this service"
+    CPAPIGenericError409Response:
+      type: object
+      properties:
+        transactionStatus:
+          description: Overall status of the call.
+          type: string
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+          example: "DECLINED"
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+          example: 409
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+          example: "4a548be5-d3b0-c37c-8a09-4b005e84dcd3"
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+          example: "Conflict"
+        errorDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: Code signifying what kind of error occurred.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 4
+                example: 4920
+              errorField:
+                type: string
+                description: Signifies which input field that caused the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 30
+                example: "ConnectPayPaymentNumber"
+              errorReason:
+                type: string
+                description: Short description of the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
+                example: "ConnectPayPaymentNumber is already enrolled"
+    CPAPIGenericErrorClose500Response:
+      type: object
+      properties:
+        transactionStatus:
+          description: Overall status of the call.
+          type: string
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+          example: "ERROR"
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+          example: 500
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+          example: "db214a8d-04c0-4cab-9c33-d0aa68a3902a"
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+          example: "General Error"
+        errorDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: Code signifying what kind of error occurred.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 4
+                example: 5340
+              errorField:
+                type: string
+                description: Signifies which input field that caused the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 30
+                example: "PublicKey Expired"
+              errorReason:
+                type: string
+                description: Short description of the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
+                example: "Configuration Error, Please contact customer support"
+    CPAPIGenericError500Response:
+      type: object
+      properties:
+        transactionStatus:
+          description: Overall status of the call.
+          type: string
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+        errorDetails:
+          type: array
+          items:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                description: Code signifying what kind of error occurred.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 4
+              errorField:
+                type: string
+                description: Signifies which input field that caused the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 30
+              errorReason:
+                type: string
+                description: Short description of the error.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 100
+    CPAPIUpdate200Response:
+      type: object
+      properties:
+        transactionStatus:
+          description: Overall status of the call.
+          type: string
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+          example: "APPROVED"
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+          example: 0
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+          example: "be6a5f6f-733c-4b00-8929-d0264ac3f80a"
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+          example: "OK"
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+          example: "You have successfully updated your Nitro card account!"
+        customer:
+          type: object
+          properties:
+            fdCustomerID:
+              type: string
+              description: "Consumer’s fdCustomerID generated in response to ProfileAdd request."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
+              example: "CPC9Qpaf17228867370181037022pIQH94"
+        account:
+          type: array
+          items:
+            type: object
+            properties:          
+              accountStatus:
+                type: string
+                description: Denotes the overall status of the ACH payment device.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 5
+                example: "10"
+              accountStatusDesc:
+                type: string
+                description: Short description of the overall status of the ACH payment device.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 30
+                example: "ACTIVE"
+              accountValidationDetails:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    validationCode:
+                      type: string
+                      description: This item in list of validation details denotes the type of validation pending on the ACH account.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 5
+                      example: "70"
+                    validationCodeDesc:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "Email Validation Status"
+                    validationCodeStatus:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "COMPLETE"
+                    validationCode2:
+                      type: string
+                      description: This item in list of validation details denotes the type of validation pending on the ACH account.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 5
+                      example: "10"
+                    validationCodeDesc2:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "Bank Validation Status"
+                    validationCodeStatus2:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "COMPLETE"
+                    validationCode3:
+                      type: string
+                      description: This item in list of validation details denotes the type of validation pending on the ACH account.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 5
+                      example: "50"
+                    validationCodeDesc3:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "Pin Validation Status"
+                    validationCodeStatus3:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "COMPLETE"
     CPAPIGenericResponse:
       type: object
       properties:
@@ -1997,6 +2516,138 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+    CPAPIGenericCloseResponse:
+      type: object
+      properties:
+        transactionStatus:
+          description: Overall status of the call.
+          type: string
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+          example: "APPROVED"
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+          example: 0
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+          example: "be6a5f6f-733c-4b00-8929-d0264ac3f80a"
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+          example: "OK"
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+          example: "Success"
+        customer:
+          type: object
+          properties:
+            fdCustomerID:
+              type: string
+              description: "Consumer’s fdCustomerID generated in response to ProfileAdd request."
+              minItems: 1
+              maxItems: 1
+              minLength: 1
+              maxLength: 50
+              example: "CP87rx15814147322210000442tJpajq"
+        account:
+          type: array
+          items:
+            type: object
+            properties:          
+              accountStatus:
+                type: string
+                description: Denotes the overall status of the ACH payment device.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 5
+                example: "40"
+              accountStatusDesc:
+                type: string
+                description: Short description of the overall status of the ACH payment device.
+                minItems: 0
+                maxItems: 1
+                minLength: 1
+                maxLength: 30
+                example: "CLOSED"
+              accountValidationDetails:
+                type: array
+                items:
+                  type: object
+                  properties:                  
+                    validationCode:
+                      type: string
+                      description: This item in list of validation details denotes the type of validation pending on the ACH account.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 5
+                      example: "70"
+                    validationCodeDesc:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "Email Validation Status"
+                    validationCodeStatus:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "COMPLETE"
+                    validationCode2:
+                      type: string
+                      description: This item in list of validation details denotes the type of validation pending on the ACH account.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 5
+                      example: "80"
+                    validationCodeDesc2:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "Phone Validation Status"
+                    validationCodeStatus2:
+                      type: string
+                      description: Short description of the validation details type.
+                      minItems: 0
+                      maxItems: 1
+                      minLength: 1
+                      maxLength: 10
+                      example: "COMPLETE"
     CreateSessionTokenRequest:
       type: object
       properties:
@@ -6319,7 +6970,7 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPIGenericResponse'
           examples:
-            ResponsePayloadSample-Approved-WithFDAccountID:
+            WithFDAccountID:
               value:
                 transactionStatus: "APPROVED"
                 transactionStatusCode: 0
@@ -6344,7 +6995,7 @@ components:
                         validationCodeStatus: "COMPLETE"
                 userIdentificationDetails:
                   accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"
-            ResponsePayloadSample-Approved-WithNonce:
+            WithNonce:
               value:
                 transactionStatus: "APPROVED"
                 transactionStatusCode: 70
@@ -6370,22 +7021,13 @@ components:
                         validationCodeStatus: "PENDING"
                 userIdentificationDetails:
                   accountHash: "c93f62f8d5ad9cd45e2d9a27991646af66435c667575e8f84d4abf7e57292b38"
-    200-CPAPI_ENROLLMENT:
-      description: |
-        The request was successfully fulfilled and resulted in one or multiple new resources being created
-    202-CPAPI_ENROLLMENT:
-      description: |
-        The request has been accepted for processing, but the processing has not been finished yet
-    204-CPAPI_ENROLLMENT:
-      description: |
-        The request has succeeded, but the client doesn't need to navigate away from its current page
     400-CPAPI_ENROLLMENT:
       description: |
         Bad request
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPIGenericErrorResponse'
           examples:
             1010-fdCustomerID:
               value:
@@ -6803,108 +7445,43 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
-          examples:
-            401-nan:
-              value:
-                transactionStatus:
-                transactionStatusCode: 401
-                referenceTransactionID: 2229da04-ae59-c994-d927-d0de759bbb6d
-                transactionStatusDescription: Unauthorized
-                errorDetails:
-                  errorCode: 401
-                  errorField: nan
-                  errorReason: Unauthorized
-            4550-PartnerID:
-              value:
-                transactionStatus: DECLINED
-                transactionStatusCode: 401
-                referenceTransactionID: c896017d-5bec-9aa9-46b6-035590033772
-                transactionStatusDescription: Unauthorize
-                errorDetails:
-                  errorCode: 4550
-                  errorField: PartnerID
-                  errorReason: Partner is not opt for this service
-    403-CPAPI_ENROLLMENT:
-      description: |
-        Forbidden
+            $ref: '#/components/schemas/CPAPIGenericError401Response'
+          example:
+            value:
+              transactionStatus: DECLINED
+              transactionStatusCode: 401
+              referenceTransactionID: c896017d-5bec-9aa9-46b6-035590033772
+              transactionStatusDescription: Unauthorize
+              errorDetails:
+                errorCode: 4550
+                errorField: PartnerID
+                errorReason: Partner is not opt for this service
     409-CPAPI_ENROLLMENT:
       description: |
         Indicates a conflict with the current state of a resource
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
-          examples:
-            4920-ConnectPayPaymentNumber:
-              value:
-                transactionStatus: DECLINED
-                transactionStatusCode: 409
-                referenceTransactionID: 86d5501a-ae44-86ba-3773-4dc002110ac8
-                transactionStatusDescription: Conflict
-                errorDetails:
-                  errorCode: 4920
-                  errorField: ConnectPayPaymentNumber
-                  errorReason: ConnectPayPaymentNumber is already enrolled
+            $ref: '#/components/schemas/CPAPIGenericError401Response'
+          example:
+            value:
+              transactionStatus: DECLINED
+              transactionStatusCode: 409
+              referenceTransactionID: 86d5501a-ae44-86ba-3773-4dc002110ac8
+              transactionStatusDescription: Conflict
+              errorDetails:
+                errorCode: 4920
+                errorField: ConnectPayPaymentNumber
+                errorReason: ConnectPayPaymentNumber is already enrolled
     500-CPAPI_ENROLLMENT:
       description: |
         An unexpected server error occured
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPIGenericError500Response'
           examples:
-            5110-UCOMM_CLEAR_DATA:
-              value:
-                transactionStatus: ERROR
-                transactionStatusCode: 500
-                referenceTransactionID: a1b22561-8107-1ae8-2831-3453242242bc
-                transactionStatusDescription: General Error
-                errorDetails:
-                  errorCode: 5110
-                  errorField: UCOMM_CLEAR_DATA
-                  errorReason: Please try again after some time, If issue persist please contact customer support
-            5130-UCOMM_ADD:
-              value:
-                transactionStatus: ERROR
-                transactionStatusCode: 500
-                referenceTransactionID: 8818a789-29a6-3d04-0e3e-5a66201c2468
-                transactionStatusDescription: General Error
-                errorDetails:
-                  errorCode: 5130
-                  errorField: UCOMM_ADD
-                  errorReason: Please try again after some time, If issue persist please contact customer support
-            5140-UCOMM_GET_ALL_ACCOUNT:
-              value:
-                transactionStatus: ERROR
-                transactionStatusCode: 500
-                referenceTransactionID: 209e5004-1d10-234c-0ab5-c2082ca62433
-                transactionStatusDescription: General Error
-                errorDetails:
-                  errorCode: 5140
-                  errorField: UCOMM_GET_ALL_ACCOUNT
-                  errorReason: Please try again after some time, If issue persist please contact customer support
-            5210-MIE_ENROLLMENT:
-              value:
-                transactionStatus: ERROR
-                transactionStatusCode: 500
-                referenceTransactionID: 000b9123-3682-1490-c7e6-36c293801562
-                transactionStatusDescription: General Error
-                errorDetails:
-                  errorCode: 5210
-                  errorField: MIE_ENROLLMENT
-                  errorReason: Please try again after some time, If issue persist please contact customer support
-            5230-MIE_CLOSE:
-              value:
-                transactionStatus: ERROR
-                transactionStatusCode: 500
-                referenceTransactionID: 0a54b13d-00e1-b849-d645-8bb966a876c1
-                transactionStatusDescription: General Error
-                errorDetails:
-                  errorCode: 5230
-                  errorField: MIE_CLOSE
-                  errorReason: Please try again after some time, If issue persist please contact customer support
-            5340-PartnerID:
+            PartnerID:
               value:
                 transactionStatus: ERROR
                 transactionStatusCode: 500
@@ -6914,7 +7491,7 @@ components:
                   errorCode: 5340
                   errorField: PartnerID
                   errorReason: Configuration Error, Please contact customer support
-            5340-SubscriberId:
+            SubscriberId:
               value:
                 transactionStatus: ERROR
                 transactionStatusCode: 500
@@ -6924,7 +7501,7 @@ components:
                   errorCode: 5340
                   errorField: SubscriberId
                   errorReason: Configuration Error, Please contact customer support
-            5340-AES:
+            AES:
               value:
                 transactionStatus: ERROR
                 transactionStatusCode: 500
@@ -6934,7 +7511,7 @@ components:
                   errorCode: 5340
                   errorField: AES
                   errorReason: Configuration Error, Please contact customer support
-            5340-PublicKeyExpired:
+            PublicKeyExpired:
               value:
                 transactionStatus: ERROR
                 transactionStatusCode: 500
@@ -7053,133 +7630,82 @@ components:
       description: Success
       content:
         application/json:
-          examples:
-            ResponsePayloadSample-Approved:
-              value:
-                transactionStatus: "APPROVED"
-                transactionStatusCode: 0
-                referenceTransactionID: "0021-cf88ac74-0d98-a800-347a-3296202faa75"
-                transactionStatusDescription: "OK"
-                responseVerbiage: "You have successfully updated your Nitro<sup>&reg;</sup> card account!"
-                customer:
-                  fdCustomerID: CPC9Qpaf17228867370181037022pIQH94
-                account:
-                  accountStatus: "10"
-                  accountStatusDesc: "ACTIVE"
-                  accountValidationDetails:
-                    validationCode: "70"
-                    validationCodeDesc: "Email Validation Status"
-                    validationCodeStatus: "COMPLETE"                    
-                    validationCode2: "10"
-                    validationCodeDesc2: "Bank Validation Status"
-                    validationCodeStatus2: "COMPLETE"
-                    validationCode3: "50"
-                    validationCodeDesc3: "Pin Update Status"
-                    validationCodeStatus3: "COMPLETE"
-    200-ConsumerUpdateResponsePayloadOLDSamples:
-      description: Success
-      content:
-        application/json:
           schema:
-            $ref: '#/components/schemas/CPAPIGenericResponse'
-          examples:
-            ResponsePayloadSample-Approved:
-              value:
-                transactionStatus: APPROVED
-                transactionStatusCode: 70
-                referenceTransactionID: 9642a26f-d109-4042-87ca-b0ef0dfc8699
-                transactionStatusDescription: Validations Pending
-                responseVerbiage: Update Enrollment Response Page 2 - Update Approved, BAA Pending
-                nonce: 92C0F834C6C20276E0530AAE33071E76131
-                teleCheckDetails:
-                  transactionId: "1400099000000000008038"
-                  tckResponseCode: "07"
-                  approvalCode: "7333"
-                  displayText: "APPROVED 7389"
-                  sequenceId: "0"
-                  ecaOfferCode: Y
-                customer:
-                  fdCustomerID: CP87rx15814147322210000442tJpajq
-                account:
-                  - accountStatus: 70
-                    accountStatusDesc: PENDING_VALIDATIONS
-                    accountValidationDetails:
-                      - validationCode: 10
-                        validationCodeDesc: Bank Validation Status
-                        validationCodeStatus: PENDING
-                      - validationCode: 50
-                        validationCodeDesc: Pin Update Status
-                        validationCodeStatus: COMPLETE
-                      - validationCode: 70
-                        validationCodeDesc: Email Validation Status
-                        validationCodeStatus: COMPLETE
-                      - validationCode: 80
-                        validationCodeDesc: Phone Validation Status
-                        validationCodeStatus: COMPLETE
-    201-CPAPI_CONSUMER_UPDATE:
-      description: |
-        The request was successfully fulfilled and resulted in one or multiple new resources being created
-    202-CPAPI_CONSUMER_UPDATE:
-      description: |
-        The request has been accepted for processing, but the processing has not been finished yet
-    204-CPAPI_CONSUMER_UPDATE:
-      description: |
-        The request has succeeded, but the client doesn't need to navigate away from its current page
+            $ref: '#/components/schemas/CPAPIUpdate200Response'
+          example:
+            value:
+              transactionStatus: "APPROVED"
+              transactionStatusCode: 0
+              referenceTransactionID: "0021-cf88ac74-0d98-a800-347a-3296202faa75"
+              transactionStatusDescription: "OK"
+              responseVerbiage: "You have successfully updated your Nitro<sup>&reg;</sup> card account!"
+              customer:
+                fdCustomerID: CPC9Qpaf17228867370181037022pIQH94
+              account:
+                accountStatus: "10"
+                accountStatusDesc: "ACTIVE"
+                accountValidationDetails:
+                  validationCode: "70"
+                  validationCodeDesc: "Email Validation Status"
+                  validationCodeStatus: "COMPLETE"                    
+                  validationCode2: "10"
+                  validationCodeDesc2: "Bank Validation Status"
+                  validationCodeStatus2: "COMPLETE"
+                  validationCode3: "50"
+                  validationCodeDesc3: "Pin Update Status"
+                  validationCodeStatus3: "COMPLETE"
     400-CPAPI_CONSUMER_UPDATE:
       description: |
         Bad request
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
-          examples:
-            2040-ConnectPayPaymentNumber:
-              value:
-                transactionStatus: DECLINED
-                transactionStatusCode: 120
-                referenceTransactionID: ff5e247b-841a-4eb1-9ec7-a485a433d8fc
-                transactionStatusDescription: Consumer Cannot Be Validated
-                responseVerbiage: Update Enrollment Response Page 4 - Data Entry Error
-                errorDetails:
-                  errorCode: 2040
-                  errorField: ConnectPayPaymentNumber
-                  errorReason: Card and Pin combination does not match for consumer.
+            $ref: '#/components/schemas/CPAPIUpdate400ErrorResponse'
+          example:
+            value:
+              transactionStatus: DECLINED
+              transactionStatusCode: 120
+              referenceTransactionID: ff5e247b-841a-4eb1-9ec7-a485a433d8fc
+              transactionStatusDescription: Consumer Cannot Be Validated
+              responseVerbiage: Update Enrollment Response Page 4 - Data Entry Error
+              errorDetails:
+                errorCode: 2040
+                errorField: ConnectPayPaymentNumber
+                errorReason: Card and Pin combination does not match for consumer.
     401-CPAPI_CONSUMER_UPDATE:
       description: |
         Unauthorized
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
-          examples:
-            4550-PartnerID:
-              value:
-                transactionStatus: DECLINED
-                transactionStatusCode: 401
-                referenceTransactionID: 4a548be5-d3b0-c37c-8a09-4b005e84dcd3
-                transactionStatusDescription: Unauthorize
-                errorDetails:
-                  errorCode: 4550
-                  errorField: PartnerID
-                  errorReason: Partner is not opt for this service
+            $ref: '#/components/schemas/CPAPIGenericError401Response'
+          example:
+            value:
+              transactionStatus: DECLINED
+              transactionStatusCode: 401
+              referenceTransactionID: 4a548be5-d3b0-c37c-8a09-4b005e84dcd3
+              transactionStatusDescription: Unauthorize
+              errorDetails:
+                errorCode: 4550
+                errorField: PartnerID
+                errorReason: Partner is not opt for this service
     500-CPAPI_CONSUMER_UPDATE:
       description: |
         An unexpected server error occured
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
-          examples:
-            1010-Street:
-              value:
-                transactionStatus: ERROR
-                transactionStatusCode: 100
-                referenceTransactionID: 18446d2b-6245-40f8-90e7-678278b0aa8c
-                transactionStatusDescription: Input is invalid
-                errorDetails:
-                  errorCode: 1010
-                  errorField: Street
-                  errorReason: Field did not have a valid format
+            $ref: '#/components/schemas/CPAPIGenericErrorClose500Response'
+          example:
+            value:
+              transactionStatus: ERROR
+              transactionStatusCode: 100
+              referenceTransactionID: 18446d2b-6245-40f8-90e7-678278b0aa8c
+              transactionStatusDescription: Input is invalid
+              errorDetails:
+                errorCode: 1010
+                errorField: Street
+                errorReason: Field did not have a valid format
     # This is the start of Bank Account Authentication
     200-BankAccountAuthenticationResponsePayloadSamples:
       description: Success
@@ -7287,43 +7813,33 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CPAPIGenericResponse'
-          examples:
-            ResponsePayloadSample-Approved:
-              value:
-                transactionStatus: APPROVED
-                transactionStatusCode: 0
-                referenceTransactionID: be6a5f6f-733c-4b00-8929-d0264ac3f80a
-                transactionStatusDescription: OK
-                responseVerbiage: MIE Close Service Response Page 1 - Closed Success
-                customer:
-                  fdCustomerID: CP87rx15814147322210000442tJpajq
-                account:
-                  - accountStatus: 40
-                    accountStatusDesc: CLOSED
-                    accountValidationDetails:
-                      - validationCode: 70
-                        validationCodeDesc: Email Validation Status
-                        validationCodeStatus: COMPLETE
-                      - validationCode: 80
-                        validationCodeDesc: Phone Validation Status
-                        validationCodeStatus: COMPLETE
-    201-CPAPI_CONSUMER_CLOSE:
-      description: |
-        The request was successfully fulfilled and resulted in one or multiple new resources being created
-    202-CPAPI_CONSUMER_CLOSE:
-      description: |
-        The request has been accepted for processing, but the processing has not been finished yet
-    204-CPAPI_CONSUMER_CLOSE:
-      description: |
-        The request has succeeded, but the client doesn't need to navigate away from its current page
+            $ref: '#/components/schemas/CPAPIGenericCloseResponse'
+          example:
+            value:
+              transactionStatus: APPROVED
+              transactionStatusCode: 0
+              referenceTransactionID: be6a5f6f-733c-4b00-8929-d0264ac3f80a
+              transactionStatusDescription: OK
+              responseVerbiage: Closed Success
+              customer:
+                fdCustomerID: CP87rx15814147322210000442tJpajq
+              account:
+                - accountStatus: 40
+                  accountStatusDesc: CLOSED
+                  accountValidationDetails:
+                    - validationCode: 70
+                      validationCodeDesc: Email Validation Status
+                      validationCodeStatus: COMPLETE
+                    - validationCode2: 80
+                      validationCodeDesc2: Phone Validation Status
+                      validationCodeStatus2: COMPLETE
     400-CPAPI_CONSUMER_CLOSE:
       description: |
         Bad request
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
+            $ref: '#/components/schemas/CPAPIGenericErrorResponse'
           examples:
             1010-fdAccountID:
               value:
@@ -7361,36 +7877,34 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
-          examples:
-            4550-PartnerID:
-              value:
-                transactionStatus: DECLINED
-                transactionStatusCode: 401
-                referenceTransactionID: 4a548be5-d3b0-c37c-8a09-4b005e84dcd3
-                transactionStatusDescription: Unauthorize
-                errorDetails:
-                  errorCode: 4550
-                  errorField: PartnerID
-                  errorReason: Partner is not opt for this service
+            $ref: '#/components/schemas/CPAPIGenericError401Response'
+          example:
+            value:
+              transactionStatus: DECLINED
+              transactionStatusCode: 401
+              referenceTransactionID: 4a548be5-d3b0-c37c-8a09-4b005e84dcd3
+              transactionStatusDescription: Unauthorize
+              errorDetails:
+                errorCode: 4550
+                errorField: PartnerID
+                errorReason: Partner is not opt for this service
     500-CPAPI_CONSUMER_CLOSE:
       description: |
         An unexpected server error occured
       content:
         application/json:
           schema:
-            $ref: '#components/schemas/CPAPIGenericResponse'
-          examples:
-            5340-ConfigurationError:
-              value:
-                transactionStatus: ERROR
-                transactionStatusCode: 500
-                referenceTransactionID: db214a8d-04c0-4cab-9c33-d0aa68a3902a
-                transactionStatusDescription: General Error
-                errorDetails:
-                  errorCode: 5340
-                  errorField: PublicKey Expired
-                  errorReason: Configuration Error, Please contact customer support support
+            $ref: '#/components/schemas/CPAPIGenericErrorClose500Response'
+          example:
+            value:
+              transactionStatus: ERROR
+              transactionStatusCode: 500
+              referenceTransactionID: db214a8d-04c0-4cab-9c33-d0aa68a3902a
+              transactionStatusDescription: General Error
+              errorDetails:
+                errorCode: 5340
+                errorField: PublicKey Expired
+                errorReason: Configuration Error, Please contact customer support support
     # This is the start of Get Data
     200-GetDataResponsePayloadSamples:
       description: Success
@@ -8326,6 +8840,21 @@ components:
                   transactionId: "1400020000000005673232"
                   tckResponseCode: "46"
                   achTransactionStatus: "0"
+                  dateTime: "2023-08-10T10:31:12.824Z"
+            InvalidInput:
+              value:
+                transactionStatus: "ERROR"
+                transactionStatusCode: 100
+                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
+                transactionStatusDescription: "Input is invalid"
+                responseVerbiage: "Input is invalid"
+                errorDetails: 
+                  errorCode: 1020
+                  errorReason: "The transactions has an invalid or missing value in one or more fields"
+                teleCheckDetails:
+                  transactionId: "1400020000000005672222"
+                  tckResponseCode: "27"
+                  achTransactionStatus: "0"
                   dateTime: "2023-08-10T10:31:12.824Z"                
     #Refund Responses
     400-TransactionRefundResponsePayloadSamples:
@@ -8335,21 +8864,21 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
-            InvalidAmount:
+            InvalidInput:
               value:
-                transactionStatus: "ERROR" 
-                transactionStatusCode: 400
-                referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
-                transactionStatusDescription: "Invalid Amount"
-                responseVerbiage: "Invalid Amount"
+                transactionStatus: "ERROR"
+                transactionStatusCode: 100
+                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
+                transactionStatusDescription: "Input is invalid"
+                responseVerbiage: "Input is invalid"
                 errorDetails: 
-                  errorCode: 6200,
-                  errorReason: "Refund or partial amount is > original sale amount"
+                  errorCode: 1020
+                  errorReason: "The transactions has an invalid or missing value in one or more fields"
                 teleCheckDetails:
-                  transactionId: "1400320000000008763706"
-                  tckResponseCode: "80"                  
+                  transactionId: "1400020000000005672222"
+                  tckResponseCode: "27"
                   achTransactionStatus: "0"
-                  dateTime: "2023-09-27T13:23:39.126Z"
+                  dateTime: "2023-08-10T10:31:12.824Z"
             AccountDetailNotFound:
               value:
                 transactionStatus: "ERROR" 
@@ -8361,6 +8890,21 @@ components:
                   errorCode: 2310
                   errorField: "fdAccountID"
                   errorReason: "Account detail not found"
+            TransactionNotFound:
+              value:
+                transactionStatus: "ERROR" 
+                transactionStatusCode: 400
+                referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
+                transactionStatusDescription: "Original Transaction Not Found"
+                responseVerbiage: "Original Transaction Not Found"
+                errorDetails: 
+                  errorCode: 6210
+                  errorReason: "The requested action failed, the original transaction was not found in our records"
+                teleCheckDetails:
+                  transactionId: "140032000000000876389"
+                  tckResponseCode: "81"                  
+                  achTransactionStatus: "0"
+                  dateTime: "2023-09-27T13:23:39.126Z"
   
   #Void Responses
     400-TransactionVoidResponsePayloadSamples:
@@ -8370,21 +8914,21 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
           examples:
-            InvalidAmount:
+            InvalidInput:
               value:
-                transactionStatus: "ERROR" 
-                transactionStatusCode: 400
-                referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
-                transactionStatusDescription: "Invalid Amount"
-                responseVerbiage: "Invalid Amount"
+                transactionStatus: "ERROR"
+                transactionStatusCode: 100
+                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
+                transactionStatusDescription: "Input is invalid"
+                responseVerbiage: "Input is invalid"
                 errorDetails: 
-                  errorCode: 6200,
-                  errorReason: "Refund or partial amount is > original sale amount"
+                  errorCode: 1020
+                  errorReason: "The transactions has an invalid or missing value in one or more fields"
                 teleCheckDetails:
-                  transactionId: "1400320000000008763706"
-                  tckResponseCode: "80"                  
+                  transactionId: "1400020000000005672222"
+                  tckResponseCode: "27"
                   achTransactionStatus: "0"
-                  dateTime: "2023-09-27T13:23:39.126Z"
+                  dateTime: "2023-08-10T10:31:12.824Z"
             TransactionNotFound:
               value:
                 transactionStatus: "ERROR" 
@@ -8393,14 +8937,29 @@ components:
                 transactionStatusDescription: "Original Transaction Not Found"
                 responseVerbiage: "Original Transaction Not Found"
                 errorDetails: 
-                  errorCode: 6210,
+                  errorCode: 6210
                   errorReason: "The requested action failed, the original transaction was not found in our records"
                 teleCheckDetails:
                   transactionId: "140032000000000876389"
                   tckResponseCode: "81"                  
                   achTransactionStatus: "0"
                   dateTime: "2023-09-27T13:23:39.126Z"
-  
+            InvalidTransaction:
+              value:
+                transactionStatus: "ERROR"
+                transactionStatusCode: 400
+                referenceTransactionID: "0021-286655ce-631e-6409-9b4a-3410f3b31318"
+                transactionStatusDescription: "ECA change failed"
+                responseVerbiage: "ECA change failed"
+                errorDetails:
+                  errorCode: 6190
+                  errorReason: "The transactions failed for an ECA change with an invalid ECA refund"
+                teleCheckDetails:
+                  transactionId: "1600310000000001450819"
+                  tckResponseCode: "79"
+                  achTransactionStatus: "0"
+                  dateTime: "2024-09-17T20:15:31Z"
+
   #Auth Responses
     400-TransactionAuthResponsePayloadSamples:
       description: Unsuccessful ACH Authorize response.
@@ -8433,22 +8992,21 @@ components:
           schema:
             $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
           examples:
-            InvalidAmount:
+            InvalidInput:
               value:
-                transactionStatus: "DECLINED" 
-                transactionStatusCode: 400
-                referenceTransactionID: "0021-b7e51e34-00c5-48af-82f2-c8253c445a44"
-                transactionStatusDescription: "Invalid Amount"
-                responseVerbiage: "Invalid Amount"
+                transactionStatus: "ERROR"
+                transactionStatusCode: 100
+                referenceTransactionID: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
+                transactionStatusDescription: "Input is invalid"
+                responseVerbiage: "Input is invalid"
                 errorDetails: 
-                  errorCode: 6200,
-                  errorReason: "Refund or partial amount is > original sale amount"
+                  errorCode: 1020
+                  errorReason: "The transactions has an invalid or missing value in one or more fields"
                 teleCheckDetails:
-                  transactionId: "1400310000032032552630"
-                  tckResponseCode: "07"   
-                  approvalCode: "2767"              
-                  achTransactionStatus: "1"
-                  dateTime: "2023-09-27T13:23:39.126Z"
+                  transactionId: "1400020000000005672222"
+                  tckResponseCode: "27"
+                  achTransactionStatus: "0"
+                  dateTime: "2023-08-10T10:31:12.824Z"
   
   #Common Response Examples and Schemas for all Transaction API's:
     200-CPAPI_TRANSACTION:
