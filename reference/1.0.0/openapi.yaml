@@ -881,6 +881,7 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
+          example: "ERROR"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -895,6 +896,7 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
+          example: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -902,6 +904,7 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
+          example: "Input is invalid"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -909,6 +912,7 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
+          example: "Input is invalid"
         errorDetails:
           type: object
           properties:
@@ -919,6 +923,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 4
+              example: 1020
             errorReason:
               type: string
               description: Short description of the error.
@@ -926,6 +931,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 100
+              example: "The transactions has an invalid or missing value in one or more fields"
         teleCheckDetails:
           type: object
           properties:
@@ -936,6 +942,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
+              example: "1400020000000005672222"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -943,6 +950,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "27"
             denialRecordNumber:
               type: string
               description: 7-digit denial record number, used only for declined transactions.
@@ -8959,7 +8967,7 @@ components:
                   tckResponseCode: "79"
                   achTransactionStatus: "0"
                   dateTime: "2024-09-17T20:15:31Z"
-
+                  
   #Auth Responses
     400-TransactionAuthResponsePayloadSamples:
       description: Unsuccessful ACH Authorize response.
