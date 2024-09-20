@@ -881,7 +881,6 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
-          example: "ERROR"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -896,7 +895,6 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
-          example: "0021-1809d1f9-f7a0-4a9c-aa08-dd487607245z"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -904,7 +902,6 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
-          example: "Input is invalid"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -912,7 +909,6 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
-          example: "Input is invalid"
         errorDetails:
           type: object
           properties:
@@ -923,7 +919,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 4
-              example: 1020
             errorReason:
               type: string
               description: Short description of the error.
@@ -931,7 +926,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 100
-              example: "The transactions has an invalid or missing value in one or more fields"
         teleCheckDetails:
           type: object
           properties:
@@ -942,7 +936,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
-              example: "1400020000000005672222"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -950,7 +943,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
-              example: "27"
             denialRecordNumber:
               type: string
               description: 7-digit denial record number, used only for declined transactions.
@@ -965,7 +957,6 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 1
-              example: "0"
             dateTime:
               type: string
               description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
@@ -973,7 +964,6 @@ components:
               maxItems: 1
               minLength: 24
               maxLength: 24
-              example: "2023-08-10T10:31:12.824Z"
     CPAPITransactionCommonErrorCode:
       type: object
       properties:
@@ -1088,6 +1078,115 @@ components:
               maxLength: 100
               example: "Payment Gateway timeout"
     CPAPITransactionDeclineResponseDuplicate: 
+      type: object
+      properties:
+        transactionStatus:
+          type: string
+          description: Overall status of the call.
+          enum:
+            - APPROVED
+            - DECLINED
+            - ERROR
+          maxItems: 1
+          minItems: 1
+          minLength: 5
+          maxLength: 8
+          example: "DECLINED"
+        transactionStatusCode:
+          type: number
+          description: Unique code signifying detailed transaction status.
+          maxItems: 1
+          minItems: 1
+          minLength: 1
+          maxLength: 3
+          example: 409
+        referenceTransactionID:
+          type: string
+          description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
+          maxItems: 1
+          minItems: 1
+          minLength: 37
+          maxLength: 42
+          example: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
+        transactionStatusDescription:
+          type: string
+          description: Short description of statusCode.
+          maxItems: 1
+          minItems: 0
+          minLength: 1
+          maxLength: 100
+          example: "Conflict"
+        responseVerbiage:
+          type: string
+          description: Detailed description of transactionStatus
+          minItems: 0
+          maxItems: 1
+          minLength: 1
+          maxLength: 1000
+          example: "Conflict"
+        errorDetails:
+          type: object
+          properties:
+            errorCode:
+              type: string
+              description: Code signifying what kind of error occurred.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 4
+              example: 4970
+            errorReason:
+              type: string
+              description: Short description of the error.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 100
+              example: "There can not be a duplicate transaction used for an ECA sale"
+        teleCheckDetails:
+          type: object
+          properties:
+            transactionId:
+              type: string
+              description: Telecheck unique transaction ID. Required to process secondary transactions like capture/void/refund/recurring/splitshipment.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 22
+              example: "1400310000032032552630"
+            tckResponseCode:
+              type: string
+              description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+              example: "07"
+            approvalCode:
+              type: string
+              description: Telecheck approval code.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 10
+              example: "2767"
+            achTransactionStatus:
+              type: string
+              description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
+              minItems: 0
+              maxItems: 1
+              minLength: 1
+              maxLength: 1
+              example: "1"
+            dateTime:
+              type: string
+              description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
+              minItems: 0
+              maxItems: 1
+              minLength: 24
+              maxLength: 24
+              example: "2023-09-27T13:23:39.126Z"
+    CPAPICaptureDeclineResponseDuplicate: 
       type: object
       properties:
         transactionStatus:
@@ -7470,7 +7569,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CPAPIGenericError401Response'
+            $ref: '#/components/schemas/CPAPIGenericError409Response'
           example:
             value:
               transactionStatus: DECLINED
@@ -8795,7 +8894,7 @@ components:
                   approvalCode: 1707
                   achTransactionStatus: 1
                   dateTime: "2019-10-18T20:40:29.993Z"
-    #Purchase Responses
+    #Purchase and Auth Responses (They follow the same structure and pattern)
     400-TransactionPurchaseResponsePayloadSamples:
       description: Unsuccessful ACH Purchase response.
       content:
@@ -8887,17 +8986,6 @@ components:
                   tckResponseCode: "27"
                   achTransactionStatus: "0"
                   dateTime: "2023-08-10T10:31:12.824Z"
-            AccountDetailNotFound:
-              value:
-                transactionStatus: "ERROR" 
-                transactionStatusCode: 150
-                referenceTransactionID: "0021-f758abdd-d529-9d71-4680-e49b15gh678a"
-                transactionStatusDescription: "Account detail not found"
-                responseVerbiage: "Account detail not found"
-                errorDetails: 
-                  errorCode: 2310
-                  errorField: "fdAccountID"
-                  errorReason: "Account detail not found"
             TransactionNotFound:
               value:
                 transactionStatus: "ERROR" 
@@ -8967,30 +9055,6 @@ components:
                   tckResponseCode: "79"
                   achTransactionStatus: "0"
                   dateTime: "2024-09-17T20:15:31Z"
-                  
-  #Auth Responses
-    400-TransactionAuthResponsePayloadSamples:
-      description: Unsuccessful ACH Authorize response.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CPAPITransactionDeclineResponse'
-          examples:
-            InvalidAmount:
-              value:
-                transactionStatus: "DECLINED" 
-                transactionStatusCode: 400
-                referenceTransactionID: 0021-b7e51e34-00c5-48af-82f2-c8253c445a44
-                transactionStatusDescription: Invalid Amount
-                responseVerbiage: "Invalid Amount"
-                errorDetails: 
-                  errorCode: 6200,
-                  errorReason: "Refund or partial amount is > original sale amount"
-                teleCheckDetails:
-                  transactionId: "1400320000000008763706"
-                  tckResponseCode: "80"                 
-                  achTransactionStatus: "0"
-                  dateTime: "2023-09-27T13:23:39.126Z"
 
   #Capture Responses
     400-TransactionCaptureResponsePayloadSamples:
@@ -8998,7 +9062,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CPAPITransactionDeclineResponseDuplicate'
+            $ref: '#/components/schemas/CPAPICaptureDeclineResponseDuplicate'
           examples:
             InvalidInput:
               value:
