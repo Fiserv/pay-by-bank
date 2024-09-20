@@ -1007,6 +1007,7 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
+          example: "ERROR"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -1014,6 +1015,7 @@ components:
           minItems: 1
           minLength: 1
           maxLength: 3
+          example: 500
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -1021,6 +1023,7 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
+          example: "0021-4545e1ce-1d38-ff95-870c-2f237a8186c5"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -1028,6 +1031,7 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
+          example: "General Error"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -1035,6 +1039,7 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
+          example: "General Error"
     CPAPITransactionCommonErrorCode2:
       type: object
       properties:
@@ -1049,6 +1054,7 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
+          example: "ERROR"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -1056,6 +1062,7 @@ components:
           minItems: 1
           minLength: 1
           maxLength: 3
+          example: 504
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -1063,6 +1070,7 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
+          example: "0021-3ffe10a9-4416-3acc-7f25-12b9e4a8e0c4"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -1070,6 +1078,7 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
+          example: "Gateway Timeout"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -1077,16 +1086,18 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
+          example: "Gateway Timeout"
         errorDetails:
           type: object
           properties:
             errorCode:
-              type: string
+              type: number
               description: Code signifying what kind of error occurred.
               minItems: 0
               maxItems: 1
               minLength: 1
               maxLength: 4
+              example: 5040
             errorReason:
               type: string
               description: Short description of the error.
@@ -1094,6 +1105,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 100
+              example: "Payment Gateway timeout"
     CPAPITransactionDeclineResponseDuplicate: 
       type: object
       properties:
