@@ -1091,6 +1091,7 @@ components:
           minItems: 1
           minLength: 5
           maxLength: 8
+          example: "DECLINED"
         transactionStatusCode:
           type: number
           description: Unique code signifying detailed transaction status.
@@ -1098,6 +1099,7 @@ components:
           minItems: 1
           minLength: 1
           maxLength: 3
+          example: 409
         referenceTransactionID:
           type: string
           description: Unique ID for each Transaction which could be used to trace a transaction. *** It is highly recommended that merchants should store the ID on their side. This can be used for researching the transactions in case issue arises ***
@@ -1105,6 +1107,7 @@ components:
           minItems: 1
           minLength: 37
           maxLength: 42
+          example: "0021-8b066b83-bc10-660d-32b1-32604077d77f"
         transactionStatusDescription:
           type: string
           description: Short description of statusCode.
@@ -1112,6 +1115,7 @@ components:
           minItems: 0
           minLength: 1
           maxLength: 100
+          example: "Conflict"
         responseVerbiage:
           type: string
           description: Detailed description of transactionStatus
@@ -1119,6 +1123,7 @@ components:
           maxItems: 1
           minLength: 1
           maxLength: 1000
+          example: "Conflict"
         errorDetails:
           type: object
           properties:
@@ -1137,6 +1142,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 100
+              example: "There can not be a duplicate transaction used for an ECA sale"
         teleCheckDetails:
           type: object
           properties:
@@ -1147,6 +1153,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 22
+              example: "1400310000032032552630"
             tckResponseCode:
               type: string
               description: Refer to sales responses in the Response Code section of the ConnectPay Spec provided by Telecheck.
@@ -1154,6 +1161,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "07"
             approvalCode:
               type: string
               description: Telecheck approval code.
@@ -1161,6 +1169,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 10
+              example: "2767"
             achTransactionStatus:
               type: string
               description: Numerical value of transaction_status Refer to sales responses in the Response Code section of the ConnectPay Spec provided by TeleCheck. Allowable Values '1', '2', '3', '4', '5'.
@@ -1168,6 +1177,7 @@ components:
               maxItems: 1
               minLength: 1
               maxLength: 1
+              example: "1"
             dateTime:
               type: string
               description: TeleCheck date and time request was received. YYYY-MM-DDTHH:MI:SS.SSSZ.
