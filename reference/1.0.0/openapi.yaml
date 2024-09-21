@@ -9100,7 +9100,7 @@ components:
                 achTransactionStatus: "1"
                 dateTime: "2023-09-29T13:38:08.754Z"
     401-CPAPI_TRANSACTION:
-      description: Conflict - There can not be a duplicate transaction used for an ECA sale
+      description: Unauthorized - Payment Transaction is not Valid
       content:
         application/json:
           schema:
