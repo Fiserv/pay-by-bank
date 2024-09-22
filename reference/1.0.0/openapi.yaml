@@ -5383,39 +5383,6 @@ components:
                 genericFlag1: "Y"
                 genericFlag2: "Y"
                 genericFlags3: "Y"
-    ACHPurchaseRequestPayloadSample2:
-      value:
-        partner:
-          subscriberID : "36005712"
-        account:
-          - type: "ACH"
-            userIdentificationDetails:
-              connectPayPaymentNumber: "6139531082086874860"
-              postedCurrentBalance: "4800"
-              postedAvailableBalance: "4200"
-            userSysDetails:
-              organizationId: s0b500qh
-              sessionId: 3ca6ee0408028f118f102ed0b64779353789ebe3
-              orderIPaddress: "12.12.12.12"
-              imei: "654321"
-            transactionDetails:
-              amount: "1691"
-              currencyCode: "USD"
-              merchantTransactionId : "WN0Y4FB800001RAL1"
-              recurringPayment: "R"
-              creditDebitIndicator: "D"
-              splitShipmentFlag: "Y"
-              splitShipmentId: "10/99"
-              transactionId: "1400310000037545584785"
-              productCode: "770100"                
-            genericCodes: 
-                genericCode1: "1234"
-                genericCode2: "3456"
-                genericCode3: "2345"
-            genericFlags: 
-                genericFlag1: "Y"
-                genericFlag2: "Y"
-                genericFlags3: "Y"
     ACHRefundRequestPayloadSample:
       value:
         partner:
