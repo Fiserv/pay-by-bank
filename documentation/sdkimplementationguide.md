@@ -75,6 +75,8 @@ Customer Profile API” from their uCom implementation guide.
 
 [uCOM Implementation Guide](https://developer.fiserv.com/product/ConnectedCommerce/docs/?path=docs/documentation/Standard_Implementation_Guide.md&branch=main)
 
+[![](/assets/images/button.png '')](https://qa-developer.fiserv.com/product/ConnectPay/api/?type=post&path=/consumerprofile/add&branch=develop&version=1.0.0)
+<p>
 |Attribute|Value|
 |---------|-----|
 |Certification API End Point|https://cat.api.firstdata.com/gateway/v2/connectpay/consumerprofile/add|
@@ -93,6 +95,7 @@ For a sample request body **AFTER** payload encryption and before transmission:
     "componentDelta": "OEIyAAUL1Py3/oKewtNXswtkYOw+krJP0EFhucFWFXSug0TCV7kqL67Mk5PTzVqNWTAyPl0lK6ac2EBK3kxskC6WpzpJI4qSv7/9JSfQ7zAYUiKAKPobIXpHAJ7BuHSMlMkv/6UTJvdIRsgDaqfAbD5pqG5KDbRzXpzmLIpVJnGyPCkwwm+F36wGbe1ccuvzDHNL77e6XSmm2LpzO/NAGJRjMGXdLQ9XKFvjr/gK0ruO2gdqglomlvy3MG8BSvLCAYkOL1CAB4wF8ovsfpOAAV92KRdqxeMISntCc0/Fxg7fs9JILmn4ZkgiSgha1CsN"
 }
 ```
+<!-- Need to move this requirements information to API explorer. This table is not needed. 
 
 Response Body may contain either componentDelta or componentFallBack elements.
 <ol>
@@ -148,6 +151,13 @@ For a sample request body **AFTER** payload encryption and before transmission:
     "componentDelta": "OEIyAAUL1Py3/oKewtNXswtkYOw+krJP0EFhucFWFXSug0TCV7kqL67Mk5PTzVqNWTAyPl0lK6ac2EBK3kxskC6WpzpJI4qSv7/9JSfQ7zAYUiKAKPobIXpHAJ7BuHSMlMkv/6UTJvdIRsgDaqfAbD5pqG5KDbRzXpzmLIpVJnGyPCkwwm+F36wGbe1ccuvzDHNL77e6XSmm2LpzO/NAGJRjMGXdLQ9XKFvjr/gK0ruO2gdqglomlvy3MG8BSvLCAYkOL1CAB4wF8ovsfpOAAV92KRdqxeMISntCc0/Fxg7fs9JILmn4ZkgiSgha1CsN"
 }
 ```
+Data Element|Description|Requires Encryption|Required?|Rules|Data Type|Minimum Length|Maximum Length| #occur|
+|------------|-----------|-------------------|---------------|---------|--------------|--------------|-------|
+|fdCustomerID|Consumer’s fdCustomerID associated with this request.|N|O||A,N|1|50|<=1|
+|externalID|This is the user’s unique identifier in the merchant system.|N|O||A,N|1|50|<=1|
+>Anyone is required in request to retrieve the consumer profile
+<br>
+<p>Sample request body after payload encryption and before transmission:
 
 Response Body may contain either componentDelta or componentFallBack elements.
 <ol>
@@ -164,7 +174,6 @@ Using the correct endpoint, headers, and encrypted payload, we can then make the
 "componentDelta": "cRD5xVaJab13iRQ7l6No6ot9YPTFT3bi/qapHYGgsNmxQ8nT2mtIz7uLLHz5kdp5JEmDjiP1dXMNPg8jP5rIZQf/5dtMfFLq7YL7FQY/boTsd7BoJg7reDeeAk6l9+76gaSAZMIRJGYS4fhy1bgClx2jIeWo4fLlfildeHnghCU1ElR8XhFi3oyd8hU+YEpDENP5IJJMVxjnYChuFX8paVy/SAYFMESBXSTIgPi6Y/kJc/bswlxaa9Yei4GnD+Ny1laVs4HqJp32JJ+NHJIYdZr5117AY0JJxJ9oudnkK6J8oPnnXhLCBGxNCRDJG3AVLRxDnQcds/cSiwAVREHr4nn848IEsUb27wJR7SiDxVaELxme9CNZ1dB0tPYQ1wux3ymWtnUgLfVRFsHH3EeucbHv8uIc8dxcwxZReROzVS8="
 }
 ```
-
 Response Code List [Response Codes](https://github.com/Fiserv/connect-pay/blob/develop/documentation/statuscodes.md)
 <br>
 
@@ -250,6 +259,7 @@ titles: Online Bank Login, Manual Enrollment
 
 Sample request body with NONCE before payload encryption:
 
+Sample request body with NONCE before payload encryption:
 ```json
 95199DC2AE5700D0E0530AAE8CADC15C3594
 ```
@@ -363,6 +373,9 @@ Type of Fetch currently supported
 
 #### Request Body after payload encryption and before transmission
 
+For a sample request body **AFTER** payload encryption and before transmission: 
+
+#### Request Body after payload encryption and before transmission
 For a sample request body **AFTER** payload encryption and before transmission: 
 
 ```json

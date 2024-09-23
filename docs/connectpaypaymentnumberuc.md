@@ -9,11 +9,11 @@ ConnectPayPaymentNumber update generates a new `fdAccountId`, which is different
 
 ## Implementation Steps: Bank Login Process
 ### Create Session Token 
-
 [Create Session Token](?path=./docs/implementationguide.md)
 >Note: See section labeled Create Session Token
 
 ### Initialize and Launch PaybyBank SDK 
+
 
 >Only for uCom merchants, you will continue to Create Session Token as well as Initialize and launch ConnectPay SDK. However, you will want to follow the additional uCom steps section instead of additional steps.
 

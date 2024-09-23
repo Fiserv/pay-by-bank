@@ -12,22 +12,25 @@ The consumer is in a pending validation status and will not be able to transact 
 
 ### Create Consumer Profile (If fdCustomerId not already present for the user) 
 
-
 [Create Consumer Profile](?path=./docs/implementationguide.md)
+
 
 ### Create Session Token 
 [Create Session Token](?path=./docs/implementationguide.md)
 >Note: See section labeled Create Session Token
 
+
 ### Initialize and Launch ConnectPay SDK 
 
 You will want to go to the specific mobile operating section and look to initialize the App
+
 
 [WebSDK](?path=./docs/websdk.md)
 
 [iOS](?path=./docs/iossdk.md)
 
 [Android](?path=./docs/androidsdk.md)
+
 
 ### Additional Steps
 
