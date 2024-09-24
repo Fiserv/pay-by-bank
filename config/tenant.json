@@ -36,8 +36,8 @@
   "product": {
     "featured": true,
     "logoURL": "",
-    "description": "Developer Studio Support pages",
-    "longDescription": "Developer Studio Support pages",
+    "description": "A fast, secure, and convenient way for customers to pay directly from their bank accounts",
+    "longDescription": "A fast, secure, and convenient way for customers to pay directly from their bank accounts",
     "apiSpecification": "/v1/apis/PaybyBank",
     "layout": "/v1/layouts/PaybyBank",
     "documentation": "/v1/docs/PaybyBank",
